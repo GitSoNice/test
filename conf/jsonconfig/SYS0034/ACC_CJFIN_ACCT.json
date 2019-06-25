@@ -1,0 +1,347 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "ACC_CJFIN_ACCT",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TACCOINFO.vc_tradeacco}"
+					]
+				}
+			},
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TACCOINFO",
+			"alias": "TACCOINFO"
+		},
+		"relations": [
+			{
+                "sourceTableName":"SYS0034.TCUSTINFO",
+                "relationType":"inner",
+                "alias":"TCUSTINFO",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${TCUSTINFO.vc_custno}",
+                                "rightCondition":"${TACCOINFO.vc_custno}"
+                            }
+                        }
+                    ]
+                }
+            },
+			{
+				"sourceTableName": "SYS0034.TACCOCONFIRM",
+				"relationType": "inner",
+				"alias": "TACCOCONFIRM",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TACCOINFO.vc_tradeacco}",
+								"rightCondition": "${TACCOCONFIRM.vc_tradeacco}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TACCOINFO.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_acconame}",
+				"dstColumnName": "acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_mainflag}",
+				"dstColumnName": "main_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_accocard}",
+				"dstColumnName": "bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_cdcard}",
+				"dstColumnName": "union_agmt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_autoflag}",
+				"dstColumnName": "auto_tsfrflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_capitalmode}",
+				"dstColumnName": "cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.en_discount}",
+				"dstColumnName": "discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.en_yearrate}",
+				"dstColumnName": "ratetype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.l_restrictedperiod}",
+				"dstColumnName": "restricted_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.l_reallotnum}",
+				"dstColumnName": "re_inv_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_billway}",
+				"dstColumnName": "bill_way",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_billpath}",
+				"dstColumnName": "bill_path",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_zip}",
+				"dstColumnName": "zip",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_address}",
+				"dstColumnName": "addr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_phone}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_mobileno}",
+				"dstColumnName": "phone",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_email}",
+				"dstColumnName": "email",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_callcenter}",
+				"dstColumnName": "is_callcenter",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_internet}",
+				"dstColumnName": "is_net",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_selfhelp}",
+				"dstColumnName": "is_selfhelp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_faxtrust}",
+				"dstColumnName": "is_fax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_brokertrust}",
+				"dstColumnName": "is_broker",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_othertrust}",
+				"dstColumnName": "is_other_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_dealpwd}",
+				"dstColumnName": "pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_querypwd}",
+				"dstColumnName": "query_pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.l_passwderr}",
+				"dstColumnName": "pwd_err_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_lastpasswddate}",
+				"dstColumnName": "last_pwd_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_opendate}",
+				"dstColumnName": "open_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_netno}",
+				"dstColumnName": "open_net_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_centerno}",
+				"dstColumnName": "open_branch_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_lastdate}",
+				"dstColumnName": "last_modi_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_needactive}",
+				"dstColumnName": "act_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.c_state}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOINFO.vc_spell}",
+				"dstColumnName": "name_py",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

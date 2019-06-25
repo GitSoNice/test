@@ -1,0 +1,118 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "STATLIST",
+        "rowkeyCols": [
+            "docno"
+        ],
+        "md5Cols": [
+            "docno"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "sysno",
+                    "id"
+                ],
+                "md5Cols": [
+                    "sysno",
+                    "id"
+                ]
+            },            
+			{
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno",
+                    "sysno"
+                ],
+                "md5Cols": [
+                    "policyno",
+                    "sysno"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "${111}",
+                "certNoCol": "id",
+				"personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                        "docno"
+                    ]
+                },
+                 "policyTable":[{
+                		"sourceSystem":"SYS0024",
+                		"tableName":"REL_PTY_CON",
+                		"order":1
+                  },
+                  {
+                		"sourceSystem":"SYS0024",
+                		"tableName":"REL_PTY_CON",
+                		"order":2
+                  }
+               ]
+                
+            }
+        ]
+    },
+    {
+        "tableName": "CYX_STATLIST_PLUS",
+        "rowkeyCols": [
+            "policyno"
+        ],
+        "md5Cols": [
+            "policyno"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno",
+                    "idno"
+                ],
+                "md5Cols": [
+                    "policyno",
+                    "idno"
+                ]
+            },
+			{
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno"
+                ],
+                "md5Cols": [
+                    "policyno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "CFG_CHANNEL_NET_INFO",
+        "rowkeyCols": [
+            "chnl_type",
+            "net_type_code"
+        ],
+        "md5Cols": [
+            "chnl_type",
+            "net_type_code"
+        ]
+    }
+]

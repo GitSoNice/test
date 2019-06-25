@@ -1,0 +1,27 @@
+{
+	"sourceSystem":"SYS0001",
+	"enumMappings":[
+		{
+			"tableName":"table2",
+			"columnName":"lie1",
+			"mappings":[
+				{
+					"srcEnumValue":"1",
+					"dstEnumValue":"2"
+				}
+			]
+			
+		},
+		{
+			"tableName":"table2",
+			"columnName":"lie1",
+			"mappings":[
+				{
+					"srcEnumValue":"1",
+					"dstEnumValue":"2"
+				}
+			]
+			
+		}
+	]
+}

@@ -1,0 +1,102 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"claim_state",
+					"claim_sub_state",
+					"case_source",
+					"claim_attr",
+					"task_type",
+					"input_source",
+					"is_whole_resource",
+					"life_flag",
+					"dpa",
+					"tpa",
+					"is_bpo",
+					"is_mail",
+					"mail_status",
+					"claimtype",
+					"claim_res_code",
+					"grpattr",
+					"efast_claim"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"report_date",
+					"image_first_scan_date",
+					"over_data_input_date",
+					"check_date",
+					"reg_date",
+					"audit_end_date",
+					"re_audit_date",
+					"move_date",
+					"end_date",
+					"create_date",
+					"update_date"
+				]
+			}
+		],
+		"tableName": "CLM_HISTORY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"claim_state",
+					"claim_sub_state",
+					"case_source",
+					"claim_attr",
+					"task_type",
+					"input_source",
+					"is_whole_resource",
+					"life_flag",
+					"dpa",
+					"tpa",
+					"is_bpo",
+					"is_mail",
+					"claimtype",
+					"claim_res_code",
+					"grpattr",
+					"efast_claim"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"report_date",
+					"image_first_scan_date",
+					"over_data_input_date",
+					"check_date",
+					"reg_date",
+					"audit_end_date",
+					"re_audit_date",
+					"create_date",
+					"update_date",
+					"enter_reg_date"
+				]
+			}
+		],
+		"tableName": "CLM_TASK"
+	}
+]

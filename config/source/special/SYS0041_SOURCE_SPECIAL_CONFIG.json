@@ -1,0 +1,62 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"etl_time",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "RISKCLASS"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"modi_da",
+					[
+						"yyyy-MM-dd HH:mm:ss",
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$",
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TYPECOMP_T"
+	}
+]

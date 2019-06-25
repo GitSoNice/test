@@ -1,0 +1,722 @@
+[
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "REL_PTY_CON",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0008_BIG_POLICY_FORM_CHENGYI*||*01*||*SYSNO*||*",
+						"${BIG_POLICY_FORM_CHENGYI.sysno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.tb_num}",
+						"${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+						"${BIG_POLICY_FORM_CHENGYI.tb_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"${BIG_POLICY_FORM_CHENGYI.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"1",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_POLICY_FORM_CHENGYI",
+			"alias": "BIG_POLICY_FORM_CHENGYI"
+		},
+		"relations": [],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "",
+				"dstColumnName": "pbkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "SYS0008||REL_PTY_CON",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "rowLock",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "220",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "REL_PTY_CON",
+		"order": "2",
+		"combinationMap": [
+			{
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_POLICY_FORM_CHENGYI*||*02*||*SYSNO*||*",
+                        "${BIG_POLICY_FORM_CHENGYI.sysno}"
+                    ]
+                }
+            },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.bb_num}",
+						"${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+						"${BIG_POLICY_FORM_CHENGYI.bb_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"${BIG_POLICY_FORM_CHENGYI.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"2",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_POLICY_FORM_CHENGYI",
+			"alias": "BIG_POLICY_FORM_CHENGYI"
+		},
+		"relations": [],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "",
+				"dstColumnName": "pbkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "SYS0008||REL_PTY_CON",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "rowLock",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "2",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "220",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "REL_PTY_CON",
+		"order": "3",
+		"combinationMap": [
+			{
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                         "EX_SYS0008_BIG_EXCEPTION*||*01*||*SYSNO*||*",
+                        "${BIG_EXCEPTION.sysno}"
+                    ]
+                }
+            },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${BIG_EXCEPTION.tb_num}",
+						"${BIG_EXCEPTION.tb_num_type}",
+						"${BIG_EXCEPTION.tb_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_EXCEPTION.sysno}",
+						"${BIG_EXCEPTION.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"1",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_EXCEPTION",
+			"alias": "BIG_EXCEPTION"
+		},
+		"relations": [],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "",
+				"dstColumnName": "pbkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "SYS0008||REL_PTY_CON",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "rowLock",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "220",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sysno}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "REL_PTY_CON",
+		"order": "4",
+		"combinationMap": [
+			{
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_EXCEPTION*||*02*||*SYSNO*||*",
+                        "${BIG_EXCEPTION.sysno}"
+                    ]
+                }
+            },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${BIG_EXCEPTION.bb_num}",
+						"${BIG_EXCEPTION.bb_num_type}",
+						"${BIG_EXCEPTION.bb_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_EXCEPTION.sysno}",
+						"${BIG_EXCEPTION.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"2",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_EXCEPTION",
+			"alias": "BIG_EXCEPTION"
+		},
+		"relations": [],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "",
+				"dstColumnName": "pbkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "SYS0008||REL_PTY_CON",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "rowLock",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "2",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "220",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sysno}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	}
+]

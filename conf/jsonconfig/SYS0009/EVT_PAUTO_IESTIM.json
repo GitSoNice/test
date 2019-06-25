@@ -1,0 +1,363 @@
+[
+    {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_IESTIM",
+        "order": "1",
+        "sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_INJURYASSESSMENT",
+            "alias": "CF_RP_INJURYASSESSMENT"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_INJURYASSESSMENT.assessmentstaffbranch}",
+			"${CF_RP_INJURYASSESSMENT.actualid}"
+		],      
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_INJURYASSESSMENT.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_ASSESSMENT",
+	            "relationType":"inner",
+	            "alias":"CF_CT_ASSESSMENT",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_INJURYASSESSMENT.actualid}",
+	                            "rightCondition":"${CF_CT_ASSESSMENT.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+				"filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_ASSESSMENT.kind}",
+                                "rightCondition":"INJURYASSESSMENT"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_ASSESSMENT.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.PERSONCONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+			{
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_ASSESSMENT.parentactualid}",
+	                            "rightCondition":"${CF_CT_PARTY.parentactualid}"
+	                        }
+	                    }
+	                ]
+	            },
+				"filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"THEINJURED"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.PERSONCONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+			{
+	            "sourceTableName":"SYS0009.CF_RP_RELATEDPERSONNEL",
+	            "relationType":"inner",
+	            "alias":"CF_RP_RELATEDPERSONNEL",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_RELATEDPERSONNEL.actualid}",
+	                            "rightCondition":"${CF_CT_PARTY.actualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        }
+		],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CF_RP_INJURYASSESSMENT.versiontag}",
+                        "rightCondition": "C"
+                    }
+                },
+				{
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CF_RP_INJURYASSESSMENT.assessmentstaffbranch}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.name}",
+                "dstColumnName": "injury_name",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.acceptyear}",
+                "dstColumnName": "proc_year",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.assessmenttype}",
+                "dstColumnName": "estim_type",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.auditdate}",
+                "dstColumnName": "veri_tm",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.claimassessmentstatus}",
+                "dstColumnName": "claim_assess_st",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.ifseatbeltfastened}",
+                "dstColumnName": "is_belt_fastened",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.iscanceled}",
+                "dstColumnName": "is_cancel",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.isprelossauditend}",
+                "dstColumnName": "is_end",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.lossauditstaff}",
+                "dstColumnName": "loss_aud_no",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.lossauditstaffbranch}",
+                "dstColumnName": "loss_aud_branch",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.memo}",
+                "dstColumnName": "note",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.prelossauditlimitamount}",
+                "dstColumnName": "limitamt",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.solvedtime}",
+                "dstColumnName": "proc_tm",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.standardofindemnitylocation}",
+                "dstColumnName": "std_idmnty_site",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.status}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.versiontag}",
+                "dstColumnName": "verflg",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.xinjiangcorpstype}",
+                "dstColumnName": "xj_corps_type",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.assessmentstaff}",
+                "dstColumnName": "assessor",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.assessmentno}",
+                "dstColumnName": "assessor_branch",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.assessmentstaffbranch}",
+                "dstColumnName": "estim_no",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.disabilitydegreeratio}",
+                "dstColumnName": "dsab_lvl_coef",
+                "validate": "",
+                "priority": ""
+            },
+{
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.fastclaim}",
+                "dstColumnName": "is_fast",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_INJURYASSESSMENT.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

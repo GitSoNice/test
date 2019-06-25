@@ -1,0 +1,231 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "CON_P_AUTO_SUB_POLICY",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"     
+                    ]
+                }
+            },
+            {
+                "alias": "amt",
+                "specialHandle": {
+                    "handleName": "multiplyHandler",
+                    "parameters": [
+                        "${PREMIUMINVOLVED.suminsured}",
+                        "${PROPERTY.passengerseats}",
+                        "${AGREEMENT.kind}"    
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}",
+            "${AGREEMENT.kind}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.MAX_POLICY",
+            "alias": "POLICY"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0003.AGREEMENT",
+                "relationType": "inner",
+                "alias": "AGREEMENT",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${POLICY.actualid}",
+                                "rightCondition": "${AGREEMENT.topactualid}"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0003.ROLE",
+                "relationType": "inner",
+                "alias": "ROLE1",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${AGREEMENT.actualid}",
+                                "rightCondition": "${ROLE1.parentactualid}"
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${AGREEMENT.topactualid}",
+                                "rightCondition": "${ROLE1.topactualid}"
+                            }
+                        }
+                    ]
+                },
+                "filter": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${ROLE1.kind}",
+                                "rightCondition": "PREMIUMINVOLVED"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0003.PREMIUMINVOLVED",
+                "relationType": "inner",
+                "alias": "PREMIUMINVOLVED",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${ROLE1.topactualid}",
+                                "rightCondition": "${PREMIUMINVOLVED.actualid}"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0003.PROPERTY_POLICY",
+                "relationType": "left",
+                "alias": "PROPERTY",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${PROPERTY.policy_id}",
+                                "rightCondition": "${AGREEMENT.topactualid}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${POLICY.currentflag}",
+                        "rightCondition": "Y"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${AGREEMENT.kind}",
+                "dstColumnName": "sub_classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${AGREEMENT.name}",
+                "dstColumnName": "sub_classname",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${amt}",
+                "dstColumnName": "amt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PREMIUMINVOLVED.policypremium}",
+                "dstColumnName": "premium",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PREMIUMINVOLVED.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PREMIUMINVOLVED.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

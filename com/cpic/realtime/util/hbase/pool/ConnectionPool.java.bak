@@ -1,0 +1,145 @@
+package com.cpic.common.hbase.pool;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.hadoop.hbase.client.Connection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
+import com.cpic.common.hbase.dao.HBaseConnection;
+
+/**
+ * hbase 连接池
+ * @author c_liudong-027
+ *
+ */
+@Component
+@Scope
+public class ConnectionPool implements EnvironmentAware, InitializingBean, ApplicationContextAware {
+	Logger logger = LoggerFactory.getLogger(getClass());
+
+	private Environment env;
+
+	private List<ConnectionWrapper> connList;
+
+	private static ApplicationContext appConext;
+
+	int poolCount = 0;
+
+	int p = 0;
+
+	private ReentrantLock lock = new ReentrantLock();
+	private Condition cond = lock.newCondition();
+
+	@Override
+	public void setEnvironment(Environment environment) {
+		this.env = environment;
+
+	}
+
+	/**
+	 * 获取一个空闲的Hbase 连接.<br>
+	 * 如果没有空闲连接，则会阻塞等待 超时时间1分钟
+	 */
+	Connection getHBaseConnection() {
+		long time = System.currentTimeMillis();
+		while (true) {
+			HBaseConnection conn = tryGetConn();
+			if (null != conn) {
+				return conn;
+			}
+
+			if (System.currentTimeMillis() - time > 60 * 1000) {
+				logger.error("hbase 连接池池中获取连接超时 ，1分钟!", new RuntimeException());
+				return null;
+			}
+			lock.lock();
+			try {
+
+				logger.info(Thread.currentThread().getId() + "  hbase pool 无空闲连接，阻塞----------------");
+				conn = tryGetConn();// 为提高效率做2次检查.
+				if (null != conn) {
+					return conn;
+				}
+				cond.await(500L, TimeUnit.MILLISECONDS);
+			} catch (InterruptedException e) {
+				logger.error("hbase 连接池 获取连接出错，线程阻塞出错！", e);
+				throw new RuntimeException("hbase连接池获取连接出错！");
+			} finally {
+				lock.unlock();
+			}
+		}
+
+	}
+
+	private HBaseConnection tryGetConn() {
+		for (ConnectionWrapper wrapper : connList) {
+			HBaseConnection conn = wrapper.getConnection();
+			if (null != conn) {
+				return conn;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * 唤醒所有获取连接的线程，去检查是否有空闲连接
+	 * @return
+	 */
+	static boolean notifyAllThread() {
+		ConnectionPool pool = appConext.getBean(ConnectionPool.class);
+		pool.lock.lock();
+		try {
+			pool.cond.signalAll();
+		} finally {
+			pool.lock.unlock();
+		}
+		return true;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		logger.info("Hbase connection pool初始化开始");
+		String server = env.getProperty("server.TYPE");
+		System.out.println(server);
+		if (StringUtils.isBlank(server)) {
+			logger.error("Hbase connection 初始化失败，没有获取到服务名称!", new RuntimeException());
+			return;
+		}
+		String enable = env.getProperty("hbase.server." + server + ".enable");
+		if (!"true".equals(enable)) {
+			logger.error("Hbase connection pool初始化结束，该服务没有开启hbase !!!  ");
+			return;
+		}
+		String poolSize = env.getProperty("hbase.pool.size");
+		int pSize = Integer.valueOf(poolSize.trim());
+		poolCount = pSize;
+		connList = new LinkedList<ConnectionWrapper>();
+
+		for (int i = 0; i < pSize; i++) {
+			ConnectionWrapper wrapper = ConnectionGet.getNewConnection();
+			connList.add(wrapper);
+		}
+
+		logger.info("Hbase connection pool初始化成功, poolSize : " + connList.size());
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		appConext = applicationContext;
+	}
+
+}

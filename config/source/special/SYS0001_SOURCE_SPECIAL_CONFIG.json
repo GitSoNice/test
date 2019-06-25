@@ -1,0 +1,710 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cxrzjlx",
+					"barzjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"barzjhm",
+					"cxrzjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cxrxm",
+					"barxm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"barzjhm",
+					"barzjlx",
+					"cxrzjhm",
+					"cxrzjlx"
+				]
+			}
+		],
+		"tableName": "TBL_ETBRPT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_CODEITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"jkzk",
+					"zjlx",
+					"xyzk",
+					"xb",
+					"zylb"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"zjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"khxm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"zjhm",
+					"zjlx"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"SFZYXQ",
+					"SR"
+				]
+			}
+		],
+		"tableName": "TBL_PSNCUST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_PAYPLC"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"xb",
+					"syrzjlx",
+					"ybbxrgx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"syrzjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"syrmc"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"syrzjhm",
+					"syrzjlx"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"SYRSR"
+				]
+			}
+		],
+		"tableName": "TBL_BENEFIT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"zjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cxrmc"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"zjhm",
+					"zjlx"
+				]
+			}
+		],
+		"tableName": "TBL_CLM_ADDTIONAL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"besfjf",
+					"zylb",
+					"zzzrbz"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_PLCGUARD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_PLCINFO_ADD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"lrlx",
+					"bdzt",
+					"gbbz",
+					"sftd",
+					"is_vip",
+					"bfjffs",
+					"from_status",
+					"tbrzjlx",
+					"is_agriculture",
+					"zyfs"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"tbrzjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"tbrxm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"tbrzjhm",
+					"tbrzjlx"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"HBSJ",
+					"LRSJ",
+					"QBSJ",
+					"QDRQ",
+					"TBRQ",
+					"ZBSJ",
+					"ZHXGRQ"
+				]
+			}
+		],
+		"tableName": "TBL_PLCINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"SCRQ",
+					"XGRQ"
+				]
+			}
+		],
+		"tableName": "TBL_EDRCONTENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CLMEVALU"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_BASE_ELEMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CLMLIST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_INSURANT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_PLCLINK"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CLMMAIN"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CLMGUARD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CHKPAYDENY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_CHKPLC_RESULT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"tbrzjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"tbrzjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"tbrxm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"tbrzjhm",
+					"tbrzjlx"
+				]
+			}
+		],
+		"tableName": "TBL_CUSTOMERINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_EDRLINK"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_CURRENCY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_PLCSPEC"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["pglx"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"HPSJ",
+					"PDSQRQ",
+					"PGSQRQ",
+					"QDRQ"
+				]
+			}
+		],
+		"tableName": "TBL_EDRINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zjlx",
+					"syfs",
+					"xb"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"zjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"bbxrmc"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"zjhm",
+					"zjlx"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"SR",
+					"XTSJ"
+				]
+			}
+		],
+		"tableName": "TBL_INSURANT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cxrzjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cxrzjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cxrxm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cxrzjhm",
+					"cxrzjlx"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"lrsj",
+					"cxrq",
+					"cxrsr",
+					"bzsj"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"barq",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TBL_CLMRPT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_EXTEND_GUARD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"ytbrgx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBL_INSURANT_RELATION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"relationship",
+					"main_insurant_cred_type",
+					"relation_with_policy_holder",
+					"insurant_attr",
+					"has_medicalinsure",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"create_time",
+					"update_time"
+				]
+			}
+		],
+		"tableName": "TBL_INSURANT_ADD_JV"
+	}
+]

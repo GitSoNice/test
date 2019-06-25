@@ -1,0 +1,1199 @@
+[
+	{
+		"sourceSystem": "SYS0016",
+		"targetTableName": "EVT_L_POLICY_VISIT",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "decode_visit_cnt",
+				"specialHandle": {
+					"handleName": "resCode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"${T_LI_COUT_ACTIVITY.fail_cout_num}"
+					]
+				}
+			},
+			{
+				"alias": "md5_policy_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${T_LI_COUT_NEWPOLICY_INFO.policy_no}"
+					]
+				}
+			},
+			{
+				"alias": "visit_tel",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"1",
+						"${T_LI_COUT_ACTIVITY.success_tel}",
+						""
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_policy_no",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_policy_no}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_policy_no}",
+			"${T_LI_COUT_NEWPOLICY_INFO.policy_no}",
+			"${T_LI_COUT_ACTIVITY.act_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0016.T_LI_COUT_ACTIVITY",
+			"alias": "T_LI_COUT_ACTIVITY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0016.T_LI_COUT_NEWPOLICY_INFO",
+				"relationType": "inner",
+				"alias": "T_LI_COUT_NEWPOLICY_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_ACTIVITY.data_id}",
+								"rightCondition": "${T_LI_COUT_NEWPOLICY_INFO.data_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_NEWPOLICY_INFO.policy_attach_flg}",
+								"rightCondition": "1"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CFG_CODE_ENTRY",
+				"relationType": "left",
+				"alias": "T_CM_CFG_CODE_ENTRY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.code}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.res_sub_cd}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.cate_code}",
+								"rightCondition": "283"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.enable_flg}",
+								"rightCondition": "$${ENABLE_FLG_1}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CALL_AGENT",
+				"relationType": "left",
+				"alias": "T_CM_CALL_AGENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CALL_AGENT.associated_id}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.associate_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+                        "rightCondition":"20,21"
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_status}",
+                        "rightCondition":"03,04"
+                    }
+                }
+            ]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${T_LI_COUT_NEWPOLICY_INFO.policy_no}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_id}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.customer_name}",
+				"dstColumnName": "visited_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${visit_tel}",
+				"dstColumnName": "visit_tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CALL_AGENT.call_duration}",
+				"dstColumnName": "talk_time",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.res_code}",
+				"dstColumnName": "visit_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.name}",
+				"dstColumnName": "st_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.code}",
+				"dstColumnName": "st_reasoncode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_visit_cnt}",
+				"dstColumnName": "visit_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+				"dstColumnName": "visittype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.associate_id}",
+				"dstColumnName": "visit_task",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_end_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_start_dttm}",
+				"dstColumnName": "visit_beg_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.crt_dttm}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.lastupt_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0016",
+		"targetTableName": "EVT_L_POLICY_VISIT",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "decode_visit_cnt",
+				"specialHandle": {
+					"handleName": "resCode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"${T_LI_COUT_ACTIVITY.fail_cout_num}"
+					]
+				}
+			},
+			{
+				"alias": "md5_policy_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${T_LI_COUT_PROBLEM_INFO.policy_no}"
+					]
+				}
+			},
+			{
+				"alias": "visit_tel",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"1",
+						"${T_LI_COUT_ACTIVITY.success_tel}",
+						""
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_policy_no",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_policy_no}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_policy_no}",
+			"${T_LI_COUT_PROBLEM_INFO.policy_no}",
+			"${T_LI_COUT_ACTIVITY.act_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0016.T_LI_COUT_ACTIVITY",
+			"alias": "T_LI_COUT_ACTIVITY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0016.T_LI_COUT_PROBLEM_INFO",
+				"relationType": "inner",
+				"alias": "T_LI_COUT_PROBLEM_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_ACTIVITY.data_id}",
+								"rightCondition": "${T_LI_COUT_PROBLEM_INFO.data_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_PROBLEM_INFO.policy_attach_flg}",
+								"rightCondition": "1"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CFG_CODE_ENTRY",
+				"relationType": "left",
+				"alias": "T_CM_CFG_CODE_ENTRY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.code}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.res_sub_cd}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.cate_code}",
+								"rightCondition": "283"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.enable_flg}",
+								"rightCondition": "$${ENABLE_FLG_1}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CALL_AGENT",
+				"relationType": "left",
+				"alias": "T_CM_CALL_AGENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CALL_AGENT.associated_id}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.associate_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+                        "rightCondition":"36"
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_status}",
+                        "rightCondition":"03,04"
+                    }
+                }
+            ]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${T_LI_COUT_PROBLEM_INFO.policy_no}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_id}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.customer_name}",
+				"dstColumnName": "visited_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${visit_tel}",
+				"dstColumnName": "visit_tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CALL_AGENT.call_duration}",
+				"dstColumnName": "talk_time",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.res_code}",
+				"dstColumnName": "visit_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.name}",
+				"dstColumnName": "st_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.code}",
+				"dstColumnName": "st_reasoncode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_visit_cnt}",
+				"dstColumnName": "visit_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+				"dstColumnName": "visittype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.associate_id}",
+				"dstColumnName": "visit_task",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_end_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_start_dttm}",
+				"dstColumnName": "visit_beg_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.crt_dttm}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.lastupt_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0016",
+		"targetTableName": "EVT_L_POLICY_VISIT",
+		"order": "3",
+		"combinationMap": [
+			{
+				"alias": "decode_visit_cnt",
+				"specialHandle": {
+					"handleName": "resCode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"${T_LI_COUT_ACTIVITY.fail_cout_num}"
+					]
+				}
+			},
+			{
+				"alias": "md5_policy_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${T_LI_COUT_THIRD_NEWPOLICY_INFO.policy_no}"
+					]
+				}
+			},
+			{
+				"alias": "visit_tel",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"1",
+						"${T_LI_COUT_ACTIVITY.success_tel}",
+						""
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_policy_no",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_policy_no}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_policy_no}",
+			"${T_LI_COUT_THIRD_NEWPOLICY_INFO.policy_no}",
+			"${T_LI_COUT_ACTIVITY.act_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0016.T_LI_COUT_ACTIVITY",
+			"alias": "T_LI_COUT_ACTIVITY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0016.T_LI_COUT_THIRD_NEWPOLICY_INFO",
+				"relationType": "inner",
+				"alias": "T_LI_COUT_THIRD_NEWPOLICY_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_ACTIVITY.data_id}",
+								"rightCondition": "${T_LI_COUT_THIRD_NEWPOLICY_INFO.data_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_THIRD_NEWPOLICY_INFO.policy_attach_flg}",
+								"rightCondition": "1"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CFG_CODE_ENTRY",
+				"relationType": "left",
+				"alias": "T_CM_CFG_CODE_ENTRY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.code}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.res_sub_cd}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.cate_code}",
+								"rightCondition": "283"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.enable_flg}",
+								"rightCondition": "$${ENABLE_FLG_1}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CALL_AGENT",
+				"relationType": "left",
+				"alias": "T_CM_CALL_AGENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CALL_AGENT.associated_id}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.associate_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+                        "rightCondition":"56"
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_status}",
+                        "rightCondition":"03,04"
+                    }
+                }
+            ]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${T_LI_COUT_PROBLEM_INFO.policy_no}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_id}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.customer_name}",
+				"dstColumnName": "visited_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${visit_tel}",
+				"dstColumnName": "visit_tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CALL_AGENT.call_duration}",
+				"dstColumnName": "talk_time",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.res_code}",
+				"dstColumnName": "visit_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.name}",
+				"dstColumnName": "st_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.code}",
+				"dstColumnName": "st_reasoncode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_visit_cnt}",
+				"dstColumnName": "visit_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+				"dstColumnName": "visittype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.associate_id}",
+				"dstColumnName": "visit_task",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_end_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_start_dttm}",
+				"dstColumnName": "visit_beg_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.crt_dttm}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.lastupt_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0016",
+		"targetTableName": "EVT_L_POLICY_VISIT",
+		"order": "4",
+		"combinationMap": [
+			{
+				"alias": "decode_visit_cnt",
+				"specialHandle": {
+					"handleName": "resCode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"${T_LI_COUT_ACTIVITY.fail_cout_num}"
+					]
+				}
+			},
+			{
+				"alias": "md5_policy_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${T_LI_COUT_SECOND_PROBLEM_INFO.policy_no}"
+					]
+				}
+			},
+			{
+				"alias": "visit_tel",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${T_LI_COUT_ACTIVITY.res_code}",
+						"1",
+						"${T_LI_COUT_ACTIVITY.success_tel}",
+						""
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_policy_no",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_policy_no}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_policy_no}",
+			"${T_LI_COUT_SECOND_PROBLEM_INFO.policy_no}",
+			"${T_LI_COUT_ACTIVITY.act_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0016.T_LI_COUT_ACTIVITY",
+			"alias": "T_LI_COUT_ACTIVITY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0016.T_LI_COUT_SECOND_PROBLEM_INFO",
+				"relationType": "inner",
+				"alias": "T_LI_COUT_SECOND_PROBLEM_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_ACTIVITY.data_id}",
+								"rightCondition": "${T_LI_COUT_SECOND_PROBLEM_INFO.data_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_LI_COUT_SECOND_PROBLEM_INFO.policy_attach_flg}",
+								"rightCondition": "1"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CFG_CODE_ENTRY",
+				"relationType": "left",
+				"alias": "T_CM_CFG_CODE_ENTRY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.code}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.res_sub_cd}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.cate_code}",
+								"rightCondition": "283"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CFG_CODE_ENTRY.enable_flg}",
+								"rightCondition": "$${ENABLE_FLG_1}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0016.T_CM_CALL_AGENT",
+				"relationType": "left",
+				"alias": "T_CM_CALL_AGENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_CM_CALL_AGENT.associated_id}",
+								"rightCondition": "${T_LI_COUT_ACTIVITY.associate_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+                        "rightCondition":"42"
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"in",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${T_LI_COUT_ACTIVITY.cmp_status}",
+                        "rightCondition":"03,04"
+                    }
+                }
+            ]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${T_LI_COUT_PROBLEM_INFO.policy_no}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_id}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.customer_name}",
+				"dstColumnName": "visited_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${visit_tel}",
+				"dstColumnName": "visit_tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CALL_AGENT.call_duration}",
+				"dstColumnName": "talk_time",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.res_code}",
+				"dstColumnName": "visit_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.name}",
+				"dstColumnName": "st_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_CM_CFG_CODE_ENTRY.code}",
+				"dstColumnName": "st_reasoncode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_visit_cnt}",
+				"dstColumnName": "visit_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.cmp_type_cd}",
+				"dstColumnName": "visittype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.associate_id}",
+				"dstColumnName": "visit_task",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_end_dttm}",
+				"dstColumnName": "visit_end_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.act_start_dttm}",
+				"dstColumnName": "visit_beg_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.crt_dttm}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_LI_COUT_ACTIVITY.lastupt_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+	
+]

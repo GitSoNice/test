@@ -1,0 +1,142 @@
+[
+	{
+		"sourceSystem": "SYS0021",
+		"targetTableName": "RSK_BLKLST",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5BizLine",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"H"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5BizLine}",
+			"H",
+			"${NBLACKCUST.sn}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0021.BLKGRY_NM_LST",
+			"alias": "NBLACKCUST"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${NBLACKCUST.type}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${NBLACKCUST.sn}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "H",
+				"dstColumnName": "biz_line",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.sn}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.id}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.name}",
+				"dstColumnName": "name_cn",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.type}",
+				"dstColumnName": "type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.blksrc}",
+				"dstColumnName": "source",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.addreason}",
+				"dstColumnName": "add_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.begdate}",
+				"dstColumnName": "add_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.enddate}",
+				"dstColumnName": "remove_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.movewhy}",
+				"dstColumnName": "move_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.movedate}",
+				"dstColumnName": "movedate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.moveno}",
+				"dstColumnName": "move_operr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.movedeptno}",
+				"dstColumnName": "move_org",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.del_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

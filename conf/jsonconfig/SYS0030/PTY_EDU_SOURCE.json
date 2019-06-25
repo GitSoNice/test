@@ -1,0 +1,356 @@
+[
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_EDU_SOURCE",
+        "order": "1",
+		"sourcePrimaryTable":{
+            "tableName": "SYS0030.T_PUBLIC_POLICY",
+            "alias": "T_PUBLIC_POLICY"
+        },
+        "combinationMap":[
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [      
+			            "${T_POLICY_INSURANT.cerc}",
+                        "${T_POLICY_INSURANT.cert}",
+			            "${T_POLICY_INSURANT.ins_name}"                      
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0030_T_POLICY_INSURANT*||*02*||*PUBLIC_POLICY_ID*||*",
+                        "${T_POLICY_INSURANT.public_policy_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],       
+        "relations":[
+            {
+                "sourceTableName":"SYS0030.T_POLICY_INSURANT",
+                "relationType":"inner",
+                "alias":"T_POLICY_INSURANT",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList": [
+                        {
+                            "conditionType":"simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${T_POLICY_INSURANT.public_policy_id}",
+                                "rightCondition":"${T_PUBLIC_POLICY.public_policy_id}"
+                            }
+                        }
+                    ]
+                },
+                "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":"<>",
+                                "leftCondition":"${T_POLICY_INSURANT.public_policy_id}",
+                                "rightCondition":""
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": "<>",
+                        "dataType": "String",
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext": {
+                        "expression": "<>",
+                        "dataType": "String",
+                        "leftCondition": "${T_PUBLIC_POLICY.public_policy_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "group",
+                    "conditionContext":{
+                    	"operatorSymbol": "or",
+                    	"conditionList": 
+                    	[
+	                        {
+	                            "conditionType": "simple",
+	                            "conditionContext": {
+	                                "expression": {
+	                                    "expressionType": "<>",
+	                                    "dataType": "String",
+	                                    "formatter": ""
+	                                },
+	                                "leftCondition": "${T_PUBLIC_POLICY.rf_school}",
+	                                "rightCondition": ""
+	                            }
+	                        },
+	                        {
+	                            "conditionType": "simple",
+	                            "conditionContext": {
+	                                "expression": {
+	                                    "expressionType": "<>",
+	                                    "dataType": "String",
+	                                    "formatter": ""
+	                                },
+	                                "leftCondition": "${T_PUBLIC_POLICY.rf_class}",
+	                                "rightCondition": ""
+	                            }
+	                        }
+                    	]
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.rf_school}",
+                "dstColumnName": "college",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "98",
+                "dstColumnName": "edu",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.rf_class}",
+                "dstColumnName": "class_name",
+                "validate": "",
+                "priority": ""
+            },
+     
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.apply_date}",
+                "dstColumnName": "crt_tm",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${concat_person_id}",
+                "dstColumnName": "src_cust_id",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_EDU_SOURCE",
+        "order": "2",
+		"sourcePrimaryTable":{
+            "tableName": "SYS0030.T_PUBLIC_POLICY",
+            "alias": "T_PUBLIC_POLICY"
+        },
+        "combinationMap":[
+           {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0030_T_POLICY_INSURANT*||*02*||*PUBLIC_POLICY_ID*||*",
+                        "${T_POLICY_INSURANT.public_policy_id}"
+                    ]
+                }
+            },
+            
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [      
+			            "${T_POLICY_INSURANT.cerc}",
+                        "${T_POLICY_INSURANT.cert}",
+			            "${T_POLICY_INSURANT.ins_name}",
+			            "${concat_person_id}"                     
+                   ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],       
+        "relations":[
+            {
+                "sourceTableName":"SYS0030.T_POLICY_INSURANT",
+                "relationType":"inner",
+                "alias":"T_POLICY_INSURANT",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList": [
+                        {
+                            "conditionType":"simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${T_POLICY_INSURANT.public_policy_id}",
+                                "rightCondition":"${T_PUBLIC_POLICY.public_policy_id}"
+                            }
+                        }
+                    ]
+                },
+                "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":"<>",
+                                "leftCondition":"${T_POLICY_INSURANT.public_policy_id}",
+                                "rightCondition":""
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": "<>",
+                        "dataType": "String",
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext": {
+                        "expression": "<>",
+                        "dataType": "String",
+                        "leftCondition": "${T_PUBLIC_POLICY.public_policy_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "group",
+                    "conditionContext":{
+                    	"operatorSymbol": "or",
+	                    "conditionList": [
+	                        {
+	                            "conditionType": "simple",
+	                            "conditionContext": {
+	                                "expression": {
+	                                    "expressionType": "<>",
+	                                    "dataType": "String",
+	                                    "formatter": ""
+	                                },
+	                                "leftCondition": "${T_PUBLIC_POLICY.rf_school}",
+	                                "rightCondition": ""
+	                            }
+	                        },
+	                        {
+	                            "conditionType": "simple",
+	                            "conditionContext": {
+	                                "expression": {
+	                                    "expressionType": "<>",
+	                                    "dataType": "String",
+	                                    "formatter": ""
+	                                },
+	                                "leftCondition": "${T_PUBLIC_POLICY.rf_class}",
+	                                "rightCondition": ""
+	                            }
+	                        }
+	                    ]
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.rf_school}",
+                "dstColumnName": "college",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "98",
+                "dstColumnName": "edu",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.rf_class}",
+                "dstColumnName": "class_name",
+                "validate": "",
+                "priority": ""
+            },
+  
+            {
+                "srcColumnName": "${T_PUBLIC_POLICY.apply_date}",
+                "dstColumnName": "crt_tm",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${concat_person_id}",
+                "dstColumnName": "src_cust_id",
+                "priority": ""
+            }
+        ]
+    }
+]

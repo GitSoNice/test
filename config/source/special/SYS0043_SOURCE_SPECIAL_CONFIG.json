@@ -1,0 +1,190 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_AXNXWEB"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_BXX"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"$first_visit_time"
+				]
+			}
+		],
+		"tableName": "SHENCE_USERS_BXX"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_JKXAPP"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_SXAPP"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_SXGW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"$first_visit_time"
+				]
+			}
+		],
+		"tableName": "SHENCE_USERS_SXGW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_CJYLGWEB"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"$first_visit_time"
+				]
+			}
+		],
+		"tableName": "SHENCE_USERS_CJYLGWEB"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_CJYLGW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"$first_visit_time"
+				]
+			}
+		],
+		"tableName": "SHENCE_USERS_CJYLGW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"date",
+					"time"
+				]
+			}
+		],
+		"tableName": "SHENCE_EVENTS_SUPERAPP"
+	}
+]

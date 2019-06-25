@@ -1,0 +1,295 @@
+[
+    {
+        "sourceSystem": "SYS0013",
+        "targetTableName": "PTY_TEL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${X_CLUB_BINDING_INFO.id_card}",
+                        "$${CERTTYPE_111}",
+                        "${X_CLUB_BINDING_INFO.customer_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0013}",
+			       	"$${TELTYPE_1}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0013.X_CLUB_BINDING_INFO",
+            "alias": "X_CLUB_BINDING_INFO"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0013.X_FANSINFO",
+                "relationType": "inner",
+                "alias": "X_FANSINFO",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${X_CLUB_BINDING_INFO.open_id}",
+                                "rightCondition": "${X_FANSINFO.open_id}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+         "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"X_CLUB_BINDING_INFO.mobile_phone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_CLUB_BINDING_INFO.mobile_phone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_FANSINFO.subscribe_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_CLUB_BINDING_INFO.bind_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${X_CLUB_BINDING_INFO.mobile_phone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0013",
+        "targetTableName": "PTY_TEL",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0013_X_CLUB_BINDING_INFO*||*00*||*OPEN_ID*||*",
+                        "${X_CLUB_BINDING_INFO.open_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${X_CLUB_BINDING_INFO.id_card}",
+                        "$${CERTTYPE_111}",
+                        "${X_CLUB_BINDING_INFO.customer_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0013}",
+			        "$${TELTYPE_1}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0013.X_CLUB_BINDING_INFO",
+            "alias": "X_CLUB_BINDING_INFO"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0013.X_FANSINFO",
+                "relationType": "inner",
+                "alias": "X_FANSINFO",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${X_CLUB_BINDING_INFO.open_id}",
+                                "rightCondition": "${X_FANSINFO.open_id}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"X_CLUB_BINDING_INFO.mobile_phone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_CLUB_BINDING_INFO.mobile_phone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_FANSINFO.subscribe_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${X_CLUB_BINDING_INFO.bind_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${X_CLUB_BINDING_INFO.mobile_phone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+]

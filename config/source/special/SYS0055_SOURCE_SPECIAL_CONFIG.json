@@ -1,0 +1,30 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"delfrm",
+					"docpro"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"recdate",
+					"gendate",
+					"regdate"
+				]
+			}
+		],
+		"tableName": "RELPAYRC"
+	}
+]

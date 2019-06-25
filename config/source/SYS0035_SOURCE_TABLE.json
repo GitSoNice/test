@@ -1,0 +1,289 @@
+[
+	{
+		"tableName": "ZGGRJH",
+		"rowkeyCols": [
+			"zggrjh_grjhbh"
+		],
+		"md5Cols": [
+			"zggrjh_grjhbh"
+		]
+	},
+	{
+		"tableName": "ZGNJJH",
+		"rowkeyCols": [
+			"zgnjjh_njjhbh"
+		],
+		"md5Cols": [
+			"zgnjjh_njjhbh"
+		]
+	},
+	{
+		"tableName": "ZGQYJH",
+		"rowkeyCols": [
+			"zgqyjh_qyjhbh"
+		],
+		"md5Cols": [
+			"zgqyjh_qyjhbh"
+		]
+	},
+	{
+		"tableName": "ZGQYKH",
+		"rowkeyCols": [
+			"zgqykh_qykhbh"
+		],
+		"md5Cols": [
+			"zgqykh_qykhbh"
+		]
+	},
+	{
+		"tableName": "ZGGRZHYE",
+		"rowkeyCols": [
+			"zggrzhye_grjhbh",
+			"zggrzhye_zhbh",
+			"zggrzhye_tzzhbh"
+		],
+		"md5Cols": [
+			"zggrzhye_grjhbh",
+			"zggrzhye_zhbh",
+			"zggrzhye_tzzhbh"
+		]
+	},
+	{
+		"tableName": "VWZXDWJZ",
+		"rowkeyCols": [
+			"bh",
+			"gzr"
+		],
+		"md5Cols": [
+			"bh",
+			"gzr"
+		]
+	},
+	{
+		"tableName": "STDWJZ",
+		"rowkeyCols": [
+			"stdwjz_bh",
+			"stdwjz_gzr"
+		],
+		"md5Cols": []
+	},
+	{
+		"tableName": "STQYJHTZZH",
+		"rowkeyCols": [
+			"stqyjhtzzh_qyjhbh",
+			"stqyjhtzzh_tzzhbh"
+		],
+		"md5Cols": [
+			"stqyjhtzzh_qyjhbh",
+			"stqyjhtzzh_tzzhbh"
+		]
+	},
+	{
+		"tableName": "STTZZH",
+		"rowkeyCols": [
+			"sttzzh_bh"
+		],
+		"md5Cols": [
+			"sttzzh_bh"
+		]
+	},
+	{
+		"tableName": "STTZZHKFQ",
+		"rowkeyCols": [
+			"sttzzhkfq_tzzhbh",
+			"sttzzhkfq_zhkflx",
+			"sttzzhkfq_zhkfr",
+			"sttzzhkfq_zhfbr"
+		],
+		"md5Cols": [
+			"sttzzhkfq_tzzhbh",
+			"sttzzhkfq_zhkflx",
+			"sttzzhkfq_zhkfr",
+			"sttzzhkfq_zhfbr"
+		]
+	},
+	{
+		"tableName": "STQYJHTZJH",
+		"rowkeyCols": [
+			"stqyjhtzjh_qyjhbh",
+			"stqyjhtzjh_tzzhbh",
+			"stqyjhtzjh_zhbh"
+		],
+		"md5Cols": [
+			"stqyjhtzjh_qyjhbh",
+			"stqyjhtzjh_tzzhbh",
+			"stqyjhtzjh_zhbh"
+		]
+	},
+	{
+		"tableName": "ZGGGZHFPMX",
+		"rowkeyCols": [
+			"zgggzhfpmx_sqdh",
+			"zgggzhfpmx_grjhbh",
+			"zgggzhfpmx_fpzhbh",
+			"zgggzhfpmx_tzzhbh"
+		],
+		"md5Cols": [
+			"zgggzhfpmx_sqdh",
+			"zgggzhfpmx_grjhbh",
+			"zgggzhfpmx_fpzhbh",
+			"zgggzhfpmx_tzzhbh"
+		]
+	},
+	{
+		"tableName": "ZGGGZHFPSQ",
+		"rowkeyCols": [
+			"zgggzhfpsq_sqdh"
+		],
+		"md5Cols": [
+			"zgggzhfpsq_sqdh"
+		]
+	},
+	{
+		"tableName": "ZGGRJFDLTMP",
+		"rowkeyCols": [
+			"sqdh",
+			"grjhbh"
+		],
+		"md5Cols": [
+			"sqdh",
+			"grjhbh"
+		]
+	},
+	{
+		"tableName": "ZGGRYJFQD",
+		"rowkeyCols": [
+			"zggryjfqd_jfsqdh",
+			"zggryjfqd_grbh",
+			"zggryjfqd_zhbh"
+		],
+		"md5Cols": [
+			"zggryjfqd_jfsqdh",
+			"zggryjfqd_grbh",
+			"zggryjfqd_zhbh"
+		]
+	},
+	{
+		"tableName": "ZGGRZFSQ",
+		"rowkeyCols": [
+			"zggrzfsq_pch",
+			"zggrzfsq_zfsqdh"
+		],
+		"md5Cols": [
+			"zggrzfsq_pch",
+			"zggrzfsq_zfsqdh"
+		]
+	},
+	{
+		"tableName": "ZGGRZFSQPL",
+		"rowkeyCols": [
+			"zggrzfsqpl_pch"
+		],
+		"md5Cols": [
+			"zggrzfsqpl_pch"
+		]
+	},
+	{
+		"tableName": "ZGJFDZ",
+		"rowkeyCols": [
+			"zgjfdz_jfdzdh"
+		],
+		"md5Cols": [
+			"zgjfdz_jfdzdh"
+		]
+	},
+	{
+		"tableName": "ZGJFSQ",
+		"rowkeyCols": [
+			"zgjfsq_jfsqdh"
+		],
+		"md5Cols": [
+			"zgjfsq_jfsqdh"
+		]
+	},
+	{
+		"tableName": "ZGQYJHZHZD",
+		"rowkeyCols": [
+			"zgqyjhzhzd_qyjhbh",
+			"zgqyjhzhzd_zhbm"
+		],
+		"md5Cols": [
+			"zgqyjhzhzd_qyjhbh",
+			"zgqyjhzhzd_zhbm"
+		]
+	},
+	{
+		"tableName": "ZGZFHD",
+		"rowkeyCols": [
+			"zgzfhd_zfzdh"
+		],
+		"md5Cols": [
+			"zgzfhd_zfzdh"
+		]
+	},
+	{
+		"tableName": "ZGZFZD",
+		"rowkeyCols": [
+			"zgzfzd_zfzdh"
+		],
+		"md5Cols": [
+			"zgzfzd_zfzdh"
+		]
+	},
+	{
+		"tableName": "ZGFZJG",
+		"rowkeyCols": [
+			"zgfzjg_fzjgbh"
+		],
+		"md5Cols": [
+			"zgfzjg_fzjgbh"
+		]
+	},
+	{
+		"tableName": "ZGTZZH",
+		"rowkeyCols": [
+			"zgtzzh_bh"
+		],
+		"md5Cols": [
+			"zgtzzh_bh"
+		]
+	},
+	{
+		"tableName": "ZGDWJZ",
+		"rowkeyCols": [
+			"zgdwjz_bh",
+			"zgdwjz_gzr"
+		],
+		"md5Cols": [
+			"zgdwjz_bh",
+			"zgdwjz_gzr"
+		],
+		"maxConfigs":[
+			{
+				"maxTableName":"MAX_ZGDWJZ",
+				"maxCompartorCols":"zgdwjz_gzr"
+			}
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"zgdwjz_bh"
+				],
+				"md5Cols": [
+					"zgdwjz_bh"
+				]
+			}
+		]
+	},
+	{
+		"tableName":"MAX_ZGDWJZ",
+		"rowkeyCols":[
+			"zgdwjz_bh"
+		],
+		"md5Cols":[
+			"zgdwjz_bh"
+		]
+	}
+]

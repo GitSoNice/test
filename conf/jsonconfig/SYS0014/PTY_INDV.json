@@ -1,0 +1,193 @@
+[
+    {
+        "sourceSystem": "SYS0014",
+        "targetTableName": "PTY_INDV",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${TBL_USER.pid}",
+                        "${TBL_USER.idtype}",
+                        "${TBL_USER.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+	        "${md5cust_id}",
+	        "${cust_id}"
+		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0014.TBL_USER",
+            "alias": "TBL_USER"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.pid}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.idtype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.name}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName":  {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${TBL_USER.sex}",
+	                    "${TBL_USER.idtype}",
+	                    "${TBL_USER.pid}"
+	                ]
+	            },
+                "dstColumnName": "gender", 
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "",
+	                    "${TBL_USER.idtype}",
+	                    "${TBL_USER.pid}"
+	                ]
+	            },
+                "dstColumnName": "birth_dt", 
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+     {
+        "sourceSystem": "SYS0014",
+        "targetTableName": "PTY_INDV",
+        "order": "2",
+        "combinationMap": [
+	        	{
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0014_TBL_USER*||*00*||*OPENID*||*",
+		                   "${TBL_USER.openid}"
+		                ]
+		            }
+		        	},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${TBL_USER.pid}",
+                        "${TBL_USER.idtype}",
+                        "${TBL_USER.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+	        "${md5cust_id}",
+	        "${cust_id}"
+		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0014.TBL_USER",
+            "alias": "TBL_USER"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.pid}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.idtype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.name}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${TBL_USER.sex}",
+	                    "${TBL_USER.idtype}",
+	                    "${TBL_USER.pid}"
+	                ]
+	            },
+                "dstColumnName": "gender", 
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName":  {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "",
+	                    "${TBL_USER.idtype}",
+	                    "${TBL_USER.pid}"
+	                ]
+	            },
+                "dstColumnName": "birth_dt", 
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

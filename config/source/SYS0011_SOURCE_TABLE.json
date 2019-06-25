@@ -1,0 +1,22 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_L_CASE",
+        "rowkeyCols": [
+            "seq_case_id"
+        ],
+        "md5Cols": [
+            "seq_case_id"
+        ]
+    }
+]

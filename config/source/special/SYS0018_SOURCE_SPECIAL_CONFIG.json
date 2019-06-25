@@ -1,0 +1,40 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"gender",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id_number"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"user_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id_number",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"create_time",
+					"last_modify_time"
+				]
+			}
+		],
+		"tableName": "T_USER_INFO"
+	}
+]

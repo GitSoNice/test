@@ -1,0 +1,545 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "PTY_TEL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${PARTY.certificatecode}",
+                        "${PARTY.certificatetype}",
+                        "${PARTY.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0003",
+            "3"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.PARTY",
+            "alias": "PARTY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.telephone}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.customertype}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+         
+            {
+                "srcColumnName": "${PARTY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${PARTY.telephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "PTY_TEL",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${PARTY.certificatecode}",
+                        "${PARTY.certificatetype}",
+                        "${PARTY.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0003",
+            "1"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.PARTY",
+            "alias": "PARTY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.mobiletelephone}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.customertype}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.mobiletelephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+          
+            {
+                "srcColumnName": "${PARTY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${PARTY.mobiletelephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "PTY_TEL",
+        "order": "3",
+        "combinationMap": [
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0003_PARTY*||*00*||*TOPACTUALID*||*",
+                        "${PARTY.topactualid}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${PARTY.certificatecode}",
+                        "${PARTY.certificatetype}",
+                        "${PARTY.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0003",
+            "3"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.PARTY",
+            "alias": "PARTY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.telephone}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.customertype}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+          
+            {
+                "srcColumnName": "${PARTY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${PARTY.telephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "PTY_TEL",
+        "order": "4",
+        "combinationMap": [
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0003_PARTY*||*00*||*TOPACTUALID*||*",
+                        "${PARTY.topactualid}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${PARTY.certificatecode}",
+                        "${PARTY.certificatetype}",
+                        "${PARTY.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0003",
+            "1"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.PARTY",
+            "alias": "PARTY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.mobiletelephone}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${PARTY.customertype}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.mobiletelephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+         
+            {
+                "srcColumnName": "${PARTY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PARTY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":
+	            {
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${PARTY.mobiletelephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+]

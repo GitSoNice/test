@@ -1,0 +1,25 @@
+[
+	{
+        "tableName": "CIF_INDIINFO",
+        "rowkeyCols": [
+            "cisno"
+        ],
+        "md5Cols": [
+            "cisno"
+        ],
+         "persons": [
+            {
+                "nameCol": "cisname",
+                "certTypeCol": "idtype",
+                "certNoCol": "idcode",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "cisno"
+                    ]
+                }
+            }
+        ]
+    }
+]

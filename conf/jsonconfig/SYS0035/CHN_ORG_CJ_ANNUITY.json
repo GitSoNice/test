@@ -1,0 +1,78 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "CHN_ORG_CJ_ANNUITY",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Branchcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGFZJG.zgfzjg_fzjgbh}"
+					]
+				}
+			}
+			
+		],
+		"rowKey": [
+			"${md5Branchcode}",
+			"${ZGFZJG.zgfzjg_fzjgbh}"
+			
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGFZJG",
+			"alias": "ZGFZJG"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_fzjgbh}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_fzjgmc}",
+				"dstColumnName": "branchname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_sjjgbh}",
+				"dstColumnName": "up_branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_qykhbh}",
+				"dstColumnName": "corp_custcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_fjbm}",
+				"dstColumnName": "lvlcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_wbbh}",
+				"dstColumnName": "outercode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_note}",
+				"dstColumnName": "remark",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGFZJG.zgfzjg_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

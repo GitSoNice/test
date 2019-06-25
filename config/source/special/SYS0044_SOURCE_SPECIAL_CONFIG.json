@@ -1,0 +1,205 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"verify_type",
+					"bind_status",
+					"register_type",
+					"register_source"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": ["customer_name"]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"lastoper_date",
+					"lastupd_dttm",
+					"register_time",
+					"create_time"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_USERINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cardtype",
+					"bind_status",
+					"verify_type",
+					"verify_status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": ["cardno"]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cardno",
+					"cardtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"lastupd_dttm",
+					"create_time"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_USERINFO_D"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"login_result",
+					"login_sys_source"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"login_date",
+					"lastupd_dttm",
+					"create_time"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_LOGINHIS"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cardtype",
+					"action_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": ["cardno"]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cardno",
+				    "cardtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"action_date",
+					"lastupd_dttm"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_OPERATOR_ACTION2"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cardtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": ["cardno"]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": ["account_name"]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cardno",
+				    "cardtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"create_time",
+					"lastupd_dttm"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_BANK_ACCOUNT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cardtype",
+					"action_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"lastupd_dttm",
+					"action_date"
+				]
+			}
+		],
+		"tableName": "T_VERIFY_ACTION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cardtype",
+					"verify_level",
+					"valid_flg",
+					"tmpuser_sys_source",
+					"status"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"lastoper_date",
+					"reg_date",
+					"check_failure_time",
+					"lastupd_dttm"
+				]
+			}
+		],
+		"tableName": "T_TEMP_USER"
+	}
+]

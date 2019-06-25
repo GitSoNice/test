@@ -1,0 +1,93 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "CON_L_SERV",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "md5_policyno",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${RISKCON.policyno}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${md5_policyno}",
+      "${RISKCON.policyno}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.RISKCON",
+      "alias": "RISKCON"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.rectele}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "notIn",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.polist}",
+            "rightCondition": "85"
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${RISKCON.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.rectele}",
+        "dstColumnName": "recphone",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

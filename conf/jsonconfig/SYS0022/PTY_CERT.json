@@ -1,0 +1,133 @@
+[
+    {
+        "sourceSystem":"SYS0022",
+        "targetTableName":"PTY_CERT",
+        "order":"1",
+        "combinationMap":[
+       		 {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                       "EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+                       "${PERSON.source_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${PERSON.id}",
+                        "${PERSON.idtype}",
+                        "${PERSON.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"isJJZ",
+                "specialHandle": {
+                    "handleName": "in",
+                    "parameters": [
+                        "${PERSON.idtype}",
+                        "645,646,647"
+                    ]
+                }
+            },
+            {
+                "alias":"pass_code",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${isJJZ}",
+                        "true",
+                        "${PERSON.id15}",
+                        ""
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${PERSON.idtype}",
+            "${PERSON.id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0022.MAX_PERSON",
+            "alias":"PERSON"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${cust_id}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${PERSON.idtype}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${PERSON.id}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${PERSON.id1_effect_date}",
+                "dstColumnName":"cert_effect_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${PERSON.id1_expire_date}",
+                "dstColumnName":"cert_end_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${PERSON.del_date}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${pass_code}",
+                "dstColumnName":"pass_code",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

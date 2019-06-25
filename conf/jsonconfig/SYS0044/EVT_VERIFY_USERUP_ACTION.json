@@ -1,0 +1,199 @@
+[
+	{
+		"sourceSystem": "SYS0044",
+		"targetTableName": "EVT_VERIFY_USERUP_ACTION",
+		"order": "1",
+		"combinationMap": [
+			 {
+                "alias":"isValid",
+                "specialHandle":{
+                    "handleName":"telFlg",
+                    "parameters":[
+                        "${T_TEMP_USER.mobile}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5Tel",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${T_TEMP_USER.mobile}"
+                    ]
+                }
+            }
+		],
+		"rowKey": [
+			"${md5Tel}",
+			"${T_TEMP_USER.mobile}",
+			"${T_TEMP_USER.tmpuser_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0044.T_TEMP_USER",
+			"alias": "T_TEMP_USER"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${isValid}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${T_TEMP_USER.tmpuser_id}",
+				"dstColumnName": "userup_action_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.mobile}",
+				"dstColumnName": "mobile",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.customer_name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.cardtype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.cardno}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.pictureinfo}",
+				"dstColumnName": "pictureinfo",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.lastoper_date}",
+				"dstColumnName": "lastoper_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.lastoper_ip}",
+				"dstColumnName": "lastoper_ip",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.verify_level}",
+				"dstColumnName": "verify_level",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.reg_date}",
+				"dstColumnName": "reg_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.check_failure_time}",
+				"dstColumnName": "failure_time",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.check_failure_count}",
+				"dstColumnName": "failure_count",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.card_pictureinfo1}",
+				"dstColumnName": "card_pictureinfo1",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.card_pictureinfo2}",
+				"dstColumnName": "card_pictureinfo2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.inhand_pictureinfo}",
+				"dstColumnName": "inhand_pictureinfo",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.user_insys_type}",
+				"dstColumnName": "user_insys_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.user_id}",
+				"dstColumnName": "source_user_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.open_id}",
+				"dstColumnName": "open_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.ff_custid}",
+				"dstColumnName": "ff_custid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.valid_flg}",
+				"dstColumnName": "valid_flg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.tmpuser_sys_source}",
+				"dstColumnName": "user_sys",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.status}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.bind_status}",
+				"dstColumnName": "bind_status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_TEMP_USER.lastupd_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

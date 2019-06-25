@@ -1,0 +1,238 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "EVT_L_POLICY_INFORM",
+    "order": "1",
+    "combinationMap": [
+          {
+        "alias": "classcode8",
+        "specialHandle": {
+          "handleName": "classCode628",
+          "parameters": [
+            "${IDTELL.classcode}",
+            "$${FFCLASSCODE}"
+          ]
+        }
+      },
+       {
+        "alias": "classcode",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${classcode8}",
+            "",
+            "${IDTELL.classcode}",
+            "${classcode8}"
+          ]
+        }
+      },
+          
+       {
+                "alias": "app_agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${IDTELL.appno}",
+                        "${classcode}"
+                    ]
+                }
+            },
+      
+      {
+        "alias": "informertype_id",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${IDTELL.id}",
+            "",
+            "",
+            "${IDTELL.isappid}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${app_agmt_id}",
+      "${app_agmt_id}",
+      "${IDTELL.version}",
+      "0",
+      "${IDTELL.telcode1}",
+      "${IDTELL.telcode2}",
+      "${IDTELL.telcode3}",
+      "${IDTELL.telcode4}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.IDTELL",
+      "alias": "IDTELL"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.appno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.classcode}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.version}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.telcode1}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.telcode2}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.telcode3}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${IDTELL.telcode4}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${app_agmt_id}",
+        "dstColumnName": "app_agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.appno}",
+        "dstColumnName": "appno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${informertype_id}",
+        "dstColumnName": "informertype",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.id}",
+        "dstColumnName": "informer_certno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.version}",
+        "dstColumnName": "version",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "0",
+        "dstColumnName": "informcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.telcode1}",
+        "dstColumnName": "cags_informcode1",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.telcode2}",
+        "dstColumnName": "cags_informcode2",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.telcode3}",
+        "dstColumnName": "cags_informcode3",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.telcode4}",
+        "dstColumnName": "cags_informcode4",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${IDTELL.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

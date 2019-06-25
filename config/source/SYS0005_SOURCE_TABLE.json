@@ -1,0 +1,63 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_RYX_CUSTOMER",
+        "rowkeyCols": [
+            "customer_id"
+        ],
+        "md5Cols": [
+            "customer_id"
+        ],
+        "indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "customer_name",
+                    "cret_type",
+                    "cret_code"
+                ],
+                "md5Cols":[
+                    "customer_name",
+                    "cret_type",
+                    "cret_code"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_PUBLIC_POLICY",
+        "rowkeyCols": [
+            "public_policy_id"
+        ],
+        "md5Cols": [
+            "public_policy_id"
+        ],
+        "indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "apply_name",
+                    "apply_cert",
+                    "apply_cerc"
+                ],
+                "md5Cols":[
+                    "apply_name",
+                    "apply_cert",
+                    "apply_cerc"
+                ]
+            }
+        ]
+    }
+]

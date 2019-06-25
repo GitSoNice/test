@@ -1,0 +1,92 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "TB_ORG",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "areatype"
+                ],
+                "md5Cols": [
+                    "areatype"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "distcode"
+                ],
+                "md5Cols": [
+                    "distcode"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "TB_DIST",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "TB_LICENSE",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],      
+        "indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "bindedorgid"
+                ],
+                "md5Cols":[
+                    "bindedorgid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "TB_ORGMANAGE",
+        "rowkeyCols": [
+            "managecode"
+        ],
+        "md5Cols": [
+            "managecode"
+        ]
+    },
+    {
+        "tableName": "TB_ORGAREATYPE",
+        "rowkeyCols": [
+            "areatypecode"
+        ],
+        "md5Cols": [
+            "areatypecode"
+        ]
+    }
+]

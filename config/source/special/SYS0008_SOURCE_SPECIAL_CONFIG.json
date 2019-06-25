@@ -1,0 +1,177 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SELL_PLAN_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"bb_num_type",
+					"tb_num_type",
+					"state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"tb_num",
+					"bb_num"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"bb_name",
+					"tb_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"bb_num",
+					"bb_num_type",
+					"tb_num",
+					"tb_num_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"BB_SR",
+					"INPUT_DATE",
+					"INSUREBEGINDATE",
+					"INSUREENDDATE",
+					"TB_DATE",
+					"TB_SR"
+				]
+			}
+		],
+		"tableName": "BIG_POLICY_FORM_CHENGYI"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SELL_APPENDED_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"bb_num_type",
+					"tb_num_type",
+					"state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"tb_num",
+					"bb_num"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"bb_name",
+					"tb_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"bb_num",
+					"bb_num_type",
+					"tb_num",
+					"tb_num_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"BB_SR",
+					"INPUT_DATE",
+					"INSUREBEGINDATE",
+					"INSUREENDDATE",
+					"TB_DATE",
+					"TB_SR"
+				]
+			}
+		],
+		"tableName": "BIG_EXCEPTION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"bb_num_type",
+					"tb_num_type",
+					"state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"tb_num",
+					"bb_num"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"bb_name",
+					"tb_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"bb_num",
+					"bb_num_type",
+					"tb_num",
+					"tb_num_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"BB_SR",
+					"INPUT_DATE",
+					"INSUREBEGINDATE",
+					"INSUREENDDATE",
+					"TB_DATE",
+					"TB_SR"
+				]
+			}
+		],
+		"tableName": "BIG_POLICY_HISTORY"
+	}
+]

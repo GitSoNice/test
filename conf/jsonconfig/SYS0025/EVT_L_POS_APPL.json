@@ -1,0 +1,165 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "EVT_L_POS_APPL",
+    "order": "1",
+    "combinationMap": [
+        {
+        "alias": "classcode8",
+        "specialHandle": {
+          "handleName": "classCode628",
+          "parameters": [
+            "${CHAGAPP.classcode}",
+            "$${FFCLASSCODE}"
+          ]
+        }
+      },
+      {
+        "alias": "classcode",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${classcode8}",
+            "",
+            "${CHAGAPP.classcode}",
+            "${classcode8}"
+          ]
+        }
+      },
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${CHAGAPP.policyno}",
+                        "${classcode}"
+                    ]
+                }
+            }
+    ],
+    "rowKey": [
+      "${agmt_id}",
+      "${agmt_id}",
+      "${CHAGAPP.endorno}"
+    ],	
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.CHAGAPP",
+      "alias": "CHAGAPP"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${CHAGAPP.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${CHAGAPP.classcode}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${CHAGAPP.endorno}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${agmt_id}",
+        "dstColumnName": "agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.endorno}",
+        "dstColumnName": "endorno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.changeid}",
+        "dstColumnName": "changeid",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.stat}",
+        "dstColumnName": "status",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.procdate}",
+        "dstColumnName": "sys_oper_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.id}",
+        "dstColumnName": "certno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.operno}",
+        "dstColumnName": "operno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.appdate}",
+        "dstColumnName": "tx_appl_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${CHAGAPP.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

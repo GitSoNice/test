@@ -1,0 +1,143 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "PTY_INDV_SOURCE",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "cust_id",
+        "specialHandle": {
+          "handleName": "CustFlgHandler",
+          "parameters": [
+            "${EX_L_BENEFI.certno}",
+            "${EX_L_BENEFI.certtype}",
+            "${EX_L_BENEFI.name}"
+          ]
+        }
+      },
+      {
+        "alias": "md5Cust_id",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${cust_id}"
+          ]
+        }
+      },
+        {
+            "alias":"concat_person_id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	               	  "EX_SYS0025_EX_L_BENEFI*||*03*||*POLICYNO*||*CLASSCODE*||*",
+	                   "${EX_L_BENEFI.policyno}",
+	                   "*||*",
+	                   "${EX_L_BENEFI.classcode}"
+	                ]
+	            }
+         }
+    ],
+    "rowKey":
+	[ 
+	"${md5Cust_id}",
+	"${cust_id}",
+	"${concat_person_id}"
+	],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.EX_L_BENEFI",
+      "alias": "EX_L_BENEFI"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${cust_id}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${cust_id}",
+        "dstColumnName": "cust_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.certno}",
+        "dstColumnName": "certno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.certtype}",
+        "dstColumnName": "certtype",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.name}",
+        "dstColumnName": "name_cn",
+        "validate": "",
+        "priority": ""
+      },
+     
+      {
+        "srcColumnName": "${EX_L_BENEFI.crt_tm}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.upd_tm}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      },
+        {
+            "srcColumnName": {
+                "handleName":"checkSex",
+                "parameters":
+                [	                    
+                    "${EX_L_BENEFI.gender}",
+                    "${EX_L_BENEFI.certtype}",
+                    "${EX_L_BENEFI.certno}"
+                ]
+            },
+            "dstColumnName": "gender",
+            "validate": "",
+            "priority": ""
+        },
+        {
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+		},
+        {
+            "srcColumnName": {
+                "handleName":"checkBirthDay",
+                "parameters":
+                [	                    
+                    "",
+                    "${EX_L_BENEFI.certtype}",
+                    "${EX_L_BENEFI.certno}"
+                ]
+            },
+            "dstColumnName": "birth_dt",
+            "validate": "",
+            "priority": ""
+        }
+    ]
+  }
+]

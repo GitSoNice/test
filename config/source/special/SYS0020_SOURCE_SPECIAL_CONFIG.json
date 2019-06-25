@@ -1,0 +1,56 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"up1_date"
+				]
+			}
+		],
+		"tableName": "TBL_USER_ESSENTIAL_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"gender",
+					"cardtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"user_name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"create_date",
+					"up1_date"
+				]
+			}
+		],
+		"tableName": "TBL_USER"
+	}
+]

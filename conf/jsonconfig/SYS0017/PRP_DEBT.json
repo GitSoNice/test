@@ -1,0 +1,224 @@
+[
+	{
+		"sourceSystem": "SYS0017",
+		"targetTableName": "PRP_DEBT",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "balance",
+				"specialHandle": {
+					"handleName": "plus",
+					"parameters": [
+						"${ACCT_LOAN.normalbalance}",
+						"${ACCT_LOAN.overduebalance}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${IND_INFO.certid}",
+						"${IND_INFO.certtype}",
+						"${IND_INFO.fullname}"
+					]
+				}
+			},
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BUSINESS_APPLY.policyno}",
+						"${BUSINESS_BELONG.unitcode}"
+					]
+				}
+			},
+			{
+				"alias": "prp_no",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"${BUSINESS_APPLY.policyno}",
+						"${BUSINESS_BELONG.unitcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5_cust_id}",
+			"${cust_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0017.ACCT_LOAN",
+			"alias": "ACCT_LOAN"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0017.BUSINESS_APPLY",
+				"relationType": "left",
+				"alias": "BUSINESS_APPLY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${ACCT_LOAN.baserialno}",
+								"rightCondition": "${BUSINESS_APPLY.serialno}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0017.BUSINESS_BELONG",
+				"relationType": "left",
+				"alias": "BUSINESS_BELONG",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${ACCT_LOAN.baserialno}",
+								"rightCondition": "${BUSINESS_BELONG.serialno}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0017.IND_INFO",
+				"relationType": "left",
+				"alias": "IND_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${ACCT_LOAN.customerid}",
+								"rightCondition": "${IND_INFO.customerid}"
+							}
+						}
+					]
+				}
+			}
+		],
+	
+		"columnList": [
+		
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${prp_no}",
+				"dstColumnName": "prp_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.loanrate}",
+				"dstColumnName": "loan_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.repaymentmethod}",
+				"dstColumnName": "ret_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.pmtamount}",
+				"dstColumnName": "month_repay",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${balance}",
+				"dstColumnName": "balance",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.loanterm}",
+				"dstColumnName": "loan_term",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.putoutdate}",
+				"dstColumnName": "loan_start_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BUSINESS_APPLY.copobank}",
+				"dstColumnName": "loan_bank",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BUSINESS_APPLY.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BUSINESS_BELONG.unitcode}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.create_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ACCT_LOAN.update_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

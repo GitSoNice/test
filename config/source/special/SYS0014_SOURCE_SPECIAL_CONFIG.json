@@ -1,0 +1,33 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"sex"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			}
+		],
+		"tableName": "TBL_USER"
+	}
+]

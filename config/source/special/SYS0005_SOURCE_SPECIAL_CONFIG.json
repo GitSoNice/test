@@ -1,0 +1,55 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"policy_type",
+					"pg_flag",
+					"apply_cert",
+					"sell_channel",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"apply_cerc"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"apply_name"
+				]
+			}
+		],
+		"tableName": "T_PUBLIC_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"sex",
+					"health",
+					"industry_type",
+					"cret_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cret_code"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customer_name"
+				]
+			}
+		],
+		"tableName": "T_RYX_CUSTOMER"
+	}
+]

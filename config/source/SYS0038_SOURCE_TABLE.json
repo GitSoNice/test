@@ -1,0 +1,107 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "LABEL_FAMILY_EXT",
+        "rowkeyCols": [
+        	"family_no",
+            "rowid"
+        ],
+        "md5Cols": [
+            "family_no"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "family_no"
+                ],
+                "md5Cols": [
+                    "family_no"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "fa"
+                ],
+                "md5Cols": [
+                    "fa"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "ma"
+                ],
+                "md5Cols": [
+                    "ma"
+                ]
+            },
+            {
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "ch"
+                ],
+                "md5Cols": [
+                    "ch"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "LABEL_FAMILY_LISTEXT",
+        "rowkeyCols": [
+            "rowid"
+        ],
+        "md5Cols": [
+            "rowid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "family_no"
+                ],
+                "md5Cols": [
+                    "family_no"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "LABEL_CUSTINFO_EXT",
+        "rowkeyCols": [
+            "rowid"
+        ],
+        "md5Cols": [
+            "rowid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "prim_reg_no"
+                ],
+                "md5Cols": [
+                    "prim_reg_no"
+                ]
+            }
+        ]
+    }
+]

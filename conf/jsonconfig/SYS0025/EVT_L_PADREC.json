@@ -1,0 +1,137 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "EVT_L_PADREC",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "md5_policyno",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${PADREC.policyno}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${md5_policyno}",
+      "${PADREC.policyno}",
+      "${PADREC.padtime}",
+      "${PADREC.operdate}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.PADREC",
+      "alias": "PADREC"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PADREC.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PADREC.padtime}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PADREC.operdate}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${PADREC.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.padtime}",
+        "dstColumnName": "loan_term",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.operdate}",
+        "dstColumnName": "oper_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.padtime}",
+        "dstColumnName": "loan_term",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.preacct}",
+        "dstColumnName": "premium",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.stdrate}",
+        "dstColumnName": "std_addfee",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.unstdrate}",
+        "dstColumnName": "unstd_addfee",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.rate}",
+        "dstColumnName": "exept_pay_rate",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.amount}",
+        "dstColumnName": "sum_adv_payamt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PADREC.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

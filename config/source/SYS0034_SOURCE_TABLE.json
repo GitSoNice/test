@@ -1,0 +1,256 @@
+[
+	{
+		"tableName": "TACCOINFO",
+		"rowkeyCols": [
+			"vc_tradeacco"
+		],
+		"md5Cols": [
+			"vc_tradeacco"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"vc_custno"
+				],
+				"md5Cols": [
+					"vc_custno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TFUNDINFO",
+		"rowkeyCols": [
+			"vc_fundcode"
+		],
+		"md5Cols": [
+			"vc_fundcode"
+		]
+	},
+	{
+		"tableName": "TREQUEST",
+		"rowkeyCols": [
+			"vc_requestno"
+		],
+		"md5Cols": [
+			"vc_requestno"
+		]
+	},
+	{
+		"tableName": "TCONFIRM",
+		"rowkeyCols": [
+			"vc_confirmno",
+			"vc_tacode"
+		],
+		"md5Cols": [
+			"vc_confirmno",
+			"vc_tacode"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"vc_custno"
+				],
+				"md5Cols": [
+					"vc_custno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TCUSTINFO",
+		"rowkeyCols": [
+			"vc_custno"
+		],
+		"md5Cols": [
+			"vc_custno"
+		],
+		"persons": [
+			{
+				"nameCol": "vc_customname",
+				"certTypeCol": "c_identitytype",
+				"certNoCol": "vc_identityno",
+				"personType": "0301",
+				"srcCustId": {
+					"type": "00",
+					"idCols": [
+						"vc_custno"
+					]
+				},
+				"policyTable": [{
+					"sourceSystem": "SYS0034",
+					"tableName": "REL_PTY_CON",
+					"order": 1
+				}]
+			}
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"vc_custno"
+				],
+				"md5Cols": [
+					"vc_custno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TSTATICSHARE",
+		"rowkeyCols": [
+			"vc_fundacco",
+			"vc_fundcode",
+			"c_sharetype"
+		],
+		"md5Cols": [
+			"vc_fundacco",
+			"vc_fundcode",
+			"c_sharetype"
+		]
+	},
+	{
+		"tableName": "TACCOREQUEST",
+		"rowkeyCols": [
+			"vc_requestno"
+		],
+		"md5Cols": [
+			"vc_requestno"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"vc_custno"
+				],
+				"md5Cols": [
+					"vc_custno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TACCOCONFIRM",
+		"rowkeyCols": [
+			"vc_confirmno",
+			"vc_tacode"
+		],
+		"md5Cols": [
+			"vc_confirmno",
+			"vc_tacode"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"vc_tradeacco"
+				],
+				"md5Cols": [
+					"vc_tradeacco"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"vc_custno"
+				],
+				"md5Cols": [
+					"vc_custno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TFUNDMARKET",
+		"rowkeyCols": [
+			"vc_date",
+			"vc_fundcode"
+		],
+		"md5Cols": [
+			"vc_date",
+			"vc_fundcode"
+		]
+	},
+	{
+		"tableName": "TDYNAMICFUNDINFO",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TDICTIONARY",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TBUSINFLAG",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TCITY",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TCHILDCENTER",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TNETSTATION",
+		"rowkeyCols": [
+			"rowid"
+		],
+		"md5Cols": [
+			"rowid"
+		]
+	},
+	{
+		"tableName": "TBRANCH",
+		"rowkeyCols": [
+			"vc_branchcode"
+		],
+		"md5Cols": [
+			"vc_branchcode"
+		]
+	},
+	{
+		"tableName": "TERRORCODE",
+		"rowkeyCols": [
+			"vc_errorno",
+			"c_flag"
+		],
+		"md5Cols": [
+			"vc_errorno",
+			"c_flag"
+		]
+	}
+]

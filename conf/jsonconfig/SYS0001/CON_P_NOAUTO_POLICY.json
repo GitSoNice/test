@@ -1,0 +1,219 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "CON_P_NOAUTO_POLICY",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${TBL_PLCINFO.policyno}",
+                        "${TBL_PLCINFO.fgsdm}"
+                    ]
+                }
+            },
+            {
+                "alias": "policyno_grp",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${TBL_PLCINFO.sftd}",
+                        "1",
+                        "${TBL_PLCINFO.policyno}",
+                        ""
+                    ]
+                }
+            },
+            {
+                "alias": "subclasscode",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${TBL_PLCINFO.cpdm}",
+                        "0",
+                        "8"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PLCINFO",
+            "alias": "TBL_PLCINFO"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.policyno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.fgsdm}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.fgsdm}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.sftd}",
+                "dstColumnName": "is_grp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${policyno_grp}",
+                "dstColumnName": "policyno_grp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbdh}",
+                "dstColumnName": "appno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${subclasscode}",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.cpdm}",
+                "dstColumnName": "prodcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrxm}",
+                "dstColumnName": "app_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjlx}",
+                "dstColumnName": "app_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjhm}",
+                "dstColumnName": "app_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.bdzt}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zyfs}",
+                "dstColumnName": "saleattr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbf}",
+                "dstColumnName": "tot_prem",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.yxbe}",
+                "dstColumnName": "totamt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrq}",
+                "dstColumnName": "issue_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.qdrq}",
+                "dstColumnName": "app_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.qbsj}",
+                "dstColumnName": "inception_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbsj}",
+                "dstColumnName": "planned_end_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.dlrdm}",
+                "dstColumnName": "agtcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.cdddm}",
+                "dstColumnName": "offer_comp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zhxgrq}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

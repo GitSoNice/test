@@ -1,0 +1,506 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "REL_PTY_PRP",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${POLICY.applicantidnumber}",
+                        "${POLICY.applicantidtype}",
+                        "${POLICY.applicant}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+      
+            {
+                "alias": "prp_no",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${prp_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.MAX_POLICY",
+            "alias": "POLICY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${POLICY.currentflag}",
+                        "rightCondition": "Y"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${prp_no}",
+                "dstColumnName": "prp_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "7",
+                "dstColumnName": "prptype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "REL_PTY_PRP",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                       "${POLICY.insuredidnumber}",
+                        "${POLICY.insuredidtype}",
+                        "${POLICY.insured}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+                  {
+                "alias": "prp_no",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${prp_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.MAX_POLICY",
+            "alias": "POLICY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${POLICY.currentflag}",
+                        "rightCondition": "Y"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${prp_no}",
+                "dstColumnName": "prp_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "7",
+                "dstColumnName": "prptype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "REL_PTY_PRP",
+        "order": "3",
+        "combinationMap": [
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0003_POLICY*||*01*||*POLICYNO*||*BRANCHCODE*||*",
+                        "${POLICY.policyno}",
+                        "*||*",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${POLICY.applicantidnumber}",
+                        "${POLICY.applicantidtype}",
+                        "${POLICY.applicant}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+      
+         {
+                "alias": "prp_no",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+          } 
+          ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${prp_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.MAX_POLICY",
+            "alias": "POLICY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${POLICY.currentflag}",
+                        "rightCondition": "Y"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${prp_no}",
+                "dstColumnName": "prp_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "7",
+                "dstColumnName": "prptype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "REL_PTY_PRP",
+        "order": "4",
+        "combinationMap": [
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+                        "${POLICY.policyno}",
+                        "*||*",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${POLICY.insuredidnumber}",
+                        "${POLICY.insuredidtype}",
+                        "${POLICY.insured}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+     {
+                "alias": "prp_no",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+          }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${prp_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.MAX_POLICY",
+            "alias": "POLICY"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${POLICY.currentflag}",
+                        "rightCondition": "Y"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${prp_no}",
+                "dstColumnName": "prp_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "7",
+                "dstColumnName": "prptype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${POLICY.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

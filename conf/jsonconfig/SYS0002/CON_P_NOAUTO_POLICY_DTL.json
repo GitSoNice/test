@@ -1,0 +1,245 @@
+[
+	{
+		"sourceSystem": "SYS0002",
+		"targetTableName": "CON_P_NOAUTO_POLICY_DTL",
+		"order": "1",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0002.P_PUBLIC_FEE_LIST",
+			"alias": "LIST1",
+			"exceptAlias":["POLICY"]
+		},
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${POLICY.policyno}",
+						"${POLICY.unitcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${LIST.itemcode}",
+			"${LIST.currencycode}"
+		],
+		"relations": [
+		{
+				"sourceTableName": "SYS0002.P_PUBLIC_FEE_LIST",
+				"alias": "LIST",
+				"relationType": "inner",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.unitcode}",
+								"rightCondition": "${LIST1.unitcode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.applyno}",
+								"rightCondition": "${LIST1.applyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.applyendorseno}",
+								"rightCondition": "${LIST1.applyendorseno}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0002.P_PUBLIC_POLICY",
+				"alias": "POLICY",
+				"relationType": "inner",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.unitcode}",
+								"rightCondition": "${POLICY.unitcode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.applyno}",
+								"rightCondition": "${POLICY.applyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LIST.applyendorseno}",
+								"rightCondition": "${POLICY.applyendorseno}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.unitcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${LIST.itemcode}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${LIST.currencycode}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LIST.itemcode}",
+				"dstColumnName": "sub_classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LIST.currencycode}",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "sum",
+					"handleType": "group",
+					"dataType": "Number",
+					"pointNum": 2,
+					"formatter": "",
+					"parameters": [
+						"${LIST.premiumchange}"
+					]
+				},
+				"dstColumnName": "premium",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "sum",
+					"handleType": "group",
+					"dataType": "Number",
+					"pointNum": 2,
+					"formatter": "",
+					"parameters": [
+						"${LIST.amountchange}"
+					]
+				},
+				"dstColumnName": "amt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${POLICY.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${POLICY.unitcode}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

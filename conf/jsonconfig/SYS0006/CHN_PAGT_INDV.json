@@ -1,0 +1,274 @@
+[
+    {
+        "sourceSystem": "SYS0006",
+        "targetTableName": "CHN_PAGT_INDV",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0006.CHPERSONALAGENT",
+            "alias": "CHPERSONALAGENT"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5agtcode",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CHPERSONALAGENT.agentserialno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5agtcode}",
+			"${CHPERSONALAGENT.agentserialno}",
+			"${CHPERSONALAGENT.personalserialno}"
+		],       
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHPERSONALAGENT.agentserialno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHPERSONALAGENT.personalserialno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${CHPERSONALAGENT.agentserialno}",
+                "dstColumnName": "agt_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.personalserialno}",
+                "dstColumnName": "agt_indv_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.certificateno}",
+                "dstColumnName": "agt_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.salescerificateno}",
+                "dstColumnName": "sell_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.status}",
+                "dstColumnName": "agt_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.orgcode}",
+                "dstColumnName": "orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.name}",
+                "dstColumnName": "name",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.personcode}",
+                "dstColumnName": "agtcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.gender}",
+                "dstColumnName": "gender",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.birthday}",
+                "dstColumnName": "birth_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.cardtype}",
+                "dstColumnName": "cert_type",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.cardno}",
+                "dstColumnName": "cert_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.marriage}",
+                "dstColumnName": "marriage",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.nationality}",
+                "dstColumnName": "nation",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.family}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.national}",
+                "dstColumnName": "ethnic",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.ispublished}",
+                "dstColumnName": "is_punish",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.iscertificate}",
+                "dstColumnName": "is_lics",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.isbizlicense}",
+                "dstColumnName": "is_biz_lics_coll",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.isorgcode}",
+                "dstColumnName": "is_orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.createdate}",
+                "dstColumnName": "create_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.updatedate}",
+                "dstColumnName": "upd_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.salescerificatenostartdate}",
+                "dstColumnName": "beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.salescerificatenoenddate}",
+                "dstColumnName": "end_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.certificatestartdate}",
+                "dstColumnName": "sale_beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.certificateenddate}",
+                "dstColumnName": "sale_end_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.educational}",
+                "dstColumnName": "edu",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.certificatetype}",
+                "dstColumnName": "sale_cert_type",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.salescerificatetype}",
+                "dstColumnName": "saleattr_type",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.incomemoth}",
+                "dstColumnName": "m_income",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.entrydate}",
+                "dstColumnName": "work_beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.ifinsurance}",
+                "dstColumnName": "is_fulltime_sale",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.socialsecurity}",
+                "dstColumnName": "social_secu_situ",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHPERSONALAGENT.fromjob}",
+                "dstColumnName": "agt_src",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHPERSONALAGENT.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

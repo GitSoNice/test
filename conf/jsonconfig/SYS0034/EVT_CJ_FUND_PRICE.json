@@ -1,0 +1,131 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_FUND_PRICE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5fundcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TFUNDMARKET.vc_fundcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5fundcode}",
+			"${TFUNDMARKET.vc_fundcode}",
+			"${TFUNDMARKET.vc_date}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TFUNDMARKET",
+			"alias": "TFUNDMARKET"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${TFUNDMARKET.vc_date}",
+				"dstColumnName": "dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.vc_fundcode}",
+				"dstColumnName": "fundcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.vc_fundname}",
+				"dstColumnName": "fund_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_nav}",
+				"dstColumnName": "ytd_unit_net",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_totalshare}",
+				"dstColumnName": "ytd_tot_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_state}",
+				"dstColumnName": "today_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_facevalue}",
+				"dstColumnName": "val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_moneytype}",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_fundincomeratio}",
+				"dstColumnName": "fund_prft_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_fundincomeunit}",
+				"dstColumnName": "fund_prft_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.vc_navdate}",
+				"dstColumnName": "net_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.en_totalnav}",
+				"dstColumnName": "sum_unit_net",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_publishflag}",
+				"dstColumnName": "publishflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_fundincomeflag}",
+				"dstColumnName": "fund_prftflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_yieldflag}",
+				"dstColumnName": "prft_rateflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TFUNDMARKET.c_fundnavtype}",
+				"dstColumnName": "nettype",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

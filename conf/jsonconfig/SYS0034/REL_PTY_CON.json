@@ -1,0 +1,162 @@
+[
+    {
+        "sourceSystem":"SYS0034",
+        "targetTableName":"REL_PTY_CON",
+        "order":"1",
+        "combinationMap":[
+        	{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${TCUSTINFO.vc_identityno}",
+                        "${TCUSTINFO.c_identitytype}",
+                        "${TCUSTINFO.vc_customname}",
+                        "${src_cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5Cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"agmt_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${TACCOINFO.vc_tradeacco}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5Cust_id}",
+            "${cust_id}",
+            "$${PAYPERSON}",
+            "${agmt_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0034.TACCOINFO",
+            "alias":"TACCOINFO"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0034.TCUSTINFO",
+				"relationType": "inner",
+				"alias": "TCUSTINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TACCOINFO.vc_custno}",
+								"rightCondition": "${TCUSTINFO.vc_custno}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "where":{
+ 			 "operatorSymbol":"and",
+	          "conditionList":[
+	                {
+	                    "conditionType":"simple",
+	                    "conditionContext":{
+	                        "expression":{
+	                            "expressionType":"=",
+	                            "dataType":"String",
+	                            "formatter":""
+	                        },
+	                        "leftCondition":"${TACCOINFO.c_custtype}",
+	                        "rightCondition":"1"
+	                    }
+	                }
+		      ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"$${PAYPERSON}",
+                "dstColumnName":"cust_rel",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${agmt_id}",
+                "dstColumnName":"agmt_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"$${PENSIONFINANCIAL}",
+                "dstColumnName":"contype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${TACCOINFO.vc_tradeacco}",
+                "dstColumnName":"con_no",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"#",
+                "dstColumnName":"branchcode",
+                "validate":"",
+                "priority":""
+            }
+        ],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+    }
+]

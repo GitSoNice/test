@@ -1,0 +1,103 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "PTY_INDV_SUB",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TCUSTINFO",
+			"alias": "TCUSTINFO"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TCUSTINFO.c_custtype}",
+						"rightCondition": "1"
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TCUSTINFO.c_marriage}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.c_marriage}",
+				"dstColumnName": "marriage",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${src_cust_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.vc_lastdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

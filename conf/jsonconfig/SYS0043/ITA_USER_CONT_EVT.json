@@ -1,0 +1,596 @@
+[
+    {
+        "sourceSystem":"SYS0043",
+        "targetTableName":"ITA_USER_CONT_EVT",
+        "order":"1",
+        "combinationMap":[
+        	{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                    	"SYS0044",
+                    	"|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cont_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "${user_id}",
+                        "22",
+                        "${SHENCE_EVENTS_CJYLGW.time}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${cont_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0043.SHENCE_EVENTS_CJYLGW",
+            "alias":"SHENCE_EVENTS_CJYLGW"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO.mobile}",
+								"rightCondition": "${SHENCE_EVENTS_CJYLGW.distinct_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${cont_id}",
+                "dstColumnName":"cont_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"0",
+                "dstColumnName":"cont_from",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"C03",
+                "dstColumnName":"cont_chn",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"22",
+                "dstColumnName":"cont_point",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_CJYLGW.time}",
+                "dstColumnName":"cont_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_CJYLGW.$ip}",
+                "dstColumnName":"ip_addr",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem":"SYS0043",
+        "targetTableName":"ITA_USER_CONT_EVT",
+        "order":"2",
+        "combinationMap":[
+        	{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                    	"SYS0044",
+                    	"|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cont_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "${user_id}",
+                        "20",
+                        "${SHENCE_EVENTS_JKXAPP.time}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${cont_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0043.SHENCE_EVENTS_JKXAPP",
+            "alias":"SHENCE_EVENTS_JKXAPP"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO.mobile}",
+								"rightCondition": "${SHENCE_EVENTS_JKXAPP.distinct_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${cont_id}",
+                "dstColumnName":"cont_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"0",
+                "dstColumnName":"cont_from",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"C04",
+                "dstColumnName":"cont_chn",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"20",
+                "dstColumnName":"cont_point",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_JKXAPP.time}",
+                "dstColumnName":"cont_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_JKXAPP.event_duration}",
+                "dstColumnName":"cont_period",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_JKXAPP.$ip}",
+                "dstColumnName":"ip_addr",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem":"SYS0043",
+        "targetTableName":"ITA_USER_CONT_EVT",
+        "order":"3",
+        "combinationMap":[
+        	{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                    	"SYS0044",
+                    	"|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cont_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "${user_id}",
+                        "21",
+                        "${SHENCE_EVENTS_BXX.time}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${cont_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0043.SHENCE_EVENTS_BXX",
+            "alias":"SHENCE_EVENTS_BXX"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO.mobile}",
+								"rightCondition": "${SHENCE_EVENTS_BXX.distinct_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${cont_id}",
+                "dstColumnName":"cont_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"0",
+                "dstColumnName":"cont_from",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"C04",
+                "dstColumnName":"cont_chn",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"21",
+                "dstColumnName":"cont_point",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_BXX.time}",
+                "dstColumnName":"cont_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_BXX.event_duration}",
+                "dstColumnName":"cont_period",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_BXX.$ip}",
+                "dstColumnName":"ip_addr",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem":"SYS0043",
+        "targetTableName":"ITA_USER_CONT_EVT",
+        "order":"4",
+        "combinationMap":[
+        	{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                    	"SYS0044",
+                    	"|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cont_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "${user_id}",
+                        "18",
+                        "${SHENCE_EVENTS_SUPERAPP.time}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${cont_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0043.SHENCE_EVENTS_SUPERAPP",
+            "alias":"SHENCE_EVENTS_SUPERAPP"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO.mobile}",
+								"rightCondition": "${SHENCE_EVENTS_SUPERAPP.distinct_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${cont_id}",
+                "dstColumnName":"cont_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"0",
+                "dstColumnName":"cont_from",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"C04",
+                "dstColumnName":"cont_chn",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"18",
+                "dstColumnName":"cont_point",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SUPERAPP.time}",
+                "dstColumnName":"cont_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SUPERAPP.event_duration}",
+                "dstColumnName":"cont_period",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SUPERAPP.$ip}",
+                "dstColumnName":"ip_addr",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem":"SYS0043",
+        "targetTableName":"ITA_USER_CONT_EVT",
+        "order":"5",
+        "combinationMap":[
+        	{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                    	"SYS0044",
+                    	"|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"cont_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "${user_id}",
+                        "15",
+                        "${SHENCE_EVENTS_SXAPP.time}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${cont_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0043.SHENCE_EVENTS_SXAPP",
+            "alias":"SHENCE_EVENTS_SXAPP"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO.mobile}",
+								"rightCondition": "${SHENCE_EVENTS_SXAPP.distinct_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${cont_id}",
+                "dstColumnName":"cont_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"0",
+                "dstColumnName":"cont_from",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"C04",
+                "dstColumnName":"cont_chn",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"15",
+                "dstColumnName":"cont_point",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SXAPP.time}",
+                "dstColumnName":"cont_dt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SXAPP.event_duration}",
+                "dstColumnName":"cont_period",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${SHENCE_EVENTS_SXAPP.$ip}",
+                "dstColumnName":"ip_addr",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

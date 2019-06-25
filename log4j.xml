@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- xml声明和DTD声明 -->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">       
+         
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >       
+      <!-- 控制台 -->    
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    	<param name="threshold" value="DEBUG"/>
+		<param name="Target" value="System.out"/>        
+        <layout class="org.apache.log4j.PatternLayout">       
+            <param name="ConversionPattern" 
+                value="%d [%-5p] [%c] - %m %rms %n" />       
+        </layout>       
+        <!--过滤器设置输出的级别-->       
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">       
+            <param name="levelMin" value="DEBUG" />       
+            <param name="levelMax" value="ERROR" />       
+            <param name="AcceptOnMatch" value="true" />       
+        </filter>       
+    </appender>       
+      
+    <appender name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+    	<param name="Threshold" value="DEBUG"></param>    <!-- 日志消息的输出最低层次 --> 
+    	<param name="append" value="true"/>  
+        <param name="File" value="../logs/realtime.log" />         
+        <param name="DatePattern" value="yyyyMMdd-HH'.log'" />         
+        <layout class="org.apache.log4j.PatternLayout">       
+         <param name="ConversionPattern"         
+            value="%d [%-5p] [%c] - %m %rms %n" />       
+        </layout>         
+    </appender> 
+    
+          
+   <!--  指定logger的设置，additivity指示是否遵循缺省的继承机制 -->      
+<!--     <logger name="org.apache" additivity="false">        -->
+<!--         <priority value ="DEBUG"/>          -->
+<!--         <appender-ref ref="dailyRollingFile" />          -->
+<!--     </logger>  -->
+    <logger name="org" additivity="true"> 
+    	 <level value="ERROR" /> 
+    	 <appender-ref ref="console"/>  
+   </logger> 
+   
+    <logger name="com.cpic.realtime" additivity="true"> 
+    	 <level value="info" /> 
+    	 <appender-ref ref="console"/>  
+   </logger> 
+   
+    <logger name="kafka" additivity="true"> 
+    	 <level value="ERROR" /> 
+    	 <appender-ref ref="console"/>  
+   </logger> 
+   
+   <logger name="com.cpic.realtime.util" additivity="true"> 
+    	 <level value="ERROR" /> 
+    	 <appender-ref ref="console"/>  
+   </logger> 
+   
+   <logger name="com.cpic.realtime.util.sparkstreaming" additivity="true"> 
+    	 <level value="ERROR" /> 
+    	 <appender-ref ref="console"/>  
+   </logger>
+    
+  
+    <!-- 根logger的设置-->       
+    <root>       
+        <priority value ="INFO"/>       
+        <appender-ref ref="console"/>       
+        <appender-ref ref="dailyRollingFile"/>         
+    </root>       
+</log4j:configuration>  

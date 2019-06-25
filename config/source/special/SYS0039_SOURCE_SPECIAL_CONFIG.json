@@ -1,0 +1,197 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"sqname",
+					"selcode",
+					"other",
+					"flag",
+					"sex",
+					"tell",
+					"certify",
+					"codeattr",
+					"docname",
+					"menu"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"UTIME",
+					[
+						"yyyyMMdd",
+						"yyyy/MM/dd HH:mm:ss"
+					],
+					[
+						"^\\d+\\D*$",
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"UPDTIME",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "BASEINFRO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"verstatn"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"pname"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"AUDDATE",
+					[
+						"yyyy/MM/dd",
+						"yyyy/MM/dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\D*$",
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"DELAYDAY",
+					[
+						"yyyyMMdd",
+						"yyyy年MM月"
+					],
+					[
+						"^\\d+\\D*$",
+						"^(\\d{4})年(\\d{1,2})月(\\D*)$"
+					],
+					"UPDTIME",
+					[
+						"yyyy/MM/dd HH:mm:ss",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"UTIME",
+					[
+						"yyyy/MM/dd HH:mm:ss"
+		
+					],
+					[
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"OPDATE",
+					"VERDATE"
+				]
+			}
+		],
+		"tableName": "FINALAUD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			}
+		],
+		"tableName": "PREAUD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CONCISNO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PTCAMT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "VERSTATN"
+	}
+]

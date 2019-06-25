@@ -1,0 +1,143 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "CON_P_AUTO_POLIC_SPEC",
+        "order": "1",
+        "combinationMap": [
+        
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${POLICY.policyno}",
+                        "${POLICY.branchcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}",
+            "${SPECIALTERMITEM.serialno}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.SPECIALTERMITEM",
+            "alias": "SPECIALTERMITEM"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0003.MAX_POLICY",
+                "relationType": "inner",
+                "alias": "POLICY",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${SPECIALTERMITEM.topactualid}",
+                                "rightCondition": "${POLICY.actualid}"
+                            }
+                        }
+                    ]
+                },
+                "filter": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "<>",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${POLICY.policyno}",
+                                "rightCondition": ""
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "<>",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${POLICY.branchcode}",
+                                "rightCondition": ""
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${POLICY.currentflag}",
+                                "rightCondition": "Y"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${SPECIALTERMITEM.serialno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${SPECIALTERMITEM.serialno}",
+                "dstColumnName": "spec_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${SPECIALTERMITEM.specialtermtext}",
+                "dstColumnName": "spec_appoint",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${SPECIALTERMITEM.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${SPECIALTERMITEM.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

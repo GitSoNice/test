@@ -1,0 +1,187 @@
+[
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_BANKACCT",
+        "order": "1",
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_RYX_CUSTOMER.cret_code}",
+                        "${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5AccCust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5AccCust_id}",
+            "${cust_id}",
+            "SYS0030",
+            "${T_RYX_CUSTOMER.account}"
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.account}",
+                "dstColumnName": "bank_acct",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.account_bank}",
+                "dstColumnName": "bank_name",
+                "validate": "",
+                "priority": ""
+            },
+          
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_BANKACCT",
+        "order": "2",
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "combinationMap": [
+            {
+                "alias": "src_cust_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0030_T_RYX_CUSTOMER*||*00*||*CUSTOMER_ID*||*",
+                        "${T_RYX_CUSTOMER.customer_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_RYX_CUSTOMER.cret_code}",
+                        "${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}",
+                        "${src_cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5AccCust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5AccCust_id}",
+            "${cust_id}",
+            "SYS0030",
+            "${T_RYX_CUSTOMER.account}"
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.account}",
+                "dstColumnName": "bank_acct",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.account_bank}",
+                "dstColumnName": "bank_name",
+                "validate": "",
+                "priority": ""
+            },
+          
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

@@ -1,0 +1,281 @@
+[
+    {
+        "sourceSystem": "SYS0006",
+        "targetTableName": "CHN_PAGT",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0006.CHAGENTBASE",
+            "alias": "CHAGENTBASE"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5agtcode",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CHAGENTBASE.agentcode}"
+                    ]
+                }
+            }
+        ],"indexTables": [
+            {
+                "tableName": "IDX_CHN_PAGT",
+                "keyCols": [
+                    "agtcode","agt_seq"
+                ],
+                "md5Cols": [
+                    "agtcode"
+                ],
+                "cols": [
+                    "pbkid","bkid","rowlock","agt_seq","agtcode","stl_beg_tm","beg_tm"
+                ]
+            }
+        ],
+        "rowKey":[
+			"${md5agtcode}",
+			"${CHAGENTBASE.agentcode}",
+			"${CHAGENTBASE.agentserialno}"
+		],       
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHAGENTBASE.agentserialno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHAGENTBASE.agentcode}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${CHAGENTBASE.agentserialno}",
+                "dstColumnName": "agt_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.agentcode}",
+                "dstColumnName": "agtcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.agentname}",
+                "dstColumnName": "agt_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.branchcode}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.onechncode}",
+                "dstColumnName": "chncode1",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.twochncode}",
+                "dstColumnName": "chncode2",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.thirdchncode}",
+                "dstColumnName": "chncode3",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.fourchnappendcode}",
+                "dstColumnName": "chncode4",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.fivechnappendcode}",
+                "dstColumnName": "chncode5",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.sixchnappendcode}",
+                "dstColumnName": "chncode6",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.sevenchnappendcode}",
+                "dstColumnName": "chncode7",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.bankpayno}",
+                "dstColumnName": "bank_acct",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.managercode}",
+                "dstColumnName": "handler_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.agentclasses}",
+                "dstColumnName": "agt_lvl",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.managestartdate}",
+                "dstColumnName": "con_beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.manageenddate}",
+                "dstColumnName": "con_end_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.status}",
+                "dstColumnName": "agt_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.flag}",
+                "dstColumnName": "flg",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.balancingcycle}",
+                "dstColumnName": "stl_period",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.balancingdate}",
+                "dstColumnName": "stl_beg_tm",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.createdate}",
+                "dstColumnName": "create_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.updatedate}",
+                "dstColumnName": "upd_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.channelcode}",
+                "dstColumnName": "chncode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.channelname}",
+                "dstColumnName": "chn_name",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.channellevel}",
+                "dstColumnName": "chn_lvl",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.notemessage}",
+                "dstColumnName": "note",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.agenttype}",
+                "dstColumnName": "agt_type",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.oldagentcode}",
+                "dstColumnName": "ori_agtcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.uniquecode}",
+                "dstColumnName": "orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.sendstatus}",
+                "dstColumnName": "send_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.isautomatictrial}",
+                "dstColumnName": "is_auto_trial",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.canprepayed}",
+                "dstColumnName": "is_plus_cheque",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHAGENTBASE.taxpayertype}",
+                "dstColumnName": "taxpayer_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHAGENTBASE.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

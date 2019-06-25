@@ -1,0 +1,260 @@
+[
+	{
+		"sourceSystem": "SYS0020",
+		"targetTableName": "PTY_CERT_SOURCE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${TBL_USER.pid}",
+						"${TBL_USER.cardtype}",
+						"${TBL_USER.user_name}"
+					]
+				}
+			},
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+	            "alias":"src_cust_id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	               	  "EX_SYS0020_TBL_USER*||*00*||*ID*||*",
+	                   "${TBL_USER.id}"
+	                ]
+	            }
+	        },
+			{
+				"alias": "sub_md5_cust_id",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_cust_id}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${cust_id}",
+			"${cust_id}",
+			"${TBL_USER.cardtype}",
+			"${TBL_USER.pid}",
+			"${src_cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0020.TBL_USER",
+			"alias": "TBL_USER"
+		},
+		"where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            
+            ]
+        },
+		"columnList": [
+			
+			{
+				"srcColumnName": "SYS0020||PTY_CERT",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.cardtype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.pid}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.create_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.update_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			 {
+	            "srcColumnName":"${src_cust_id}",
+	            "dstColumnName":"src_cust_id",
+	            "validate":"",
+	            "priority":""
+	        }
+		]
+	},
+	{
+		"sourceSystem": "SYS0020",
+		"targetTableName": "PTY_CERT_SOURCE",
+		"order": "2",
+		"combinationMap": [
+		{
+	            "alias":"src_cust_id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	               	  "EX_SYS0020_TBL_USER*||*00*||*ID*||*",
+	                   "${TBL_USER.id}"
+	                ]
+	            }
+	        },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgTmpHandler",
+					"parameters": [
+						"${TBL_USER.pid}",
+						"${TBL_USER.cardtype}",
+						"${TBL_USER.user_name}",
+						"${src_cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_cust_id",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_cust_id}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5_cust_id}",
+			"${cust_id}",
+			"${src_cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0020.TBL_USER",
+			"alias": "TBL_USER"
+		},
+		"relations": [],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TBL_USER.pid}",
+						"rightCondition": ""
+					}
+				},
+				{
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "SYS0020||PTY_CERT",
+				"dstColumnName": "bkid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.cardtype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.pid}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.create_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER.update_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			 {
+	            "srcColumnName":"${src_cust_id}",
+	            "dstColumnName":"src_cust_id",
+	            "validate":"",
+	            "priority":""
+	        }
+		]
+	}
+]

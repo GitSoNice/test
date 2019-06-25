@@ -1,0 +1,107 @@
+[
+	{
+		"sourceSystem": "SYS0044",
+		"targetTableName": "PTY_TEL_FLG",
+		"order": "1",
+		"combinationMap": [
+			{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_VERIFY_OPERATOR_ACTION2.cardno}",
+                        "${T_VERIFY_OPERATOR_ACTION2.cardtype}",
+                        "${T_VERIFY_OPERATOR_ACTION2.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5CustId",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+		],
+		"rowKey": [
+			"${md5CustId}",
+        	"${cust_id}",
+        	"SYS0044",
+        	"3",
+        	"${T_VERIFY_OPERATOR_ACTION2.mobile}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0044.T_VERIFY_OPERATOR_ACTION2",
+			"alias": "T_VERIFY_OPERATOR_ACTION2"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_VERIFY_OPERATOR_ACTION2.mobile}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.mobile}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.action_type}",
+				"dstColumnName": "verify_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.result}",
+				"dstColumnName": "verify_status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.action_date}",
+				"dstColumnName": "verify_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.action_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_OPERATOR_ACTION2.lastupd_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

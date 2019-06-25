@@ -1,0 +1,1025 @@
+[
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_1}"
+			 				] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.mobile",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.mobile}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_APPLICANT.mobile}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_3}"
+			 				] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.telephone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_3}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "3",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.insurant_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_1}"
+			 				] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.mobile",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.mobile}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_INSURANT.mobile}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "4",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.insurant_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_3}"
+			 				] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.telephone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_3}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+           	 	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_INSURANT.telephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "5",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_APPLICANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_APPLICANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_1}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.mobile",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	 {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.mobile}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_APPLICANT.mobile}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "6",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_APPLICANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_APPLICANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_3}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.telephone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	 {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_3}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_APPLICANT.telephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+     {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "7",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_INSURANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_INSURANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.insurant_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_1}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.mobile",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	 {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_1}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.mobile}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            "srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_INSURANT.mobile}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_TEL",
+        "order": "8",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_INSURANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_INSURANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.insurant_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${TELTYPE_3}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.telephone",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	 {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${TELTYPE_3}",
+                "dstColumnName": "teltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.telephone}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_TEL",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"telFlg",
+	                "parameters":
+	                [	                    
+	                    "${T_LIABILITY_INSURANT.telephone}"
+	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+]

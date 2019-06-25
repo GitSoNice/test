@@ -1,0 +1,283 @@
+[
+    {
+        "sourceSystem": "SYS0015",
+        "targetTableName": "PTY_ADDR",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${M_USER.id_number}",
+                        "${M_USER.id_type}",
+                        "${M_USER.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0015}",
+			       	"$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0015.M_USER",
+            "alias": "M_USER"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"cust_id",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${M_USER.address}",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.province_code}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.city_code}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.zip}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.create_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.modify_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${M_USER.address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0015",
+        "targetTableName": "PTY_ADDR",
+        "order": "2",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0015_M_USER*||*00*||*ID*||*",
+		                   "${M_USER.id}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${M_USER.id_number}",
+                        "${M_USER.id_type}",
+                        "${M_USER.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0015}",
+			        "$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0015.M_USER",
+            "alias": "M_USER"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${M_USER.address}",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	{
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.province_code}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.city_code}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.zip}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.create_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.modify_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${M_USER.address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+]

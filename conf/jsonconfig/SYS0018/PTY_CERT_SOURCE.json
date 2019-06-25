@@ -1,0 +1,109 @@
+[
+	{
+		"sourceSystem": "SYS0018",
+		"targetTableName": "PTY_CERT_SOURCE",
+		"order": "1",
+		"combinationMap": [
+			{
+	            "alias":"src_cust_id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	               	  "EX_SYS0018_T_USER_INFO*||*00*||*ID*||*",
+	                   "${T_USER_INFO.id}"
+	                ]
+	            }
+	        },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${T_USER_INFO.id_number}",
+						"${T_USER_INFO.id_type}",
+						"${T_USER_INFO.user_name}",
+						"${src_cust_id}"
+					]
+				}
+			},
+			
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5_cust_id}",
+			"${cust_id}",
+			"${T_USER_INFO.id_type}",
+			"${T_USER_INFO.id_number}",
+			"${src_cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0018.T_USER_INFO",
+			"alias": "T_USER_INFO"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_USER_INFO.id_number}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_USER_INFO.id_type}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_USER_INFO.id_number}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_USER_INFO.create_time}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_USER_INFO.last_modify_time}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			 {
+	            "srcColumnName":"${src_cust_id}",
+	            "dstColumnName":"src_cust_id",
+	            "validate":"",
+	            "priority":""
+	        }
+		]
+	}
+]

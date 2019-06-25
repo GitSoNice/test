@@ -1,0 +1,538 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "CON_CJATY_PROD",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Annuity_plan_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGNJJH.zgnjjh_njjhbh}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Annuity_plan_no}",
+			"${ZGNJJH.zgnjjh_njjhbh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGNJJH",
+			"alias": "ZGNJJH"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_njjhbh}",
+				"dstColumnName": "annuity_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_njjhmc}",
+				"dstColumnName": "annuity_plan_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_processinstid}",
+				"dstColumnName": "procinst_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sqly}",
+				"dstColumnName": "appl_src",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ywdm}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_njjhlx}",
+				"dstColumnName": "annuity_plan_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_wbbh}",
+				"dstColumnName": "ext_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_jhlb}",
+				"dstColumnName": "plan_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_badjh}",
+				"dstColumnName": "rgst_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_badjrq}",
+				"dstColumnName": "rgst_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sxrq}",
+				"dstColumnName": "effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zzrq}",
+				"dstColumnName": "end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_jfqrsx}",
+				"dstColumnName": "pay_cfm_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_strbh}",
+				"dstColumnName": "entre_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_strmc}",
+				"dstColumnName": "entre_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_lxr_st}",
+				"dstColumnName": "cont_entre",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dh_st}",
+				"dstColumnName": "comptell_entre",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cz_st}",
+				"dstColumnName": "fax_entre",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sj_st}",
+				"dstColumnName": "phone_entre",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_email_st}",
+				"dstColumnName": "email_entre",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgrbh}",
+				"dstColumnName": "tres_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgrmc}",
+				"dstColumnName": "tres_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_lxr_tg}",
+				"dstColumnName": "cont_tres",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dh_tg}",
+				"dstColumnName": "comptell_tres",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cz_tg}",
+				"dstColumnName": "fax_tres",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sj_tg}",
+				"dstColumnName": "phone_tres",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_email_tg}",
+				"dstColumnName": "email_tres",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgrbh2}",
+				"dstColumnName": "tres_no2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgrmc2}",
+				"dstColumnName": "tres_name2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_lxr_tg2}",
+				"dstColumnName": "cont_tres2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dh_tg2}",
+				"dstColumnName": "comptell_tres2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cz_tg2}",
+				"dstColumnName": "fax_tres2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sj_tg2}",
+				"dstColumnName": "phone_tres2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_email_tg2}",
+				"dstColumnName": "email_tres2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zgrbh}",
+				"dstColumnName": "acct_mang_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zgrmc}",
+				"dstColumnName": "acct_mang_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_lxr_zg}",
+				"dstColumnName": "cont_acct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dh_zg}",
+				"dstColumnName": "comptell_acct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cz_zg}",
+				"dstColumnName": "fax_acct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sj_zg}",
+				"dstColumnName": "phone_acct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_email_zg}",
+				"dstColumnName": "email_acct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgzhmc}",
+				"dstColumnName": "tres_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgyh}",
+				"dstColumnName": "tres_bank",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_gzzq}",
+				"dstColumnName": "arm_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgyhzh}",
+				"dstColumnName": "tre_bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_jhzt}",
+				"dstColumnName": "plan_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ylzt1}",
+				"dstColumnName": "reser_st1",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ylzt2}",
+				"dstColumnName": "reser_st2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ylzt3}",
+				"dstColumnName": "reser_st3",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ylzt4}",
+				"dstColumnName": "reser_st4",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ylzt5}",
+				"dstColumnName": "reser_st5",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_note}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_yfsyl}",
+				"dstColumnName": "advns_yield1122",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zdr}",
+				"dstColumnName": "policy_maker",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zdrq}",
+				"dstColumnName": "policy_make_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zdjg}",
+				"dstColumnName": "policy_make_org",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_gxrq}",
+				"dstColumnName": "upd_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tgwd}",
+				"dstColumnName": "open_tres_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cplx}",
+				"dstColumnName": "prod_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_yxtzzh}",
+				"dstColumnName": "allow_invtrsfm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_mftzzhcs}",
+				"dstColumnName": "free_invtrsfm_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_tzzhcssx}",
+				"dstColumnName": "max_invtrsfm_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_njjhzb}",
+				"dstColumnName": "annuity_plan_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_cplx2}",
+				"dstColumnName": "prod_type2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dtxtzzhlx}",
+				"dstColumnName": "prep_retire_invtrsfm_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dtxtzzhzq}",
+				"dstColumnName": "prep_retire_invtrsfm_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dtxtzzhy}",
+				"dstColumnName": "prep_retire_invtrsfm_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_dtxtzzhr}",
+				"dstColumnName": "prep_retire_invtrsfm_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_ms}",
+				"dstColumnName": "run_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_fefqjx}",
+				"dstColumnName": "lot_interest",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_yclr}",
+				"dstColumnName": "pret_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_yclsj}",
+				"dstColumnName": "pret_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zczyfs}",
+				"dstColumnName": "prp_tsfr_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_xjgrjh}",
+				"dstColumnName": "is_new_indv_plan",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sdsjsfs}",
+				"dstColumnName": "taxamt_calcmode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zdyxtzkfq}",
+				"dstColumnName": "auto_contn_inv_opendt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sthhskg}",
+				"dstColumnName": "entre_adjacct_swch",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_sfhzdbbz}",
+				"dstColumnName": "is_sumflag",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_khwdsheng}",
+				"dstColumnName": "open_netno_prov",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_khwdshi}",
+				"dstColumnName": "open_netno_city",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zfzyhpts}",
+				"dstColumnName": "pay_tsfr_autoback_days",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_gzlzb}",
+				"dstColumnName": "proc_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_mszdszbj}",
+				"dstColumnName": "free_tax_auto_flg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_zdrq}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGNJJH.zgnjjh_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

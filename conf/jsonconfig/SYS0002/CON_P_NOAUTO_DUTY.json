@@ -1,0 +1,337 @@
+[
+    {
+        "sourceSystem":"SYS0002",
+        "targetTableName":"CON_P_NOAUTO_DUTY",
+        "order":"1",
+        "sourcePrimaryTable":{
+            "tableName":"SYS0002.P_PUBLIC_COVERAGE",
+            "alias":"COVERAGE",
+            "exceptAlias":["POLICY"]
+        },
+        "combinationMap":[
+            {
+                "alias":"agmt_id",
+                "specialHandle":{
+                    "handleName":"agmtId",
+                    "parameters":[
+                        "${POLICY.policyno}",
+                        "${POLICY.unitcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${agmt_id}",
+            "${agmt_id}",
+            "${COVERAGE.itemcode}",
+            "${COVERAGE.currencycode}"
+        ],
+        "relations":[
+        	{
+				"sourceTableName": "SYS0002.P_PUBLIC_COVERAGE",
+				"alias": "COVERAGE1",
+				"relationType": "inner",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.unitcode}",
+								"rightCondition": "${COVERAGE.unitcode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.policyno}",
+								"rightCondition": "${COVERAGE.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.applyno}",
+								"rightCondition": "${COVERAGE.applyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.classescode}",
+								"rightCondition": "${COVERAGE.classescode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.itemcode}",
+								"rightCondition": "${COVERAGE.itemcode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.itemname}",
+								"rightCondition": "${COVERAGE.itemname}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.currencycode}",
+								"rightCondition": "${COVERAGE.currencycode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.ifcalamount}",
+								"rightCondition": "${COVERAGE.ifcalamount}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COVERAGE1.ifcalpremium}",
+								"rightCondition": "${COVERAGE.ifcalpremium}"
+							}
+						}
+					]
+				}
+			},
+            {
+                "sourceTableName":"SYS0002.P_PUBLIC_POLICY",
+                "alias":"POLICY",
+                "relationType":"inner",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${COVERAGE.unitcode}",
+                                "rightCondition":"${POLICY.unitcode}"
+                            }
+                        },
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${COVERAGE.applyno}",
+                                "rightCondition":"${POLICY.applyno}"
+                            }
+                        },
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${COVERAGE.applyendorseno}",
+                                "rightCondition":"${POLICY.applyendorseno}"
+                            }
+                        }
+                    ]
+                },
+                "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"<>",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${POLICY.policyno}",
+                                "rightCondition":""
+                            }
+                        },
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"<>",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${POLICY.unitcode}",
+                                "rightCondition":""
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${COVERAGE.itemcode}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${agmt_id}",
+                "dstColumnName":"agmt_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${POLICY.classescode}",
+                "dstColumnName":"classcode",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${COVERAGE.itemcode}",
+                "dstColumnName":"dutycode",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${COVERAGE.itemname}",
+                "dstColumnName":"dutyname",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":{
+                    "handleName":"decode",
+                    "parameters":[
+                        "${COVERAGE.currencycode}",
+                        "",
+                        "01",
+                        "${COVERAGE.currencycode}"
+                    ]
+                },
+                "dstColumnName":"curcode",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":{
+					"handleName": "sum",
+					"handleType": "group",
+					"dataType": "Number",
+					"pointNum": 2,
+					"formatter": "",
+					"parameters": [
+						"${COVERAGE.amountchange}"
+					]
+				},
+                "dstColumnName":"amt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":{
+					"handleName": "sum",
+					"handleType": "group",
+					"dataType": "Number",
+					"pointNum": 2,
+					"formatter": "",
+					"parameters": [
+						 "${COVERAGE.premiumchange}"
+					]
+				},
+                "dstColumnName":"premium",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${COVERAGE.ifcalamount}",
+                "dstColumnName":"is_calc_amt",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${COVERAGE.ifcalpremium}",
+                "dstColumnName":"is_calc_premium",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${POLICY.policyno}",
+                "dstColumnName":"policyno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${POLICY.unitcode}",
+                "dstColumnName":"branchcode",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

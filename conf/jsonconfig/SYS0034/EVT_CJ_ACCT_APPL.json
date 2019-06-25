@@ -1,0 +1,578 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_ACCT_APPL",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TACCOREQUEST.vc_tradeacco}"
+					]
+				}
+			},
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${TACCOREQUEST.vc_requestno}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TACCOREQUEST",
+			"alias": "TACCOREQUEST"
+		},
+		"relations":[
+            {
+                "sourceTableName":"SYS0034.TCUSTINFO",
+                "relationType":"inner",
+                "alias":"TCUSTINFO",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${TCUSTINFO.vc_custno}",
+                                "rightCondition":"${TACCOREQUEST.vc_custno}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TACCOREQUEST.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${TACCOREQUEST.c_mainflag}",
+				"dstColumnName": "main_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_requestno}",
+				"dstColumnName": "appl_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_voucherno}",
+				"dstColumnName": "vouch_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_trust}",
+				"dstColumnName": "entr_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_requestdate}",
+				"dstColumnName": "appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_requesttime}",
+				"dstColumnName": "appl_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_confirmflag}",
+				"dstColumnName": "cfmflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_sendstate}",
+				"dstColumnName": "send_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_businflag}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_tradetype}",
+				"dstColumnName": "type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_customname}",
+				"dstColumnName": "cust_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_identitytype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_identityno}",
+				"dstColumnName": "cert_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_vocation}",
+				"dstColumnName": "job",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_education}",
+				"dstColumnName": "edu",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.l_income}",
+				"dstColumnName": "y_income",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_sex}",
+				"dstColumnName": "gender",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_marriage}",
+				"dstColumnName": "marriage",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_nationality}",
+				"dstColumnName": "nation",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_birthday}",
+				"dstColumnName": "birth_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_accoflag}",
+				"dstColumnName": "accttype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_newdealpwd}",
+				"dstColumnName": "new_pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_origintradeacco}",
+				"dstColumnName": "old_tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_bankprovincecode}",
+				"dstColumnName": "bank_province",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_bankcityno}",
+				"dstColumnName": "bank_city",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_identitytypeinbank}",
+				"dstColumnName": "bank_acct_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_identitynoinbank}",
+				"dstColumnName": "bank_acct_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_netmodifybankacco}",
+				"dstColumnName": "allow_modiflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_modifylimit}",
+				"dstColumnName": "allow_modi_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_subcapitalmode}",
+				"dstColumnName": "dtl_cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_capitalmode}",
+				"dstColumnName": "cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_netno}",
+				"dstColumnName": "net_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_centerno}",
+				"dstColumnName": "sub_centre_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.en_yearrate}",
+				"dstColumnName": "annual_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.en_discount}",
+				"dstColumnName": "discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_bankno}",
+				"dstColumnName": "bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_bankacco}",
+				"dstColumnName": "bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_cdcard}",
+				"dstColumnName": "unipay_cardno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_bankname}",
+				"dstColumnName": "bank_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_nameinbank}",
+				"dstColumnName": "bank_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_idvalidate}",
+				"dstColumnName": "acct_valid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_fullnameinbank}",
+				"dstColumnName": "long_bank_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_comeflag}",
+				"dstColumnName": "is_come_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_backflag}",
+				"dstColumnName": "is_back_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_acconame}",
+				"dstColumnName": "acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_callcenter}",
+				"dstColumnName": "is_callcenter_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_internet}",
+				"dstColumnName": "is_internet_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_selfhelp}",
+				"dstColumnName": "is_selfhelp_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_faxtrust}",
+				"dstColumnName": "is_fax_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_brokertrust}",
+				"dstColumnName": "is_broker_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_mobile}",
+				"dstColumnName": "is_phone_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_othertrust}",
+				"dstColumnName": "is_other_entr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_selfclearpasswd}",
+				"dstColumnName": "selfcleanflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.l_passwderr}",
+				"dstColumnName": "pwd_err_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_dealpwd}",
+				"dstColumnName": "pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_querypwd}",
+				"dstColumnName": "quary_pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_billway}",
+				"dstColumnName": "bill_way",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_billpath}",
+				"dstColumnName": "bill_path",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_autoflag}",
+				"dstColumnName": "auto_tsfrflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_address}",
+				"dstColumnName": "addr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_email}",
+				"dstColumnName": "emal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_mobileno}",
+				"dstColumnName": "phone",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_zip}",
+				"dstColumnName": "zip",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_origindate}",
+				"dstColumnName": "orig_appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_acceptdate}",
+				"dstColumnName": "order_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_branchcode}",
+				"dstColumnName": "tres_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_sysdate}",
+				"dstColumnName": "sys_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_procedurename}",
+				"dstColumnName": "clearing_proc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_servicename}",
+				"dstColumnName": "serv_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_functionno}",
+				"dstColumnName": "func_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_machinedate}",
+				"dstColumnName": "machine_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_delete}",
+				"dstColumnName": "deleteflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.vc_questionarydate}",
+				"dstColumnName": "quesfill_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.c_fixbusinflag}",
+				"dstColumnName": "asis_bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOREQUEST.en_registcapital}",
+				"dstColumnName": "rgst_capital",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

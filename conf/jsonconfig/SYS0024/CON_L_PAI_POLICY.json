@@ -1,0 +1,144 @@
+[
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "CON_L_PAI_POLICY",
+        "order": "1",
+        "combinationMap": [
+        
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${STATLIST.sysno}",
+                        "11122200"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}",
+            "${STATLIST.docno}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${STATLIST.sysno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.sysno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.docno}",
+                "dstColumnName": "doc_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "11122200",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.ticketno}",
+                "dstColumnName": "ticket_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.seatno}",
+                "dstColumnName": "seat_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.selltime}",
+                "dstColumnName": "sell_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.utime}",
+                "dstColumnName": "issue_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.ticketfee}",
+                "dstColumnName": "ticket_fee",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.fromname}",
+                "dstColumnName": "from_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.toname}",
+                "dstColumnName": "to_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.takedate}",
+                "dstColumnName": "ride_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.opercode}",
+                "dstColumnName": "operrcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.childflag}",
+                "dstColumnName": "childflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.prtdate}",
+                "dstColumnName": "offer_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

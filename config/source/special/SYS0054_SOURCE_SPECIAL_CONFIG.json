@@ -1,0 +1,63 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"currencycode",
+					"opstatus",
+					"datatype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"opdate",
+					"lastopdate",
+					"canceldate",
+					"timestamp",
+					"checkdate"
+				]
+			}
+		],
+		"tableName": "MM_PAYABLEMONEY_TD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"currencycode1",
+					"currencycode2"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"startdate",
+					"enddate",
+					"recorddate",
+					"lastopdate",
+					"timestamp"
+				]
+			}
+		],
+		"tableName": "MM_CONVERSIONRATE_TC"
+	}
+]

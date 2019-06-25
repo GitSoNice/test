@@ -1,0 +1,299 @@
+[
+	{
+		"sourceSystem": "SYS0020",
+		"targetTableName": "PTY_NET_ADDR",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "trim_net_address",
+				"specialHandle": {
+					"handleName": "trim",
+					"parameters": [
+						"${TBL_USER_ESSENTIAL_INFO.email}"
+					]
+				}
+			},
+			{
+				"alias": "decode_net_address",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${trim_net_address}",
+						"",
+						"",
+						"2"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${TBL_USER.pid}",
+						"${TBL_USER.cardtype}",
+						"${TBL_USER.user_name}"
+					]
+				}
+			},
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_cust_id",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_cust_id}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_cust_id}",
+			"${cust_id}",
+			"SYS0020",
+			"${decode_net_address}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0020.TBL_USER",
+			"alias": "TBL_USER"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0020.TBL_USER_ESSENTIAL_INFO",
+				"relationType": "inner",
+				"alias": "TBL_USER_ESSENTIAL_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBL_USER_ESSENTIAL_INFO.userid}",
+								"rightCondition": "${TBL_USER.id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${TBL_USER_ESSENTIAL_INFO.email}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${CUSTTYPE_1}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_net_address}",
+				"dstColumnName": "net_addrtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER_ESSENTIAL_INFO.email}",
+				"dstColumnName": "net_addr_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER_ESSENTIAL_INFO.update_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0020",
+		"targetTableName": "PTY_NET_ADDR",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "trim_net_address",
+				"specialHandle": {
+					"handleName": "trim",
+					"parameters": [
+						"${TBL_USER_ESSENTIAL_INFO.email}"
+					]
+				}
+			},
+			{
+				"alias": "decode_net_address",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${trim_net_address}",
+						"",
+						"",
+						"2"
+					]
+				}
+			},
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0020_TBL_USER*||*00*||*ID*||*",
+						"${TBL_USER.id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgTmpHandler",
+					"parameters": [
+						"${TBL_USER.pid}",
+						"${TBL_USER.cardtype}",
+						"${TBL_USER.user_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5_cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "sub_md5_cust_id",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${md5_cust_id}",
+						"0",
+						"6"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${sub_md5_cust_id}",
+			"${cust_id}",
+			"SYS0020",
+			"${decode_net_address}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0020.TBL_USER",
+			"alias": "TBL_USER"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0020.TBL_USER_ESSENTIAL_INFO",
+				"relationType": "inner",
+				"alias": "TBL_USER_ESSENTIAL_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBL_USER_ESSENTIAL_INFO.userid}",
+								"rightCondition": "${TBL_USER.id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBL_USER_ESSENTIAL_INFO.email}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${CUSTTYPE_3}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode_net_address}",
+				"dstColumnName": "addrtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER_ESSENTIAL_INFO.email}",
+				"dstColumnName": "net_addr_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBL_USER_ESSENTIAL_INFO.update_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

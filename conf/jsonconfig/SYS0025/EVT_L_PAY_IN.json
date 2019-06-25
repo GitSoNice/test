@@ -1,0 +1,216 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "EVT_L_PAY_IN",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "classcode8",
+        "specialHandle": {
+          "handleName": "classCode628",
+          "parameters": [
+            "${PREREC.classcode}",
+            "$${FFCLASSCODE}"
+          ]
+        }
+      },
+      {
+        "alias": "classcode",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${classcode8}",
+            "",
+            "${PREREC.classcode}",
+            "${classcode8}"
+          ]
+        }
+      },
+      {
+        "alias": "agmt_id",
+        "specialHandle": {
+          "handleName": "agmtId",
+          "parameters": [
+            "${PREREC.policyno}",
+            "${classcode}"
+          ]
+        }
+      },
+            {
+        "alias": "seq",
+        "specialHandle": {
+          "handleName": "seq",
+          "parameters": [
+   
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${agmt_id}",
+      "${agmt_id}",
+      "${seq}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.PREREC",
+      "alias": "PREREC"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PREREC.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PREREC.classcode}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${PREREC.source_payin_actvty_id}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${agmt_id}",
+        "dstColumnName": "agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.empno}",
+        "dstColumnName": "empno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.deptno}",
+        "dstColumnName": "dept_no",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.sale_mode}",
+        "dstColumnName": "sell_mode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.year}",
+        "dstColumnName": "term",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.yearnum}",
+        "dstColumnName": "pay_term",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.amount}",
+        "dstColumnName": "amt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.paydate}",
+        "dstColumnName": "effect_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.pcode}",
+        "dstColumnName": "delcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.unstdrate}",
+        "dstColumnName": "unstd_addfee",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.the_thrdprt}",
+        "dstColumnName": "thrdpty",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.setcode}",
+        "dstColumnName": "pay_mode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.stdrate}",
+        "dstColumnName": "std_addfee",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.currcode}",
+        "dstColumnName": "curcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.branchid}",
+        "dstColumnName": "busi_branch",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${PREREC.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

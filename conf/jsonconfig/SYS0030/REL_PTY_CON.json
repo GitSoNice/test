@@ -1,0 +1,504 @@
+[
+	{
+		"sourceSystem": "SYS0030",
+		"targetTableName": "REL_PTY_CON",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0030_T_PUBLIC_POLICY*||*01*||*POLICY_NO*||*",
+						"${T_PUBLIC_POLICY.policy_no}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${T_PUBLIC_POLICY.apply_cerc}",
+						"${T_PUBLIC_POLICY.apply_cert}",
+						"${T_PUBLIC_POLICY.apply_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "classes_code",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${T_POLICYENSURE.class_code}",
+						"0",
+						"6"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${classes_code}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "concat628",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"${T_PUBLIC_POLICY.policy_no}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${concat628}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"1",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0030.T_PUBLIC_POLICY",
+			"alias": "T_PUBLIC_POLICY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0030.T_POLICYENSURE",
+				"relationType": "inner",
+				"alias": "T_POLICYENSURE",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_POLICYENSURE.public_policy_id}",
+								"rightCondition": "${T_PUBLIC_POLICY.public_policy_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${T_POLICYENSURE.class_code}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_PUBLIC_POLICY.policy_no}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_PUBLIC_POLICY.classes_code}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "110",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.policy_no}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode8}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.unit_code}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.apply_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0030",
+		"targetTableName": "REL_PTY_CON",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0030_T_POLICY_INSURANT*||*02*||*PUBLIC_POLICY_ID*||*",
+						"${T_POLICY_INSURANT.public_policy_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${T_POLICY_INSURANT.cerc}",
+						"${T_POLICY_INSURANT.cert}",
+						"${T_POLICY_INSURANT.ins_name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "classes_code",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${T_POLICYENSURE.class_code}",
+						"0",
+						"6"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${classes_code}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "concat628",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"${T_PUBLIC_POLICY.policy_no}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${concat628}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"2",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0030.T_PUBLIC_POLICY",
+			"alias": "T_PUBLIC_POLICY"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0030.T_POLICYENSURE",
+				"relationType": "inner",
+				"alias": "T_POLICYENSURE",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_POLICYENSURE.public_policy_id}",
+								"rightCondition": "${T_PUBLIC_POLICY.public_policy_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${T_POLICYENSURE.class_code}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0030.T_POLICY_INSURANT",
+				"relationType": "INNER",
+				"alias": "T_POLICY_INSURANT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_POLICY_INSURANT.public_policy_id}",
+								"rightCondition": "${T_POLICYENSURE.public_policy_id}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_POLICY_INSURANT.ensure_code}",
+								"rightCondition": "${T_POLICYENSURE.ensure_code}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_PUBLIC_POLICY.public_policy_id}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_PUBLIC_POLICY.policy_no}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_PUBLIC_POLICY.classes_code}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "2",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "110",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.policy_no}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode8}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.unit_code}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.apply_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	}
+]

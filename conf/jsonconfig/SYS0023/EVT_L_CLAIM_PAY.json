@@ -1,0 +1,324 @@
+[
+    {
+        "sourceSystem": "SYS0023",
+        "targetTableName": "EVT_L_CLAIM_PAY",
+        "order": "1",
+        "combinationMap": [
+                           {
+                               "alias":"classCode628",
+                               "specialHandle":{
+                                   "handleName":"classCode628",
+                                   "parameters":[
+                                       "${NCLMCCL.classcode}",
+                                       "$${FFCLASSCODE}"
+                                   ]
+                               }
+                           },             
+	        {
+                "alias":"decodeResult",
+                "specialHandle":{
+                    "handleName":"decode",
+                    "parameters":[
+                        "${classCode628}",
+                        "",
+                        "${NCLMCCL.classcode}",
+                        "${classCode628}"
+                    ]
+                }
+            },
+			{
+		            "alias":"agmt_id",
+		            "specialHandle":
+		            {
+		                "handleName":"agmtId",
+		                "parameters":
+		                [
+		                    "${NCLMCCL.policyno}",
+		                    "${decodeResult}"
+		                ]
+		            }
+		    },
+			{
+				"alias": "realamt",
+				"specialHandle": {
+					"handleName": "minusHandler",
+					"parameters": [
+						"${NCLMCCL.addamt}",
+						"${NCLMCCL.subamt}"
+					]
+				}
+			}
+        ],
+        "rowKey":[
+						        "${agmt_id}",
+						        "${agmt_id}",
+						        "${NCLMCCL.claimno}",
+						        "${NCLMCCL.precode}",
+						        "${NCLMCCL.preno}",
+						        "${NCLMCCL.branchid}",
+						        "${NCLMCCL.utime}"  
+					    		],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0023.NCLMCCL",
+            "alias": "NCLMCCL"
+        },
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0022.CLASSCODE628",
+	            "relationType":"left",
+	            "alias":"CLASSCODE628",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${NCLMCCL.classcode}",
+	                            "rightCondition":"${CLASSCODE628.classcode}"
+	                        }
+	                    }
+	                ]
+	            }
+	        }],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMCCL.precode}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMCCL.preno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMCCL.branchid}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMCCL.utime}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMCCL.claimno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${NCLMCCL.claimno}",
+                "dstColumnName": "caseno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMCCL.claimno}",
+                "dstColumnName": "claimno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMCCL.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${decodeResult}",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.precode}",
+                "dstColumnName": "dutycode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.preno}",
+                "dstColumnName": "typeno",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.branchid}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.utime}",
+                "dstColumnName": "utime",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.delamt}",
+                "dstColumnName": "calc_payamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${realamt}",
+                "dstColumnName": "realamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.rescode}",
+                "dstColumnName": "rescode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.subrescode}",
+                "dstColumnName": "subrescode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.prem}",
+                "dstColumnName": "amt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.branchid}",
+                "dstColumnName": "orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.operno}",
+                "dstColumnName": "operno",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee}",
+                "dstColumnName": "medical_fee",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee1}",
+                "dstColumnName": "medical_fee1",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee2}",
+                "dstColumnName": "medical_fee2",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee3}",
+                "dstColumnName": "medical_fee3",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee4}",
+                "dstColumnName": "medical_fee4",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee5}",
+                "dstColumnName": "medical_fee5",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.realfee6}",
+                "dstColumnName": "medical_fee6",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.isup}",
+                "dstColumnName": "is_up_pay",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.harmcode}",
+                "dstColumnName": "maimcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${NCLMCCL.delrate}",
+                "dstColumnName": "del_rate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMCCL.utime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMCCL.updtime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

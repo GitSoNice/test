@@ -1,0 +1,102 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_LIABILITY_POLICY",
+        "rowkeyCols": [
+            "policy_id"
+        ],
+        "md5Cols": [
+            "policy_id"
+        ],
+        "indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "policyid",
+                    "apply_no "
+                ],
+                "md5Cols":[
+                    "policyid",
+                    "apply_no "
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_LIABILITY_APPLICANT",
+        "rowkeyCols": [
+            "applicant_id"
+        ],
+        "md5Cols": [
+            "applicant_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policy_id"
+                ],
+                "md5Cols": [
+                    "policy_id"
+                ]
+            },
+	    {
+                "alias":"INDEX_2",
+                "isUnique":false,
+                "keyCols":[
+                    "policy_id",
+                    "apply_no "
+                ],
+                "md5Cols":[
+                    "policy_id",
+                    "apply_no "
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_LIABILITY_INSURANT",
+        "rowkeyCols": [
+            "insurant_id"
+        ],
+        "md5Cols": [
+            "insurant_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policy_id"
+                ],
+                "md5Cols": [
+                    "policy_id"
+                ]
+            },
+	    {
+                "alias":"INDEX_2",
+                "isUnique":false,
+                "keyCols":[
+                    "policy_id",
+                    "apply_no"
+                ],
+                "md5Cols":[
+                    "policy_id",
+                    "apply_no"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,137 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "ACC_CJFIN_LOT",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TSTATICSHARE.vc_tradeacco}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${TSTATICSHARE.vc_fundcode}",
+			"${TSTATICSHARE.c_sharetype}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TSTATICSHARE",
+			"alias": "TSTATICSHARE"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TSTATICSHARE.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.vc_fundcode}",
+				"dstColumnName": "fundcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.c_sharetype}",
+				"dstColumnName": "lottype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.en_totalshare}",
+				"dstColumnName": "lot_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.en_frozenshare}",
+				"dstColumnName": "frz_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.en_requestshare}",
+				"dstColumnName": "tx_frz_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.c_dividendmethod}",
+				"dstColumnName": "divdndtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.c_flag}",
+				"dstColumnName": "add_invflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.en_cost}",
+				"dstColumnName": "cost",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.en_fare}",
+				"dstColumnName": "comm_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.vc_lastdate}",
+				"dstColumnName": "last_modi_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TSTATICSHARE.vc_branchcode}",
+				"dstColumnName": "tres_netno",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

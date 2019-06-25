@@ -1,0 +1,394 @@
+[
+  {
+    "sourceSystem": "SYS0036",
+    "targetTableName": "ITA_CONT_EVT",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "cust_id",
+        "specialHandle": {
+          "handleName": "CustFlgHandler",
+          "parameters": [
+            "${KNOWCUST.pid}",
+            "111",
+            "${KNOWCUST.name}"
+          ]
+        }
+      },
+      {
+        "alias": "md5Cust_id",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${cust_id}"
+          ]
+        }
+      },
+      {
+        "alias": "decode_cont_from",
+        "specialHandle": {
+          "handleName": "eventType",
+          "parameters": [
+            "${KNOWCUST.event_type}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_id",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${cust_id}",
+            "${KNOWCUST.event_type}",
+            "${KNOWCUST.start_date}",
+            " ",
+            "${KNOWCUST.start_time}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_point",
+        "specialHandle": {
+          "handleName": "contPointCase",
+          "parameters": [
+            "${KNOWCUST.contact_c}",
+            "${KNOWCUST.sys_type}",
+            "${KNOWCUST.system_code}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_dt",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${KNOWCUST.start_date}",
+            " ",
+            "${KNOWCUST.start_time}"
+          ]
+        }
+      },
+      {
+        "alias": "crt_tm",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${KNOWCUST.start_date}",
+            " ",
+            "${KNOWCUST.start_time}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${md5Cust_id}",
+      "${cont_id}"    
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0036.KNOWCUST",
+      "alias": "KNOWCUST"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": "<>",
+            "dataType": "String",
+            "leftCondition": "${cust_id}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST.event_type}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST.start_date}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST.start_time}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${cont_id}",
+        "dstColumnName": "cont_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cust_id}",
+        "dstColumnName": "cust_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${decode_cont_from}",
+        "dstColumnName": "cont_from",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST.event_type}",
+        "dstColumnName": "biztype",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST.contact_c}",
+        "dstColumnName": "cont_chn",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cont_point}",
+        "dstColumnName": "cont_point",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cont_dt}",
+        "dstColumnName": "cont_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST.event_cont}",
+        "dstColumnName": "cont_content",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${crt_tm}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  },
+  {
+    "sourceSystem": "SYS0036",
+    "targetTableName": "ITA_CONT_EVT",
+    "order": "2",
+    "combinationMap": [
+          {
+        "alias": "cust_id",
+        "specialHandle": {
+          "handleName": "CustFlgHandler",
+          "parameters": [
+            "${KNOWCUST_CUST_DYNAMIC_ALL.pid}",
+            "111",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.name}"
+          ]
+        }
+      },
+      {
+        "alias": "md5Cust_id",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${cust_id}"
+          ]
+        }
+      },
+      {
+        "alias": "decode_cont_from",
+        "specialHandle": {
+          "handleName": "eventType",
+          "parameters": [
+            "${KNOWCUST_CUST_DYNAMIC_ALL.event_type}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_id",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${cust_id}",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.event_type}",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_date}",
+            " ",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_time}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_point",
+        "specialHandle": {
+          "handleName": "contPointCase",
+          "parameters": [
+            "${KNOWCUST_CUST_DYNAMIC_ALL.contact_c}",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.sys_type}",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.system_code}"
+          ]
+        }
+      },
+      {
+        "alias": "cont_dt",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_date}",
+            " ",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_time}"
+          ]
+        }
+      },
+      {
+        "alias": "crt_tm",
+        "specialHandle": {
+          "handleName": "contact",
+          "parameters": [
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_date}",
+            " ",
+            "${KNOWCUST_CUST_DYNAMIC_ALL.start_time}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${md5Cust_id}",
+      "${cont_id}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0036.KNOWCUST_CUST_DYNAMIC_ALL",
+      "alias": "KNOWCUST_CUST_DYNAMIC_ALL"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": "<>",
+            "dataType": "String",
+            "leftCondition": "${cust_id}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST_CUST_DYNAMIC_ALL.event_type}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST_CUST_DYNAMIC_ALL.start_date}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${KNOWCUST_CUST_DYNAMIC_ALL.start_time}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${cont_id}",
+        "dstColumnName": "cont_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cust_id}",
+        "dstColumnName": "cust_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${decode_cont_from}",
+        "dstColumnName": "cont_from",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST_CUST_DYNAMIC_ALL.event_type}",
+        "dstColumnName": "biztype",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST_CUST_DYNAMIC_ALL.contact_c}",
+        "dstColumnName": "cont_chn",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cont_point}",
+        "dstColumnName": "cont_point",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cont_dt}",
+        "dstColumnName": "cont_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${KNOWCUST_CUST_DYNAMIC_ALL.event_cont}",
+        "dstColumnName": "cont_content",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${crt_tm}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

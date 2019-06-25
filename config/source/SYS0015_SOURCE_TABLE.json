@@ -1,0 +1,63 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "M_USER",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "id_type",
+                "certNoCol": "id_number",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "id"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "tableName": "M_USER_CAR",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "M_USER_FAMILY",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "M_USER_HOUSE",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    }
+]

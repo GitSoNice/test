@@ -1,0 +1,37 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_USER_INFO",
+        "rowkeyCols": [
+            "login_name"
+        ],
+        "md5Cols": [
+            "login_name"
+        ],
+        "persons": [
+            {
+                "nameCol": "user_name",
+                "certTypeCol": "id_type",
+                "certNoCol": "id_number",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "id"
+                    ]
+                }
+                  
+            }
+        ]
+    }
+]

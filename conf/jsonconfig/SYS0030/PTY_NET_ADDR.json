@@ -1,0 +1,233 @@
+[
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_NET_ADDR",
+        "order": "1",
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                      	"${T_RYX_CUSTOMER.cret_code}",
+                    	"${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0030",
+            "2"
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${T_RYX_CUSTOMER.email}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "2",
+                "dstColumnName": "net_addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.email}",
+                "dstColumnName": "net_addr_info",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0030",
+                "dstColumnName": "src_sys",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0030",
+                "dstColumnName": "upd_sys",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_NET_ADDR",
+        "order": "2",
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "combinationMap": [
+            {
+                "alias": "src_cust_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0030_T_RYX_CUSTOMER*||*00*||*CUSTOMER_ID*||*",
+                        "${T_RYX_CUSTOMER.customer_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+						"${T_RYX_CUSTOMER.cret_code}",
+                        "${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}",
+                        "${src_cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0030",
+            "2"
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${T_RYX_CUSTOMER.email}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "3",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "2",
+                "dstColumnName": "net_addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.email}",
+                "dstColumnName": "net_addr_info",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0030",
+                "dstColumnName": "src_sys",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0030",
+                "dstColumnName": "upd_sys",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

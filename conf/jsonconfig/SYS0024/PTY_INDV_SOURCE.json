@@ -1,0 +1,359 @@
+[
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "PTY_INDV_SOURCE",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "combinationMap": [
+		    {
+	            "alias":"id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":[
+	            		"EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+	            	    "${STATLIST.docno}"	
+	            	]
+	            }
+	        },
+            {
+                "alias": "certType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CYX_STATLIST_PLUS.idtype}",
+                        "",
+                        "111",
+                        "${CYX_STATLIST_PLUS.idtype}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "${certType}",
+                        "${STATLIST.name}",
+						"${id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${id}"
+        ],
+        "relations":[
+            {
+                "sourceTableName":"SYS0024.CYX_STATLIST_PLUS",
+                "relationType":"left",
+                "alias":"CYX_STATLIST_PLUS",
+                "source": false,
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${STATLIST.sysno}",
+                                "rightCondition":"${CYX_STATLIST_PLUS.policyno}"
+                            }
+                        },
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${STATLIST.id}",
+                                "rightCondition":"${CYX_STATLIST_PLUS.idno}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.id}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${certType}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.name}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${id}",
+                "dstColumnName": "src_cust_id",
+                "validate": "",
+                "priority": ""
+            } ,
+            {
+	            "srcColumnName":{
+                "handleName":"checkBirthDay",
+                "parameters":
+                [	                    
+                    "",
+                    "${certType}",
+                    "${STATLIST.id}"
+                ]
+            },
+            "dstColumnName":"birth_dt",
+            "validate":"",
+            "priority":""
+        },
+        {
+            "srcColumnName":{
+                "handleName":"checkSex",
+                "parameters":
+                [	                    
+                    "",
+                    "${certType}",
+                    "${STATLIST.id}"
+                ]
+            },
+            "dstColumnName":"gender",
+            "validate":"",
+            "priority":""
+        }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "PTY_INDV_SOURCE",
+        "order": "2",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "combinationMap": [
+		    {
+	            "alias":"id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":[
+	            		"EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+	            	    "${STATLIST.docno}"	
+	            	]
+	            }
+	        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "$${CERTTYPE_111}",
+                        "${STATLIST.name}",
+						"${id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${id}"
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.id}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${CERTTYPE_111}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.name}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${id}",
+                "dstColumnName": "src_cust_id",
+                "validate": "",
+                "priority": ""
+            } ,
+            {
+	            "srcColumnName":{
+                "handleName":"checkBirthDay",
+                "parameters":
+                [	                    
+                    "",
+                    "$${CERTTYPE_111}",
+                    "${STATLIST.id}"
+                ]
+            },
+            "dstColumnName":"birth_dt",
+            "validate":"",
+            "priority":""
+        },
+        {
+            "srcColumnName":{
+                "handleName":"checkSex",
+                "parameters":
+                [	                    
+                    "",
+                    "$${CERTTYPE_111}",
+                    "${STATLIST.id}"
+                ]
+            },
+            "dstColumnName":"gender",
+            "validate":"",
+            "priority":""
+        }
+        ]
+    }
+]

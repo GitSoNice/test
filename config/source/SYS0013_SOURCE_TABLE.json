@@ -1,0 +1,45 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "X_FANSINFO",
+        "rowkeyCols": [
+            "open_id"
+        ],
+        "md5Cols": [
+            "open_id"
+        ]
+    },
+    {
+        "tableName": "X_CLUB_BINDING_INFO",
+        "rowkeyCols": [
+            "open_id"
+        ],
+        "md5Cols": [
+            "open_id"
+        ],
+        "persons": [
+            {
+                "nameCol": "customer_name",
+                "certTypeCol": "${111}",
+                "certNoCol": "id_card",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "open_id"
+                    ]
+                }
+            }
+        ]
+    }
+]

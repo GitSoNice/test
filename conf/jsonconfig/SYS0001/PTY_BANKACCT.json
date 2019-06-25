@@ -1,0 +1,231 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_BANKACCT",
+        "order": "1",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PLCINFO*||*01*||*TBDH*||*",
+						"${TBL_PLCINFO.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_PLCINFO.tbrzjhm}",
+                        "${TBL_PLCINFO.tbrzjlx}",
+                        "${TBL_PLCINFO.tbrxm}",
+                        "${concatSRC_CUST_ID}"
+                   ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+			{
+	            "alias":"custFlgType_var",
+	            "specialHandle":
+	            {
+	                "handleName":"getCustType",
+	                "parameters":[
+	            		"${TBL_PLCINFO.tbrzjhm}",
+                        "${TBL_PLCINFO.tbrzjlx}",
+                        "${TBL_PLCINFO.tbrxm}",
+                        "${concatSRC_CUST_ID}"
+	            	]
+	            }
+	        },
+            {
+                "alias": "tbl_plcinfo_tbfbz",
+                "specialHandle": {
+                    "handleName": "trim",
+                    "parameters": [
+                        "${TBL_PLCINFO.tbfbz}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0001",
+            "${TBL_PLCINFO.khzh}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PLCINFO",
+            "alias": "TBL_PLCINFO"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbfbz}",
+                        "rightCondition": "0"
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.khzh}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${custFlgType_var}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.khzh}",
+                "dstColumnName": "bank_acct",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.khyh}",
+                "dstColumnName": "bank_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zhxgrq}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+	{
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_BANKACCT",
+        "order": "2",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PSNCUST",
+            "alias": "TBL_PSNCUST"
+        },
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${TBL_PSNCUST.zjhm}",
+                        "${TBL_PSNCUST.zjlx}",
+                        "${TBL_PSNCUST.khxm}"
+                   ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+			{
+	            "alias":"custFlgType_var",
+	            "specialHandle":
+	            {
+	                "handleName":"getCustType",
+	                "parameters":[
+	            		"${TBL_PSNCUST.zjhm}",
+                        "${TBL_PSNCUST.zjlx}",
+                        "${TBL_PSNCUST.khxm}"
+	            	]
+	            }
+	        }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "SYS0001",
+            "${TBL_PSNCUST.yhzh}"
+        ],      
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PSNCUST.yhzh}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.yhzh}",
+                "dstColumnName": "bank_acct",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.khyh}",
+                "dstColumnName": "bank_name",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

@@ -1,0 +1,42 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"month",
+					"branch_company_code",
+					"mobile_status",
+					"after_mobile_source_scan",
+					"clean_feedback_category"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certno",
+					"certtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"etl_crtdttm"
+				]
+			}
+		],
+		"tableName": "T_CRMS_B1_QUES_DATA"
+	}
+]

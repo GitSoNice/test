@@ -1,0 +1,32 @@
+[
+	{
+		"tableName": "CLM_HISTORY",
+		"rowkeyCols": [
+			"claim_no",
+			"claim_batch_no",
+			"customerno",
+			"pid",
+			"update_date"
+		],
+		"md5Cols": [
+			"claim_no",
+			"claim_batch_no",
+			"customerno",
+			"pid",
+			"update_date"
+		]
+	},
+	{
+		"tableName": "CLM_TASK",
+		"rowkeyCols": [
+			"claim_no",
+			"claim_state",
+			"current_operater"
+		],
+		"md5Cols": [
+			"claim_no",
+			"claim_state",
+			"current_operater"
+		]
+	}
+]

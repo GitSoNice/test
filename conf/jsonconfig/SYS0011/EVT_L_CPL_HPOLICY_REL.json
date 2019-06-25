@@ -1,0 +1,76 @@
+[
+    {
+        "sourceSystem": "SYS0011",
+        "targetTableName": "EVT_L_CPL_HPOLICY_REL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "md5policyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${T_L_CASE.policy_no}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5policyno}",
+            "${T_L_CASE.policy_no}",
+            "${T_L_CASE.case_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0011.T_L_CASE",
+            "alias": "T_L_CASE"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "in",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${T_L_CASE.get_from}",
+                        "rightCondition":"2,3,4"
+                    }
+                } 
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${T_L_CASE.policy_no}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "120",
+                "dstColumnName": "contype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.case_no}",
+                "dstColumnName": "cpl_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.created_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.last_modified_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

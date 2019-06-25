@@ -1,0 +1,98 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_INCOME_EXPNS_SOURCE",
+        "order": "1",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PSNCUST*||*00*||*KHDM*||*",
+						"${TBL_PSNCUST.khdm}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId", 
+                    "parameters": [
+                        "${TBL_PSNCUST.zjhm}",
+                        "${TBL_PSNCUST.zjlx}",
+                        "${TBL_PSNCUST.khxm}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concatSRC_CUST_ID}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PSNCUST",
+            "alias": "TBL_PSNCUST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+           		 {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PSNCUST.npjsr}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.npjsr}",
+                "dstColumnName": "y_income",
+                "validate": "",
+                "priority": ""
+            },
+	        {
+	            "srcColumnName":"${concatSRC_CUST_ID}",
+	            "dstColumnName":"src_cust_id",
+	            "validate":"",
+	            "priority":""
+	        }
+        ]
+    }
+]

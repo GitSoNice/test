@@ -1,0 +1,143 @@
+[
+	{
+		"tableName": "TEST_TIMESTAMP",
+		"rowkeyCols": [
+			"send_kafka_time",
+			"send_status"
+		],
+		"md5Cols": [
+			"send_kafka_time",
+			"send_status"
+		]
+	},
+	{
+		"tableName": "T_VERIFY_USERINFO",
+		"rowkeyCols": ["user_id"],
+		"md5Cols": ["user_id"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"mobile"
+				],
+				"md5Cols": [
+					"mobile"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "T_VERIFY_USERINFO_D",
+		"rowkeyCols": [
+			"cert_id"
+		],
+		"md5Cols": [
+			"cert_id"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"user_id"
+				],
+				"md5Cols": [
+					"user_id"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"cardtype",
+					"cardno"
+				],
+				"md5Cols": [
+					"cardtype",
+					"cardno"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "T_VERIFY_LOGINHIS",
+		"rowkeyCols": [
+			"login_id"
+		],
+		"md5Cols": [
+			"login_id"
+		]
+	},
+	{
+		"tableName": "T_VERIFY_ACTION",
+		"rowkeyCols": [
+			"action_id"
+		],
+		"md5Cols": [
+			"action_id"
+		]
+	},
+	{
+		"tableName": "T_VERIFY_OPERATOR_ACTION2",
+		"rowkeyCols": [
+			"action_id"
+		],
+		"md5Cols": [
+			"action_id"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"cardno",
+					"cardtype"
+				],
+				"md5Cols": [
+					"cardno",
+				    "cardtype"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "T_TEMP_USER",
+		"rowkeyCols": [
+			"tmpuser_id"
+		],
+		"md5Cols": [
+			"tmpuser_id"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"mobile"
+				],
+				"md5Cols": [
+					"mobile"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "T_VERIFY_BANK_ACCOUNT",
+		"rowkeyCols": [
+			"id"
+		],
+		"md5Cols": [
+			"id"
+		]
+	},
+	{
+		"tableName": "T_BRANCH_CONFIG",
+		"rowkeyCols": [
+			"phonesub"
+		],
+		"md5Cols": [
+			"phonesub"
+		]
+	}
+]

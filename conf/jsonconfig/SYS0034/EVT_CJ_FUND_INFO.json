@@ -1,0 +1,754 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_FUND_INFO",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5vc_fundcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TFUNDINFO.vc_fundcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5vc_fundcode}",
+			"${TFUNDINFO.vc_fundcode}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TFUNDINFO",
+			"alias": "TFUNDINFO"
+		},
+		"columnList": [
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundcode}",
+			"dstColumnName": "vc_fundcode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundname}",
+			"dstColumnName": "vc_fundname",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_moneytype}",
+			"dstColumnName": "c_moneytype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_facevalue}",
+			"dstColumnName": "en_facevalue",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_issueprice}",
+			"dstColumnName": "en_issueprice",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_manager}",
+			"dstColumnName": "vc_manager",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_trustee}",
+			"dstColumnName": "vc_trustee",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_ta}",
+			"dstColumnName": "vc_ta",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_issuedate}",
+			"dstColumnName": "vc_issuedate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_setupdate}",
+			"dstColumnName": "vc_setupdate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_manageratio}",
+			"dstColumnName": "en_manageratio",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_state}",
+			"dstColumnName": "c_state",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_feetype}",
+			"dstColumnName": "c_feetype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_tacode}",
+			"dstColumnName": "vc_tacode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_minustype}",
+			"dstColumnName": "c_minustype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_netliquidate}",
+			"dstColumnName": "c_netliquidate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_servicerate}",
+			"dstColumnName": "en_servicerate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_type}",
+			"dstColumnName": "c_type",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_minshare}",
+			"dstColumnName": "en_minshare",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_accoid}",
+			"dstColumnName": "c_accoid",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_sharedetail}",
+			"dstColumnName": "c_sharedetail",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_taratio}",
+			"dstColumnName": "en_taratio",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_etfconfirmday}",
+			"dstColumnName": "l_etfconfirmday",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_qdiiconfirmday}",
+			"dstColumnName": "l_qdiiconfirmday",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_worktime}",
+			"dstColumnName": "vc_worktime",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_networktime}",
+			"dstColumnName": "vc_networktime",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fundrisklevel}",
+			"dstColumnName": "c_fundrisklevel",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_limitflag}",
+			"dstColumnName": "c_limitflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_address}",
+			"dstColumnName": "vc_address",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_principal}",
+			"dstColumnName": "vc_principal",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_fundyield}",
+			"dstColumnName": "en_fundyield",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_expfundcode}",
+			"dstColumnName": "vc_expfundcode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fixdelaybyfundstate}",
+			"dstColumnName": "c_fixdelaybyfundstate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_deltabala}",
+			"dstColumnName": "en_deltabala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_gradeflag}",
+			"dstColumnName": "c_gradeflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_unpayday}",
+			"dstColumnName": "vc_unpayday",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fullfundname}",
+			"dstColumnName": "vc_fullfundname",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fixallotstateflag}",
+			"dstColumnName": "c_fixallotstateflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_contractflag}",
+			"dstColumnName": "c_contractflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_contractfile}",
+			"dstColumnName": "vc_contractfile",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_riskannouncefile}",
+			"dstColumnName": "vc_riskannouncefile",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_dividendmethod}",
+			"dstColumnName": "c_dividendmethod",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_convertsharetypefree}",
+			"dstColumnName": "c_convertsharetypefree",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_hoperedeemtosubscrb}",
+			"dstColumnName": "c_hoperedeemtosubscrb",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_diffscale}",
+			"dstColumnName": "en_diffscale",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_managercode}",
+			"dstColumnName": "vc_managercode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundname_en}",
+			"dstColumnName": "vc_fundname_en",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_farepayrate}",
+			"dstColumnName": "en_farepayrate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_servicepayrate}",
+			"dstColumnName": "en_servicepayrate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_redeemfarepayrate}",
+			"dstColumnName": "en_redeemfarepayrate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_fundeffectday}",
+			"dstColumnName": "l_fundeffectday",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_cycletype}",
+			"dstColumnName": "c_cycletype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_cyclestep}",
+			"dstColumnName": "l_cyclestep",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_shareoutmode}",
+			"dstColumnName": "c_shareoutmode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_carryshareoutmode}",
+			"dstColumnName": "c_carryshareoutmode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_finishdate}",
+			"dstColumnName": "vc_finishdate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_breakredeem}",
+			"dstColumnName": "c_breakredeem",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_subtype}",
+			"dstColumnName": "c_subtype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_masterfundlimit}",
+			"dstColumnName": "c_masterfundlimit",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_forbidbonustype}",
+			"dstColumnName": "c_forbidbonustype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_promiseflag}",
+			"dstColumnName": "c_promiseflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fasttransferflag}",
+			"dstColumnName": "c_fasttransferflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundlevel}",
+			"dstColumnName": "vc_fundlevel",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_tdayconfirm}",
+			"dstColumnName": "c_tdayconfirm",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_reqularliq}",
+			"dstColumnName": "c_reqularliq",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_hbzfflag}",
+			"dstColumnName": "c_hbzfflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_kjzfflag}",
+			"dstColumnName": "c_kjzfflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_insertflag}",
+			"dstColumnName": "c_insertflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_liquidatebank}",
+			"dstColumnName": "vc_liquidatebank",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_sftradelimit}",
+			"dstColumnName": "c_sftradelimit",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_mixindiscount}",
+			"dstColumnName": "c_mixindiscount",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_cumulminbala}",
+			"dstColumnName": "en_cumulminbala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_cumuldiscount}",
+			"dstColumnName": "en_cumuldiscount",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_preyield}",
+			"dstColumnName": "en_preyield",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_expiredate}",
+			"dstColumnName": "vc_expiredate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_expectyrr}",
+			"dstColumnName": "en_expectyrr",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_productduetime}",
+			"dstColumnName": "en_productduetime",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_counterworktime}",
+			"dstColumnName": "vc_counterworktime",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_valuedate}",
+			"dstColumnName": "vc_valuedate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_tdayfundtotalratiolimit}",
+			"dstColumnName": "en_tdayfundtotalratiolimit",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_tdayfundtotalsharelimit}",
+			"dstColumnName": "en_tdayfundtotalsharelimit",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_allowbusin}",
+			"dstColumnName": "vc_allowbusin",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_expiredateallot}",
+			"dstColumnName": "c_expiredateallot",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundgroupcode}",
+			"dstColumnName": "vc_fundgroupcode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_ctrworktimebusin}",
+			"dstColumnName": "vc_ctrworktimebusin",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_pdeltabala}",
+			"dstColumnName": "en_pdeltabala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_cseconddeltabala}",
+			"dstColumnName": "en_cseconddeltabala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_pseconddeltabala}",
+			"dstColumnName": "en_pseconddeltabala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_forbidxjbconvert}",
+			"dstColumnName": "c_forbidxjbconvert",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_tradebyorder}",
+			"dstColumnName": "c_tradebyorder",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_needfunddoc}",
+			"dstColumnName": "c_needfunddoc",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_fundinvestfile}",
+			"dstColumnName": "vc_fundinvestfile",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_identifiedcode}",
+			"dstColumnName": "vc_identifiedcode",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_contractversion}",
+			"dstColumnName": "vc_contractversion",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_riskannounceversion}",
+			"dstColumnName": "vc_riskannounceversion",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_maxshare}",
+			"dstColumnName": "en_maxshare",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_maxsubbala}",
+			"dstColumnName": "en_maxsubbala",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_supvisualconvet}",
+			"dstColumnName": "c_supvisualconvet",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_faretype}",
+			"dstColumnName": "c_faretype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_reserveflag}",
+			"dstColumnName": "c_reserveflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_checktradelimit}",
+			"dstColumnName": "c_checktradelimit",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_modifydate}",
+			"dstColumnName": "vc_modifydate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_zhdetailtype}",
+			"dstColumnName": "vc_zhdetailtype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_hopedate}",
+			"dstColumnName": "vc_hopedate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fundnavvisble}",
+			"dstColumnName": "c_fundnavvisble",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_collectprodct}",
+			"dstColumnName": "c_collectprodct",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.en_otherratio}",
+			"dstColumnName": "en_otherratio",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_shortfundtype}",
+			"dstColumnName": "c_shortfundtype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_showdividendvisble}",
+			"dstColumnName": "c_showdividendvisble",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_needsurveyflag}",
+			"dstColumnName": "c_needsurveyflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_isunvisible}",
+			"dstColumnName": "c_isunvisible",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_targetcusttype}",
+			"dstColumnName": "c_targetcusttype",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_needrecommender}",
+			"dstColumnName": "c_needrecommender",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_preconversionflag}",
+			"dstColumnName": "c_preconversionflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_conversiondate}",
+			"dstColumnName": "vc_conversiondate",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.vc_webaddress}",
+			"dstColumnName": "vc_webaddress",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_minage}",
+			"dstColumnName": "l_minage",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_privateflag}",
+			"dstColumnName": "c_privateflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.l_maxage}",
+			"dstColumnName": "l_maxage",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_fuseaffectflag}",
+			"dstColumnName": "c_fuseaffectflag",
+			"validate": "",
+			"priority": ""
+			},
+			{
+			"srcColumnName": "${TFUNDINFO.c_xjbfund}",
+			"dstColumnName": "c_xjbfund",
+			"validate": "",
+			"priority": ""
+			}			
+		]
+	}
+]

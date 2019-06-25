@@ -1,0 +1,76 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"prim_reg_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"prim_reg_no"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+				
+					"party_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"prim_reg_no",
+					"prim_reg_type"
+				]
+			}
+		],
+		"tableName": "LABEL_CUSTINFO_EXT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"ma",
+					"ch",
+					"fa"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+				]
+			}
+		],
+		"tableName": "LABEL_FAMILY_EXT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "LABEL_FAMILY_LISTEXT"
+	}
+]

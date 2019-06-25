@@ -1,0 +1,178 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_FUND_DYNAMIC",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5fundcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TDYNAMICFUNDINFO.vc_fundcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5fundcode}",
+			"${TDYNAMICFUNDINFO.vc_fundcode}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TDYNAMICFUNDINFO",
+			"alias": "TDYNAMICFUNDINFO"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_fundcode}",
+				"dstColumnName": "fundcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_type}",
+				"dstColumnName": "fundtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_latestnav}",
+				"dstColumnName": "last_net",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_navimpdate}",
+				"dstColumnName": "net_input_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_currdate}",
+				"dstColumnName": "cur_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_preworkdate}",
+				"dstColumnName": "pre_workday",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_nextworkdate}",
+				"dstColumnName": "next_workday",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.l_sysdateworkflag}",
+				"dstColumnName": "is_workday",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_fundname}",
+				"dstColumnName": "fund_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_totalshare}",
+				"dstColumnName": "ytd_tot_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_state}",
+				"dstColumnName": "fund_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_facevalue}",
+				"dstColumnName": "val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_moneytype}",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_fundincomeratio}",
+				"dstColumnName": "fund_prft_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_fundincomeunit}",
+				"dstColumnName": "fund_prft_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.vc_navdate}",
+				"dstColumnName": "net_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_totalnav}",
+				"dstColumnName": "sum_unit_net",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_publishflag}",
+				"dstColumnName": "publishflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_fundincomeflag}",
+				"dstColumnName": "fund_prftflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_yieldflag}",
+				"dstColumnName": "prft_rateflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_fundnavtype}",
+				"dstColumnName": "fund_netflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.c_fundyearincomerateflag}",
+				"dstColumnName": "fund_yprftrateflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_fundyearincomerate}",
+				"dstColumnName": "fund_yprftrate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TDYNAMICFUNDINFO.en_expscale}",
+				"dstColumnName": "net_price_limit",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

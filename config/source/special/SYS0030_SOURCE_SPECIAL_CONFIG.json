@@ -1,0 +1,216 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "T_RYX_PRODUCT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"rela_with_appl",
+					"prof_type",
+					"cert",
+					"benefit_mode",
+					"pass_cert"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cerc"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cerc",
+					"cert"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"ins_name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"RF_APPLY_DATE"
+				]
+			}
+		],
+		"tableName": "T_POLICY_INSURANT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"pg_flag",
+					"apply_cert",
+					"currency_code",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"apply_cerc",
+					"rf_inscerc"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"apply_cerc",
+					"apply_cert"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"apply_name",
+					"rf_insname"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"APPLY_DATE",
+					"BEGIN_DATE",
+					"END_DATE"
+				]
+			}
+		],
+		"tableName": "T_PUBLIC_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"RF_APPLY_DATE",
+					"RF_BEGIN_DATE",
+					"RF_END_DATE"
+				]
+			}
+		],
+		"tableName": "T_POLICYENSURE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"marriaged",
+					"sex",
+					"has_auto",
+					"health",
+					"industry_type",
+					"cret_type",
+					"pass_cert"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cret_code"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cret_code",
+					"cret_type"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customer_name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"BIRTHDAY",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"OPERATE_DATE"
+				]
+			}
+		],
+		"tableName": "T_RYX_CUSTOMER"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"vip_flag",
+					"customer_type",
+					"sex",
+					"pay_type",
+					"apply_sign",
+					"modify_flag",
+					"pass_cert"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"birthday",
+					"operate_date",
+					"rf_begin_date",
+					"rf_end_date",
+					"rf_apply_date"
+				]
+			}
+		],
+		"tableName": "T_POLICY_APPLICANT"
+	}
+]

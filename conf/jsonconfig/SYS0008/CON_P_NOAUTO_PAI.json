@@ -1,0 +1,210 @@
+[
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "CON_P_NOAUTO_PAI",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_EXCEPTION.sysno}",
+						"${BIG_EXCEPTION.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_EXCEPTION",
+			"alias": "BIG_EXCEPTION"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.bc}",
+				"dstColumnName": "shifts",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.insurebegindate}",
+				"dstColumnName": "ride_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.kph}",
+				"dstColumnName": "seat_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.qqdian}",
+				"dstColumnName": "start_site",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sysno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "CON_P_NOAUTO_PAI",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"${BIG_POLICY_FORM_CHENGYI.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_POLICY_FORM_CHENGYI",
+			"alias": "BIG_POLICY_FORM_CHENGYI"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.bc}",
+				"dstColumnName": "shifts",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.insurebegindate}",
+				"dstColumnName": "ride_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.kph}",
+				"dstColumnName": "seat_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.qqdian}",
+				"dstColumnName": "start_site",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

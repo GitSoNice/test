@@ -1,0 +1,230 @@
+[
+    {
+        "sourceSystem": "SYS0023",
+        "targetTableName": "EVT_L_NOTIFY",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${NCLMAPP.pid}",
+                        "111",
+                        "${NCLMAPP.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5claimno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${NCLMAPP.cappno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5claimno}",
+            "${NCLMAPP.cappno}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0023.NCLMAPP",
+            "alias": "NCLMAPP"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NCLMAPP.cappno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${NCLMAPP.cappno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "insure_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${CERTTYPE_111}",
+                "dstColumnName": "insured_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.pid}",
+                "dstColumnName": "insured_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.name}",
+                "dstColumnName": "insured_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.repid}",
+                "dstColumnName": "notify_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.repname}",
+                "dstColumnName": "notify_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.remphone}",
+                "dstColumnName": "notify_phone",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.reptele}",
+                "dstColumnName": "notify_tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.repaddr}",
+                "dstColumnName": "notify_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.repsex}",
+                "dstColumnName": "notify_gender",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.reprel}",
+                "dstColumnName": "notify_insured_rel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.reptype}",
+                "dstColumnName": "notify_mode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.repdate}",
+                "dstColumnName": "notify_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.sudtype}",
+                "dstColumnName": "acdnttype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.accdate}",
+                "dstColumnName": "acdnt_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.local}",
+                "dstColumnName": "acdnt_site",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.movedate}",
+                "dstColumnName": "movedate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.movereason}",
+                "dstColumnName": "move_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.deaddate}",
+                "dstColumnName": "dead_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.disease_auth_date}",
+                "dstColumnName": "disease_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.maimdate}",
+                "dstColumnName": "maim_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.litigation}",
+                "dstColumnName": "is_litig",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.issec}",
+                "dstColumnName": "is_sec",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.isjvclaim}",
+                "dstColumnName": "lifeflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.disecode}",
+                "dstColumnName": "diseasecode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.isclaimdate}",
+                "dstColumnName": "claim_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.utime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NCLMAPP.updtime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

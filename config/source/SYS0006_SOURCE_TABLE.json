@@ -1,0 +1,44 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "CHPERSONALAGENT",
+        "rowkeyCols": [
+            "personalserialno",
+            "agentserialno"
+        ],
+        "md5Cols": [
+            "personalserialno",
+            "agentserialno"
+        ]
+    },
+    {
+        "tableName": "CHAGENTBASE",
+        "rowkeyCols": [
+            "agentserialno"
+        ],
+        "md5Cols": [
+            "agentserialno"
+        ]
+    },
+    {
+        "tableName": "CHORGAGENT",
+        "rowkeyCols": [
+            "orgagentserialno",
+            "agentserialno"
+        ],
+        "md5Cols": [
+            "orgagentserialno",
+            "agentserialno"
+        ]
+    }
+]

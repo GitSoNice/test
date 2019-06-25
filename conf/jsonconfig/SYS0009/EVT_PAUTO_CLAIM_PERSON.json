@@ -1,0 +1,2538 @@
+[
+    {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_CLAIM_PERSON",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            },
+            {
+                "alias": "isTrue",
+                "specialHandle": {
+                    "handleName": "checkWhereFor09EPCP",
+                    "parameters": [
+                        "${CF_CT_PARTY.kind}",
+                        "${CF_CT_PARTY.parentactualkind}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "getPersonType",
+                    "parameters": [
+                        "${CF_CT_PARTY.kind}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_RELATEDPERSONNEL.actualid}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            }
+	        }
+		],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isTrue}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${personType}",
+                "dstColumnName": "person_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.name}",
+                "dstColumnName": "name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${CF_RP_RELATEDPERSONNEL.sex}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificateno}"
+	                ]
+	            },
+                "dstColumnName": "sex", 
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationkind}",
+                "dstColumnName": "rel_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwithinsurant}",
+                "dstColumnName": "rel_insurant",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.zipcode}",
+                "dstColumnName": "zipcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofcertificate}",
+                "dstColumnName": "cert_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.address}",
+                "dstColumnName": "address",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.province}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.city}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.district}",
+                "dstColumnName": "district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.mobile}",
+                "dstColumnName": "mobile",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.provinceofcertificate}",
+                "dstColumnName": "cert_province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cityofcertificate}",
+                "dstColumnName": "cert_city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.districtofcertificate}",
+                "dstColumnName": "cert_district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.validitytermoflicense}",
+                "dstColumnName": "drive_lics_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.personproperty}",
+                "dstColumnName": "person_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverdocumentid}",
+                "dstColumnName": "drv_doc_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingtype}",
+                "dstColumnName": "driving_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.injurysituation}",
+                "dstColumnName": "injury",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseno}",
+                "dstColumnName": "drv_lics_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.contact}",
+                "dstColumnName": "contact",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alternatemobile}",
+                "dstColumnName": "spare_tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.age}",
+                "dstColumnName": "age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingyears}",
+                "dstColumnName": "driving_age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseissuedate}",
+                "dstColumnName": "drv_lics_date",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.customertype}",
+                "dstColumnName": "customertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.career}",
+                "dstColumnName": "career",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cheatpossibility}",
+                "dstColumnName": "cheat_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.complaintpossibility}",
+                "dstColumnName": "cpl_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.lawsuitpossibility}",
+                "dstColumnName": "litig_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policemanname}",
+                "dstColumnName": "police_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policeteamname}",
+                "dstColumnName": "police_team_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.telofpoliceteam}",
+                "dstColumnName": "police_team_tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwiththeinjured}",
+                "dstColumnName": "rel_injured",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.needtorear}",
+                "dstColumnName": "is_raise",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.numofdependent}",
+                "dstColumnName": "com_raise_num",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.rearyears}",
+                "dstColumnName": "raise_years",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alimonycaculatestandard}",
+                "dstColumnName": "raise_fee_std",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.company}",
+                "dstColumnName": "company",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.position}",
+                "dstColumnName": "position",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.companyaddress}",
+                "dstColumnName": "company_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.monthincomebeforetaxes}",
+                "dstColumnName": "mon_income_pre_tax",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.familymemberid}",
+                "dstColumnName": "family_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.theinauguralindustry}",
+                "dstColumnName": "job_industry",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.modifyflag}",
+                "dstColumnName": "modify_flag",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.householdtype}",
+                "dstColumnName": "householdtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.email}",
+                "dstColumnName": "email",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.idnumber}",
+                "dstColumnName": "idnumber",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.serialno}",
+                "dstColumnName": "serialno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivertype}",
+                "dstColumnName": "drivertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.abode}",
+                "dstColumnName": "abode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofjob}",
+                "dstColumnName": "job_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateno}",
+                "dstColumnName": "busi_per_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateoflicense}",
+                "dstColumnName": "busi_per_certdate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificatetype}",
+                "dstColumnName": "busi_per_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizername}",
+                "dstColumnName": "busi_per_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateoflicense}",
+                "dstColumnName": "cert_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.managebrand}",
+                "dstColumnName": "managebrand",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.nationality}",
+                "dstColumnName": "nationality",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.responsiblepartytype}",
+                "dstColumnName": "duty_party_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_CLAIM_PERSON",
+        "order": "2",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CF_RP_VEHICLECONDITION.thirdpartyflag}",
+                        "Y",
+                        "B18",
+                        "B17"
+                   ]
+                }
+            }
+       	],
+        "rowKey":[
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_RELATEDPERSONNEL.actualid}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"ACCIDENTDRIVER"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.VEHICLECONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_CONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_CT_CONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.parentactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.kind}",
+                                "rightCondition":"VEHICLECONDITIONINFO"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_RP_VEHICLECONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_RP_VEHICLECONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_VEHICLECONDITION.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_VEHICLECONDITION.actualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_RP_VEHICLECONDITION.thirdpartyflag}",
+                                "rightCondition":"N,Y"
+                            }
+                        }
+                    ]
+                }
+	        }
+		],
+        "columnList": [
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${personType}",
+                "dstColumnName": "person_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.name}",
+                "dstColumnName": "name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${CF_RP_RELATEDPERSONNEL.sex}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificateno}"
+	                ]
+	            },
+                "dstColumnName": "sex", 
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationkind}",
+                "dstColumnName": "rel_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwithinsurant}",
+                "dstColumnName": "rel_insurant",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.zipcode}",
+                "dstColumnName": "zipcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofcertificate}",
+                "dstColumnName": "cert_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.address}",
+                "dstColumnName": "address",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.province}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.city}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.district}",
+                "dstColumnName": "district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.mobile}",
+                "dstColumnName": "mobile",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.provinceofcertificate}",
+                "dstColumnName": "cert_province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cityofcertificate}",
+                "dstColumnName": "cert_city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.districtofcertificate}",
+                "dstColumnName": "cert_district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.validitytermoflicense}",
+                "dstColumnName": "drive_lics_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.personproperty}",
+                "dstColumnName": "person_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverdocumentid}",
+                "dstColumnName": "drv_doc_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingtype}",
+                "dstColumnName": "driving_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.injurysituation}",
+                "dstColumnName": "injury",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseno}",
+                "dstColumnName": "drv_lics_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.contact}",
+                "dstColumnName": "contact",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alternatemobile}",
+                "dstColumnName": "spare_tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.age}",
+                "dstColumnName": "age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingyears}",
+                "dstColumnName": "driving_age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseissuedate}",
+                "dstColumnName": "drv_lics_date",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.customertype}",
+                "dstColumnName": "customertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.career}",
+                "dstColumnName": "career",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cheatpossibility}",
+                "dstColumnName": "cheat_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.complaintpossibility}",
+                "dstColumnName": "cpl_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.lawsuitpossibility}",
+                "dstColumnName": "litig_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policemanname}",
+                "dstColumnName": "police_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policeteamname}",
+                "dstColumnName": "police_team_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.telofpoliceteam}",
+                "dstColumnName": "police_team_tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwiththeinjured}",
+                "dstColumnName": "rel_injured",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.needtorear}",
+                "dstColumnName": "is_raise",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.numofdependent}",
+                "dstColumnName": "com_raise_num",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.rearyears}",
+                "dstColumnName": "raise_years",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alimonycaculatestandard}",
+                "dstColumnName": "raise_fee_std",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.company}",
+                "dstColumnName": "company",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.position}",
+                "dstColumnName": "position",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.companyaddress}",
+                "dstColumnName": "company_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.monthincomebeforetaxes}",
+                "dstColumnName": "mon_income_pre_tax",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.familymemberid}",
+                "dstColumnName": "family_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.theinauguralindustry}",
+                "dstColumnName": "job_industry",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.modifyflag}",
+                "dstColumnName": "modify_flag",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.householdtype}",
+                "dstColumnName": "householdtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.email}",
+                "dstColumnName": "email",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.idnumber}",
+                "dstColumnName": "idnumber",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.serialno}",
+                "dstColumnName": "serialno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivertype}",
+                "dstColumnName": "drivertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.abode}",
+                "dstColumnName": "abode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofjob}",
+                "dstColumnName": "job_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateno}",
+                "dstColumnName": "busi_per_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateoflicense}",
+                "dstColumnName": "busi_per_certdate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificatetype}",
+                "dstColumnName": "busi_per_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizername}",
+                "dstColumnName": "busi_per_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateoflicense}",
+                "dstColumnName": "cert_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.managebrand}",
+                "dstColumnName": "managebrand",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.nationality}",
+                "dstColumnName": "nationality",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.responsiblepartytype}",
+                "dstColumnName": "duty_party_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+   {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_CLAIM_PERSON",
+        "order": "3",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CF_RP_PERSONCONDITION.personneltype}",
+                        "1",
+                        "B16",
+                        "B15"
+                   ]
+                }
+            }
+       	],
+        "rowKey":[
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_RELATEDPERSONNEL.actualid}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"THEINJURED"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.PERSONCONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_CONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_CT_CONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.parentactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.kind}",
+                                "rightCondition":"PERSONCONDITIONINFO"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_RP_PERSONCONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_RP_PERSONCONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_PERSONCONDITION.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_PERSONCONDITION.actualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_RP_PERSONCONDITION.personneltype}",
+                                "rightCondition":"1,2"
+                            }
+                        }
+                    ]
+                }
+	        }
+		],
+        "columnList": [
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${personType}",
+                "dstColumnName": "person_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.name}",
+                "dstColumnName": "name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${CF_RP_RELATEDPERSONNEL.sex}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+	                    "${CF_RP_RELATEDPERSONNEL.certificateno}"
+	                ]
+	            },
+                "dstColumnName": "sex", 
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationkind}",
+                "dstColumnName": "rel_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwithinsurant}",
+                "dstColumnName": "rel_insurant",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.zipcode}",
+                "dstColumnName": "zipcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofcertificate}",
+                "dstColumnName": "cert_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.address}",
+                "dstColumnName": "address",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.province}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.city}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.district}",
+                "dstColumnName": "district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.mobile}",
+                "dstColumnName": "mobile",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.provinceofcertificate}",
+                "dstColumnName": "cert_province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cityofcertificate}",
+                "dstColumnName": "cert_city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.districtofcertificate}",
+                "dstColumnName": "cert_district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.validitytermoflicense}",
+                "dstColumnName": "drive_lics_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.personproperty}",
+                "dstColumnName": "person_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverdocumentid}",
+                "dstColumnName": "drv_doc_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingtype}",
+                "dstColumnName": "driving_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.injurysituation}",
+                "dstColumnName": "injury",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseno}",
+                "dstColumnName": "drv_lics_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.contact}",
+                "dstColumnName": "contact",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alternatemobile}",
+                "dstColumnName": "spare_tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.age}",
+                "dstColumnName": "age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivingyears}",
+                "dstColumnName": "driving_age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.driverlicenseissuedate}",
+                "dstColumnName": "drv_lics_date",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.customertype}",
+                "dstColumnName": "customertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.career}",
+                "dstColumnName": "career",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.cheatpossibility}",
+                "dstColumnName": "cheat_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.complaintpossibility}",
+                "dstColumnName": "cpl_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.lawsuitpossibility}",
+                "dstColumnName": "litig_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policemanname}",
+                "dstColumnName": "police_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.policeteamname}",
+                "dstColumnName": "police_team_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.telofpoliceteam}",
+                "dstColumnName": "police_team_tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.relationwiththeinjured}",
+                "dstColumnName": "rel_injured",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.needtorear}",
+                "dstColumnName": "is_raise",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.numofdependent}",
+                "dstColumnName": "com_raise_num",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.rearyears}",
+                "dstColumnName": "raise_years",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.alimonycaculatestandard}",
+                "dstColumnName": "raise_fee_std",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.company}",
+                "dstColumnName": "company",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.position}",
+                "dstColumnName": "position",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.companyaddress}",
+                "dstColumnName": "company_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.monthincomebeforetaxes}",
+                "dstColumnName": "mon_income_pre_tax",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.familymemberid}",
+                "dstColumnName": "family_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.theinauguralindustry}",
+                "dstColumnName": "job_industry",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.modifyflag}",
+                "dstColumnName": "modify_flag",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.householdtype}",
+                "dstColumnName": "householdtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.email}",
+                "dstColumnName": "email",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.idnumber}",
+                "dstColumnName": "idnumber",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.serialno}",
+                "dstColumnName": "serialno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.drivertype}",
+                "dstColumnName": "drivertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.abode}",
+                "dstColumnName": "abode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.addressofjob}",
+                "dstColumnName": "job_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateno}",
+                "dstColumnName": "busi_per_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificateoflicense}",
+                "dstColumnName": "busi_per_certdate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizercertificatetype}",
+                "dstColumnName": "busi_per_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.authorizername}",
+                "dstColumnName": "busi_per_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.certificateoflicense}",
+                "dstColumnName": "cert_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.managebrand}",
+                "dstColumnName": "managebrand",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.nationality}",
+                "dstColumnName": "nationality",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.responsiblepartytype}",
+                "dstColumnName": "duty_party_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+   {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_CLAIM_PERSON",
+        "order": "4",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "getPersonType",
+                    "parameters": [
+                        "${CF_CT_PARTY1.kind}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_RELATEDPERSONNEL1.actualid}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_RP_RELATEDPERSONNEL",
+	            "relationType":"inner",
+	            "alias":"CF_RP_RELATEDPERSONNEL1",
+	            "source":false,
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL1.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY1",
+	            "source":false,
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY1.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL1.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY1.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL1.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY1.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL1.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY1.kind}",
+                                "rightCondition":"INSURANT"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY1.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.OUTSIDEPERSONNELS,CASEFOLDER.POLICY.COMMERCIALINSURANCE,CASEFOLDER.POLICY.CTP"
+                            }
+                        }
+                    ]
+                }
+	        },
+	         {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"INSURANT"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.OUTSIDEPERSONNELS,CASEFOLDER.POLICY.COMMERCIALINSURANCE,CASEFOLDER.POLICY.CTP"
+                            }
+                        }
+                    ]
+                }
+	        }
+		],
+        "columnList": [
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${personType}",
+                "dstColumnName": "person_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.name}",
+                "dstColumnName": "name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${CF_RP_RELATEDPERSONNEL1.sex}",
+	                    "${CF_RP_RELATEDPERSONNEL1.certificatetype}",
+	                    "${CF_RP_RELATEDPERSONNEL1.certificateno}"
+	                ]
+	            },
+                "dstColumnName": "sex", 
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.tel}",
+                "dstColumnName": "tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.certificatetype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.certificateno}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.relationkind}",
+                "dstColumnName": "rel_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.relationwithinsurant}",
+                "dstColumnName": "rel_insurant",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.zipcode}",
+                "dstColumnName": "zipcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.addressofcertificate}",
+                "dstColumnName": "cert_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.address}",
+                "dstColumnName": "address",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.province}",
+                "dstColumnName": "province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.city}",
+                "dstColumnName": "city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.district}",
+                "dstColumnName": "district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.mobile}",
+                "dstColumnName": "mobile",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.provinceofcertificate}",
+                "dstColumnName": "cert_province",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.cityofcertificate}",
+                "dstColumnName": "cert_city",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.districtofcertificate}",
+                "dstColumnName": "cert_district",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.validitytermoflicense}",
+                "dstColumnName": "drive_lics_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.personproperty}",
+                "dstColumnName": "person_attr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.driverdocumentid}",
+                "dstColumnName": "drv_doc_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.drivingtype}",
+                "dstColumnName": "driving_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.injurysituation}",
+                "dstColumnName": "injury",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.driverlicenseno}",
+                "dstColumnName": "drv_lics_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.contact}",
+                "dstColumnName": "contact",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.alternatemobile}",
+                "dstColumnName": "spare_tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.age}",
+                "dstColumnName": "age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.drivingyears}",
+                "dstColumnName": "driving_age",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.driverlicenseissuedate}",
+                "dstColumnName": "drv_lics_date",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.customertype}",
+                "dstColumnName": "customertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.career}",
+                "dstColumnName": "career",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.cheatpossibility}",
+                "dstColumnName": "cheat_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.complaintpossibility}",
+                "dstColumnName": "cpl_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.lawsuitpossibility}",
+                "dstColumnName": "litig_psbflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.policemanname}",
+                "dstColumnName": "police_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.policeteamname}",
+                "dstColumnName": "police_team_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.telofpoliceteam}",
+                "dstColumnName": "police_team_tel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.relationwiththeinjured}",
+                "dstColumnName": "rel_injured",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.needtorear}",
+                "dstColumnName": "is_raise",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.numofdependent}",
+                "dstColumnName": "com_raise_num",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.rearyears}",
+                "dstColumnName": "raise_years",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.alimonycaculatestandard}",
+                "dstColumnName": "raise_fee_std",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.company}",
+                "dstColumnName": "company",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.position}",
+                "dstColumnName": "position",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.companyaddress}",
+                "dstColumnName": "company_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.monthincomebeforetaxes}",
+                "dstColumnName": "mon_income_pre_tax",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.familymemberid}",
+                "dstColumnName": "family_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.theinauguralindustry}",
+                "dstColumnName": "job_industry",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.modifyflag}",
+                "dstColumnName": "modify_flag",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.householdtype}",
+                "dstColumnName": "householdtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.email}",
+                "dstColumnName": "email",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.idnumber}",
+                "dstColumnName": "idnumber",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.serialno}",
+                "dstColumnName": "serialno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.drivertype}",
+                "dstColumnName": "drivertype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.abode}",
+                "dstColumnName": "abode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.addressofjob}",
+                "dstColumnName": "job_addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.authorizercertificateno}",
+                "dstColumnName": "busi_per_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.authorizercertificateoflicense}",
+                "dstColumnName": "busi_per_certdate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.authorizercertificatetype}",
+                "dstColumnName": "busi_per_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.authorizername}",
+                "dstColumnName": "busi_per_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.certificateoflicense}",
+                "dstColumnName": "cert_valid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.managebrand}",
+                "dstColumnName": "managebrand",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.nationality}",
+                "dstColumnName": "nationality",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.responsiblepartytype}",
+                "dstColumnName": "duty_party_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_RELATEDPERSONNEL1.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]
+

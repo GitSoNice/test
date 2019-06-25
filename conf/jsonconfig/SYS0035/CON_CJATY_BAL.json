@@ -1,0 +1,378 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "CON_CJATY_BAL",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Indv_plan_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGGRZHYE.zggrzhye_grjhbh}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Indv_plan_no}",
+			"${ZGGRZHYE.zggrzhye_grjhbh}",
+			"${ZGGRZHYE.zggrzhye_zhbh}",
+			"${ZGGRZHYE.zggrzhye_tzzhbh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGGRZHYE",
+			"alias": "ZGGRZHYE"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_grjhbh}",
+				"dstColumnName": "indv_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zhbh}",
+				"dstColumnName": "acct_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_tzzhbh}",
+				"dstColumnName": "inv_comb_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_qyjhbh}",
+				"dstColumnName": "corp_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_kyye}",
+				"dstColumnName": "useable_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_djye}",
+				"dstColumnName": "freeze_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ze}",
+				"dstColumnName": "sum_salary",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_srye}",
+				"dstColumnName": "yesterday_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_js}",
+				"dstColumnName": "actl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_jflj}",
+				"dstColumnName": "sum_payin",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_sylj}",
+				"dstColumnName": "sum_profit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zflj}",
+				"dstColumnName": "sum_payout",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_gslj}",
+				"dstColumnName": "sum_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_wgslj}",
+				"dstColumnName": "sum_no_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ggfplj}",
+				"dstColumnName": "sum_pub_allot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zclj}",
+				"dstColumnName": "sum_tsfrout",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zrlj}",
+				"dstColumnName": "sum_tsfrin",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zgfnklj}",
+				"dstColumnName": "sum_deacct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycye}",
+				"dstColumnName": "early_mth_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycjflj}",
+				"dstColumnName": "sum_early_mth_payin",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycsylj}",
+				"dstColumnName": "sum_early_mth_profit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_yczflj}",
+				"dstColumnName": "sum_early_mth_payout",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycgslj}",
+				"dstColumnName": "sum_early_mth_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycwgslj}",
+				"dstColumnName": "sum_early_mth_no_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycggfplj}",
+				"dstColumnName": "sum_early_mth_pub_allot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_yczclj}",
+				"dstColumnName": "sum_early_mth_out",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_yczrlj}",
+				"dstColumnName": "sum_early_mth_in",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_yczgfnklj}",
+				"dstColumnName": "sum_early_mth_deduct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncye}",
+				"dstColumnName": "early_year_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncjflj}",
+				"dstColumnName": "sum_early_year_payin",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncsylj}",
+				"dstColumnName": "sum_early_year_profit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_nczflj}",
+				"dstColumnName": "sum_early_year_payout",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncgslj}",
+				"dstColumnName": "sum_early_year_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncwgslj}",
+				"dstColumnName": "sum_early_year_no_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncggfplj}",
+				"dstColumnName": "sum_early_year_pub_allot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_nczclj}",
+				"dstColumnName": "sum_early_year_tsfrout",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_nczrlj}",
+				"dstColumnName": "sum_early_year_tsfrin",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_nczgfnklj}",
+				"dstColumnName": "sum_early_year_deacct_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_zt}",
+				"dstColumnName": "st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_gxrq}",
+				"dstColumnName": "upd_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_csgsje}",
+				"dstColumnName": "calc_belong_amt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_sglj}",
+				"dstColumnName": "sum_purc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycsglj}",
+				"dstColumnName": "sum_early_mth_purc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncsglj}",
+				"dstColumnName": "sum_early_year_purc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_shlj}",
+				"dstColumnName": "sum_redm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycshlj}",
+				"dstColumnName": "sum_early_mth_redm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncshlj}",
+				"dstColumnName": "sum_early_year_redm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ljtpx}",
+				"dstColumnName": "sum_leveling",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycsz}",
+				"dstColumnName": "early_mth_market_val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncsz}",
+				"dstColumnName": "early_year_market_val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_clbj}",
+				"dstColumnName": "invt_prcpl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_bj}",
+				"dstColumnName": "prcpl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycbj}",
+				"dstColumnName": "early_mth_prcpl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncbj}",
+				"dstColumnName": "early_year_prcpl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_sflj}",
+				"dstColumnName": "sum_tax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ycsflj}",
+				"dstColumnName": "sum_early_mth_tax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_ncsflj}",
+				"dstColumnName": "sum_early_year_tax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRZHYE.zggrzhye_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

@@ -1,0 +1,136 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_JOB_SOURCE",
+        "order": "1",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PSNCUST*||*00*||*KHDM*||*",
+						"${TBL_PSNCUST.khdm}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_PSNCUST.zjhm}",
+                        "${TBL_PSNCUST.zjlx}",
+                        "${TBL_PSNCUST.khxm}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+	        {
+	            "alias":"concat_person_id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	               	  "EX_SYS0001_TBL_PSNCUST*||*00*||*KHDM*||*",
+	                   "${TBL_PSNCUST.khdm}"
+	                ]
+	            }
+	        }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PSNCUST",
+            "alias": "TBL_PSNCUST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+             {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+                    "conditionType": "group",
+                    "conditionContext": {
+                        "operatorSymbol": "or",
+                        "conditionList": [
+                            {
+                                "conditionType": "simple",
+                                "conditionContext": {
+                                    "expression": {
+                                        "expressionType": "<>",
+                                        "dataType": "String",
+                                        "formatter": ""
+                                    },
+                                    "leftCondition": "${TBL_PSNCUST.zylb}",
+                                    "rightCondition": ""
+                                }
+                            },
+                            {
+                                "conditionType": "simple",
+                                "conditionContext": {
+                                    "expression": {
+                                        "expressionType": "<>",
+                                        "dataType": "String",
+                                        "formatter": ""
+                                    },
+                                    "leftCondition": "${TBL_PSNCUST.fwdwmc}",
+                                    "rightCondition": ""
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.zylb}",
+                "dstColumnName": "job",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.fwdwmc}",
+                "dstColumnName": "unit_name",
+                "validate": "",
+                "priority": ""
+            },
+	        {
+	            "srcColumnName":"${concatSRC_CUST_ID}",
+	            "dstColumnName":"src_cust_id",
+	            "validate":"",
+	            "priority":""
+	        }
+        ]
+    }
+]

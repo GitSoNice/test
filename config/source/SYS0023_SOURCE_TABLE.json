@@ -1,0 +1,151 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "PREAUD",
+        "rowkeyCols": [
+            "bmdm",
+            "sbmdm",
+            "maintaskid",
+            "subtaskid"
+        ],
+        "md5Cols": [
+            "bmdm",
+            "sbmdm",
+            "maintaskid",
+            "subtaskid"
+        ]
+    },
+    {
+        "tableName": "FINALAUD",
+        "rowkeyCols": [
+            "no",
+            "appno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "no",
+            "appno",
+            "classcode"
+        ]
+    },
+    {
+        "tableName": "BASEINFRO",
+        "rowkeyCols": [
+            "sn",
+            "appno",
+            "pid",
+            "flag"
+        ],
+        "md5Cols": [
+            "sn",
+            "appno",
+            "pid",
+            "flag"
+        ]
+    },
+    {
+        "tableName": "NCLMAPP",
+        "rowkeyCols": [
+            "cappno"
+        ],
+        "md5Cols": [
+            "cappno"
+        ]
+    },
+    {
+        "tableName": "NREGCLM",
+        "rowkeyCols": [
+            "claimno"
+        ],
+        "md5Cols": [
+            "claimno"
+        ],		
+		"indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "cappno",
+                    "claimno"
+                ],
+                "md5Cols":[
+                    "cappno",
+                    "claimno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "NCLMCCL",
+        "rowkeyCols": [
+            "claimno",
+            "policyno",
+            "classcode",
+            "precode",
+            "preno",
+            "branchid",
+            "utime"
+        ],
+        "md5Cols": [
+            "claimno",
+            "policyno",
+            "classcode",
+            "precode",
+            "preno",
+            "branchid",
+            "utime"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            },            
+			{
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "claimno"
+                ],
+                "md5Cols": [
+                    "claimno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "VERSTATN",
+        "rowkeyCols": [
+            "verstatn",
+            "vertype"
+        ],
+        "md5Cols": [
+            "verstatn",
+            "vertype"
+        ]
+    },
+    {
+        "tableName": "CONCISNO",
+        "rowkeyCols": [
+            "concis"
+        ],
+        "md5Cols": [
+            "concis"
+        ]
+    }
+]

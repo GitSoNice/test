@@ -1,0 +1,135 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CODE_LIBRARY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "BUSINESS_APPLY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"repaymentmethod"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"create_date",
+					"update_date"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"putoutdate",
+					[
+						"yyyy/MM/dd"
+					],
+					[
+						"^(\\d{4})/(\\d{2})/(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "ACCT_LOAN"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "BUSINESS_BELONG"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"isbind",
+					"isnative",
+					"familycity",
+					"nativerelative",
+					"nativecity",
+					"edudegree",
+					"familydistrict",
+					"nativedistrict",
+					"certtype",
+					"marriage",
+					"isblack",
+					"isnativehouse",
+					"familyprovince",
+					"issubscribe",
+					"nativeprovince"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"fullname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certid",
+					"certtype"
+				]
+			}
+		],
+		"tableName": "IND_INFO"
+	}
+]

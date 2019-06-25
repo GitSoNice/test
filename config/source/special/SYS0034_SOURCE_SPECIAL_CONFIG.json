@@ -1,0 +1,708 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_custtype",
+					"c_mainflag",
+					"c_autoflag",
+					"en_yearrate",
+					"c_billway",
+					"c_billpath",
+					"c_callcenter",
+					"c_internet",
+					"c_selfhelp",
+					"c_faxtrust",
+					"c_brokertrust",
+					"c_othertrust",
+					"c_needactive",
+					"c_state",
+					"c_capitalmode",
+					"vc_netno",
+					"vc_centerno"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"vc_lastdate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					],
+					"vc_lastpasswddate",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"vc_opendate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TACCOINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_moneytype",
+					"c_feetype",
+					"c_minustype",
+					"c_limitflag",
+					"c_gradeflag",
+					"c_fixallotstateflag",
+					"c_contractflag",
+					"c_shareoutmode",
+					"c_breakredeem",
+					"c_subtype",
+					"c_masterfundlimit",
+					"c_forbidbonustype",
+					"c_fasttransferflag",
+					"c_reqularliq",
+					"c_insertflag",
+					"c_mixindiscount",
+					"c_forbidxjbconvert",
+					"c_tradebyorder",
+					"c_needfunddoc",
+					"c_supvisualconvet",
+					"c_fundnavvisble",
+					"c_showdividendvisble",
+					"c_targetcusttype",
+					"c_needrecommender",
+					"c_preconversionflag",
+					"l_minage",
+					"l_maxage",
+					"c_fuseaffectflag",
+					"c_xjbfund",
+					"c_carryshareoutmode"	
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"vc_valuedate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_expiredate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_issuedate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_setupdate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_finishdate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_modifydate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_hopedate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"vc_conversiondate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TFUNDINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_moneytype",
+					"c_confirmflag",
+					"vc_errorcode",
+					"c_shareadjustflag",
+					"c_businflag",
+					"c_custtype",
+					"c_trust",
+					"c_sharetype",
+					"c_finishflag",
+					"c_exptype",
+					"c_capitalmode",
+					"vc_netno",
+					"vc_centerno",
+					"vc_branchcode",
+					"c_subcapitalmode",
+					"c_voucherflag",
+					"c_confirmstatus",
+					"c_interestflag",
+					"c_sendflag",
+					"c_tradeflag"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_CONFIRMDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_REQUESTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TCONFIRM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_custtype",
+					"c_promiseflag",
+					"c_trust",
+					"c_sendstate",
+					"c_state",
+					"c_confirmflag",
+					"c_moneytype",
+					"c_capitalmode",
+					"c_partflag",
+					"c_delete",
+					"c_riskflag",
+					"c_businflag",
+					"c_subcapitalmode",
+					"c_custrisktype",
+					"c_fundrisklevel",
+					"vc_netno",
+					"vc_centerno",
+					"c_sharetype",
+					"vc_branchcode",
+					"c_reallotflag",
+					"c_frozenflag",
+					"c_exceedflag",
+					"c_changetype",
+					"c_dividendmethod",
+					"c_frozencause",
+					"c_auditflag",
+					"c_fixbusinflag",
+					"c_accoflag",
+					"c_tradeflag",
+					"vc_cperrorcode",
+					"l_commerrorno"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_ACCEPTDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_BANKNETDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_CONFIRMDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_CONFIRMSETTLEDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_LASTDEDUCTTIME",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_MACHINEDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_ORIGINDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_REQUESTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_REQUESTSETTLEDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_SYSDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TREQUEST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_custtype",
+					"c_sharetype",
+					"c_dividendmethod",
+					"vc_branchcode"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_LASTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TSTATICSHARE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_moneytype",
+					"c_type",
+					"l_sysdateworkflag",
+					"c_publishflag",
+					"c_fundincomeflag",
+					"c_yieldflag",
+					"c_fundnavtype",
+					"c_fundyearincomerateflag",
+					"c_state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_CURRDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_NAVIMPDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_NEXTWORKDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_PREWORKDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TDYNAMICFUNDINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_trust",
+					"c_custtype",
+					"vc_errorcode",
+					"vc_netno",
+					"vc_branchcode",
+					"c_businflag",
+					"c_confirmflag"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_CONFIRMDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_REQUESTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TACCOCONFIRM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_businflag",
+					"vc_bankcityno",
+					"c_sendstate",
+					"c_tradetype",
+					"c_custtype",
+					"c_vocation",
+					"c_education",
+					"c_sex",
+					"c_marriage",
+					"vc_nationality",
+					"c_accoflag",
+					"c_bankprovincecode",
+					"c_netmodifybankacco",
+					"c_modifylimit",
+					"c_subcapitalmode",
+					"c_callcenter",
+					"c_internet",
+					"c_selfhelp",
+					"c_faxtrust",
+					"c_brokertrust",
+					"c_mobile",
+					"c_othertrust",
+					"c_selfclearpasswd",
+					"c_autoflag",
+					"c_billway",
+					"c_billpath",
+					"c_delete",
+					"c_fixbusinflag",
+					"c_capitalmode",
+					"vc_branchcode",
+					"vc_netno",
+					"vc_centerno",
+					"c_trust",
+					"c_confirmflag"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_ACCEPTDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_BIRTHDAY",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_IDVALIDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_MACHINEDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_ORIGINDATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{2})\\D*$"
+					],
+					"VC_QUESTIONARYDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_REQUESTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_SYSDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TACCOREQUEST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_sex",
+					"c_modifyflag",
+					"c_vocation",
+					"c_education",
+					"c_marriage",
+					"c_invest",
+					"c_state",
+					"c_worktime",
+					"c_ageflag",
+					"c_selfclearpasswd",
+					"c_netcheckflag",
+					"c_netshowdestroyacco",
+					"c_custlevel",
+					"c_northamerican",
+					"c_tradekind",
+					"c_acutalbusinrange",
+					"c_custtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": ["vc_identityno"]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": ["vc_customname"]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"vc_identityno",
+					"c_identitytype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_BIRTHDAY",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_IDVALIDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VC_LASTDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TCUSTINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"c_state",
+					"c_moneytype",
+					"c_publishflag",
+					"c_fundincomeflag",
+					"c_yieldflag",
+					"c_fundnavtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VC_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TFUNDMARKET"
+	}
+]

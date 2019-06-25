@@ -1,0 +1,91 @@
+[
+    {
+        "sourceSystem": "SYS0040",
+        "targetTableName": "EVT_L_NOTIFY_CUST_REL",
+        "order": "1",
+        "combinationMap": [
+        	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${NLP_NCLMAPP.pid}",
+                        "111",
+                        "${NLP_NCLMAPP.name}"
+                        
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+            	"alias": "cust_id_notifyno",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "${cust_id}",
+                        "${NLP_NCLMAPP.cappno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+						        "${md5cust_id}",
+						        "${cust_id_notifyno}"
+					    		],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0040.NLP_NCLMAPP",
+            "alias": "NLP_NCLMAPP"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NLP_NCLMAPP.cappno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "insure_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.cappno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.utime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.updtime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

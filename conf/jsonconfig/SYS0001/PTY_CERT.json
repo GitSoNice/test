@@ -1,0 +1,835 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "1",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PLCINFO*||*01*||*TBDH*||*",
+						"${TBL_PLCINFO.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_PLCINFO.tbrzjhm}",
+                        "${TBL_PLCINFO.tbrzjlx}",
+                        "${TBL_PLCINFO.tbrxm}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_PLCINFO.tbrzjlx}",
+            "${TBL_PLCINFO.tbrzjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PLCINFO",
+            "alias": "TBL_PLCINFO"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbfbz}",
+                        "rightCondition": "0"
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbrzjhm}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbrzjlx}",
+                        "rightCondition": ""
+                    }
+                },
+				 {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbrzjlx}",
+                        "rightCondition": "645"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrxm}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zhxgrq}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "2",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_INSURANT*||*02*||*TBDH*||*",
+						"${TBL_INSURANT.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_INSURANT.zjhm}",
+                        "${TBL_INSURANT.zjlx}",
+                        "${TBL_INSURANT.bbxrmc}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_INSURANT.zjlx}",
+            "${TBL_INSURANT.zjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_INSURANT",
+            "alias": "TBL_INSURANT"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_INSURANT.zjhm}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_INSURANT.zjlx}",
+                        "rightCondition": ""
+                    }
+                },
+				 {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_INSURANT.zjlx}",
+                        "rightCondition": "645"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.zjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.zjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${TBL_INSURANT.bbxrmc}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.xtsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "3",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_BENEFIT*||*03*||*TBDH*||*",
+						"${TBL_BENEFIT.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_BENEFIT.syrzjhm}",
+                        "${TBL_BENEFIT.syrzjlx}",
+                        "${TBL_BENEFIT.syrmc}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_BENEFIT.syrzjlx}",
+            "${TBL_BENEFIT.syrzjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_BENEFIT",
+            "alias": "TBL_BENEFIT"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_BENEFIT.syrzjhm}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_BENEFIT.syrzjlx}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_BENEFIT.syrzjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_BENEFIT.syrzjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_BENEFIT.syrmc}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+	{
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "4",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PLCINFO*||*01*||*TBDH*||*",
+						"${TBL_PLCINFO.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_PLCINFO.tbrzjhm}",
+                        "${TBL_PLCINFO.tbrzjlx}",
+                        "${TBL_PLCINFO.tbrxm}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_PLCINFO.tbrzjlx}",
+            "${TBL_PLCINFO.tbrzjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PLCINFO",
+            "alias": "TBL_PLCINFO"
+        },
+	   "relations": [
+            {
+                "sourceTableName": "SYS0001.TBL_PLCINFO_ADD",
+                "relationType": "left",
+                "alias": "TBL_PLCINFO_ADD",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_PLCINFO_ADD.tbdh}",
+                                "rightCondition": "${TBL_PLCINFO.tbdh}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbfbz}",
+                        "rightCondition": "0"
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbrzjhm}",
+                        "rightCondition": ""
+                    }
+                },
+				 {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.tbrzjlx}",
+                        "rightCondition": "645"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrzjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrxm}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zhxgrq}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${TBL_PLCINFO_ADD.pass_code}",
+                "dstColumnName": "pass_code",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "5",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_INSURANT*||*02*||*TBDH*||*",
+						"${TBL_INSURANT.tbdh}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_INSURANT.zjhm}",
+                        "${TBL_INSURANT.zjlx}",
+                        "${TBL_INSURANT.bbxrmc}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"pass_code",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${TBL_INSURANT_RELATION.by3}",
+                        "",
+                        "${TBL_INSURANT_ADD_JV.by3}",
+                        "${TBL_INSURANT_RELATION.by3}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_INSURANT.zjlx}",
+            "${TBL_INSURANT.zjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_INSURANT",
+            "alias": "TBL_INSURANT"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0001.TBL_INSURANT_RELATION",
+                "relationType": "left",
+                "alias": "TBL_INSURANT_RELATION",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_INSURANT.tbdh}",
+                                "rightCondition": "${TBL_INSURANT_RELATION.tbdh}"
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_INSURANT.bbxrbh}",
+                                "rightCondition": "${TBL_INSURANT_RELATION.bbxbh}"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0001.TBL_INSURANT_ADD_JV",
+                "relationType": "left",
+                "alias": "TBL_INSURANT_ADD_JV",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_INSURANT.tbdh}",
+                                "rightCondition": "${TBL_INSURANT_ADD_JV.app_num}"
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_INSURANT.bbxrbh}",
+                                "rightCondition": "${TBL_INSURANT_ADD_JV.insurant_no}"
+                            }
+                        },
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${TBL_INSURANT.bbrpc}",
+                                "rightCondition": "${TBL_INSURANT_ADD_JV.insurant_batch}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_INSURANT.zjhm}",
+                        "rightCondition": ""
+                    }
+                },
+				 {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_INSURANT.zjlx}",
+                        "rightCondition": "645"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.zjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.zjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${TBL_INSURANT.bbxrmc}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_INSURANT.xtsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${pass_code}",
+                "dstColumnName": "pass_code",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+	    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "PTY_CERT",
+        "order": "6",
+        "combinationMap": [
+        	{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0001_TBL_PSNCUST*||*00*||*KHDM*||*",
+						"${TBL_PSNCUST.khdm}"
+					]
+				}
+			},
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${TBL_PSNCUST.zjhm}",
+                        "${TBL_PSNCUST.zjlx}",
+                        "${TBL_PSNCUST.khxm}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_PSNCUST.zjlx}",
+            "${TBL_PSNCUST.zjhm}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PSNCUST",
+            "alias": "TBL_PSNCUST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PSNCUST.zjhm}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PSNCUST.zjlx}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.zjlx}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.zjhm}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PSNCUST.sfzyxq}",
+                "dstColumnName": "cert_valid_term",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+   
+]

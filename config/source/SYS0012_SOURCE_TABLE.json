@@ -1,0 +1,39 @@
+[
+    {
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },{
+        "tableName": "S_FXDJ_NATION",
+        "rowkeyCols": [
+            "sno"
+        ],
+        "md5Cols": [
+            "sno"
+        ]
+    },
+    {
+        "tableName": "FXDJ_NATION",
+        "rowkeyCols": [
+            "sno"
+        ],
+        "md5Cols": [
+            "sno"
+        ]
+    },
+    {
+        "tableName": "P_ORG",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    }
+]

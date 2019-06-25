@@ -1,0 +1,963 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_PAY_DETAIL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"opdate"
+				]
+			}
+		],
+		"tableName": "D_CODEITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idvholdercertitype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"idvholdercertino"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"idvholdername"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"idvholdercertino",
+					"idvholdercertitype"
+				]
+			}
+		],
+		"tableName": "P_CLR_POLICYINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_SURVEY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"reg_no"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"party_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"reg_no",
+					"reg_type"
+				]
+			}
+		],
+		"tableName": "CIF_CUS_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_LOSS_PRO_DETAIL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_OFFERSITE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"applyid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_FAMPRO_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_DEPTGROUP"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_MORTAGAGEBUILDING"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_PAY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"certificatetype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificateno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificateno",
+					"certificatetype"
+				]
+			}
+		],
+		"tableName": "C_CLAIM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"estimatechecktime"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"opdate",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_ESTIMATE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_PROVINCENEW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"country",
+					"sex"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"APPNTBIRTHDATE",
+					[
+						"yyyy/MM/dd"
+					],
+					[
+						"^(\\d{4})/(\\d{1,2})/(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "P_PUBLIC_APPLYEXT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_ESTIMATE_HIS_CIBS"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_CLAIMITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_CLASSES"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_CITYNEW"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_FARMING_BILL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_REFUSE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"insuretype",
+					"risktype",
+					"attestation",
+					"inputtype",
+					"source",
+					"iffarming",
+					"sellchannel",
+					"underwritertype",
+					"ifvip",
+					"applycity",
+					"troubleshooting",
+					"applyprovince",
+					"issignoutafterpay",
+					"objecttype",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificatenumber",
+					"credentialsnumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"insurantname",
+					"applyname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificatenumber",
+					"underwritertype",
+					"credentialsnumber",
+					"attestation"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"APPLYDATE",
+					"AUDITDATE",
+					"EFFECTDATE",
+					"ENDDATE",
+					"LASTOPTIME",
+					"OPDATE",
+					"SIGNDATE",
+					"STARTDATE",
+					"UNDERWRITEDATE"
+				]
+			}
+		],
+		"tableName": "P_PUBLIC_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_DEPARTMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_LOSS"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "TBKH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_TEMPORARILY_TEST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_HOUSE_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_CARGO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_PAYEE_LIST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_UNIT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"country",
+					"tradetype",
+					"attestation",
+					"provincecode",
+					"citycode"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"credentialsnumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"insurantname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"credentialsnumber",
+					"attestation"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"birthday"
+				]
+			}
+		],
+		"tableName": "P_PUBLIC_INSURANT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"attestation",
+					"underwritertype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificatenumber",
+					"credentialsnumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"insurantname",
+					"applyname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificatenumber",
+					"underwritertype",
+					"credentialsnumber",
+					"attestation"
+				]
+			}
+		],
+		"tableName": "P_AGREEMENT_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"applicantcredtype",
+					"businesstype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"applicantidnumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"applicantname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"applicantidnumber",
+					"applicantcredtype"
+				]
+			}
+		],
+		"tableName": "P_PUBLIC_SPEC"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"tradetype",
+					"applycity",
+					"underwritertype",
+					"individualcountry"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificatenumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"applyname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificatenumber",
+					"underwritertype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"credvalidity"
+				]
+			}
+		],
+		"tableName": "P_PUBLIC_APPLYLIST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_LOSS_MAN"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "D_HANDLER"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"notifymanidtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"notifymanidno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"notifyman"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"notifymanidno",
+					"notifymanidtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"damagedate",
+					"transactdate",
+					"opdate",
+					"startdate",
+					"enddate",
+					"signdate",
+					"firstrequestdate",
+					"lastmodifiedtime",
+					"dispatchdate"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"notifydate",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_NOTIFY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_PUBLIC_FEE_LIST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"ifcalpremium",
+					"ifcalamount"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_PUBLIC_COVERAGE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_AGRI_SUBJECT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"grsysex",
+					"grsyidtype",
+					"grsycountry"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"grsyid",
+					"frid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"syrname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"frid",
+					"fridtype",
+					"grsyid",
+					"grsyidtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"grsyidvalidity"
+				]
+			}
+		],
+		"tableName": "P_BENEFIT"
+	}
+]

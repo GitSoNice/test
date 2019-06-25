@@ -1,0 +1,125 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"gender",
+					"salescerificatetype",
+					"iscertificate",
+					"isorgcode",
+					"certificatetype",
+					"ispublished",
+					"nationality",
+					"marriage",
+					"ifinsurance",
+					"national",
+					"cardtype",
+					"status",
+					"isbizlicense"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"BIRTHDAY",
+					"CERTIFICATEENDDATE",
+					"CERTIFICATESTARTDATE",
+					"CREATEDATE",
+					"SALESCERIFICATENOENDDATE",
+					"SALESCERIFICATENOSTARTDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CHPERSONALAGENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"isremoteissue",
+					"creditlevel",
+					"iscertificate",
+					"isorgcode",
+					"status",
+					"isbizlicense"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CERTIFICATEENDDATE",
+					"CERTIFICATESTARTDATE",
+					"CREATEDATE",
+					"CREATEDATE2",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CHORGAGENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"sendstatus",
+					"agenttype",
+					"taxpayertype",
+					"channellevel",
+					"canprepayed",
+					"status",
+					"isautomatictrial"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cardno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cardno",
+					"cardtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"BALANCINGDATE",
+					"CREATEDATE",
+					"MANAGEENDDATE",
+					"MANAGESTARTDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CHAGENTBASE"
+	}
+]

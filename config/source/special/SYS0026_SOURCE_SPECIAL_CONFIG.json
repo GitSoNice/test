@@ -1,0 +1,55 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"del_fre",
+					"del_code"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"LOAD_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"CHECK_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"LAST_UPD_TS",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TBL_BENEFIT_INFO"
+	}
+]

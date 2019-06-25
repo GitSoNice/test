@@ -1,0 +1,138 @@
+[
+	{
+		"sourceSystem": "SYS0007",
+		"targetTableName": "PTY_INDV_SOURCE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0007_SPMS_CUST_COM_INFO*||*00*||*GYS_CUST_CODE_PKY*||*",
+						"${SPMS_CUST_COM_INFO.gys_cust_code_pky}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${SPMS_CUST_COM_INFO.cust_account}",
+						"${SPMS_CUST_COM_INFO.cust_account_type}",
+						"${SPMS_CUST_COM_INFO.cust_name}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"${concatSRC_CUST_ID}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0007.SPMS_CUST_COM_INFO",
+			"alias": "SPMS_CUST_COM_INFO"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${SPMS_CUST_COM_INFO.cust_type}",
+						"rightCondition": "10"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SPMS_CUST_COM_INFO.cust_account}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SPMS_CUST_COM_INFO.cust_account_type}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SPMS_CUST_COM_INFO.cust_name}",
+				"dstColumnName": "name_cn",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SPMS_CUST_COM_INFO.create_datetime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SPMS_CUST_COM_INFO.update_datetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName":{
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "",
+						"${SPMS_CUST_COM_INFO.cust_account_type}",
+						"${SPMS_CUST_COM_INFO.cust_account}"
+	                ]
+	            },
+	            "dstColumnName":"birth_dt", 
+	            "validate":"",
+	            "priority":""
+			},
+			{
+				"srcColumnName":{
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "",
+						"${SPMS_CUST_COM_INFO.cust_account_type}",
+						"${SPMS_CUST_COM_INFO.cust_account}"
+	                ]
+	            },
+	            "dstColumnName":"gender", 
+	            "validate":"",
+	            "priority":""
+			},
+			{
+				"srcColumnName": "${concatSRC_CUST_ID}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

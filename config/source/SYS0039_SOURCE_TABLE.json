@@ -1,0 +1,141 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "VERSTATN",
+        "rowkeyCols": [
+            "verstatn",
+            "vertype"
+        ],
+        "md5Cols": [
+            "verstatn",
+            "vertype"
+        ]
+    },
+    {
+        "tableName": "PREAUD",
+        "rowkeyCols": [
+            "bmdm",
+            "sbmdm",
+            "maintaskid",
+            "subtaskid"
+        ],
+        "md5Cols": [
+            "bmdm",
+            "sbmdm",
+            "maintaskid",
+            "subtaskid"
+        ]
+    },
+    {
+        "tableName": "CONCISNO",
+        "rowkeyCols": [
+            "concis"
+        ],
+        "md5Cols": [
+            "concis"
+        ]
+    },
+    {
+        "tableName": "BASEINFRO",
+        "rowkeyCols": [
+            "sn",
+            "appno",
+            "pid",
+            "flag"
+        ],
+        "md5Cols": [
+            "sn",
+            "appno",
+            "pid",
+            "flag"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            },
+			{
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+					"appno",
+                    "classcode"
+                ],
+                "md5Cols": [
+					"appno",
+                    "classcode"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "FINALAUD",
+        "rowkeyCols": [
+            "no",
+            "appno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "no",
+            "appno",
+            "classcode"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            },
+			 {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+					"appno",
+                    "classcode"
+                ],
+                "md5Cols": [
+					"appno",
+                    "classcode"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PTCAMT",
+        "rowkeyCols": [
+            "appno",
+            "classcode",
+            "appf",
+            "pid",
+            "branchid"
+        ],
+        "md5Cols": [
+            "appno",
+            "classcode",
+            "appf",
+            "pid",
+            "branchid"
+        ]
+    }
+]

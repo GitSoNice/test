@@ -1,0 +1,31 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "KNOWCUST",
+        "rowkeyCols": [
+            "rowkey"
+        ],
+        "md5Cols": [
+            "rowkey"
+        ]
+    },
+        {
+        "tableName": "KNOWCUST_CUST_DYNAMIC_ALL",
+        "rowkeyCols": [
+            "rowkey"
+        ],
+        "md5Cols": [
+            "rowkey"
+        ]
+    }
+]

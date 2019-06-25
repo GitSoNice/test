@@ -1,0 +1,82 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "BUSINESS_APPLY",
+        "rowkeyCols": [
+            "serialno"
+        ],
+        "md5Cols": [
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "CODE_LIBRARY",
+        "rowkeyCols": [
+            "codeno",
+            "itemno"
+        ],
+        "md5Cols": [
+            "codeno",
+            "itemno"
+        ]
+    },
+    {
+        "tableName": "ACCT_LOAN",
+        "rowkeyCols": [
+            "serialno"
+        ],
+        "md5Cols": [
+            "serialno"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "baserialno"
+                ],
+                "md5Cols": [
+                    "baserialno"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "customerid"
+                ],
+                "md5Cols": [
+                    "customerid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "IND_INFO",
+        "rowkeyCols": [
+            "customerid"
+        ],
+        "md5Cols": [
+            "customerid"
+        ]
+    },
+    {
+        "tableName": "BUSINESS_BELONG",
+        "rowkeyCols": [
+            "serialno"
+        ],
+        "md5Cols": [
+            "serialno"
+        ]
+    }
+]

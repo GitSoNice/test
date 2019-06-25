@@ -1,0 +1,137 @@
+[
+	{
+		"sourceSystem": "SYS0044",
+		"targetTableName": "PTY_USER_BANK",
+		"order": "1",
+		"combinationMap": [
+			{
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "SYS0044",
+                        "|",
+                        "${T_VERIFY_BANK_ACCOUNT.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            }
+		],
+		"rowKey": [
+			"${md5UserId}",
+			"${user_id}",
+			"${T_VERIFY_BANK_ACCOUNT.cardtype}",
+			"${T_VERIFY_BANK_ACCOUNT.cardno}",
+			"${T_VERIFY_BANK_ACCOUNT.bank_no}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0044.T_VERIFY_BANK_ACCOUNT",
+			"alias": "T_VERIFY_BANK_ACCOUNT"
+		},
+		"where": {
+			"operatorSymbol": "and",
+            "conditionList": [
+            	{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${T_VERIFY_BANK_ACCOUNT.mobile}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${T_VERIFY_BANK_ACCOUNT.bank_no}",
+						"rightCondition":""
+					}
+                }
+            ]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${user_id}",
+				"dstColumnName": "user_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.mobile}",
+				"dstColumnName": "mobile",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.cardtype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.cardno}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.account_name}",
+				"dstColumnName": "account_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.bank_no}",
+				"dstColumnName": "bankno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.bank_code}",
+				"dstColumnName": "bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.bank_name}",
+				"dstColumnName": "bankname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.bank_full_name}",
+				"dstColumnName": "bank_full_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.create_time}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_VERIFY_BANK_ACCOUNT.lastupd_dttm}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

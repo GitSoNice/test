@@ -1,0 +1,158 @@
+[
+    {
+        "sourceSystem":"SYS0009",
+        "targetTableName":"REL_CON_NOTIFY",
+        "order":"1",
+        "combinationMap":[
+       	    {
+                "alias": "orgcodeIndexof",
+                "specialHandle": {
+                    "handleName": "indexOf",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.orgcode}",
+                        "."
+                   	]
+                }
+            },
+            {
+                "alias": "orgcode",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.orgcode}",
+                        "0",
+                        "${orgcodeIndexof}"
+                   	]
+                }
+            },
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.policyno}",
+                        "${orgcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${agmt_id}",
+            "${agmt_id}",
+            "${CF_IDX_CASEFOLDER.notificationno}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0009.CF_IDX_CASEFOLDER",
+            "alias":"CF_IDX_CASEFOLDER"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${CF_IDX_CASEFOLDER.policyno}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${agmt_id}",
+                "dstColumnName":"agmt_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName":"notifyno",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+	{
+        "sourceSystem":"SYS0009",
+        "targetTableName":"REL_CON_NOTIFY",
+        "order":"2",
+        "combinationMap":[
+       	    {
+                "alias": "orgcodeIndexof",
+                "specialHandle": {
+                    "handleName": "indexOf",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.orgcode}",
+                        "."
+                   	]
+                }
+            },
+            {
+                "alias": "orgcode",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.orgcode}",
+                        "0",
+                        "${orgcodeIndexof}"
+                   	]
+                }
+            },
+        	{
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.ctppolicyno}",
+                        "${orgcode}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${agmt_id}",
+            "${agmt_id}",
+            "${CF_IDX_CASEFOLDER.notificationno}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0009.CF_IDX_CASEFOLDER",
+            "alias":"CF_IDX_CASEFOLDER"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${CF_IDX_CASEFOLDER.ctppolicyno}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${agmt_id}",
+                "dstColumnName":"agmt_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName":"notifyno",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

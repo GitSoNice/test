@@ -1,0 +1,593 @@
+[
+	{
+		"sourceSystem": "SYS0038",
+		"targetTableName": "REL_FAMILY_MEM",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${LABEL_CUSTINFO_EXT.prim_reg_no}",
+						"${LABEL_CUSTINFO_EXT.prim_reg_type}",
+						"${LABEL_CUSTINFO_EXT.party_name}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "role",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${LABEL_FAMILY_LISTEXT.family_flag}",
+						"f+m",
+						"4",
+						"1"
+					]
+				}
+			},
+			{
+				"alias": "ptyIndv_gender",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_INDV",
+						"${cust_id}",
+						"gender"
+					]
+				}
+			},
+			{
+				"alias": "ptyJob_unitName",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_JOB",
+						"${cust_id}",
+						"unit_name"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"${LABEL_FAMILY_EXT.family_no}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0038.LABEL_FAMILY_EXT",
+			"alias": "LABEL_FAMILY_EXT"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0038.LABEL_CUSTINFO_EXT",
+				"relationType": "inner",
+				"alias": "LABEL_CUSTINFO_EXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_EXT.fa}",
+								"rightCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0038.LABEL_FAMILY_LISTEXT",
+				"relationType": "inner",
+				"alias": "LABEL_FAMILY_LISTEXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_LISTEXT.family_no}",
+								"rightCondition": "${LABEL_FAMILY_EXT.family_no}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_FAMILY_EXT.family_no}",
+				"dstColumnName": "family_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.party_name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_type}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${role}",
+				"dstColumnName": "role",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyIndv_gender}",
+				"dstColumnName": "gender",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyJob_unitName}",
+				"dstColumnName": "company",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_FAMILY_MEM",
+				"keyCols": [
+					"family_id",
+					"cust_id"
+				],
+				"md5Cols": [
+					"family_id"
+				],
+				"cols": [
+					"cust_id",
+					"family_id",
+					"name",
+					"certno",
+					"certtype",
+					"role",
+					"gender",
+					"company"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0038",
+		"targetTableName": "REL_FAMILY_MEM",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${LABEL_CUSTINFO_EXT.prim_reg_no}",
+						"${LABEL_CUSTINFO_EXT.prim_reg_type}",
+						"${LABEL_CUSTINFO_EXT.party_name}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "role",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${LABEL_FAMILY_LISTEXT.family_flag}",
+						"f+m",
+						"5",
+						"2"
+					]
+				}
+			},
+			{
+				"alias": "ptyIndv_gender",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_INDV",
+						"${cust_id}",
+						"gender"
+					]
+				}
+			},
+			{
+				"alias": "ptyJob_unitName",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_JOB",
+						"${cust_id}",
+						"unit_name"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"${LABEL_FAMILY_EXT.family_no}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0038.LABEL_FAMILY_EXT",
+			"alias": "LABEL_FAMILY_EXT"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0038.LABEL_CUSTINFO_EXT",
+				"relationType": "inner",
+				"alias": "LABEL_CUSTINFO_EXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_EXT.ma}",
+								"rightCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0038.LABEL_FAMILY_LISTEXT",
+				"relationType": "inner",
+				"alias": "LABEL_FAMILY_LISTEXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_LISTEXT.family_no}",
+								"rightCondition": "${LABEL_FAMILY_EXT.family_no}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_FAMILY_EXT.family_no}",
+				"dstColumnName": "family_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.party_name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_type}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${role}",
+				"dstColumnName": "role",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyIndv_gender}",
+				"dstColumnName": "gender",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyJob_unitName}",
+				"dstColumnName": "company",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_FAMILY_MEM",
+				"keyCols": [
+					"family_id",
+					"cust_id"
+				],
+				"md5Cols": [
+					"family_id"
+				],
+				"cols": [
+					"cust_id",
+					"family_id",
+					"name",
+					"certno",
+					"certtype",
+					"role",
+					"gender",
+					"company"
+				]
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0038",
+		"targetTableName": "REL_FAMILY_MEM",
+		"order": "3",
+		"combinationMap": [
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${LABEL_CUSTINFO_EXT.prim_reg_no}",
+						"${LABEL_CUSTINFO_EXT.prim_reg_type}",
+						"${LABEL_CUSTINFO_EXT.party_name}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "ptyIndv_gender",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_INDV",
+						"${cust_id}",
+						"gender"
+					]
+				}
+			},
+			{
+				"alias": "ptyJob_unitName",
+				"specialHandle": {
+					"handleName": "destPartionColumn",
+					"parameters": [
+						"PTY_JOB",
+						"${cust_id}",
+						"unit_name"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"${LABEL_FAMILY_EXT.family_no}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0038.LABEL_FAMILY_EXT",
+			"alias": "LABEL_FAMILY_EXT"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0038.LABEL_CUSTINFO_EXT",
+				"relationType": "inner",
+				"alias": "LABEL_CUSTINFO_EXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_EXT.ch}",
+								"rightCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": "<>",
+								"leftCondition": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0038.LABEL_FAMILY_LISTEXT",
+				"relationType": "inner",
+				"alias": "LABEL_FAMILY_LISTEXT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${LABEL_FAMILY_LISTEXT.family_no}",
+								"rightCondition": "${LABEL_FAMILY_EXT.family_no}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_FAMILY_EXT.family_no}",
+				"dstColumnName": "family_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.party_name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_no}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${LABEL_CUSTINFO_EXT.prim_reg_type}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "role",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyIndv_gender}",
+				"dstColumnName": "gender",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ptyJob_unitName}",
+				"dstColumnName": "company",
+				"validate": "",
+				"priority": ""
+			}
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_FAMILY_MEM",
+				"keyCols": [
+					"family_id",
+					"cust_id"
+				],
+				"md5Cols": [
+					"family_id"
+				],
+				"cols": [
+					"cust_id",
+					"family_id",
+					"name",
+					"certno",
+					"certtype",
+					"role",
+					"gender",
+					"company"
+				]
+			}
+		]
+	}
+]

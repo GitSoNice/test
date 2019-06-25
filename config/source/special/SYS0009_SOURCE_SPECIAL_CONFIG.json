@@ -1,0 +1,785 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"evacuation",
+					"isoverspeed",
+					"solvedtype",
+					"unabletofindpartyresponsible",
+					"surveyreportstatus",
+					"isinsuredvehicletotalloss",
+					"isassessmentby3g",
+					"cheatpossibility"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE",
+					"alarmtime",
+					"appointedtime",
+					"approvedate",
+					"lastservicetime",
+					"repaircompletiontime",
+					"surveytime",
+					"timeofpolicearrival"
+				]
+			}
+		],
+		"tableName": "CF_RP_PROPERTYSURVEYREPORT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_REPORT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"iftheinjuredexpectmediate",
+					"ifseatbeltfastened",
+					"ifmediatecando",
+					"versiontag"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"SOLVEDTIME",
+					"TIMEOFEXPECTMEDIATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CF_RP_INJURYSURVEYREPORT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"accidentcause",
+					"issignificantcase"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"notificationdate",
+					"accidentdate",
+					"closedate",
+					"ctpclosedate",
+					"reserveupdatetime",
+					"docendcollectiontime"					
+				]
+			},
+			{
+				"handlerName": "splitDotFristIndexHandler",
+				"addColumn":"true",
+				"cols": [
+					"orgcode"
+				],
+				"colAlias": [
+					"orgcode_branchcode"
+				]
+			}
+		],
+		"tableName": "CF_IDX_CASEFOLDER"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"isrepairedcheckneeded",
+					"ispayinadvance",
+					"auditresult",
+					"isselfdefinedpart",
+					"worktype",
+					"feetype",
+					"status",
+					"prelossauditstatus"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"repairenddate",
+					"repairstartdate",
+					"updatedate"
+				]
+			}
+		],
+		"tableName": "CF_RP_REPAIRCOST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"accidentresponsibility"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_RESPONSIBILITY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_ACCIDENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_ROLE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"statusofcommercialcase",
+					"isaddcommercialnotification",
+					"ctpreopenflag",
+					"statusofctpcase",
+					"commercialreopenflag",
+					"isaddctpnotification"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"COMMERCIALCASECREATETIME",
+					"COMMERCIALCASESETTLEDTIME",
+					"COMMERCIALNOTIFICATIONTIME",
+					"CREATEDATE",
+					"CTPCASECREATETIME",
+					"CTPCASESETTLEDTIME",
+					"CTPNOTIFICATIONTIME",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CF_RP_CLAIMCASE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"thirdpartyflag"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_VEHICLECONDITION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"salvageappstatus",
+					"priceplan",
+					"salvageflag",
+					"salvagerecycleflag",
+					"inquirypriceflag",
+					"issupplier",
+					"norecyclereason",
+					"isrepairedcheckneeded",
+					"materialtype",
+					"ispayinadvance",
+					"auditquotationstatus",
+					"priceplanpriceflag",
+					"auditresult",
+					"localpriceupdateflag",
+					"existthesamenamepart",
+					"pricestandard",
+					"outrpappstatus",
+					"feetype",
+					"modifyflag",
+					"recycletype",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CF_RP_PART"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_ASSESSMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_ASSESSMENT_ITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"notificationmode"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"NOTIFICATIONDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CF_RP_NOTIFICATION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_PARTY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"isfirstscene",
+					"accidenttype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_TRAFFICACCIDENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"certificatetype",
+					"relationwithinsurant"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificateno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificateno",
+					"certificatetype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"updatedate",
+					"validitytermoflicense",
+					"driverlicenseissuedate",
+					"authorizercertificateoflicense",
+					"certificateoflicense"
+				]
+			}
+		],
+		"tableName": "CF_RP_RELATEDPERSONNEL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"assessmenttemplate",
+					"hasuploadedbyaudatex",
+					"isassessinadvance",
+					"iscreatedbyrepairedchecktask",
+					"assessmenttype",
+					"isbackedfromdocument",
+					"isrepairedcheckneeded",
+					"taskstatus",
+					"ispayinadvance",
+					"auditquotationstatus",
+					"islossautoaudit",
+					"assessmenttool",
+					"isaddclaimauditpass",
+					"noauditsms",
+					"lockstatus",
+					"isassessmentby3g",
+					"lossauditstatus",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"solvedtime",
+					"updatedate"
+				]
+			}
+		],
+		"tableName": "CF_RP_VEHICLEASSESSMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"statusofctpadjustment",
+					"statusofcommercialadjustment"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_ADJUSTMENTINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_ADJUSTMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_PERSONCONDITION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_CASEATTRIBUTE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"ifseatbeltfastened",
+					"assessmenttype",
+					"iscanceled",
+					"isprelossauditend",
+					"fastclaim",
+					"claimassessmentstatus",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"AUDITDATE",
+					"CREATEDATE",
+					"SOLVEDTIME",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "CF_RP_INJURYASSESSMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_CT_CONDITION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"subrogationexisted",
+					"isresidualpayment",
+					"exceptionalreason",
+					"statusofctppayment",
+					"statusofcommercialpayment",
+					"certificatetype",
+					"paymentmodeofctp",
+					"payeetype",
+					"paymentmode",
+					"payeekind",
+					"relationwiththeinjured",
+					"paymentmodeofcomm",
+					"cardtype",
+					"relationwithinsurant"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"timeofcommercialpayment",
+					"timeofcommercialsend",
+					"timeofctppayment",
+					"timeofctpsend",
+					"updatedate"
+				]
+			}
+		],
+		"tableName": "CF_RP_SETTLEMENTACCOUNT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"itemlosstype",
+					"dmcaseflag",
+					"isnewaddedlossitem",
+					"islawsuit",
+					"salvageflag",
+					"isassist",
+					"giveupclaimcausetype",
+					"isrepairedcheckneeded",
+					"materialtype",
+					"ispayinadvance",
+					"feetype",
+					"itemsecondleveltype",
+					"recycletype",
+					"criticalcaselevel",
+					"isitemlossonsite",
+					"isneedassesment",
+					"prelossauditstatus",
+					"status",
+					"iscritialcase",
+					"showcriticalcaseopinion"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"updatedate"
+				]
+			}
+		],
+		"tableName": "CF_RP_ITEMLOSSDETAIL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CF_RP_ITEMASSESSMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"feetype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"createdate",
+					"updatedate"
+				]
+			}
+		],
+		"tableName": "CF_RP_INJURYLOSSCOST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"di_startdate",
+					"di_enddate",
+					"affectstartdate",
+					"affectenddate",
+					"operationdate"
+				]
+			}
+		],
+		"tableName": "DI_BASE_INFO"
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"tableName": "TEST_TIMESTAMP",
+		"rowkeyCols": [
+			"send_kafka_time",
+			"send_status"
+		],
+		"md5Cols": [
+			"send_kafka_time",
+			"send_status"
+		]
+	},
+	{
+		"tableName": "T_CRMS_B1_QUES_DATA",
+		"rowkeyCols": [
+			"ques_id"
+		],
+		"md5Cols": [
+			"ques_id"
+		]
+	}
+]

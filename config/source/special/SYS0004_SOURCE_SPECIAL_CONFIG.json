@@ -1,0 +1,70 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"policy_type",
+					"policy_status",
+					"sell_channel"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "T_LIABILITY_POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cret_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cret_code"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"apply_name"
+				]
+			}
+		],
+		"tableName": "T_LIABILITY_APPLICANT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"ifmain",
+					"cret_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cret_code"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"insurant_name"
+				]
+			}
+		],
+		"tableName": "T_LIABILITY_INSURANT"
+	}
+]

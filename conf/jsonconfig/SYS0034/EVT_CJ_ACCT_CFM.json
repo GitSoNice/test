@@ -1,0 +1,218 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_ACCT_CFM",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TACCOCONFIRM.vc_tradeacco}"
+					]
+				}
+			},
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${TACCOCONFIRM.vc_confirmno}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TACCOCONFIRM",
+			"alias": "TACCOCONFIRM"
+		},
+		"relations":[
+            {
+                "sourceTableName":"SYS0034.TCUSTINFO",
+                "relationType":"inner",
+                "alias":"TCUSTINFO",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${TCUSTINFO.vc_custno}",
+                                "rightCondition":"${TACCOCONFIRM.vc_custno}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TACCOCONFIRM.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_confirmno}",
+				"dstColumnName": "cfm_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_trust}",
+				"dstColumnName": "entr_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_requestno}",
+				"dstColumnName": "appl_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_confirmdate}",
+				"dstColumnName": "cfm_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_businflag}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_requestdate}",
+				"dstColumnName": "appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_requesttime}",
+				"dstColumnName": "appl_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_netno}",
+				"dstColumnName": "net_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_errorcode}",
+				"dstColumnName": "failcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.en_unfrozenbala}",
+				"dstColumnName": "unfrzamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_organiger}",
+				"dstColumnName": "sponsor",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_confirmflag}",
+				"dstColumnName": "cfmflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_branchcode}",
+				"dstColumnName": "tres_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.c_identitytype}",
+				"dstColumnName": "certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TACCOCONFIRM.vc_identityno}",
+				"dstColumnName": "cert_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

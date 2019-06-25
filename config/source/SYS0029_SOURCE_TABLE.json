@@ -1,0 +1,34 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "TBL_VISIT_DTL_INFO",
+        "rowkeyCols": [
+            "seq_id"
+        ],
+        "md5Cols": [
+            "seq_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "cust_id"
+                ],
+                "md5Cols": [
+                    "cust_id"
+                ]
+            }
+        ]
+    }
+]

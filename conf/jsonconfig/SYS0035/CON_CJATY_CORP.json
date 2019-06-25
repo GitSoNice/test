@@ -1,0 +1,796 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "CON_CJATY_CORP",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Corp_plan_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGQYJH.zgqyjh_qyjhbh}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Corp_plan_no}",
+			"${ZGQYJH.zgqyjh_qyjhbh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGQYJH",
+			"alias": "ZGQYJH"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_qyjhbh}",
+				"dstColumnName": "corp_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_qyjhmc}",
+				"dstColumnName": "corp_plan_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_processinitid}",
+				"dstColumnName": "procinst_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ywslh}",
+				"dstColumnName": "bizproc_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sqly}",
+				"dstColumnName": "appl_src",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_qyjhdjh}",
+				"dstColumnName": "corp_plan_registeno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sjqyjhbh}",
+				"dstColumnName": "sup_corp_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_wbbh}",
+				"dstColumnName": "ext_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ywdm}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_njjhbh}",
+				"dstColumnName": "annuity_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_qybh}",
+				"dstColumnName": "corp_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_bz}",
+				"dstColumnName": "cur",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sxrq}",
+				"dstColumnName": "effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zzrq}",
+				"dstColumnName": "end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jhlx}",
+				"dstColumnName": "plan_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jflx}",
+				"dstColumnName": "pay_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfzq}",
+				"dstColumnName": "pay_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_scjfrq}",
+				"dstColumnName": "firstpay_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfy}",
+				"dstColumnName": "pay_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfr}",
+				"dstColumnName": "pay_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfqrsx}",
+				"dstColumnName": "pay_cfm_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_cjclfs}",
+				"dstColumnName": "over_pay_proc_method",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfgzms}",
+				"dstColumnName": "pay_rule_desc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gsgzms}",
+				"dstColumnName": "belong_rule_desc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gslx}",
+				"dstColumnName": "roll_belong_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gszq}",
+				"dstColumnName": "belong_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gsy}",
+				"dstColumnName": "belong_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gsr}",
+				"dstColumnName": "belong_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fygzsm}",
+				"dstColumnName": "fee_rule_desc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fyy}",
+				"dstColumnName": "fee_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fyr}",
+				"dstColumnName": "fee_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jfzhs}",
+				"dstColumnName": "bill_acct_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zcgrjhs}",
+				"dstColumnName": "normal_indv_plan_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zfzgrjhs}",
+				"dstColumnName": "pay_indv_plan_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_blgrjhs}",
+				"dstColumnName": "reser_indv_plan_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dqny}",
+				"dstColumnName": "current_year_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_note}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jhzt}",
+				"dstColumnName": "plan_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dfzt}",
+				"dstColumnName": "replace_send_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ylzt1}",
+				"dstColumnName": "reser_st1",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ylzt2}",
+				"dstColumnName": "reser_st2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ylzt3}",
+				"dstColumnName": "reser_st3",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ylzt4}",
+				"dstColumnName": "reser_st4",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ylzt5}",
+				"dstColumnName": "reser_st5",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdr}",
+				"dstColumnName": "policy_maker",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdrq}",
+				"dstColumnName": "policy_make_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdjg}",
+				"dstColumnName": "policy_make_org",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gxrq}",
+				"dstColumnName": "upd_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gsms}",
+				"dstColumnName": "belong_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_mzbs}",
+				"dstColumnName": "mc_plan_flg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fzbs}",
+				"dstColumnName": "branch_flg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_tyrz}",
+				"dstColumnName": "unify_record_flg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yxtzzh}",
+				"dstColumnName": "allow_invtrsfm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdytzzh}",
+				"dstColumnName": "custom_invtrsfm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_mftzzhcs}",
+				"dstColumnName": "free_invtrsfm_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_tzzhcssx}",
+				"dstColumnName": "max_invtrsfm_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_khyh}",
+				"dstColumnName": "bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhwd}",
+				"dstColumnName": "bank_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhzh}",
+				"dstColumnName": "bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhhm}",
+				"dstColumnName": "bank_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_xdzfh}",
+				"dstColumnName": "cash_pay_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sqhtbm}",
+				"dstColumnName": "con_code",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gkzffs}",
+				"dstColumnName": "contrbt_pay_method",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gksxfs}",
+				"dstColumnName": "contrbt_realize_method",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_khyh2}",
+				"dstColumnName": "bankcode2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhwd2}",
+				"dstColumnName": "bank_netno2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhzh2}",
+				"dstColumnName": "bank_acct2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yhhm2}",
+				"dstColumnName": "bank_acct_name2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_xdzfh2}",
+				"dstColumnName": "cash_pay_no2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sqhtbm2}",
+				"dstColumnName": "con_code2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gkzffs2}",
+				"dstColumnName": "contrbt_pay_method2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gksxfs2}",
+				"dstColumnName": "contrbt_realize_method2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_htbh}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dtxtzzhlx}",
+				"dstColumnName": "prep_retire_invtrsfm_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dtxtzzhzq}",
+				"dstColumnName": "prep_retire_invtrsfm_period",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dtxtzzhy}",
+				"dstColumnName": "prep_retire_invtrsfm_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dtxtzzhr}",
+				"dstColumnName": "prep_retire_invtrsfm_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdydtx}",
+				"dstColumnName": "custom_prep_retire",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_tzgzms}",
+				"dstColumnName": "inv_rule_desc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_grzcwlsfsqzgf}",
+				"dstColumnName": "is_take_if_prp_zero",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ssjtcj}",
+				"dstColumnName": "bloc_hrach",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ssjtcjbm}",
+				"dstColumnName": "bloc_hrach_code",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fafhwh1}",
+				"dstColumnName": "plan_replyfile_no1",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fafhwh2}",
+				"dstColumnName": "plan_replyfile_no2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fafhwh3}",
+				"dstColumnName": "plan_replyfile_no3",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fafhmc}",
+				"dstColumnName": "plan_replyfile_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fabbd}",
+				"dstColumnName": "plan_report_addr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fabbd2}",
+				"dstColumnName": "plan_report_addr2",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fapfrq}",
+				"dstColumnName": "plan_reply_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfdsffk}",
+				"dstColumnName": "is_third_part_pay",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_qykhnsrsbh}",
+				"dstColumnName": "corp_taxpayer_flag",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfdycsf}",
+				"dstColumnName": "temp_bizproc_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_tempywslh}",
+				"dstColumnName": "is_print_initial_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yxtsjl}",
+				"dstColumnName": "allow_appoint_get",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jhsx}",
+				"dstColumnName": "plan_attr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yzms}",
+				"dstColumnName": "run_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_ywglms}",
+				"dstColumnName": "biz_mang_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zfms}",
+				"dstColumnName": "pay_mang",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gssf}",
+				"dstColumnName": "belong_calc_method",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jssz}",
+				"dstColumnName": "deblock",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jsszlx}",
+				"dstColumnName": "deblock_start_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jsszts}",
+				"dstColumnName": "tx_days_delay",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_jszdyyr}",
+				"dstColumnName": "custom_day_mth",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sdqsz}",
+				"dstColumnName": "lock_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdyxtzkfq}",
+				"dstColumnName": "auto_delay_inv_open_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgyhzh}",
+				"dstColumnName": "pub_bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgyhhm}",
+				"dstColumnName": "pub_bank_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgkhyh}",
+				"dstColumnName": "pub_bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgyhwd}",
+				"dstColumnName": "pub_bank_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgkhyhsheng}",
+				"dstColumnName": "pub_open_bank_prov",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dgkhyhshi}",
+				"dstColumnName": "pub_open_bank_city",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_yssyrzf}",
+				"dstColumnName": "benefi_name_pay",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfplgpxx}",
+				"dstColumnName": "is_pub_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fhjsyj}",
+				"dstColumnName": "div_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_dyyjsqyjh}",
+				"dstColumnName": "deblocked_corp_plan",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_bjlx}",
+				"dstColumnName": "prcpl_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_fzjbz}",
+				"dstColumnName": "risk_provision",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfyxdezfbzz}",
+				"dstColumnName": "is_allow_quota_noend",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfzfzzc}",
+				"dstColumnName": "corplan_tsfr_paying",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_grjfdxtzbz}",
+				"dstColumnName": "indv_pay_sms",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfzrbcjh}",
+				"dstColumnName": "is_mid_pay_corplan",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfyxgxggzhfp}",
+				"dstColumnName": "is_share_acct_benefi_allot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gxqyjhbh}",
+				"dstColumnName": "share_corp_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdzfr}",
+				"dstColumnName": "quota_pay_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_tbsxzgsbs}",
+				"dstColumnName": "cpic_life_pcorp_flag",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_sfskbl}",
+				"dstColumnName": "is_taxpaym_peel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_zdrq}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYJH.zgqyjh_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

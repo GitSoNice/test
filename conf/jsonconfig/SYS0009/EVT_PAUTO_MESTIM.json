@@ -1,0 +1,610 @@
+[
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "EVT_PAUTO_MESTIM",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5notifyno",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${CF_IDX_CASEFOLDER.notificationno}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_ITEMASSESSMENT.assessmentno}",
+			"${CF_RP_ITEMASSESSMENT.actualid}",
+			"${CF_RP_ITEMLOSSDETAIL.actualid}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_IDX_CASEFOLDER",
+			"alias": "CF_IDX_CASEFOLDER"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_RP_ITEMASSESSMENT",
+				"relationType": "inner",
+				"alias": "CF_RP_ITEMASSESSMENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.casefolderid}",
+								"rightCondition": "${CF_RP_ITEMASSESSMENT.topactualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_ITEMASSESSMENT.versiontag}",
+								"rightCondition": "C"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_ASSESSMENT",
+				"relationType": "inner",
+				"alias": "CF_CT_ASSESSMENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_ITEMASSESSMENT.actualid}",
+								"rightCondition": "${CF_CT_ASSESSMENT.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT.kind}",
+								"rightCondition": "ITEMASSESSMENT"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT.parentactualkind}",
+								"rightCondition": "CASEFOLDER.ACCIDENT.LOSSINVOLVED.ITEMCONDITIONINFO"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_CONDITION",
+				"relationType": "inner",
+				"alias": "CF_CT_CONDITION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_ITEMASSESSMENT.actualid}",
+								"rightCondition": "${CF_CT_CONDITION.parentactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_ITEMASSESSMENT.topactualid}",
+								"rightCondition": "${CF_CT_CONDITION.topactualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_CONDITION.kind}",
+								"rightCondition": "ITEMLOSSDETAIL"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_CONDITION.parentactualkind}",
+								"rightCondition": "CASEFOLDER.ACCIDENT.LOSSINVOLVED.ITEMCONDITIONINFO.ITEMASSESSMENT"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_ITEMLOSSDETAIL",
+				"relationType": "inner",
+				"alias": "CF_RP_ITEMLOSSDETAIL",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_CONDITION.actualid}",
+								"rightCondition": "${CF_RP_ITEMLOSSDETAIL.actualid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+				"dstColumnName": "notifyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMASSESSMENT.assessmentno}",
+				"dstColumnName": "estim_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMASSESSMENT.actualid}",
+				"dstColumnName": "actualid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.actualid}",
+				"dstColumnName": "actualid_dtl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.impaireditem}",
+				"dstColumnName": "impaired_item",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossdegree}",
+				"dstColumnName": "loss_dgr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.unitprice}",
+				"dstColumnName": "unit_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.handlemethod}",
+				"dstColumnName": "proc_method",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossamount}",
+				"dstColumnName": "lossamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemtype}",
+				"dstColumnName": "item_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.clause}",
+				"dstColumnName": "clause",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.amount}",
+				"dstColumnName": "qtty",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.losstype}",
+				"dstColumnName": "loss_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.residualvalue}",
+				"dstColumnName": "rsdlval",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.feename}",
+				"dstColumnName": "fee_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.feetype}",
+				"dstColumnName": "fee_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.estimateditemlossamount}",
+				"dstColumnName": "estimamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.addexcessdeductibleratio}",
+				"dstColumnName": "plus_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.additionaldeductiblereason}",
+				"dstColumnName": "plus_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.memo}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemlosstype}",
+				"dstColumnName": "item_loss_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.isitemlossonsite}",
+				"dstColumnName": "is_in_scene",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemlosslocation}",
+				"dstColumnName": "item_loss_site",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.isneedassesment}",
+				"dstColumnName": "is_need_estim",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemlossextent}",
+				"dstColumnName": "item_loss_situ",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.isassist}",
+				"dstColumnName": "is_asis",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemlossbelonged}",
+				"dstColumnName": "item_loss_belong",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.salvageflag}",
+				"dstColumnName": "slvgflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.materialtype}",
+				"dstColumnName": "material_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.recycletype}",
+				"dstColumnName": "recycle_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossauditamount}",
+				"dstColumnName": "lossamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.status}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossauditquantity}",
+				"dstColumnName": "loss_aud_qtty",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossauditunitprice}",
+				"dstColumnName": "loss_aud_unit_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossauditresidualvalue}",
+				"dstColumnName": "loss_aud_rsdlval",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.auditresult}",
+				"dstColumnName": "veri_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.itemsecondleveltype}",
+				"dstColumnName": "snd_lvl_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.isrepairedcheckneeded}",
+				"dstColumnName": "is_rparchk_need",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.modifyflag}",
+				"dstColumnName": "modiflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.impaireditemid}",
+				"dstColumnName": "item_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.ispayinadvance}",
+				"dstColumnName": "is_claim_adv",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.giveupclaimcausetype}",
+				"dstColumnName": "giveup_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.cclossitemno}",
+				"dstColumnName": "cc_loss_item_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.isnewaddedlossitem}",
+				"dstColumnName": "is_new_loss",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.criticalcaselevel}",
+				"dstColumnName": "critical_lvl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.critialcasemode}",
+				"dstColumnName": "critical_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.iscritialcase}",
+				"dstColumnName": "is_critical",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.showcriticalcaseopinion}",
+				"dstColumnName": "is_critical_op",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.repairedcheckstaff}",
+				"dstColumnName": "rparchker_staff",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.repairedcheckstaffbranch}",
+				"dstColumnName": "rparchker_branch",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.prelossauditresult}",
+				"dstColumnName": "pre_loss_aud_op",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.prelossauditstatus}",
+				"dstColumnName": "pre_loss_aud_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.islawsuit}",
+				"dstColumnName": "is_litig",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.dmcaseflag}",
+				"dstColumnName": "dm_caseflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.repairedcheckresult}",
+				"dstColumnName": "rparchk_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.withoutdocument}",
+				"dstColumnName": "doc",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.latestlossamount}",
+				"dstColumnName": "latest_estimamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.dmcaseitemid}",
+				"dstColumnName": "dm_case_item_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.salvageid}",
+				"dstColumnName": "slvg_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.branch}",
+				"dstColumnName": "recycler_branch",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.staffcode}",
+				"dstColumnName": "recycler",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.staffname}",
+				"dstColumnName": "recycler_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.subrogationexisted}",
+				"dstColumnName": "is_sbgtn",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.ispartlawsuitamount}",
+				"dstColumnName": "is_part_litigamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_ITEMLOSSDETAIL.lossauditamount}",
+				"dstColumnName": "loss_audamt",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

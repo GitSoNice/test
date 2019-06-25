@@ -1,0 +1,207 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_RYX_CUSTOMER",
+        "rowkeyCols": [
+            "customer_id"
+        ],
+        "md5Cols": [
+            "customer_id"
+        ],
+        "persons": [
+            {
+                "nameCol": "customer_name",
+                "certTypeCol": "cret_type",
+                "certNoCol": "cret_code",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "customer_id"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "tableName": "T_PUBLIC_POLICY",
+        "rowkeyCols": [
+            "public_policy_id"
+        ],
+        "md5Cols": [
+            "public_policy_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "rf_school"                
+                 ],
+                "md5Cols": [
+                    "rf_school"                  
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "rf_class"
+                ],
+                "md5Cols": [
+                    "rf_class"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "apply_name",
+                "certTypeCol": "apply_cert",
+                "certNoCol": "apply_cerc",
+                "personType":"0201",
+                "srcCustId": {
+                    "type": "01",
+                    "idCols": [
+                        "policy_no"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0030"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":1
+                }]
+            }
+        ]
+    },
+    {
+        "tableName": "T_POLICY_INSURANT",
+        "rowkeyCols": [
+            "public_policy_id",
+            "insurant_no",
+            "ensure_code"
+        ],
+        "md5Cols": [
+            "public_policy_id",
+            "insurant_no",
+            "ensure_code"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "public_policy_id",
+                    "ensure_code"
+                ],
+                "md5Cols": [
+                    "public_policy_id",
+                    "ensure_code"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "public_policy_id"
+                ],
+                "md5Cols": [
+                    "public_policy_id"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "ins_name",
+                "certTypeCol": "cert",
+                "certNoCol": "cerc",
+                "personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                        "public_policy_id"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0030"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":2
+                }]
+            }
+        ]
+    },
+    {
+        "tableName": "T_RYX_PRODUCT",
+        "rowkeyCols": [
+            "product_code"
+        ],
+        "md5Cols": [
+            "product_code"
+        ]
+    },
+    {
+        "tableName": "T_POLICYENSURE",
+        "rowkeyCols": [
+            "public_policy_id",
+            "ensure_code"
+        ],
+        "md5Cols": [
+            "public_policy_id",
+            "ensure_code"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "class_code"
+                ],
+                "md5Cols": [
+                    "class_code"
+                ]
+            },
+              {
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                     "public_policy_id"
+              ],
+                "md5Cols": [
+                   "public_policy_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_POLICY_APPLICANT",
+        "rowkeyCols": [
+            "public_policy_id",
+            "customer_id"
+        ],
+        "md5Cols": [
+            "public_policy_id",
+            "customer_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "public_policy_id"
+                ],
+                "md5Cols": [
+                    "public_policy_id"
+                ]
+            }
+        ]
+    }
+]

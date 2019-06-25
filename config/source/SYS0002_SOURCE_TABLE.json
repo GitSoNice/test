@@ -1,0 +1,753 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "C_CLAIM",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno"
+        ]
+    },
+    {
+        "tableName": "C_ESTIMATE",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "C_ESTIMATE_HIS_CIBS",
+        "rowkeyCols": [
+            "notifyno",
+            "unitcode",
+            "serialno",
+            "policyno",
+            "currcode"
+        ],
+        "md5Cols": [
+            "notifyno",
+            "unitcode",
+            "serialno",
+            "policyno",
+            "currcode"
+        ]
+    },
+    {
+        "tableName": "C_PAY",
+        "rowkeyCols": [
+            "notifyno",
+            "unitcode",
+            "serialno"
+        ],
+        "md5Cols": [
+            "notifyno",
+            "unitcode",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "C_PAY_DETAIL",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "subno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "subno"
+        ]
+    },
+    {
+        "tableName": "C_PAYEE_LIST",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "sequence"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "sequence"
+        ]
+    },
+    {
+        "tableName": "CIF_CUS_INFO",
+        "rowkeyCols": [
+            "sub_ci_task_id",
+            "task_id"
+        ],
+        "md5Cols": [
+            "sub_ci_task_id",
+            "task_id"
+        ]
+    },
+    {
+        "tableName": "P_AGREEMENT_POLICY",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_AGRI_SUBJECT",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "P_BENEFIT",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "persons": [
+            {
+                "nameCol": "syrname",
+                "certTypeCol": "grsyidtype",
+                "certNoCol": "grsyid",
+		 "personType":"0203",
+                "srcCustId": {
+                    "type": "03",
+                    "idCols": [
+                       
+                        "applyno"
+                    ]
+                } ,
+                "policyTable":[{
+                		"sourceSystem":"SYS0002",
+                		"tableName":"REL_PTY_CON",
+                		"order":4
+                }]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "P_CLR_POLICYINFO",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "P_FAMPRO_INFO",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_FARMING_BILL",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "P_HOUSE_INFO",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_MORTAGAGEBUILDING",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_APPLYEXT",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_APPLYLIST",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "persons": [
+            {
+                "nameCol": "applyname",
+                "certTypeCol": "underwritertype",
+                "certNoCol": "certificatenumber",
+		 "personType":"0204",
+                "srcCustId": {
+                    "type": "04",
+                    "idCols": [
+                     
+                        "applyno"
+                      
+                    ]
+                } ,
+                "policyTable":[{
+                		"sourceSystem":"SYS0002",
+                		"tableName":"REL_PTY_CON",
+                		"order":3
+                }]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_INSURANT",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno"
+        ],
+        "persons": [
+            {
+                "nameCol": "insurantname",
+                "certTypeCol": "attestation",
+                "certNoCol": "credentialsnumber",
+		  "personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                       
+                        "applyno"
+                    ]
+                } ,
+                "policyTable":[{
+                		"sourceSystem":"SYS0002",
+                		"tableName":"REL_PTY_CON",
+                		"order":2
+                }]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "insurantname"
+                ],
+                "md5Cols": [
+                    "insurantname"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_POLICY",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "persons": [
+            {
+                "nameCol": "applyname",
+                "certTypeCol": "underwritertype",
+                "certNoCol": "certificatenumber",
+				"personType":"0201",
+                "srcCustId": {
+                    "type": "01",
+                    "idCols": [
+                     "applyno"
+                     
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0002",
+                		"tableName":"REL_PTY_CON",
+                		"order":1
+                }]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno"
+                ],
+                "md5Cols": [
+                    "policyno"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode"
+                ],
+                "md5Cols": [
+                    "unitcode"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "applyname"
+                ],
+                "md5Cols": [
+                    "applyname"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_SPEC",
+        "rowkeyCols": [
+            "applyno",
+            "applyendorseno",
+            "unitcode"
+        ],
+        "md5Cols": [
+            "applyno",
+            "applyendorseno",
+            "unitcode"
+        ]
+    },
+    {
+        "tableName": "C_LOSS",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "C_LOSS_MAN",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "manno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "manno"
+        ]
+    },
+    {
+        "tableName": "C_LOSS_PRO_DETAIL",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "subno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno",
+            "subno"
+        ]
+    },
+    {
+        "tableName": "C_NOTIFY",
+        "rowkeyCols": [
+            "unitcode",
+            "registerno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "registerno"
+        ]
+    },
+    {
+        "tableName": "C_REFUSE",
+        "rowkeyCols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "notifyno",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "C_SURVEY",
+        "rowkeyCols": [
+            "notifyno",
+            "unitcode",
+            "serialno"
+        ],
+        "md5Cols": [
+            "notifyno",
+            "unitcode",
+            "serialno"
+        ]
+    },
+    {
+        "tableName": "D_CITYNEW",
+        "rowkeyCols": [
+            "citycode"
+        ],
+        "md5Cols": [
+            "citycode"
+        ]
+    },
+    {
+        "tableName": "D_CLAIMITEM",
+        "rowkeyCols": [
+            "claimitem"
+        ],
+        "md5Cols": [
+            "claimitem"
+        ]
+    },
+    {
+        "tableName": "D_CLASSES",
+        "rowkeyCols": [
+            "classescode"
+        ],
+        "md5Cols": [
+            "classescode"
+        ]
+    },
+    {
+        "tableName": "D_CODEITEM",
+        "rowkeyCols": [
+            "codeno",
+            "itemcode"
+        ],
+        "md5Cols": [
+            "codeno",
+            "itemcode"
+        ]
+    },
+    {
+        "tableName": "D_DEPARTMENT",
+        "rowkeyCols": [
+            "unitcode",
+            "deptcode"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "deptcode"
+        ]
+    },
+    {
+        "tableName": "D_DEPTGROUP",
+        "rowkeyCols": [
+            "unitcode",
+            "deptgroupcode"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "deptgroupcode"
+        ]
+    },
+    {
+        "tableName": "D_HANDLER",
+        "rowkeyCols": [
+            "unitcode",
+            "handlercode"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "handlercode"
+        ]
+    },
+    {
+        "tableName": "D_OFFERSITE",
+        "rowkeyCols": [
+            "unitcode",
+            "offersite"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "offersite"
+        ]
+    },
+    {
+        "tableName": "D_PROVINCENEW",
+        "rowkeyCols": [
+            "provincecode"
+        ],
+        "md5Cols": [
+            "provincecode"
+        ]
+    },
+    {
+        "tableName": "D_UNIT",
+        "rowkeyCols": [
+            "unitcode"
+        ],
+        "md5Cols": [
+            "unitcode"
+        ]
+    },
+    {
+        "tableName": "P_TEMPORARILY_TEST",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "TBKH",
+        "rowkeyCols": [
+            "tbdm"
+        ],
+        "md5Cols": [
+            "tbdm"
+        ]
+    },
+    {
+        "tableName": "P_CARGO",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno"
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_FEE_LIST",
+        "rowkeyCols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno",
+            "itemcode",
+            "currencycode"
+        ],
+        "md5Cols": [
+            "unitcode",
+            "applyno",
+            "applyendorseno",
+            "serialno",
+            "itemcode",
+            "currencycode"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "P_PUBLIC_COVERAGE",
+        "rowkeyCols": [
+            "uniqueno"
+        ],
+        "md5Cols": [
+            "uniqueno"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "applyendorseno"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "unitcode",
+                    "applyno",
+                    "classescode",
+                    "itemcode",
+                    "itemname",
+                    "currencycode",
+                    "ifcalamount",
+                    "ifcalpremium"
+                ],
+                "md5Cols": [
+                    "unitcode",
+                    "applyno",
+                    "classescode",
+                    "itemcode",
+                    "itemname",
+                    "currencycode",
+                    "ifcalamount",
+                    "ifcalpremium"
+                ]
+            }
+        ]
+    }
+]

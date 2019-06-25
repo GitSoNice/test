@@ -1,0 +1,25 @@
+[
+	{
+		"tableName": "RELPAYRC",
+		"rowkeyCols": [
+			"policyno",
+			"classcode",
+			"delcode",
+			"pid",
+			"gendate",
+			"paytime",
+			"typeno",
+			"branchid"
+		],
+		"md5Cols": [
+			"policyno",
+			"classcode",
+			"delcode",
+			"pid",
+			"gendate",
+			"paytime",
+			"typeno",
+			"branchid"
+		]
+	}
+]

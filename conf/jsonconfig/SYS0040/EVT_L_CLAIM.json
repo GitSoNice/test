@@ -1,0 +1,123 @@
+[
+	{
+		"sourceSystem": "SYS0040",
+		"targetTableName": "EVT_L_CLAIM",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5claimno",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${NLP_NREGCLM.claimno}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5claimno}",
+			"${NLP_NREGCLM.claimno}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0040.NLP_NREGCLM",
+			"alias": "NLP_NREGCLM"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0040.NLP_NCLMAPP",
+				"relationType": "left",
+				"alias": "NLP_NCLMAPP",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${NLP_NREGCLM.cappno}",
+								"rightCondition": "${NLP_NCLMAPP.cappno}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${NLP_NREGCLM.claimno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${NLP_NREGCLM.cappno}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${NLP_NREGCLM.claimno}",
+				"dstColumnName": "claimno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NREGCLM.cappno}",
+				"dstColumnName": "notifyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NREGCLM.begdate}",
+				"dstColumnName": "reg_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NCLMAPP.result}",
+				"dstColumnName": "loss_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NREGCLM.estamt}",
+				"dstColumnName": "estimamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NREGCLM.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NLP_NREGCLM.updtime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

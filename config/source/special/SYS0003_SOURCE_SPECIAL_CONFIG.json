@@ -1,0 +1,507 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"certificatetype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificatecode"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificatecode",
+					"certificatetype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "PARTY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"vehicletype",
+					"insuranceflag",
+					"vehiclekind",
+					"fueltype",
+					"licensetype",
+					"specialcarflag",
+					"vehicleusage1",
+					"vehiclepurpose",
+					"producingarea",
+					"licensecolor",
+					"specialvehicle",
+					"loanvehicleflag",
+					"isinstallmentnew",
+					"newcarflag",
+					"drivearea"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"REGISTERDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "VEHICLE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"iscreateepolicy",
+					"litigationarbitration",
+					"agriculturerelated",
+					"sellingchannel",
+					"businessvariety",
+					"recordmode",
+					"glassmanufacturer",
+					"activitycode"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PROPERTY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"risklevel"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "VEHICLECLAIMINFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "AGREEMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"endorsementtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "ENDORSEMENT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ROLE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"policystatus",
+					"insuredidtype",
+					"vehicleusage",
+					"applicantidtype",
+					"fleetagreementno"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"insuredidnumber",
+					"applicantidnumber"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"insured",
+					"applicant"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"applicantidnumber",
+					"applicantidtype",
+					"insuredidnumber",
+					"insuredidtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"INCEPTIONDATE",
+					"INPUTTIME",
+					"TERMINATIONDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "POLICY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "REQUESTINVOLVED"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"UPDATEDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^\\d+\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "SPECIALTERMITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"drivetype",
+					"personsex"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"drivelicense"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"DRIVELICENSEREGISETERDATE",
+					"UPDATEDATE",
+					"birthdate"
+				]
+			}
+		],
+		"tableName": "APPOINTEDDRIVER"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"certificatetype",
+					"taxtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificatecode"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customername"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificatecode",
+					"certificatetype"
+				]
+			}
+		],
+		"tableName": "VVT_VEHICLE_VESSEL_TAX"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"identtype",
+					"type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"identno"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customname"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"identno",
+					"identtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CHGDATE"
+				]
+			}
+		],
+		"tableName": "CUSTOMTYPELIST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"PRINTTIME"
+				]
+			}
+		],
+		"tableName": "DOCUMENTPRINT"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"claimadjustreason"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PREMIUMFLOATING"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "PREMIUMINVOLVED"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE"
+				]
+			}
+		],
+		"tableName": "ENDORSEMENTITEM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATEDATE",
+					"UPDATEDATE",
+					"QUERYPASTEDATE",
+					"MADEDATE",
+					"LASTPOLICYEFFECTIVEDATE",
+					"LASTPOLICYEXPIREDATE",
+					"REQUESTTIME",
+					"OPENURLTIME",
+					"URLCONFIRMTIME",
+					"PLATFORMSENDSMSTIME"
+				]
+			}
+		],
+		"tableName": "P_BASE_PART"
+	}
+]

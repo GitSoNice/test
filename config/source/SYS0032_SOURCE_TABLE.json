@@ -1,0 +1,24 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "EMPEXP",
+        "rowkeyCols": [
+            "empno",
+            "chatype"
+        ],
+        "md5Cols": [
+            "empno",
+            "chatype"
+        ]
+    }
+]

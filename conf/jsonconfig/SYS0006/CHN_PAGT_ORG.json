@@ -1,0 +1,196 @@
+[
+    {
+        "sourceSystem": "SYS0006",
+        "targetTableName": "CHN_PAGT_ORG",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0006.CHORGAGENT",
+            "alias": "CHORGAGENT"
+        },
+        "combinationMap": [
+            {
+                "alias": "md5agtcode",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CHORGAGENT.agentserialno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5agtcode}",
+			"${CHORGAGENT.agentserialno}",
+			"${CHORGAGENT.orgagentserialno}"
+		],       
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHORGAGENT.agentserialno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CHORGAGENT.orgagentserialno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${CHORGAGENT.agentserialno}",
+                "dstColumnName": "agt_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.orgagentserialno}",
+                "dstColumnName": "agt_org_seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.juridicalperson}",
+                "dstColumnName": "corp_represent",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.registerfund}",
+                "dstColumnName": "rgst_cap",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.salerange}",
+                "dstColumnName": "biz_scope",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.orgcodeidentify}",
+                "dstColumnName": "orgcode_cfm",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.creditlevel}",
+                "dstColumnName": "credit_lvl",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.businessarea}",
+                "dstColumnName": "saleattr_area",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.qualificationno}",
+                "dstColumnName": "sale_certno",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.createdate}",
+                "dstColumnName": "beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.certificatestartdate}",
+                "dstColumnName": "sale_beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.certificateenddate}",
+                "dstColumnName": "sale_end_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.registeraddress}",
+                "dstColumnName": "rgst_addr",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.businessaddress}",
+                "dstColumnName": "biz_addr",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.status}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.iscertificate}",
+                "dstColumnName": "is_lics",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.isbizlicense}",
+                "dstColumnName": "is_biz_lics_coll",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.isorgcode}",
+                "dstColumnName": "is_orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.createdate2}",
+                "dstColumnName": "create_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.updatedate}",
+                "dstColumnName": "upd_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CHORGAGENT.isremoteissue}",
+                "dstColumnName": "is_remote_offer",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.createdate2}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CHORGAGENT.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

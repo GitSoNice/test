@@ -1,0 +1,145 @@
+[
+    {
+        "sourceSystem": "SYS0015",
+        "targetTableName": "PTY_INDV_SOURCE",
+        "order": "1",
+        "combinationMap":[
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                       "EX_SYS0015_M_USER*||*00*||*ID*||*",
+                       "${M_USER.id}"
+                    ]
+                }
+            },{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${M_USER.id_number}",
+                        "${M_USER.id_type}",
+                        "${M_USER.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":
+        [
+        	"${md5cust_id}",
+        	"${cust_id}",
+        	"${concat_person_id}"
+		],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0015.M_USER",
+            "alias": "M_USER"
+        },
+        "where":
+        {
+            "operatorSymbol":"and",
+            "conditionList":
+            [
+				{
+					"conditionType":"simple",
+					"conditionContext":
+					{
+						"expression":
+						{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.id_number}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.id_type}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.name}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.create_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${M_USER.modify_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            
+            
+            {
+				"srcColumnName":{
+	                "handleName":"checkSex",
+	                "parameters":
+	               [	                    
+	                    "${M_USER.gender}",
+	                    "${M_USER.id_type}",
+	                    "${M_USER.id_number}"
+	                ]
+	            },
+	            "dstColumnName":"gender",
+	            "validate":"",
+	            "priority":""
+			},
+             
+            {
+                "srcColumnName": {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "${M_USER.birthday}",
+	                    "${M_USER.id_type}",
+	                    "${M_USER.id_number}"
+	                ]
+	            },
+                "dstColumnName": "birth_dt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+        ]
+    }
+]

@@ -1,0 +1,133 @@
+[
+    {
+        "sourceSystem": "SYS0014",
+        "targetTableName": "PTY_CERT",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${TBL_USER.pid}",
+                        "${TBL_USER.idtype}",
+                        "${TBL_USER.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_USER.idtype}",
+            "${TBL_USER.pid}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0014.TBL_USER",
+            "alias": "TBL_USER"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.idtype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.pid}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0014",
+        "targetTableName": "PTY_CERT",
+        "order": "2",
+        "combinationMap": [
+            {
+	            "alias":"concatSRC_CUST_ID",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":
+	                [
+	                   "EX_SYS0014_TBL_USER*||*00*||*OPENID*||*",
+	                   "${TBL_USER.openid}"
+	                ]
+	            }
+	        },
+	        {
+	            "alias":"cust_id",
+	            "specialHandle":
+	            {
+	                "handleName":"CustFlgTmpHandler",
+	                "parameters":
+	                [
+	                    "${TBL_USER.pid}",
+                        "${TBL_USER.idtype}",
+                        "${TBL_USER.name}",
+	                    "${concatSRC_CUST_ID}"	                    
+	                ]
+	            }
+	        },	        
+	        {
+	            "alias":"md5cust_id",
+	            "specialHandle":
+	            {
+	                "handleName":"md5",
+	                "parameters":
+	                [
+	                    "${cust_id}"
+	                ]
+	            }
+	        }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${TBL_USER.idtype}",
+            "${TBL_USER.pid}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0014.TBL_USER",
+            "alias": "TBL_USER"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.idtype}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_USER.pid}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

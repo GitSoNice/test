@@ -1,0 +1,62 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATE_DATE",
+					"HIECHG_DATE"
+				]
+			}
+		],
+		"tableName": "CGT_MEMBER"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CUS_DATE"
+				]
+			}
+		],
+		"tableName": "CGT_POINT_USE_DETAIL"
+	}
+]

@@ -1,0 +1,562 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_TX_APPL",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TREQUEST.vc_tradeacco}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${TREQUEST.vc_requestno}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TREQUEST",
+			"alias": "TREQUEST"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TREQUEST.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_income}",
+				"dstColumnName": "profit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_requestno}",
+				"dstColumnName": "appl_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_requestno}",
+				"dstColumnName": "appl_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_voucherno}",
+				"dstColumnName": "vouch_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_netno}",
+				"dstColumnName": "netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_centerno}",
+				"dstColumnName": "sub_center",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_requestdate}",
+				"dstColumnName": "appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_requesttime}",
+				"dstColumnName": "appl_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_businflag}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_promiseflag}",
+				"dstColumnName": "promis_discntflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_fundcode}",
+				"dstColumnName": "fundcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_sharetype}",
+				"dstColumnName": "lottype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_trust}",
+				"dstColumnName": "entr_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_balance}",
+				"dstColumnName": "applamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_share}",
+				"dstColumnName": "appl_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_discount}",
+				"dstColumnName": "discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_sendstate}",
+				"dstColumnName": "send_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_state}",
+				"dstColumnName": "appl_verify",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_confirmflag}",
+				"dstColumnName": "cfmflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_moneytype}",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_confirmshare}",
+				"dstColumnName": "cfm_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_confirmbala}",
+				"dstColumnName": "cfmamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_operatorno}",
+				"dstColumnName": "operno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_origindate}",
+				"dstColumnName": "orig_appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_bankno}",
+				"dstColumnName": "bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_bankname}",
+				"dstColumnName": "bank_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_nameinbank}",
+				"dstColumnName": "bank_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_bankacco}",
+				"dstColumnName": "bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_explain}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_capitalmode}",
+				"dstColumnName": "cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.l_permitnum}",
+				"dstColumnName": "allow_fail_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_investscale}",
+				"dstColumnName": "inv_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_investshare}",
+				"dstColumnName": "cash_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_acceptdate}",
+				"dstColumnName": "order_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_exponentvalue}",
+				"dstColumnName": "index_point",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_factbala}",
+				"dstColumnName": "arriveamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_partflag}",
+				"dstColumnName": "part_deduct_succ",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_duefare}",
+				"dstColumnName": "estim_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_branchcode}",
+				"dstColumnName": "tres_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_sysdate}",
+				"dstColumnName": "sys_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_procedurename}",
+				"dstColumnName": "clear_proc_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_delete}",
+				"dstColumnName": "deleteflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_promisebala}",
+				"dstColumnName": "promisamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_transferfee}",
+				"dstColumnName": "tran_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_cperrorcode}",
+				"dstColumnName": "cup_errcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_dealpwd}",
+				"dstColumnName": "pwd",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_servicename}",
+				"dstColumnName": "serv_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_functionno}",
+				"dstColumnName": "func_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_machinedate}",
+				"dstColumnName": "machine_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_subcapitalmode}",
+				"dstColumnName": "dtl_cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_confirmdate}",
+				"dstColumnName": "cfm_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_banknetdate}",
+				"dstColumnName": "bank_net_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_riskflag}",
+				"dstColumnName": "warnflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.l_maxsuccessnum}",
+				"dstColumnName": "max_succ_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_maxvalue}",
+				"dstColumnName": "max_succamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_minscale1}",
+				"dstColumnName": "interval_1left",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_maxscale1}",
+				"dstColumnName": "interval_1right",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_scalbalance1}",
+				"dstColumnName": "interval_1amt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_minscale2}",
+				"dstColumnName": "interval_2left",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_maxscale2}",
+				"dstColumnName": "interval_2right",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_scalbalance2}",
+				"dstColumnName": "interval_2amt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_minscale3}",
+				"dstColumnName": "interval_3left",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_maxscale3}",
+				"dstColumnName": "interval_3right",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_scalbalance3}",
+				"dstColumnName": "interval_3amt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_custrisktype}",
+				"dstColumnName": "cust_risktype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.c_fundrisklevel}",
+				"dstColumnName": "fund_risk_lvl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_diffscale}",
+				"dstColumnName": "lvl_diff",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_upperlimit}",
+				"dstColumnName": "start_purcamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_lowerlimit}",
+				"dstColumnName": "start_redeamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_lastdeducttime}",
+				"dstColumnName": "last_deduct_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.l_commerrorno}",
+				"dstColumnName": "errcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_commerrormsg}",
+				"dstColumnName": "errmsg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_cperrormsg}",
+				"dstColumnName": "cup_err_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.l_sectionschemano}",
+				"dstColumnName": "inv_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_invenstrate}",
+				"dstColumnName": "inv_fl_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_recommender}",
+				"dstColumnName": "recmd_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_maxvalueonce}",
+				"dstColumnName": "max_single_tx",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_minretainedbala}",
+				"dstColumnName": "min_retain_bal",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.en_lowerdeductbala}",
+				"dstColumnName": "min_deductamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_confirmsettledate}",
+				"dstColumnName": "cfm_clear_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TREQUEST.vc_requestsettledate}",
+				"dstColumnName": "pret_clear_dt",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

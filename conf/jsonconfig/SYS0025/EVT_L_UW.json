@@ -1,0 +1,248 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "EVT_L_UW",
+    "order": "1",
+    "combinationMap": [
+    {
+        "alias": "classcode8",
+        "specialHandle": {
+          "handleName": "classCode628",
+          "parameters": [
+            "${APP_RISK.classcode}",
+            "$${FFCLASSCODE}"
+          ]
+        }
+      },
+      {
+        "alias": "classcode",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${classcode8}",
+            "",
+            "${APP_RISK.classcode}",
+            "${classcode8}"
+          ]
+        }
+      },
+            {
+                "alias": "app_agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${APP_RISK.appno}",
+                        "${classcode}"
+                    ]
+                }
+            },
+      {
+        "alias": "stdrateless0",
+        "specialHandle": {
+          "handleName": "isLessEquals",
+          "parameters": [
+            "${APP_RISK.stdrate}",
+            "0"
+          ]
+        }
+      },
+      {
+        "alias": "unstdrateless0",
+        "specialHandle": {
+          "handleName": "isLessEquals",
+          "parameters": [
+            "${APP_RISK.unstdrate}",
+            "0"
+          ]
+        }
+      },
+      {
+        "alias": "andless0",
+        "specialHandle": {
+          "handleName": "and",
+          "parameters": [
+            "${stdrateless0}",
+            "${unstdrateless0}"
+          ]
+        }
+      },
+      {
+        "alias": "insure_mode_id",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${andless0}",
+            "true",
+            "01",
+            "02"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${app_agmt_id}",
+      "${app_agmt_id}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.APP_RISK",
+      "alias": "APP_RISK"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${APP_RISK.appno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${APP_RISK.classcode}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${app_agmt_id}",
+        "dstColumnName": "app_agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.appno}",
+        "dstColumnName": "appno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${insure_mode_id}",
+        "dstColumnName": "insure_mode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.health}",
+        "dstColumnName": "healthcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.npaylevl}",
+        "dstColumnName": "ea_pay_std",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.paycode}",
+        "dstColumnName": "pay_frq",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.delage}",
+        "dstColumnName": "app_age",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.pbdate}",
+        "dstColumnName": "pay_start_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.rate}",
+        "dstColumnName": "exept_pay_rate",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.stopage}",
+        "dstColumnName": "pay_end_age",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.pedate}",
+        "dstColumnName": "pay_end_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.yearnum}",
+        "dstColumnName": "pay_term",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.pieces}",
+        "dstColumnName": "pieces",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.appdate}",
+        "dstColumnName": "app_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.begdate}",
+        "dstColumnName": "duty_beg_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.stopdate}",
+        "dstColumnName": "duty_end_dt",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.prelname}",
+        "dstColumnName": "tx_rel",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.stat}",
+        "dstColumnName": "st_reason",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${APP_RISK.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

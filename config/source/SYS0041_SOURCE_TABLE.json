@@ -1,0 +1,97 @@
+[
+	{
+		"tableName": "TEST_TIMESTAMP",
+		"rowkeyCols": [
+			"send_kafka_time",
+			"send_status"
+		],
+		"md5Cols": [
+			"send_kafka_time",
+			"send_status"
+		]
+	},
+	{
+		"tableName": "FGS_T",
+		"rowkeyCols": [
+			"branch_company_code"
+		],
+		"md5Cols": [
+			"branch_company_code"
+		]
+	},
+	{
+		"tableName": "TYPECOMP_T",
+		"rowkeyCols": [
+			"yxzh",
+			"fxlb"
+		],
+		"md5Cols": [
+			"yxzh",
+			"fxlb"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"yxzh",
+					"xzhmc"
+				],
+				"md5Cols": [
+					"yxzh",
+					"xzhmc"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "RISKCLASS",
+		"rowkeyCols": [
+			"o_classcode"
+		],
+		"md5Cols": [
+			"o_classcode"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"classcode",
+					"classname"
+				],
+				"md5Cols": [
+					"classcode",
+					"classname"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"classcode",
+					"classname",
+					"o_classcode"
+				],
+				"md5Cols": [
+					"classcode",
+					"classname",
+					"o_classcode"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "RISKLIST",
+		"rowkeyCols": [
+			"classcode",
+			"deptno",
+			"bxqj"
+		],
+		"md5Cols": [
+			"classcode",
+			"deptno",
+			"bxqj"
+		]
+	}
+]

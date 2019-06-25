@@ -1,0 +1,452 @@
+[
+    {
+        "sourceSystem":"SYS0008",
+        "targetTableName":"PTY_INDV_SOURCE",
+        "order":"1",
+        "combinationMap":[
+            {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_POLICY_FORM_CHENGYI*||*01*||*SYSNO*||*",
+                        "${BIG_POLICY_FORM_CHENGYI.sysno}"
+                    ]
+                }
+            },
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${BIG_POLICY_FORM_CHENGYI.tb_num}",
+                        "${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+                        "${BIG_POLICY_FORM_CHENGYI.tb_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0008.BIG_POLICY_FORM_CHENGYI",
+            "alias":"BIG_POLICY_FORM_CHENGYI"
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.tb_num}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.tb_name}",
+                "dstColumnName":"name_cn",
+                "validate":"",
+                "priority":""
+            },
+            {
+				"srcColumnName": {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_sr}",
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_num}"
+	                ]
+	            },
+				"dstColumnName": "birth_dt", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+				"srcColumnName":{
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_xb}",
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+	                    "${BIG_POLICY_FORM_CHENGYI.tb_num}"
+	                ]
+	            },
+				"dstColumnName": "gender", 
+				"validate": "",
+				"priority": ""
+			},{
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.input_date}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            },
+			{
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+        ]
+    },
+    {
+        "sourceSystem":"SYS0008",
+        "targetTableName":"PTY_INDV_SOURCE",
+        "order":"2",
+        "combinationMap":[
+            {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_POLICY_FORM_CHENGYI*||*02*||*SYSNO*||*",
+                        "${BIG_POLICY_FORM_CHENGYI.sysno}"
+                    ]
+                }
+            },
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${BIG_POLICY_FORM_CHENGYI.bb_num}",
+                        "${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+                        "${BIG_POLICY_FORM_CHENGYI.bb_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0008.BIG_POLICY_FORM_CHENGYI",
+            "alias":"BIG_POLICY_FORM_CHENGYI"
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.bb_num}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.bb_name}",
+                "dstColumnName":"name_cn",
+                "validate":"",
+                "priority":""
+            },               
+            {
+				"srcColumnName":{
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_sr}",
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_num}"
+	                ]
+	            },
+				"dstColumnName": "birth_dt", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+				"srcColumnName":  {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_xb}",
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+	                    "${BIG_POLICY_FORM_CHENGYI.bb_num}"
+	                ]
+	            },
+				"dstColumnName": "gender", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+                "srcColumnName":"${BIG_POLICY_FORM_CHENGYI.input_date}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            },
+			{
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+        ]
+    },
+    {
+        "sourceSystem":"SYS0008",
+        "targetTableName":"PTY_INDV_SOURCE",
+        "order":"3",
+        "combinationMap":[
+            {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_EXCEPTION*||*01*||*SYSNO*||*",
+                        "${BIG_EXCEPTION.sysno}"
+                    ]
+                }
+            },
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${BIG_EXCEPTION.tb_num}",
+                        "${BIG_EXCEPTION.tb_num_type}",
+                        "${BIG_EXCEPTION.tb_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0008.BIG_EXCEPTION",
+            "alias":"BIG_EXCEPTION"
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.tb_num}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.tb_num_type}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.tb_name}",
+                "dstColumnName":"name_cn",
+                "validate":"",
+                "priority":""
+            },
+            {
+				"srcColumnName":  {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "${BIG_EXCEPTION.tb_sr}",
+	                    "${BIG_EXCEPTION.tb_num_type}",
+	                    "${BIG_EXCEPTION.tb_num}"
+	                ]
+	            },
+				"dstColumnName": "birth_dt", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+				"srcColumnName": {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${BIG_EXCEPTION.tb_xb}",
+	                    "${BIG_EXCEPTION.tb_num_type}",
+	                    "${BIG_EXCEPTION.tb_num}"
+	                ]
+	            },
+				"dstColumnName": "gender", 
+				"validate": "",
+				"priority": ""
+			},{
+                "srcColumnName":"${BIG_EXCEPTION.input_date}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            },
+			{
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+        ]
+    },
+    {
+        "sourceSystem":"SYS0008",
+        "targetTableName":"PTY_INDV_SOURCE",
+        "order":"4",
+        "combinationMap":[
+            {
+                "alias":"concat_person_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "EX_SYS0008_BIG_EXCEPTION*||*02*||*SYSNO*||*",
+                        "${BIG_EXCEPTION.sysno}"
+                    ]
+                }
+            },
+            {
+                "alias":"cust_id",
+                "specialHandle":{
+                    "handleName":"getCustId",
+                    "parameters":[
+                        "${BIG_EXCEPTION.bb_num}",
+                        "${BIG_EXCEPTION.bb_num_type}",
+                        "${BIG_EXCEPTION.bb_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${concat_person_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0008.BIG_EXCEPTION",
+            "alias":"BIG_EXCEPTION"
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.bb_num}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.bb_num_type}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${BIG_EXCEPTION.bb_name}",
+                "dstColumnName":"name_cn",
+                "validate":"",
+                "priority":""
+            },
+              {
+				"srcColumnName": {
+	                "handleName":"checkBirthDay",
+	                "parameters":
+	                [	                    
+	                    "${BIG_EXCEPTION.bb_sr}",
+	                    "${BIG_EXCEPTION.bb_num_type}",
+	                    "${BIG_EXCEPTION.bb_num}"
+	                ]
+	            },
+				"dstColumnName": "birth_dt", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+				"srcColumnName":  {
+	                "handleName":"checkSex",
+	                "parameters":
+	                [	                    
+	                    "${BIG_EXCEPTION.bb_xb}",
+	                    "${BIG_EXCEPTION.bb_num_type}",
+	                    "${BIG_EXCEPTION.bb_num}"
+	                ]
+	            },
+				"dstColumnName": "gender", 
+				"validate": "",
+				"priority": ""
+			},
+            {
+                "srcColumnName":"${BIG_EXCEPTION.input_date}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            },
+			{
+				"srcColumnName": "${concat_person_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+        ]
+    }
+]

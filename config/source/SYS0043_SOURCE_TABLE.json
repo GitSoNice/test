@@ -1,0 +1,100 @@
+[
+	{
+		"tableName": "SHENCE_EVENTS_BXX",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": ["distinct_id"],
+				"md5Cols": [
+					"distinct_id"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_JKXAPP",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"distinct_id"
+				],
+				"md5Cols": [
+					"distinct_id"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_SXAPP",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"distinct_id"
+				],
+				"md5Cols": [
+					"distinct_id"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_SUPERAPP",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"distinct_id"
+				],
+				"md5Cols": [
+					"distinct_id"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_CJYLGW",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"distinct_id"
+				],
+				"md5Cols": [
+					"distinct_id"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_SXGW",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_AXNXWEB",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"]
+	},
+	{
+		"tableName": "SHENCE_EVENTS_CJYLWEB",
+		"rowkeyCols": ["distinct_id","time"],
+		"md5Cols": ["distinct_id","time"]
+	}
+]

@@ -1,0 +1,783 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zggrjh_hf",
+					"zggrjh_xl",
+					"zggrjh_zjlx",
+					"zggrjh_jhlb",
+					"zggrjh_sqly",
+					"zggrjh_sfzrjh",
+					"zggrjh_khhzt",
+					"zggrjh_xb",
+					"zggrjh_mz",
+					"zggrjh_zzmm",
+					"zggrjh_jfzt",
+					"zggrjh_tzzt",
+					"zggrjh_zgfzt",
+					"zggrjh_jhzt",
+					"zggrjh_zrck",
+					"zggrjh_gwzt",
+					"zggrjh_nwq",
+					"zggrjh_sfdtx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"zggrjh_zjhm"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"zggrjh_xm"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"zggrjh_zjhm",
+					"zggrjh_zjlx"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGGRJH_CJBGSRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_CJGZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_CJJHRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_CJJTRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_CSRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_LRRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_LZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGGRJH_ZZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGGRJH_GXRQ"
+				]
+			}
+		],
+		"tableName": "ZGGRJH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgnjjh_tgyh",
+					"zgnjjh_cplx2",
+					"zgnjjh_dtxtzzhlx",
+					"zgnjjh_dtxtzzhzq",
+					"zgnjjh_fefqjx",
+					"zgnjjh_jhlb",
+					"zgnjjh_jhzt",
+					"zgnjjh_ms",
+					"zgnjjh_mszdszbj",
+					"zgnjjh_njjhlx",
+					"zgnjjh_sdsjsfs",
+					"zgnjjh_sfhzdbbz",
+					"zgnjjh_sqly",
+					"zgnjjh_sthhskg",
+					"zgnjjh_xjgrjh",
+					"zgnjjh_ylzt1",
+					"zgnjjh_yxtzzh",
+					"zgnjjh_zczyfs",
+					"zgnjjh_zdyxtzkfq"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGNJJH_SXRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGNJJH_ZDRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGNJJH_ZZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGNJJH_GXRQ"
+				]
+			}
+		],
+		"tableName": "ZGNJJH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zggrzhye_zt"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGGRZHYE_GXRQ"
+				]
+			}
+		],
+		"tableName": "ZGGRZHYE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"stqyjhtzzh_sfcyfbzc"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "STQYJHTZZH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"sttzzh_jlfs",
+					"sttzzh_zt",
+					"sttzzh_cplx",
+					"sttzzh_sfdlpz",
+					"sttzzh_ms",
+					"sttzzh_zszhbj",
+					"sttzzh_fxlb",
+					"sttzzh_sfjxtzglf",
+					"sttzzh_zhkfbz",
+					"sttzzh_zhkfgzsz",
+					"sttzzh_bz",
+					"sttzzh_wcclfs",
+					"sttzzh_zt2"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "STTZZH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"sttzzhkfq_zhkflx",
+					"sttzzhkfq_bz"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "STTZZHKFQ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgggzhfpmx_zt",
+					"zgggzhfpmx_zjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGGGZHFPMX"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgggzhfpsq_zt",
+					"zgggzhfpsq_rzclzt",
+					"zgggzhfpsq_fzjbz",
+					"zgggzhfpsq_kqyfpbz"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGGGZHFPSQ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zggrzfsqpl_ywlx",
+					"zggrzfsqpl_zt",
+					"zggrzfsqpl_sfycqd"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGGRZFSQPL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zggrzfsq_zffs",
+					"zggrzfsq_tsgs",
+					"zggrzfsq_zt",
+					"zggrzfsq_rzclzt",
+					"zggrzfsq_clzt",
+					"zggrzfsq_xzzt",
+					"zggrzfsq_ppzt",
+					"zggrzfsq_zhzffw",
+					"zggrzfsq_sqstxbz",
+					"zggrzfsq_sdsjsfs",
+					"zggrzfsq_sylb",
+					"zggrzfsq_zdqclx",
+					"zggrzfsq_zfms",
+					"zggrzfsq_yzffs",
+					"zggrzfsq_yzfzq",
+					"zggrzfsq_bgbz",
+					"zggrzfsq_sffhzfsq",
+					"zggrzfsq_jslqbz",
+					"zggrzfsq_dezfwjgrzhblbs",
+					"zggrzfsq_khyh",
+					"zggrzfsq_zfyy",
+					"zggrzfsq_zfzq",
+					"zggrzfsq_zjlx"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGGRZFSQ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgjfdz_ppzt",
+					"zgjfdz_zt",
+					"zgjfdz_cjclfs",
+					"zgjfdz_clzt"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGJFDZ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgjfsq_zdlb",
+					"zgjfsq_zt",
+					"zgjfsq_rzclzt",
+					"zgjfsq_sfjstz"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGJFSQ"
+	},
+	{
+		"specialConfigs": 
+[
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgqyjh_sqly",
+					"zgqyjh_jhlx",
+					"zgqyjh_jflx",
+					"zgqyjh_cjclfs",
+					"zgqyjh_gslx",
+					"zgqyjh_jhzt",
+					"zgqyjh_dfzt",
+					"zgqyjh_ylzt1",
+					"zgqyjh_ylzt2",
+					"zgqyjh_ylzt3",
+					"zgqyjh_ylzt4",
+					"zgqyjh_mzbs",
+					"zgqyjh_fzbs",
+					"zgqyjh_tyrz",
+					"zgqyjh_yxtzzh",
+					"zgqyjh_zdytzzh",
+					"zgqyjh_dtxtzzhlx",
+					"zgqyjh_dtxtzzhzq",
+					"zgqyjh_zdydtx",
+					"zgqyjh_ssjtcj",
+					"zgqyjh_sfdsffk",
+					"zgqyjh_sfdycsf",
+					"zgqyjh_yxtsjl",
+					"zgqyjh_jhsx",
+					"zgqyjh_yzms",
+					"zgqyjh_ywglms",
+					"zgqyjh_zfms",
+					"zgqyjh_gssf",
+					"zgqyjh_jssz",
+					"zgqyjh_jsszlx",
+					"zgqyjh_sdqsz",
+					"zgqyjh_zdyxtzkfq",
+					"zgqyjh_yssyrzf",
+					"zgqyjh_sfplgpxx",
+					"zgqyjh_fhjsyj",
+					"zgqyjh_bjlx",
+					"zgqyjh_fzjbz",
+					"zgqyjh_sfyxdezfbzz",
+					"zgqyjh_sfzfzzc",
+					"zgqyjh_grjfdxtzbz",
+					"zgqyjh_sfzrbcjh",
+					"zgqyjh_sfyxgxggzhfp",
+					"zgqyjh_tbsxzgsbs",
+					"zgqyjh_sfskbl"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"zgqyjh_gxrq"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"zgqyjh_sxrq",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"zgqyjh_zzrq",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"zgqyjh_scjfrq",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"zgqyjh_dqny",
+					[
+						"yyyyMM"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})\\D*$"
+					],
+					"zgqyjh_zdrq",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"zgqyjh_fapfrq",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "ZGQYJH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgqyjhzhzd_sftz",
+					"zgqyjhzhzd_tzxzq",
+					"zgqyjhzhzd_nsbj",
+					"zgqyjhzhzd_zhlb"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGQYJHZHZD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgqykh_sqly",
+					"zgqykh_khhzt",
+					"zgqykh_khzt",
+					"zgqykh_ecfhbz",
+					"zgqykh_mclbz",
+					"zgqykh_bgbz",
+					"zgqykh_khcxbz"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGQYKH_TYSHXYDMJZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGQYKH_TYSHXYDMQSRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGQYKH_ZDRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGQYKH_ZZJGDMJZRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGQYKH_ZZJGDMQSRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGQYKH_GXRQ"
+				]
+			}
+		],
+		"tableName": "ZGQYKH"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgzfhd_zfzt",
+					"zgzfhd_sbclzt",
+					"zgzfhd_cggsbbj",
+					"zgzfhd_sfybs",
+					"zgzfhd_rzclzt",
+					"zgzfhd_sfcg",
+					"zgzfhd_syrzjlx",
+					"zgzfhd_syrzjlx2"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGZFHD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"zgzfzd_qezf",
+					"zgzfzd_rzclzt",
+					"zgzfzd_clzt",
+					"zgzfzd_zdlx",
+					"zgzfzd_zt",
+					"zgzfzd_sdsjsfs",
+					"zgzfzd_sylb",
+					"zgzfzd_sffhzd"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "ZGZFZD"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"wcclfs"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "VWZXDWJZ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGFZJG_GXRQ"
+				]
+			}
+		],
+		"tableName": "ZGFZJG"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGDWJZ_GZR",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "ZGDWJZ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGDWJZ_GZR",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "MAX_ZGDWJZ"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"ZGTZZH_ZHZZRQ"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ZGTZZH_ZDRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"ZGTZZH_GXRQ",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "ZGTZZH"
+	}
+]

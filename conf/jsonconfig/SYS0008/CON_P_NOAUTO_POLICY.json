@@ -1,0 +1,483 @@
+[
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "CON_P_NOAUTO_POLICY",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_EXCEPTION.sysno}",
+						"${BIG_EXCEPTION.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_EXCEPTION",
+			"alias": "BIG_EXCEPTION"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0008.SELL_PLAN_INFO",
+				"relationType": "inner",
+				"alias": "SELL_PLAN_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${SELL_PLAN_INFO.fid}",
+								"rightCondition": "${BIG_EXCEPTION.plan_id}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0008.SELL_APPENDED_POLICY",
+				"relationType": "inner",
+				"alias": "SELL_APPENDED_POLICY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${SELL_PLAN_INFO.fid}",
+								"rightCondition": "${SELL_APPENDED_POLICY.plan_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_EXCEPTION.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sysno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "0",
+				"dstColumnName": "is_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.big_policyno}",
+				"dstColumnName": "appno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.insurance_code}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.plan_name}",
+				"dstColumnName": "prod_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.plan_id}",
+				"dstColumnName": "prodcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.tb_name}",
+				"dstColumnName": "app_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.tb_num_type}",
+				"dstColumnName": "app_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.tb_num}",
+				"dstColumnName": "app_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.bb_name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.bb_num_type}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.bb_num}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sy_name}",
+				"dstColumnName": "benefi_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.state}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.remark}",
+				"dstColumnName": "spec_appoint",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.sum_money}",
+				"dstColumnName": "tot_prem",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_APPENDED_POLICY.islimited}",
+				"dstColumnName": "totamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.tb_date}",
+				"dstColumnName": "app_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.insurebegindate}",
+				"dstColumnName": "inception_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.insureenddate}",
+				"dstColumnName": "planned_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_EXCEPTION.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0008",
+		"targetTableName": "CON_P_NOAUTO_POLICY",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"${BIG_POLICY_FORM_CHENGYI.fgs_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0008.BIG_POLICY_FORM_CHENGYI",
+			"alias": "BIG_POLICY_FORM_CHENGYI"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0008.SELL_PLAN_INFO",
+				"relationType": "inner",
+				"alias": "SELL_PLAN_INFO",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${SELL_PLAN_INFO.fid}",
+								"rightCondition": "${BIG_POLICY_FORM_CHENGYI.plan_id}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0008.SELL_APPENDED_POLICY",
+				"relationType": "inner",
+				"alias": "SELL_APPENDED_POLICY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${SELL_PLAN_INFO.fid}",
+								"rightCondition": "${SELL_APPENDED_POLICY.plan_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sysno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.fgs_id}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "0",
+				"dstColumnName": "is_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.big_policyno}",
+				"dstColumnName": "appno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.insurance_code}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.plan_name}",
+				"dstColumnName": "prod_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.plan_id}",
+				"dstColumnName": "prodcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.tb_name}",
+				"dstColumnName": "app_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.tb_num_type}",
+				"dstColumnName": "app_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.tb_num}",
+				"dstColumnName": "app_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.bb_name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.bb_num_type}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.bb_num}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sy_name}",
+				"dstColumnName": "benefi_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.state}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_PLAN_INFO.remark}",
+				"dstColumnName": "spec_appoint",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.sum_money}",
+				"dstColumnName": "tot_prem",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${SELL_APPENDED_POLICY.islimited}",
+				"dstColumnName": "totamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.tb_date}",
+				"dstColumnName": "app_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.insurebegindate}",
+				"dstColumnName": "inception_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.insureenddate}",
+				"dstColumnName": "planned_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BIG_POLICY_FORM_CHENGYI.input_date}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+	
+]

@@ -1,0 +1,183 @@
+[
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_HEALTH",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                             "${T_RYX_CUSTOMER.cret_code}",
+                        "${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${T_RYX_CUSTOMER.health}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.health}",
+                "dstColumnName": "health",
+                "validate": "",
+                "priority": ""
+            },
+        
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0030",
+        "targetTableName": "PTY_HEALTH",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "src_cust_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0030_T_RYX_CUSTOMER*||*00*||*CUSTOMER_ID*||*",
+                        "${T_RYX_CUSTOMER.customer_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                           "${T_RYX_CUSTOMER.cret_code}",
+                        "${T_RYX_CUSTOMER.cret_type}",
+                        "${T_RYX_CUSTOMER.customer_name}",
+                        "${src_cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0030.T_RYX_CUSTOMER",
+            "alias": "T_RYX_CUSTOMER"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${T_RYX_CUSTOMER.health}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.health}",
+                "dstColumnName": "health",
+                "validate": "",
+                "priority": ""
+            },
+      
+            {
+                "srcColumnName": "${T_RYX_CUSTOMER.operate_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

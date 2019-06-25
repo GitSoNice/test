@@ -1,0 +1,52 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"sex",
+					"cistype",
+					"handover",
+					"login",
+					"state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": ["idcode"]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": ["cisname"]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"idcode",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"birthday",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"operdate",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "CIF_INDIINFO"
+	}
+]

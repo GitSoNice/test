@@ -1,0 +1,86 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"buywar",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"idno"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"idno",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"UTIME"
+				]
+			}
+		],
+		"tableName": "CYX_STATLIST_PLUS"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CFG_CHANNEL_NET_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"childflag",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"UTIME",
+					"MOVEDATE",
+					"PRTDATE",
+					"SELLTIME",
+					"TAKEDATE"
+				]
+			}
+		],
+		"tableName": "STATLIST"
+	}
+]

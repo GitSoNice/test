@@ -1,0 +1,122 @@
+[
+	{
+		"sourceSystem": "SYS0041",
+		"targetTableName": "GEN_L_CLASECODE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5classcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${RISKCLASS.classcode}"
+					]
+				}
+			},
+			{
+				"alias": "etl_time",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${RISKCLASS.etl_time}",
+						"",
+						"1990-01-01 00:00:00.000",
+						"${RISKCLASS.etl_time}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5classcode}",
+			"${RISKCLASS1.classcode}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0041.RISKCLASS",
+			"alias": "RISKCLASS1"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0041.RISKCLASS",
+				"alias": "RISKCLASS",
+				"relationType": "inner",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCLASS.classcode}",
+								"rightCondition": "${RISKCLASS1.classcode}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCLASS.classname}",
+								"rightCondition": "${RISKCLASS1.classname}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCLASS.o_classcode}",
+								"rightCondition": "${RISKCLASS1.o_classcode}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${RISKCLASS.classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCLASS.classname}",
+				"dstColumnName": "classname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCLASS.o_classcode}",
+				"dstColumnName": "classcode6",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "max",
+					"handleType": "group",
+					"dataType": "Date",
+					"pointNum": 2,
+					"formatter": "yyyy-MM-dd HH:mm:ss.SSS",
+					"parameters": [
+						"${etl_time}"
+					]
+				},
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

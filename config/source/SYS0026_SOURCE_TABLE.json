@@ -1,0 +1,30 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "TBL_BENEFIT_INFO",
+        "rowkeyCols": [
+            "policyno_id",
+            "class_code",
+            "del_code",
+            "type_no",
+            "del_num"
+        ],
+        "md5Cols": [
+            "policyno_id",
+            "class_code",
+            "del_code",
+            "type_no",
+            "del_num"
+        ]
+    }
+]

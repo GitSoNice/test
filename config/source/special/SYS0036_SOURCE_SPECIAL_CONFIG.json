@@ -1,0 +1,78 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"event_type",
+					"contact_c"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"START_DATE,START_TIME",
+					[
+						"yyyy-MM-dd HH:mm:ss",
+						"yyyy-MM-dd HH:mm:ss.SSS"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2}).(\\d{3})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "KNOWCUST_CUST_DYNAMIC_ALL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"event_type",
+					"contact_c"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"START_DATE,START_TIME",
+					[
+						"yyyy-MM-dd HH:mm:ss",
+						"yyyy-MM-dd HH:mm:ss.SSS"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2}).(\\d{3})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "KNOWCUST"
+	}
+]

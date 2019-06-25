@@ -1,0 +1,616 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+  },
+  {
+    "tableName": "RISKCON",
+    "rowkeyCols": [
+      "policyno",
+      "classcode",
+      "compid",
+      "branchid"
+    ],
+    "md5Cols": [
+      "policyno",
+      "classcode",
+      "compid",
+      "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "apid"
+        ],
+        "md5Cols": [
+          "apid"
+        ]
+      },
+      {
+        "alias": "INDEX_2",
+        "isUnique": false,
+        "keyCols": [
+          "pid"
+        ],
+        "md5Cols": [
+          "pid"
+        ]
+      },
+      {
+        "alias": "INDEX_3",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      },
+      {
+        "alias": "INDEX_4",
+        "isUnique": false,
+        "keyCols": [
+          "appno",
+          "classcode"
+        ],
+        "md5Cols": [
+          "appno",
+          "classcode"
+        ]
+      },
+      {
+        "alias": "INDEX_5",
+        "isUnique": false,
+        "keyCols": [
+          "appno",
+          "classcode",
+          "policyno"
+        ],
+        "md5Cols": [
+          "appno",
+          "classcode",
+          "policyno"
+        ]
+      },
+      {
+        "alias": "INDEX_6",
+        "isUnique": false,
+        "keyCols": [
+          "policyno"
+        ],
+        "md5Cols": [
+          "policyno"
+        ]
+      },
+      {
+        "alias": "INDEX_7",
+        "isUnique": false,
+        "keyCols": [
+          "policyno",
+          "classcode"
+        ],
+        "md5Cols": [
+          "policyno",
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "CUSTMATL",
+    "rowkeyCols": [
+      "id"
+    ],
+    "md5Cols": [
+      "id"
+    ]
+  },
+  {
+    "tableName": "POLICYST",
+    "rowkeyCols": [
+      "policystat"
+    ],
+    "md5Cols": [
+      "policystat"
+    ]
+  },
+  {
+    "tableName": "RISKCLASS",
+    "rowkeyCols": [
+      "classcode"
+    ],
+    "md5Cols": [
+      "classcode"
+    ]
+  },
+  {
+    "tableName": "IDTELL",
+    "rowkeyCols": [
+      "appno",
+      "classcode",
+      "version",
+      "isappid",
+      "telcode1",
+      "telcode2",
+      "telcode3",
+      "telcode4"
+    ],
+    "md5Cols": [
+      "appno",
+      "classcode",
+      "version",
+      "isappid",
+      "telcode1",
+      "telcode2",
+      "telcode3",
+      "telcode4"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "TELVESCON",
+    "rowkeyCols": [
+      "version",
+      "isappid",
+      "telcode1",
+      "telcode2",
+      "telcode3",
+      "telcode4"
+    ],
+    "md5Cols": [
+      "version",
+      "isappid",
+      "telcode1",
+      "telcode2",
+      "telcode3",
+      "telcode4"
+    ]
+  },
+  {
+    "tableName": "APP_RISK",
+    "rowkeyCols": [
+      "appno",
+      "classcode",
+      "compid",
+      "branchid"
+    ],
+    "md5Cols": [
+      "appno",
+      "classcode",
+      "compid",
+      "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "VERSTATN",
+    "rowkeyCols": [
+       "rowid"
+    ],
+    "md5Cols": [
+       "rowid"
+    ]
+  },
+  {
+    "tableName": "CHEKOPIN",
+    "rowkeyCols": [
+      "rowid",
+	  "branchid"
+    ],
+    "md5Cols": [
+      "rowid",
+	  "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "PADREC",
+    "rowkeyCols": [
+      "policyno",
+      "padtime"
+    ],
+    "md5Cols": [
+      "policyno",
+      "padtime"
+    ]
+  },
+  {
+    "tableName": "CONENSDEAL",
+    "rowkeyCols": [
+      "policyno",
+      "classcode"
+    ],
+    "md5Cols": [
+      "policyno",
+      "classcode"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      },
+      {
+        "alias": "INDEX_2",
+        "isUnique": false,
+        "keyCols": [
+          "classcode",
+          "policyno"
+        ],
+        "md5Cols": [
+          "classcode",
+          "policyno"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "CHAGAPP",
+    "rowkeyCols": [
+      "rowid",
+	  "branchid"
+    ],
+    "md5Cols": [
+      "rowid",
+	  "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "ITEMCHG",
+    "rowkeyCols": [
+      "changeid"
+    ],
+    "md5Cols": [
+      "changeid"
+    ]
+  },
+  {
+    "tableName": "DEBITREC",
+    "rowkeyCols": [
+      "policyno",
+      "classcode",
+      "loandate"
+    ],
+    "md5Cols": [
+      "policyno",
+      "classcode",
+      "loandate"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "DELAPP",
+    "rowkeyCols": [
+      "policyno",
+      "delcode",
+      "typeno",
+      "classcode",
+      "appdate"
+    ],
+    "md5Cols": [
+      "policyno",
+      "delcode",
+      "typeno",
+      "classcode",
+      "appdate"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "DELREASON",
+    "rowkeyCols": [
+      "delreason"
+    ],
+    "md5Cols": [
+      "delreason"
+    ]
+  },
+  {
+    "tableName": "RELPAYRC",
+    "rowkeyCols": [
+      "policyno",
+      "classcode",
+      "delcode",
+      "gendate",
+      "paytime",
+      "typeno",
+      "branchid"
+    ],
+    "md5Cols": [
+      "policyno",
+      "classcode",
+      "delcode",
+      "gendate",
+      "paytime",
+      "typeno",
+      "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "pid"
+        ],
+        "md5Cols": [
+          "pid"
+        ]
+      },
+      {
+        "alias": "INDEX_2",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "PREREC",
+    "rowkeyCols": [
+      "rowid",
+	  "branchid"
+    ],
+    "md5Cols": [
+      "rowid",
+	  "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "classcode"
+        ],
+        "md5Cols": [
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "SPREREC",
+    "rowkeyCols": [
+      "policyno",
+      "pcode",
+      "year",
+      "paycode",
+      "classcode",
+      "branchid"
+    ],
+    "md5Cols": [
+      "policyno",
+      "pcode",
+      "year",
+      "paycode",
+      "classcode",
+      "branchid"
+    ]
+  },
+  {
+    "tableName": "CDELREC",
+    "rowkeyCols": [
+      "policyno",
+      "delcode",
+      "delnum",
+      "pid",
+      "classcode",
+      "typeno"
+    ],
+    "md5Cols": [
+      "policyno",
+      "delcode",
+      "delnum",
+      "pid",
+      "classcode",
+      "typeno"
+    ]
+  },
+  {
+    "tableName": "RISKSPEC",
+    "rowkeyCols": [
+      "rowid",
+	  "branchid"
+    ],
+    "md5Cols": [
+       "rowid",
+	  "branchid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "policyno",
+          "classcode"
+        ],
+        "md5Cols": [
+          "policyno",
+          "classcode"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "GRPLIST",
+    "rowkeyCols": [
+      "gappno",
+      "appno"
+    ],
+    "md5Cols": [
+      "gappno",
+      "appno"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "policyno"
+        ],
+        "md5Cols": [
+          "policyno"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "COMCUST",
+    "rowkeyCols": [
+      "appno",
+      "policyno",
+      "classcode",
+      "precode",
+      "preno",
+      "comid",
+      "pid"
+    ],
+    "md5Cols": [
+      "appno",
+      "policyno",
+      "classcode",
+      "precode",
+      "preno",
+      "comid",
+      "pid"
+    ],
+    "indexTables": [
+      {
+        "alias": "INDEX_1",
+        "isUnique": false,
+        "keyCols": [
+          "policyno",
+          "classcode"
+        ],
+        "md5Cols": [
+          "policyno",
+          "classcode"
+        ]
+      },
+      {
+        "alias": "INDEX_2",
+        "isUnique": false,
+        "keyCols": [
+          "pid"
+        ],
+        "md5Cols": [
+          "pid"
+        ]
+      }
+    ]
+  },
+  {
+    "tableName": "EX_L_BENEFI",
+    "rowkeyCols": [
+      "policyno","classcode","certtype","certno","name"
+    ],
+    "md5Cols": [
+     "policyno","classcode","certtype","certno","name"
+    ],
+    "indexTables": [],
+    "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "certtype",
+                "certNoCol": "certno",
+                 "personType":"0203",
+                "srcCustId": {
+                    "type": "03",
+                    "idCols": [
+                        "policyno",
+				      	"classcode"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0025"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":3
+                }]
+            }
+        ]
+  }
+]

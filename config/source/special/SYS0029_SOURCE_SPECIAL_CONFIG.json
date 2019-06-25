@@ -1,0 +1,40 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"visit_state"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"VISIT_TIME",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VISIT_DATE",
+					[
+						"yyyyMMddHHmmss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "TBL_VISIT_DTL_INFO"
+	}
+]

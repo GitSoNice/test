@@ -1,0 +1,453 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "EVT_CJ_TX_CFM",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TCONFIRM.vc_tradeacco}"
+					]
+				}
+			},
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${TCONFIRM.vc_confirmno}",
+			"${TCONFIRM.vc_tacode}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TCONFIRM",
+			"alias": "TCONFIRM"
+		},
+		"relations":[
+            {
+                "sourceTableName":"SYS0034.TCUSTINFO",
+                "relationType":"inner",
+                "alias":"TCUSTINFO",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${TCUSTINFO.vc_custno}",
+                                "rightCondition":"${TCONFIRM.vc_custno}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TCONFIRM.c_custtype}",
+						"rightCondition": "1"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_fundacco}",
+				"dstColumnName": "fund_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_confirmno}",
+				"dstColumnName": "cfm_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_tradeacco}",
+				"dstColumnName": "tx_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_trust}",
+				"dstColumnName": "entr_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_requestdate}",
+				"dstColumnName": "appl_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_requestno}",
+				"dstColumnName": "appl_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_confirmno}",
+				"dstColumnName": "cfm_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_confirmdate}",
+				"dstColumnName": "cfm_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_fundcode}",
+				"dstColumnName": "fundcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_sharetype}",
+				"dstColumnName": "lottype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_netno}",
+				"dstColumnName": "netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_centerno}",
+				"dstColumnName": "sub_center",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_ratio}",
+				"dstColumnName": "fee_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_nav}",
+				"dstColumnName": "net_val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_profit}",
+				"dstColumnName": "profit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_businflag}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_balance}",
+				"dstColumnName": "applamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_share}",
+				"dstColumnName": "appl_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_confirmbala}",
+				"dstColumnName": "cfmamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_moneytype}",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_confirmshare}",
+				"dstColumnName": "cfm_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_fare}",
+				"dstColumnName": "comm_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_dealfare}",
+				"dstColumnName": "tx_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_tafare}",
+				"dstColumnName": "tran_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_afterfare}",
+				"dstColumnName": "after_comm_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_agencyfare}",
+				"dstColumnName": "agt_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_stamptax}",
+				"dstColumnName": "stamp_duty",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_confirmflag}",
+				"dstColumnName": "cfmflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_errorcode}",
+				"dstColumnName": "failcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_interest}",
+				"dstColumnName": "interest",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_interesttax}",
+				"dstColumnName": "interest_tax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_organiger}",
+				"dstColumnName": "sponsor",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_unfrozenbala}",
+				"dstColumnName": "divd_unfrz",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_returnfare}",
+				"dstColumnName": "return_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_originfare}",
+				"dstColumnName": "receivable_comm_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_tacode}",
+				"dstColumnName": "tacode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_discount}",
+				"dstColumnName": "discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_income}",
+				"dstColumnName": "unpaid_prft",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_investincome}",
+				"dstColumnName": "cash_unpaid_prft",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_investshare}",
+				"dstColumnName": "cash_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_finishflag}",
+				"dstColumnName": "biz_endflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_enddiscount}",
+				"dstColumnName": "after_discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_otherdiscount}",
+				"dstColumnName": "make_up_discnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_branchcode}",
+				"dstColumnName": "tres_netno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_othernav}",
+				"dstColumnName": "oppo_net_val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_otherconfirmshare}",
+				"dstColumnName": "oppo_cfm_lot",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.en_otheroriginfare}",
+				"dstColumnName": "oppo_comm_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_capitalmode}",
+				"dstColumnName": "cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_subcapitalmode}",
+				"dstColumnName": "dtl_cap_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.l_sectionschemano}",
+				"dstColumnName": "inv_plan_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_exptype}",
+				"dstColumnName": "indextype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_shareadjustflag}",
+				"dstColumnName": "adjflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_voucherno}",
+				"dstColumnName": "vouch_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.c_bankno}",
+				"dstColumnName": "bankcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_bankname}",
+				"dstColumnName": "bank_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_nameinbank}",
+				"dstColumnName": "bank_acct_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCONFIRM.vc_bankacco}",
+				"dstColumnName": "bank_acct",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

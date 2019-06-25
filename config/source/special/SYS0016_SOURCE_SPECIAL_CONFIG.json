@@ -1,0 +1,163 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"code"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "T_CM_CFG_CODE_ENTRY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["policy_attach_flg"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"holder_idcard",
+					"recognizee_idcard"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"recognizee_name",
+					"holder_name"
+				]
+			}
+		],
+		"tableName": "T_LI_COUT_PROBLEM_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["policy_attach_flg"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"holder_idcard",
+					"recognizee_idcard"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"recognizee_name",
+					"holder_name"
+				]
+			}
+		],
+		"tableName": "T_LI_COUT_NEWPOLICY_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["policy_attach_flg"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"holder_idcard",
+					"recognizee_idcard"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"recognizee_name",
+					"holder_name"
+				]
+			}
+		],
+		"tableName": "T_LI_COUT_THIRD_NEWPOLICY_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["policy_attach_flg"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"holder_idcard",
+					"recognizee_idcard"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"recognizee_name",
+					"holder_name"
+				]
+			}
+		],
+		"tableName": "T_LI_COUT_SECOND_PROBLEM_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cmp_type_cd",
+					"res_code"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"customer_idcard"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customer_name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"act_end_dttm",
+					"act_start_dttm",
+					"crt_dttm",
+					"lastupt_dttm"
+				]
+			}
+		],
+		"tableName": "T_LI_COUT_ACTIVITY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "T_CM_CALL_AGENT"
+	}
+]

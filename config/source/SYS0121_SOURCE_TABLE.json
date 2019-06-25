@@ -1,0 +1,23 @@
+[
+	{
+		"tableName": "TEST_DAVE",
+		"rowkeyCols": [
+			"id"
+		],
+		"md5Cols": [
+			"id"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX1",
+				"isUnique": false,
+				"keyCols": [
+					"name"
+				],
+				"md5Cols": [
+					"name"
+				]
+			}
+		]
+	}
+]

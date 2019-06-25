@@ -1,0 +1,118 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"reprel",
+					"stat",
+					"repsex",
+					"sudtype",
+					"reptype",
+					"isjvclaim",
+					"disecode",
+					"repidtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid",
+					"repid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"repname",
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"repid",
+					"repidtype"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"accdate",
+					"repdate",
+					"reptime",
+					"movedate",
+					"getdate",
+					"deaddate",
+					"disecode_auth_date",
+					"maimdate",
+					"renguan",
+					"utime",
+					"updtime"
+				]
+			}
+		],
+		"tableName": "NLP_NCLMAPP"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"precode",
+					"isup",
+					"subrescode",
+					"rescode",
+					"issuit"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"updtime",
+					"utime"
+				]
+			}
+		],
+		"tableName": "NLP_NCLMCCL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"begdate",
+					"updtime",
+					"utime"
+				]
+			}
+		],
+		"tableName": "NLP_NREGCLM"
+	}
+]

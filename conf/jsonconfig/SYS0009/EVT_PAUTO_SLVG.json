@@ -1,0 +1,766 @@
+[
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "EVT_PAUTO_SLVG",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5notifyno",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${CF_IDX_CASEFOLDER.notificationno}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5notifyno}",
+			"${CF_IDX_CASEFOLDER.notificationno}",
+			"${CF_RP_VEHICLEASSESSMENT.assessmentno}",
+			"${CF_RP_VEHICLEASSESSMENT.actualid}",
+			"${CF_RP_PART.actualid}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_VEHICLEASSESSMENT",
+			"alias": "CF_RP_VEHICLEASSESSMENT"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.casefolderid}",
+								"rightCondition": "${CF_RP_VEHICLEASSESSMENT.topactualid}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_ASSESSMENT",
+				"relationType": "inner",
+				"alias": "CF_CT_ASSESSMENT",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_VEHICLEASSESSMENT.actualid}",
+								"rightCondition": "${CF_CT_ASSESSMENT.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT.kind}",
+								"rightCondition": "VEHICLEASSESSMENT"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT.parentactualkind}",
+								"rightCondition": "CASEFOLDER.ACCIDENT.LOSSINVOLVED.VEHICLECONDITIONINFO"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_ASSESSMENT_ITEM",
+				"relationType": "inner",
+				"alias": "CF_CT_ASSESSMENT_ITEM",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_VEHICLEASSESSMENT.actualid}",
+								"rightCondition": "${CF_CT_ASSESSMENT_ITEM.parentactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_VEHICLEASSESSMENT.topactualid}",
+								"rightCondition": "${CF_CT_ASSESSMENT_ITEM.topactualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT_ITEM.kind}",
+								"rightCondition": "PART"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT_ITEM.parentactualkind}",
+								"rightCondition": "CASEFOLDER.ACCIDENT.LOSSINVOLVED.VEHICLECONDITIONINFO.VEHICLEASSESSMENT"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_PART",
+				"relationType": "inner",
+				"alias": "CF_RP_PART",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_ASSESSMENT_ITEM.actualid}",
+								"rightCondition": "${CF_RP_PART.actualid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_VEHICLEASSESSMENT.versiontag}",
+						"rightCondition": "C"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+				"dstColumnName": "notifyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentno}",
+				"dstColumnName": "estim_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_VEHICLEASSESSMENT.actualid}",
+				"dstColumnName": "actualid",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.actualid}",
+				"dstColumnName": "actualid_dtl",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.partname}",
+				"dstColumnName": "part_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.partno}",
+				"dstColumnName": "part_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.partkind}",
+				"dstColumnName": "partkind",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.status}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.salvageflag}",
+				"dstColumnName": "slvgflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.salvagerecycleflag}",
+				"dstColumnName": "slvg_recycleflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.residualvalue}",
+				"dstColumnName": "rsdlval",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.recycletype}",
+				"dstColumnName": "recycle_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.priceplan}",
+				"dstColumnName": "price_plan",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.clause}",
+				"dstColumnName": "clause",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.garageprice}",
+				"dstColumnName": "shop_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.managementfee}",
+				"dstColumnName": "mang_fee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.assessmentunitprice}",
+				"dstColumnName": "unit_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.lossamount}",
+				"dstColumnName": "lossamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.tracking}",
+				"dstColumnName": "tracking",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.losstype}",
+				"dstColumnName": "loss_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.amount}",
+				"dstColumnName": "qtty",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.unitofquantity}",
+				"dstColumnName": "qtty_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.lossauditamount}",
+				"dstColumnName": "loss_audamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.materialtype}",
+				"dstColumnName": "material_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationunitprice}",
+				"dstColumnName": "pricing_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationmanagementfee}",
+				"dstColumnName": "pricing_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditresult}",
+				"dstColumnName": "veri_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationquantity}",
+				"dstColumnName": "pricing_qtty",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.ispayinadvance}",
+				"dstColumnName": "is_claim_adv",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.inquirypriceflag}",
+				"dstColumnName": "iqry_priceflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.quotationunitprice}",
+				"dstColumnName": "quote_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.fragilelabelno}",
+				"dstColumnName": "fragilecode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.systemprice}",
+				"dstColumnName": "sys_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.selectpartmode}",
+				"dstColumnName": "select_mode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.modifyflag}",
+				"dstColumnName": "modiflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.quotationunitpricefromaudit}",
+				"dstColumnName": "quote_from_aud",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.lossauditunitprice}",
+				"dstColumnName": "loss_aud_unit",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.feetype}",
+				"dstColumnName": "fee_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.lossauditresidualvalue}",
+				"dstColumnName": "loss_aud_rsdlval",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.jingyoupartid}",
+				"dstColumnName": "jy_part_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationamount}",
+				"dstColumnName": "pricingamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.isrepairedcheckneeded}",
+				"dstColumnName": "is_rparchk_need",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.factorypriceinlibrary}",
+				"dstColumnName": "lib_factory_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.marketpriceinlibrary}",
+				"dstColumnName": "lib_market_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.suitablepriceinlibrary}",
+				"dstColumnName": "lib_sutb_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.factorypriceinsystem}",
+				"dstColumnName": "sys_factory_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.marketpriceinsystem}",
+				"dstColumnName": "sys_market_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.suitablepriceinsystem}",
+				"dstColumnName": "sys_sutb_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.memo}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.pricestandard}",
+				"dstColumnName": "price_std",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationstatus}",
+				"dstColumnName": "pricing_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.auditquotationresult}",
+				"dstColumnName": "verop",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.originalpartno}",
+				"dstColumnName": "ori_part_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.originalpartname}",
+				"dstColumnName": "ori_part_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.localpriceupdateflag}",
+				"dstColumnName": "local_updflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.priceplanpriceflag}",
+				"dstColumnName": "price_planflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.prelossauditstatus}",
+				"dstColumnName": "pre_loss_aud_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.prelossauditresult}",
+				"dstColumnName": "pre_loss_aud_op",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.existthesamenamepart}",
+				"dstColumnName": "is_same_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.localprice}",
+				"dstColumnName": "local_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.regionalfactoryprice}",
+				"dstColumnName": "region_factory_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.regionalmarketprice}",
+				"dstColumnName": "region_market_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.regionalsuitableprice}",
+				"dstColumnName": "region_sutb_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.repairedcheckrequestbranch}",
+				"dstColumnName": "rparchker_branch",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.repairedcheckrequestor}",
+				"dstColumnName": "rparchker",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.quotationresult}",
+				"dstColumnName": "quote_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.latestlossamount}",
+				"dstColumnName": "latest_estimamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.salvageid}",
+				"dstColumnName": "slvg_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.branch}",
+				"dstColumnName": "recycler_branch",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.staffcode}",
+				"dstColumnName": "recycler",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.staffname}",
+				"dstColumnName": "recycler_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.sparepartsname}",
+				"dstColumnName": "spare_part_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.sparepartsno}",
+				"dstColumnName": "spare_partcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.partadjustrate}",
+				"dstColumnName": "discnt_coef",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.salvageappmemo}",
+				"dstColumnName": "slvg_note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.salvageappstatus}",
+				"dstColumnName": "slvg_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.norecyclememo}",
+				"dstColumnName": "norecycle_note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.norecyclereason}",
+				"dstColumnName": "norecycle_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.outrpappprice}",
+				"dstColumnName": "outrp_app_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.outrpappresult}",
+				"dstColumnName": "outrp_app_result",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.applicablesupplier}",
+				"dstColumnName": "applicable_supplier",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.areahomoprice}",
+				"dstColumnName": "area_homo_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.homobrand}",
+				"dstColumnName": "homo_brand",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.homosupplier}",
+				"dstColumnName": "homo_supplier",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.localhomoprice}",
+				"dstColumnName": "local_homo_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.marketsupplier}",
+				"dstColumnName": "market_supplier",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.systemhomoprice}",
+				"dstColumnName": "sys_homo_price",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.outrpappstatus}",
+				"dstColumnName": "outrp_app_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.issupplier}",
+				"dstColumnName": "is_supplier",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.specialquoter}",
+				"dstColumnName": "special_quoter",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_PART.cancelrecyclereason}",
+				"dstColumnName": "cancel_reason",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cf_rp_part.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cf_rp_part.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

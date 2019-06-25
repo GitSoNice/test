@@ -1,0 +1,244 @@
+[
+	{
+		"sourceSystem": "SYS0032",
+		"targetTableName": "CHN_EMP",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "empno",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${EMPEXP.empno}"]
+				}
+			},
+			{
+				"alias": "a11",
+					"specialHandle": {
+						"handleName": "isNotBlank",
+						"parameters": [
+							"${EMPEXP.zgscode}"
+						]
+								
+					}
+			},
+			{
+				"alias": "a2",
+					"specialHandle":{
+								"handleName": "isNotBlank",
+								"parameters": [
+									"${EMPEXP.zzgscode}"
+								]
+						
+					}
+						
+			},
+			{
+				"alias": "a3",
+				 "specialHandle":{
+								"handleName": "isNotBlank",
+								"parameters": [
+									"${EMPEXP.fgscode}"
+								]
+						}
+			},
+			{
+				"alias": "casewhenOrgcode",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${a11}",
+						"${EMPEXP.zgscode}",
+						"${a2}",
+						"${EMPEXP.zzgscode}",
+						"${a3}",
+						"${EMPEXP.fgscode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${empno}",
+			"${EMPEXP.empno}",
+			"${casewhenOrgcode}",
+			"${EMPEXP.chatype}",
+			"${EMPEXP.status}",
+			"1900-01-01 00:00:00.000",
+			"9999-12-31 00:00:00.000"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0032.EMPEXP",
+			"alias": "EMPEXP"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${EMPEXP.empno}",
+				"dstColumnName": "empno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.status}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.chatype}",
+				"dstColumnName": "channel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.gender}",
+				"dstColumnName": "gender",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.education}",
+				"dstColumnName": "edu",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.jobcode}",
+				"dstColumnName": "jobcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.departmentcode}",
+				"dstColumnName": "dept_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1900-01-01 00:00:00.000",
+				"dstColumnName": "emp_beg_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "9999-12-31 00:00:00.000",
+				"dstColumnName": "emp_end_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.joindate}",
+				"dstColumnName": "join_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.quitdate}",
+				"dstColumnName": "quit_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.fgscode}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.zzgscode}",
+				"dstColumnName": "center_banchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.zgscode}",
+				"dstColumnName": "sub_branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${casewhenOrgcode}",
+				"dstColumnName": "orgcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.mobile}",
+				"dstColumnName": "phone",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.insurance_agency_no}",
+				"dstColumnName": "sale_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.empquano}",
+				"dstColumnName": "saleattr_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.cernumber}",
+				"dstColumnName": "certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.masterid}",
+				"dstColumnName": "supvr_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.seccode}",
+				"dstColumnName": "seccode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.agt_sub_type}",
+				"dstColumnName": "empno_subtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.saleslevel}",
+				"dstColumnName": "sell_qlfy",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.regu_attr}",
+				"dstColumnName": "regu_attr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.saleattr}",
+				"dstColumnName": "sell_mang_chn",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.begtime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${EMPEXP.endtime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

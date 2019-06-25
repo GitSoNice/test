@@ -1,0 +1,545 @@
+[
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_ADDR",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.insurant_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			       	"$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.insurant_address",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_ADDR",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.insurant_address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.post_code}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${T_LIABILITY_INSURANT.insurant_address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_ADDR",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			       	"$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.address",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_ADDR",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.post_code}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${T_LIABILITY_APPLICANT.address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_ADDR",
+        "order": "3",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_INSURANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_INSURANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_INSURANT.insurant_name}",
+                        "${T_LIABILITY_INSURANT.cret_type}",
+                        "${T_LIABILITY_INSURANT.cret_code}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_INSURANT",
+            "alias": "T_LIABILITY_INSURANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.insurant_address",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_INSURANT.isb_org",
+						"rightCondition":"0"
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	{
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_ADDR",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.insurant_address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_INSURANT.post_code}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${T_LIABILITY_INSURANT.insurant_address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+    ,
+     {
+        "sourceSystem": "SYS0004",
+        "targetTableName": "PTY_ADDR",
+        "order": "4",
+        "combinationMap": [
+	        {
+		            "alias":"concat_person_id",
+		            "specialHandle":
+		            {
+		                "handleName":"contact",
+		                "parameters":
+		                [
+		                   "EX_SYS0004_T_LIABILITY_APPLICANT*||*APPLY_NO*||*",
+		                   "${T_LIABILITY_INSURANT.apply_no}"
+		                ]
+		            }
+		        },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgTmpHandler",
+                    "parameters": [
+                        "${T_LIABILITY_APPLICANT.cret_code}",
+                        "${T_LIABILITY_APPLICANT.cret_type}",
+                        "${T_LIABILITY_APPLICANT.apply_name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			        "${md5cust_id}",
+			        "${cust_id}",
+			        "$${SYS0004}",
+			        "$${ADDRESS_CONTACT}"
+					    		] ,
+        "sourcePrimaryTable": {
+            "tableName": "SYS0004.T_LIABILITY_APPLICANT",
+            "alias": "T_LIABILITY_APPLICANT"
+        },
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+				{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${cust_id}",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"<>",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.address",
+						"rightCondition":""
+					}
+                },
+                {
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"T_LIABILITY_APPLICANT.isb_org",
+						"rightCondition":"0"
+					}
+                }
+            ]
+        },
+        "columnList": [
+        	{
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${custFlgTmpType}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${ADDRESS_CONTACT}",
+                "dstColumnName": "addrtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "SYS0004||PTY_ADDR",
+                "dstColumnName": "bkid",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.address}",
+                "dstColumnName": "addr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_LIABILITY_APPLICANT.post_code}",
+                "dstColumnName": "zip",
+                "validate": "",
+                "priority": ""
+            },
+
+            {
+            	"srcColumnName":{
+	                "handleName":"addrFlg",
+	                "parameters":
+	                [	                    
+	                   "${T_LIABILITY_APPLICANT.address}"	                   
+	                ]
+	            },
+	            "dstColumnName":"is_valid",
+	            "validate":"",
+	            "priority":""
+            }
+        ]
+    }
+]

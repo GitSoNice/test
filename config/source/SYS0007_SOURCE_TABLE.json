@@ -1,0 +1,135 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_COM_INFO",
+        "rowkeyCols": [
+            "gys_cust_code_pky"
+        ],
+        "md5Cols": [
+            "gys_cust_code_pky"
+        ],
+        "persons": [
+            {
+                "nameCol": "cust_name",
+                "certTypeCol": "cust_account_type",
+                "certNoCol": "cust_account",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "gys_cust_code_pky"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_POINTS_BASC_INFO",
+        "rowkeyCols": [
+            "cust_points_basc_info_pky"
+        ],
+        "md5Cols": [
+            "cust_points_basc_info_pky"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "gys_cust_code_pky"
+                ],
+                "md5Cols": [
+                    "gys_cust_code_pky"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "SPMS_PRESENT_EXCHANGE",
+        "rowkeyCols": [
+            "cust_points_pay_info_pky"
+        ],
+        "md5Cols": [
+            "cust_points_pay_info_pky"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "gys_cust_code_pky"
+                ],
+                "md5Cols": [
+                    "gys_cust_code_pky"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_LEVL_GIFT_REL",
+        "rowkeyCols": [
+            "custlevel_gift_pky"
+        ],
+        "md5Cols": [
+            "custlevel_gift_pky"
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_POINTS_PAY_INFO",
+        "rowkeyCols": [
+            "cust_points_pay_info_pky"
+        ],
+        "md5Cols": [
+            "cust_points_pay_info_pky"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "gys_cust_code_pky"
+                ],
+                "md5Cols": [
+                    "gys_cust_code_pky"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "SPMS_AICS_AREA",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_INTE_SOUR_INFO",
+        "rowkeyCols": [
+            "spms_cust_inte_sour_info_pky"
+        ],
+        "md5Cols": [
+            "spms_cust_inte_sour_info_pky"
+        ]
+    },
+    {
+        "tableName": "SPMS_CUST_LEVEL_CODE",
+        "rowkeyCols": [
+            "seq_cust_level_code_pky"
+        ],
+        "md5Cols": [
+            "seq_cust_level_code_pky"
+        ]
+    }
+]

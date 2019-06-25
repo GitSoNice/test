@@ -1,0 +1,596 @@
+[
+	{
+		"tableName": "TBL_INSURANT",
+		"rowkeyCols": [
+			"tbdh",
+			"bbxrbh",
+			"cpdm",
+			"bzdm",
+			"bbrpc"
+		],
+		"md5Cols": [
+			"tbdh",
+			"bbxrbh",
+			"cpdm",
+			"bzdm",
+			"bbrpc"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"bbxrmc",
+					"zjlx",
+					"zjhm"
+				],
+				"md5Cols": [
+					"bbxrmc",
+					"zjlx",
+					"zjhm"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh"
+				],
+				"md5Cols": [
+					"tbdh"
+				]
+			},
+			{
+				"alias": "INDEX_3",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh",
+					"bbxrbh"
+				],
+				"md5Cols": [
+					"tbdh",
+					"bbxrbh"
+				]
+			},
+			{
+				"alias": "INDEX_4",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh",
+					"bbxrbh",
+					"bbrpc"
+				],
+				"md5Cols": [
+					"tbdh",
+					"bbxrbh",
+					"bbrpc"
+				]
+			},
+			{
+				"alias": "INDEX_5",
+				"isUnique": false,
+				"keyCols": [
+					"bbxrmc"
+				],
+				"md5Cols": [
+					"bbxrmc"
+				]
+			}
+		],
+		"persons": [
+			{
+				"nameCol": "bbxrmc",
+				"certTypeCol": "zjlx",
+				"certNoCol": "zjhm",
+				"personType": "0202",
+				"srcCustId": {
+					"type": "02",
+					"idCols": [
+						"tbdh"
+					]
+				},
+				"policyTable": [{
+					"sourceSystem": "SYS0001",
+					"tableName": "REL_PTY_CON",
+					"order": 2
+				}]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_BENEFIT",
+		"rowkeyCols": [
+			"tbdh",
+			"bbxrbh",
+			"syrzjlx",
+			"syrzjhm"
+		],
+		"md5Cols": [
+			"tbdh",
+			"bbxrbh",
+			"syrzjlx",
+			"syrzjhm"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"syrmc",
+					"syrzjlx",
+					"syrzjhm"
+				],
+				"md5Cols": [
+					"syrmc",
+					"syrzjlx",
+					"syrzjhm"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh"
+				],
+				"md5Cols": [
+					"tbdh"
+				]
+			}
+		],
+		"persons": [
+			{
+				"nameCol": "syrmc",
+				"certTypeCol": "syrzjlx",
+				"certNoCol": "syrzjhm",
+				"personType":"0203",
+				"srcCustId": {
+					"type": "03",
+					"idCols": [
+						"tbdh"
+					]
+				},
+                "policyTable":[{
+                		"sourceSystem":"SYS0001"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":3
+                }]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_CUSTOMERINFO",
+		"rowkeyCols": [
+			"tbdh"
+		],
+		"md5Cols": [
+			"tbdh"
+		]
+	},
+	{
+		"tableName": "TBL_PLCINFO",
+		"rowkeyCols": [
+			"tbdh"
+		],
+		"md5Cols": [
+			"tbdh"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"tbrxm",
+					"tbrzjlx",
+					"tbrzjhm"
+				],
+				"md5Cols": [
+					"tbrxm",
+					"tbrzjlx",
+					"tbrzjhm"
+				]
+			},
+			{
+				"alias": "INDEX_2",
+				"isUnique": false,
+				"keyCols": [
+					"policyno"
+				],
+				"md5Cols": [
+					"policyno"
+				]
+			},
+			{
+				"alias": "INDEX_3",
+				"isUnique": false,
+				"keyCols": [
+					"fgsdm"
+				],
+				"md5Cols": [
+					"fgsdm"
+				]
+			},
+			{
+				"alias": "INDEX_4",
+				"isUnique": false,
+				"keyCols": [
+					"tbrxm"
+				],
+				"md5Cols": [
+					"tbrxm"
+				]
+			}
+		],
+		"persons": [
+			{
+				"nameCol": "tbrxm",
+				"certTypeCol": "tbrzjlx",
+				"certNoCol": "tbrzjhm",
+				"personType": "0201",
+				"srcCustId": {
+					"type": "01",
+					"idCols": [
+						"tbdh"
+					]
+				},
+				"policyTable": [{
+					"sourceSystem": "SYS0001",
+					"tableName": "REL_PTY_CON",
+					"order": 1
+				}]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_CLMRPT",
+		"rowkeyCols": [
+			"bah"
+		],
+		"md5Cols": [
+			"bah"
+		]
+	},
+	{
+		"tableName": "TBL_ETBRPT",
+		"rowkeyCols": [
+			"lah"
+		],
+		"md5Cols": [
+			"lah"
+		]
+	},
+	{
+		"tableName": "TBL_CLMEVALU",
+		"rowkeyCols": [
+			"lah",
+			"bdh",
+			"cpdm",
+			"bzdm",
+			"xh"
+		],
+		"md5Cols": [
+			"lah",
+			"bdh",
+			"cpdm",
+			"bzdm",
+			"xh"
+		]
+	},
+	{
+		"tableName": "TBL_PAYPLC",
+		"rowkeyCols": [
+			"pah"
+		],
+		"md5Cols": [
+			"pah"
+		]
+	},
+	{
+		"tableName": "TBL_CLMLIST",
+		"rowkeyCols": [
+			"lapdh",
+			"bdh",
+			"cpdm",
+			"bzdm",
+			"zrdm"
+		],
+		"md5Cols": [
+			"lapdh",
+			"bdh",
+			"cpdm",
+			"bzdm",
+			"zrdm"
+		]
+	},
+	{
+		"tableName": "TBL_CHKPLC_RESULT",
+		"rowkeyCols": [
+			"rowid",
+			"fgsdm"
+		],
+		"md5Cols": [
+			"rowid",
+			"fgsdm"
+		]
+	},
+	{
+		"tableName": "TBL_PLCINFO_ADD",
+		"rowkeyCols": [
+			"tbdh"
+		],
+		"md5Cols": [
+			"tbdh"
+		]
+	},
+	{
+		"tableName": "TBL_BASE_ELEMENT",
+		"rowkeyCols": [
+			"yzdm"
+		],
+		"md5Cols": [
+			"yzdm"
+		]
+	},
+	{
+		"tableName": "TBL_PSNCUST",
+		"rowkeyCols": [
+			"khdm"
+		],
+		"md5Cols": [
+			"khdm"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"khxm",
+					"zjlx",
+					"zjhm"
+				],
+				"md5Cols": [
+					"khxm",
+					"zjlx",
+					"zjhm"
+				]
+			}
+		],
+		"persons": [
+			{
+				"nameCol": "khxm",
+				"certTypeCol": "zjlx",
+				"certNoCol": "zjhm",
+				"personType": "0301",
+				"srcCustId": {
+					"type": "00",
+					"idCols": [
+						"khdm"
+					]
+				}
+			}
+		]
+	},
+	{
+		"tableName": "D_CODEITEM",
+		"rowkeyCols": [
+			"codeno",
+			"itemcode"
+		],
+		"md5Cols": [
+			"codeno",
+			"itemcode"
+		]
+	},
+	{
+		"tableName": "TBL_PLCLINK",
+		"rowkeyCols": [
+			"tbdh",
+			"bdh"
+		],
+		"md5Cols": [
+			"tbdh",
+			"bdh"
+		]
+	},
+	{
+		"tableName": "TBL_CLMMAIN",
+		"rowkeyCols": [
+			"lah"
+		],
+		"md5Cols": [
+			"lah"
+		]
+	},
+	{
+		"tableName": "TBL_CLMGUARD",
+		"rowkeyCols": [
+			"lapdh",
+			"bdh",
+			"cpdm",
+			"bzdm"
+		],
+		"md5Cols": [
+			"lapdh",
+			"bdh",
+			"cpdm",
+			"bzdm"
+		]
+	},
+	{
+		"tableName": "TBL_EDRLINK",
+		"rowkeyCols": [
+			"pdsqh",
+			"pdh"
+		],
+		"md5Cols": [
+			"pdsqh",
+			"pdh"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"pdsqh"
+				],
+				"md5Cols": [
+					"pdsqh"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "D_CURRENCY",
+		"rowkeyCols": [
+			"currencycode"
+		],
+		"md5Cols": [
+			"currencycode"
+		]
+	},
+	{
+		"tableName": "D_INSURANT",
+		"rowkeyCols": [
+			"khh"
+		],
+		"md5Cols": [
+			"khh"
+		]
+	},
+	{
+		"tableName": "TBL_PLCSPEC",
+		"rowkeyCols": [
+			"tbdh",
+			"xh"
+		],
+		"md5Cols": [
+			"tbdh",
+			"xh"
+		]
+	},
+	{
+		"tableName": "TBL_EDRINFO",
+		"rowkeyCols": [
+			"pdsqh"
+		],
+		"md5Cols": [
+			"pdsqh"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh"
+				],
+				"md5Cols": [
+					"tbdh"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_EDRCONTENT",
+		"rowkeyCols": [
+			"pdsqh",
+			"pwxh"
+		],
+		"md5Cols": [
+			"pdsqh",
+			"pwxh"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"pdsqh"
+				],
+				"md5Cols": [
+					"pdsqh"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_CHKPAYDENY",
+		"rowkeyCols": [
+			"lah"
+		],
+		"md5Cols": [
+			"lah"
+		]
+	},
+	{
+		"tableName": "TBL_CLM_ADDTIONAL",
+		"rowkeyCols": [
+			"lah",
+			"serial_num",
+			"zjhm"
+		],
+		"md5Cols": [
+			"lah",
+			"serial_num",
+			"zjhm"
+		]
+	},
+	{
+		"tableName": "TBL_PLCGUARD",
+		"rowkeyCols": [
+			"tbdh",
+			"cpdm",
+			"bzdm",
+			"zylb"
+		],
+		"md5Cols": [
+			"tbdh",
+			"cpdm",
+			"bzdm",
+			"zylb"
+		],
+		"indexTables": [
+			{
+				"alias": "INDEX_1",
+				"isUnique": false,
+				"keyCols": [
+					"tbdh"
+				],
+				"md5Cols": [
+					"tbdh"
+				]
+			}
+		]
+	},
+	{
+		"tableName": "TBL_EXTEND_GUARD",
+		"rowkeyCols": [
+			"cpbzid"
+		],
+		"md5Cols": [
+			"cpbzid"
+		]
+	},
+	{
+		"tableName": "TBL_INSURANT_RELATION",
+		"rowkeyCols": [
+			"tbdh",
+			"bbxbh"
+		],
+		"md5Cols": [
+			"tbdh",
+			"bbxbh"
+		]
+	},
+	{
+		"tableName": "TBL_INSURANT_ADD_JV",
+		"rowkeyCols": [
+			"app_num",
+			"insurant_no",
+			"insurant_batch"
+		],
+		"md5Cols": [
+			"app_num",
+			"insurant_no",
+			"insurant_batch"
+		]
+	}
+]

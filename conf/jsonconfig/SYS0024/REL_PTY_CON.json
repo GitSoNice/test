@@ -1,0 +1,421 @@
+[
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "REL_PTY_CON",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${STATLIST.sysno}",
+                        "11122200"
+                    ]
+                }
+            },
+       		{
+	            "alias":"id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":[
+	            		"EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+	            	    "${STATLIST.docno}"	
+	            	]
+	            }
+	        },
+            {
+                "alias": "certType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CYX_STATLIST_PLUS.idtype}",
+                        "",
+                        "111",
+                        "${CYX_STATLIST_PLUS.idtype}"
+                    ]
+                }
+            },
+          	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "${certType}",
+                        "${STATLIST.name}",
+						"${id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "2",
+            "${agmt_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0024.CYX_STATLIST_PLUS",
+				"relationType": "left",
+				"alias": "CYX_STATLIST_PLUS",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CYX_STATLIST_PLUS.idno}",
+								"rightCondition": "${STATLIST.id}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CYX_STATLIST_PLUS.policyno}",
+								"rightCondition": "${STATLIST.sysno}"
+							}
+						}
+					]
+				}
+			}
+		],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${STATLIST.sysno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "2",
+                "dstColumnName": "cust_rel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "110",
+                "dstColumnName": "contype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.sysno}",
+                "dstColumnName": "con_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "11122200",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.branchid}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+          {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ],
+        "indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+    },
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "REL_PTY_CON",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${STATLIST.sysno}",
+                        "11122200"
+                    ]
+                }
+            },
+       		{
+	            "alias":"id",
+	            "specialHandle":
+	            {
+	                "handleName":"contact",
+	                "parameters":[
+	            		"EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+	            	    "${STATLIST.docno}"	
+	            	]
+	            }
+	        },
+          	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "$${CERTTYPE_111}",
+                        "${STATLIST.name}",
+						"${id}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "2",
+            "${agmt_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${STATLIST.sysno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "2",
+                "dstColumnName": "cust_rel",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "110",
+                "dstColumnName": "contype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.sysno}",
+                "dstColumnName": "con_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "11122200",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.branchid}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+          {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+    }
+]

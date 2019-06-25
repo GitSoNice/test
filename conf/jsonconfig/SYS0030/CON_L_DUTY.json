@@ -1,0 +1,232 @@
+[
+	{
+		"sourceSystem": "SYS0030",
+		"targetTableName": "CON_L_DUTY",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "classes_code",
+				"specialHandle": {
+					"handleName": "substring",
+					"parameters": [
+						"${T_POLICYENSURE.class_code}",
+						"0",
+						"6"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${classes_code}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "decode628",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${classes_code}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "concat628",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"${T_PUBLIC_POLICY.policy_no}",
+						"${decode628}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${concat628}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${T_POLICYENSURE.ensure_code}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0030.T_POLICYENSURE",
+			"alias": "T_POLICYENSURE"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0030.T_PUBLIC_POLICY",
+				"relationType": "inner",
+				"alias": "T_PUBLIC_POLICY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_POLICYENSURE.public_policy_id}",
+								"rightCondition": "${T_PUBLIC_POLICY.public_policy_id}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_PUBLIC_POLICY.policy_no}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_PUBLIC_POLICY.public_policy_id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_POLICYENSURE.class_code}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_POLICYENSURE.ensure_code}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_POLICYENSURE.public_policy_id}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${T_POLICYENSURE.rf_begin_date}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_PUBLIC_POLICY.policy_no}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${decode628}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.ensure_code}",
+				"dstColumnName": "dutycode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.ensure_short}",
+				"dstColumnName": "dutyname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.insurance}",
+				"dstColumnName": "limitamt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.rf_begin_date}",
+				"dstColumnName": "duty_beg_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.rf_end_date}",
+				"dstColumnName": "duty_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${T_POLICYENSURE.rf_apply_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

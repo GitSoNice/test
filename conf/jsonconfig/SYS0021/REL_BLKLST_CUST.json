@@ -1,0 +1,129 @@
+[
+	{
+		"sourceSystem": "SYS0021",
+		"targetTableName": "REL_BLKLST_CUST",
+		"order": "1",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0021.BLKGRY_NM_LST",
+			"alias": "NBLACKCUST"
+		},
+		"combinationMap": [
+			{
+				"alias": "id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${PERSON.id}",
+						"${PERSON.idtype}",
+						"${PERSON.name}",
+						"${id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"H",
+			"${NBLACKCUST.sn}"
+		],
+		"relations": [
+			{
+				"sourceTableName": "SYS0021.MAX_PERSON",
+				"relationType": "inner",
+				"alias": "PERSON",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON.id}",
+								"rightCondition": "${NBLACKCUST.id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${cust_id}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${NBLACKCUST.sn}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "H",
+				"dstColumnName": "biz_line",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.sn}",
+				"dstColumnName": "seq",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${NBLACKCUST.del_date}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

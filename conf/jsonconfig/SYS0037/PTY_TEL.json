@@ -1,0 +1,380 @@
+[
+	{
+		"sourceSystem": "SYS0037",
+		"targetTableName": "PTY_TEL",
+		"order": "1",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0037.CIF_INDIINFO",
+			"alias": "CIF_INDIINFO"
+		},
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0037_CIF_INDIINFO*||*00*||*CISNO*||*",
+						"${CIF_INDIINFO.cisno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "custtype",
+				"specialHandle": {
+					"handleName": "getCustType",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0037",
+			"$${TELTYPE_1}"
+		],
+		 "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CIF_INDIINFO.mobile}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${TELTYPE_1}",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.mobile}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "telFlg",
+					"parameters": [
+						"${CIF_INDIINFO.mobile}"
+					]
+				},
+				"dstColumnName": "is_valid",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0037",
+		"targetTableName": "PTY_TEL",
+		"order": "2",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0037.CIF_INDIINFO",
+			"alias": "CIF_INDIINFO"
+		},
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0037_CIF_INDIINFO*||*00*||*CISNO*||*",
+						"${CIF_INDIINFO.cisno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "custtype",
+				"specialHandle": {
+					"handleName": "getCustType",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0037",
+			"$${TELTYPE_4}"
+		],
+		"where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CIF_INDIINFO.homephone}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${TELTYPE_4}",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.homephone}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "telFlg",
+					"parameters": [
+						"${CIF_INDIINFO.homephone}"
+					]
+				},
+				"dstColumnName": "is_valid",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0037",
+		"targetTableName": "PTY_TEL",
+		"order": "3",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0037.CIF_INDIINFO",
+			"alias": "CIF_INDIINFO"
+		},
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0037_CIF_INDIINFO*||*00*||*CISNO*||*",
+						"${CIF_INDIINFO.cisno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "custtype",
+				"specialHandle": {
+					"handleName": "getCustType",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0037",
+			"$${TELTYPE_5}"
+		],
+		"where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CIF_INDIINFO.officephone}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${TELTYPE_5}",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.officephone}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "telFlg",
+					"parameters": [
+						"${CIF_INDIINFO.officephone}"
+					]
+				},
+				"dstColumnName": "is_valid",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

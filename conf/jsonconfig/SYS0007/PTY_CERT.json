@@ -1,0 +1,130 @@
+[
+    {
+        "sourceSystem": "SYS0007",
+        "targetTableName": "PTY_CERT",
+        "order": "1",
+        "combinationMap": [
+        	{
+                "alias": "concatSRC_CUST_ID",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                       "EX_SYS0007_SPMS_CUST_COM_INFO*||*00*||*GYS_CUST_CODE_PKY*||*",
+                       "${A.gys_cust_code_pky}"
+                    ]
+                }
+            },
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${A.cust_account}",
+                        "${A.cust_account_type}",
+                        "${A.cust_name}",
+                      	"${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+			{
+	            "alias":"custFlgType_var",
+	            "specialHandle":
+	            {
+	                "handleName":"getCustType",
+	                "parameters":[
+	            		"${A.cust_account}",
+                        "${A.cust_account_type}",
+                        "${A.cust_name}",
+                      	"${concatSRC_CUST_ID}"
+	            	]
+	            }
+	        }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "${A.cust_account_type}",
+            "${A.cust_account}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0007.SPMS_CUST_COM_INFO",
+            "alias": "A"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${A.cust_type}",
+                        "rightCondition": "10"
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${A.cust_account}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${custFlgType_var}",
+                "dstColumnName": "custtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${A.cust_account_type}",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${A.cust_account}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${A.create_datetime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${A.update_datetime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

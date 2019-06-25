@@ -1,0 +1,72 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "NLP_NCLMAPP",
+        "rowkeyCols": [
+            "cappno"
+        ],
+        "md5Cols": [
+            "cappno"
+        ]
+    },
+    {
+        "tableName": "NLP_NREGCLM",
+        "rowkeyCols": [
+            "claimno"
+        ],
+        "md5Cols": [
+            "claimno"
+        ],
+        "indexTables":[
+            {
+                "alias":"INDEX_1",
+                "isUnique":false,
+                "keyCols":[
+                    "cappno"
+                ],
+                "md5Cols":[
+                    "cappno"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "NLP_NCLMCCL",
+        "rowkeyCols": [
+            "claimno",
+            "policyno",
+            "classcode",
+            "precode",
+            "preno"
+        ],
+        "md5Cols": [
+            "claimno",
+            "policyno",
+            "classcode",
+            "precode",
+            "preno"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            }
+        ]
+    }
+]

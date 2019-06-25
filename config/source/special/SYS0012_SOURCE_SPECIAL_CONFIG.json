@@ -1,0 +1,93 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "P_ORG"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"fxdj",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cust_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"risk_date"
+				]
+			}
+		],
+		"tableName": "S_FXDJ_NATION"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"fxdj",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cust_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"risk_date"
+				]
+			}
+		],
+		"tableName": "FXDJ_NATION"
+	}
+]

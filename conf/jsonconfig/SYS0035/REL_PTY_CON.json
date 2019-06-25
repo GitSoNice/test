@@ -1,0 +1,124 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "REL_PTY_CON",
+		"order": "1",
+		"combinationMap": [
+			{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                    	"${ZGGRJH.zggrjh_zjhm}",
+                        "${ZGGRJH.zggrjh_zjlx}",
+                        "${ZGGRJH.zggrjh_xm}"
+                    ]
+                }
+            },
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGGRJH.zggrjh_grjhbh}"
+					]
+				}
+			},
+			{
+                "alias":"md5cust_id",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${cust_id}"
+                    ]
+                }
+            }
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}",
+			"4",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGGRJH",
+			"alias": "ZGGRJH"
+		},
+		
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${PAYPERSON}",
+				"dstColumnName": "cust_rel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRJH.zggrjh_grjhbh}",
+				"dstColumnName": "con_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRJH.zggrjh_lrrq}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGGRJH.zggrjh_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "#",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "$${PENSIONANNUITY}",
+				"dstColumnName": "contype",
+				"validate": "",
+				"priority": ""
+			}
+			
+		],
+		"indexTables": [
+			{
+				"tableName": "IDX_REL_PTY_CON",
+				"keyCols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id"
+				],
+				"md5Cols": [
+					"agmt_id"
+				],
+				"cols": [
+					"agmt_id",
+					"cust_rel",
+					"cust_id",
+					"crt_tm",
+					"upd_tm",
+					"contype",
+					"con_no",
+					"classcode",
+					"branchcode"
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,104 @@
+[
+	{
+		"sourceSystem": "SYS0041",
+		"targetTableName": "GEN_P_CLASECODE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5classcode",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TYPECOMP_T.yxzh}"
+					]
+				}
+			},
+			{
+				"alias": "modi_da",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${TYPECOMP_T.modi_da}",
+						"",
+						"1990-01-01 00:00:00.000",
+						"${TYPECOMP_T.modi_da}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5classcode}",
+			"${TYPECOMP_T.yxzh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0041.TYPECOMP_T",
+			"alias": "TYPECOMP_T1"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0041.TYPECOMP_T",
+				"alias": "TYPECOMP_T",
+				"relationType": "inner",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TYPECOMP_T.yxzh}",
+								"rightCondition": "${TYPECOMP_T1.yxzh}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TYPECOMP_T.xzhmc}",
+								"rightCondition": "${TYPECOMP_T1.xzhmc}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"columnList": [
+			{
+				"srcColumnName": "${TYPECOMP_T.yxzh}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TYPECOMP_T.xzhmc}",
+				"dstColumnName": "classname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": {
+					"handleName": "max",
+					"handleType": "group",
+					"dataType": "Date",
+					"pointNum": 2,
+					"formatter": "yyyy-MM-dd HH:mm:ss.SSS",
+					"parameters": [
+						"${modi_da}"
+					]
+				},
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

@@ -1,0 +1,1406 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"part_occptn_code"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_PERSON_SUB_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"purpose",
+					"contacted_ind",
+					"type",
+					"usage"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid",
+					"id15"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_PHONE_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["prem_mthd","saleattr"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_IDS_APP_NB_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"changeid"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+					
+				]
+			}
+		],
+		"tableName": "C_IDS_CHGCON_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid",
+					"id15"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_EMAIL_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"BEGDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"ENDDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "BLKGRY_NM_LST"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"currcode",
+					"sign"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"lid",
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"RETDATE",
+					[
+						"ddMyyyy",
+						"yyyy/M/d",
+						"yyyy/M/dd",
+						"yyyy/MM/dd",
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{2})(\\d{1})(\\d{4})\\D*$",
+						"^(\\d{4})/(\\d{1})/(\\d{1})\\D*$",
+						"^(\\d{4})/(\\d{1})/(\\d{2})\\D*$",
+						"^(\\d{4})/(\\d{2})/(\\d{2})\\D*$",
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"LOANDATE",
+					[
+						"ddMyyyy",
+						"yyyy/M/d",
+						"yyyy/M/dd",
+						"yyyy/MM/d",
+						"yyyy/MM/dd",
+						"yyyy-MM-dd",
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{2})(\\d{1})(\\d{4})\\D*$",
+						"^(\\d{4})/(\\d{1})/(\\d{1})\\D*$",
+						"^(\\d{4})/(\\d{1})/(\\d{2})\\D*$",
+						"^(\\d{4})/(\\d{2})/(\\d{1})\\D*$",
+						"^(\\d{4})/(\\d{2})/(\\d{2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$",
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_DEBITREC_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"APPOINTED_BP_DATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"NRETDATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_MONEYSCH_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "STD_PREM"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"currency",
+					"usetype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"ownerid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"open_date"
+				]
+			}
+		],
+		"tableName": "C_IDS_ACCOUNT_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"currency",
+					"account_usage"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"owner_id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"open_date"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_PLC_PRM_TRANS_ACCT_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			}
+		],
+		"tableName": "C_IDS_CDELREC_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"for_corp_ind",
+					"setcode",
+					"typeid",
+					"docpro",
+					"stra_pay_ind",
+					"delfrm"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"regdate",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"del_date",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"gendate",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_REALPAYRC_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "C_IDS_CONENSDEAL_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"acct_usage",
+					"currency"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"beneficiary_id",
+					"acct_owner_id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"beneficiary_name",
+					"acct_owner_name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_PLC_BP_TRANS_ACCT_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"paycode",
+					"apptype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DEL_DATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"STOPDAT",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"APPDATE",
+					"BEGDATE",
+					"DBDATE",
+					"DEL_DATE",
+					"PEDATE"
+				]
+			}
+		],
+		"tableName": "C_IDS_APPLIST_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"app_channel",
+					"pos_print_ind",
+					"nonlocal_app_type",
+					"ff_event_type",
+					"typeid",
+					"chief_pos_ind",
+					"sign_type",
+					"status",
+					"changeid"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"appdate",
+					"apply_date",
+					"opdate",
+					"procdate",
+					"veri_date"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_ID_APP_POS_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"ack_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"canceldate",
+					"process_date",
+					"senddate"
+				]
+			}
+		],
+		"tableName": "C_IDS_POLICY_SEND_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"status",
+					"typeid"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"qappid",
+					"appid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"appdate",
+					"subdate"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_APP_DEL_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"vertype",
+					"verstatn"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"CHKDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_CHEKOPIN_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"vehicle_ind",
+					"edulevel",
+					"idtype",
+					"country",
+					"ethnicity",
+					"marriage",
+					"sex",
+					"drvcard",
+					"job",
+					"hdesp"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id",
+					"id15"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DIEDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"BTHDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"id1_effect_date",
+					"id1_expire_date",
+					"id2_effect_date",
+					"id2_expire_date"
+				]
+			}
+		],
+		"tableName": "C_IDS_PERSON_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"inner_settle_ind",
+					"sale_mode",
+					"pcode",
+					"setcode",
+					"currency"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"PAYDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"COVER1",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"COVER2",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_PREREC_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"OPERDATE",
+					[
+						"yyyy-MM-dd",
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$",
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_APL_LOAN_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"apid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"apid",
+					"idtype"
+				]
+			}
+		],
+		"tableName": "C_IDS_SPREREC_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["changeid"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"DEL_DATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_CHGCON_ID_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"informer_type",
+					"quali_value"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"informer_id"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_APP_INFORM_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "RISKNAME"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "RLSHIP"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"appointed_opdate_ind",
+					"dcdm",
+					"appf",
+					"prem_rate_level",
+					"idtype",
+					"uni_pay_ind",
+					"saleattr",
+					"aidtype",
+					"currency",
+					"sharetype",
+					"job",
+					"prelname",
+					"polist"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"apid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"apid",
+					"aidtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"APPDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"BEGDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"STOPDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_RISKCON_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"APPDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"COVER1",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"COVER2",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "CHARGE_FAILURE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"idtype",
+					"purpose",
+					"usage"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"pid",
+					"id15"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"pid",
+					"idtype"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"del_date",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_ADDR_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"BEGDATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"RENEWDATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"STOPDATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyyMMdd",
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_RISKCON_RENEW_JY_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": ["app_channel","changeid","chief_pos_ind","nonlocal_app_type","sign_type","status"]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"PROCDATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"APPDATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"OPDATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"VERI_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					],
+					"APPLY_DATE",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"DEL_DATE",
+					[
+						"yyyyMMdd"
+					],
+					[
+						"^(\\d{4})(\\d{1,2})(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "C_IDS_APP_POS_TBL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"smoker"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "CP_PRSN_LIFESTYLE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"MOVEDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "NBLACKCUST"
+	}
+]

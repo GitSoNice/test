@@ -1,0 +1,43 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "CGT_MEMBER",
+        "rowkeyCols": [
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "source_person_id"
+        ]
+    },
+    {
+        "tableName": "CGT_POINT_USE_DETAIL",
+        "rowkeyCols": [
+            "serial_no"
+        ],
+        "md5Cols": [
+            "serial_no"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "source_person_id"
+                ],
+                "md5Cols": [
+                    "source_person_id"
+                ]
+            }
+        ]
+    }
+]

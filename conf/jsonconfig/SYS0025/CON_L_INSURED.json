@@ -1,0 +1,1015 @@
+[
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_INSURED",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${PERSON.id}",
+						"${PERSON.idtype}",
+						"${PERSON.name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${RISKCON.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${RISKCON.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${RISKCON.policyno}",
+						"${classcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.RISKCON",
+			"alias": "RISKCON"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${cust_id}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.policyno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.classcode}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "notIn",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.polist}",
+						"rightCondition": "85"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "insured_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.job}",
+				"dstColumnName": "insured_jobcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1",
+				"dstColumnName": "mainflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_INSURED",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${PERSON.id}",
+						"${PERSON.idtype}",
+						"${PERSON.name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${COMCUST.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${COMCUST.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${COMCUST.policyno}",
+						"${classcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.COMCUST",
+			"alias": "COMCUST"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0025.RISKCON",
+				"relationType": "inner",
+				"alias": "RISKCON2",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COMCUST.policyno}",
+								"rightCondition": "${RISKCON2.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COMCUST.classcode}",
+								"rightCondition": "${RISKCON2.classcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.classcode}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "notIn",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.polist}",
+								"rightCondition": "85"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON.id}",
+								"rightCondition": "${COMCUST.pid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${cust_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "insured_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.job}",
+				"dstColumnName": "insured_jobcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "0",
+				"dstColumnName": "mainflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_INSURED",
+		"order": "3",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${PERSON.id}",
+						"${PERSON.idtype}",
+						"${PERSON.name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${RISKCON.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${RISKCON.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${RISKCON.policyno}",
+						"${classcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.RISKCON",
+			"alias": "RISKCON",
+			"source":false
+	 	},
+		"relations": [
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON1",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON1.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${cust_id}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.policyno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.classcode}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "notIn",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.polist}",
+						"rightCondition": "85"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "insured_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.job}",
+				"dstColumnName": "insured_jobcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "1",
+				"dstColumnName": "mainflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_INSURED",
+		"order": "4",
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${PERSON.id}",
+						"${PERSON.idtype}",
+						"${PERSON.name}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${COMCUST.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${COMCUST.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${COMCUST.policyno}",
+						"${classcode}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.COMCUST",
+			"alias": "COMCUST",
+			"source":false
+	 	},
+		"relations": [
+			{
+				"sourceTableName": "SYS0025.RISKCON",
+				"relationType": "inner",
+				"alias": "RISKCON2",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COMCUST.policyno}",
+								"rightCondition": "${RISKCON2.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${COMCUST.classcode}",
+								"rightCondition": "${RISKCON2.classcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.classcode}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "notIn",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON2.polist}",
+								"rightCondition": "85"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON1",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON1.id}",
+								"rightCondition": "${COMCUST.pid}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSON.id}",
+								"rightCondition": "${COMCUST.pid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${cust_id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "insured_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${PERSON.job}",
+				"dstColumnName": "insured_jobcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "0",
+				"dstColumnName": "mainflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON2.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

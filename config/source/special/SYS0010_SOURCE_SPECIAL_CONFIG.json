@@ -1,0 +1,207 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "FND_DICT_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"appeal_deal_way",
+					"deal_way1",
+					"deal_way2",
+					"deal_result1",
+					"deal_result2",
+					"transact_way"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PCMS_COMPLAINT_DEAL_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"certificate_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"certificate_number"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"complaint_person_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"certificate_number",
+					"certificate_type"
+				]
+			}
+		],
+		"tableName": "PCMS_COMPLAINT_PERSON_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "INS_COMPACT_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"is_surpass_complaint2",
+					"is_surpass_complaint1",
+					"end_case_type",
+					"typical_case_mark"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PCMS_COMPLAINT_END_CASE_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"appeal_type",
+					"verify_minor_reason",
+					"grumble_type",
+					"minor_reason",
+					"has_cancel",
+					"group_type",
+					"verify_main_reason",
+					"in_comp_channel_classify",
+					"register_type",
+					"cancel_reason",
+					"main_reason",
+					"complaint_case_source2",
+					"is_suspect_improper_dispose",
+					"typical_case_mark",
+					"urgency_type",
+					"case_state",
+					"is_suspect_violate_stipulation",
+					"complaint_case_source1"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"SUPERVISION_DEADLINE",
+					[
+						"yyyyMd",
+						"yyyyMM",
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})(\\d{1})(\\d{1})\\D*$",
+						"^(\\d{4})(\\d{2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					],
+					"CANCEL_TIME",
+					[
+						"ddMyyyy",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{2})(\\d{1})(\\d{4})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"REGISTER_DATE",
+					[
+						"ddMyyyy",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{2})(\\d{1})(\\d{4})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CREATION_DATE",
+					"END_CASE_DATE",
+					"LAST_UPDATE_DATE"
+				]
+			}
+		],
+		"tableName": "PCMS_COMPLAINT_CASE_T"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "PCMS_CPL_COMPACT_T"
+	}
+]

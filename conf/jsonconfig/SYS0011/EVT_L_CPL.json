@@ -1,0 +1,265 @@
+[
+    {
+        "sourceSystem": "SYS0011",
+        "targetTableName": "EVT_L_CPL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "md5cpl_no",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${T_L_CASE.case_no}"
+                    ]
+                }
+            },
+            {
+                "alias": "trimAPP_PHONE",
+                "specialHandle": {
+                    "handleName": "trim",
+                    "parameters": [
+                        "${T_L_CASE.app_phone}"
+                    ]
+                }
+            },
+            {
+                "alias": "trimAPP_PHS",
+                "specialHandle": {
+                    "handleName": "trim",
+                    "parameters": [
+                        "${T_L_CASE.app_phs}"
+                    ]
+                }
+            },
+            {
+                "alias": "trimAPP_TEL",
+                "specialHandle": {
+                    "handleName": "trim",
+                    "parameters": [
+                        "${T_L_CASE.app_tel}"
+                    ]
+                }
+            },
+            {
+                "alias": "decodeAPP_PHS",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${trimAPP_PHS}",
+                        "",
+                        "${trimAPP_TEL}",
+                        "${trimAPP_PHS}"
+                    ]
+                }
+            },
+            {
+                "alias": "decodeAPP_PHONE",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${trimAPP_PHONE}",
+                        "",
+                        "${decodeAPP_PHS}",
+                        "${trimAPP_PHONE}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cpl_no}",
+            "${T_L_CASE.case_no}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0011.T_L_CASE",
+            "alias": "T_L_CASE"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${T_L_CASE.case_no}",
+                "dstColumnName": "cpl_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.get_from}",
+                "dstColumnName": "cpl_src",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.app_date}",
+                "dstColumnName": "cpl_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.appthrtype_code}",
+                "dstColumnName": "cpltype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.app_info}",
+                "dstColumnName": "cpl_content",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.id_card_code}",
+                "dstColumnName": "cpler_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.app_name}",
+                "dstColumnName": "cpler_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${decodeAPP_PHONE}",
+                "dstColumnName": "cpler_phone",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.channel_code}",
+                "dstColumnName": "sell_chn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.class_type_code}",
+                "dstColumnName": "cvrgtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.complained_code}",
+                "dstColumnName": "cpled_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.complained_name}",
+                "dstColumnName": "cpled_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.importance}",
+                "dstColumnName": "imp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.leap_flag}",
+                "dstColumnName": "skip_levelflg",
+                "validate": "",
+                "priority": ""
+            },
+              {
+                "srcColumnName": "${T_L_CASE.trans_flag}",
+                "dstColumnName": "transf_depttype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.blemish}",
+                "dstColumnName": "blemishtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.process_begin_date}",
+                "dstColumnName": "proc_beg_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.reqdepfeed_back_date}",
+                "dstColumnName": "req_fb_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.depfeed_back_date}",
+                "dstColumnName": "real_fb_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.cust_feed_back}",
+                "dstColumnName": "cpler_fb",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.cust_back_date}",
+                "dstColumnName": "cpler_fb_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.total_amount}",
+                "dstColumnName": "cpl_cost",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.end_flag}",
+                "dstColumnName": "closeflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.end_date}",
+                "dstColumnName": "close_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.case_deal}",
+                "dstColumnName": "record_st",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.effect}",
+                "dstColumnName": "validflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.overtime_remark}",
+                "dstColumnName": "overtimeflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.agent_code}",
+                "dstColumnName": "emp_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.agent}",
+                "dstColumnName": "opername",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.created_time}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${T_L_CASE.last_modified_time}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

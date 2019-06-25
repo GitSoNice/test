@@ -1,0 +1,199 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SPMS_CUST_POINTS_BASC_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SPMS_CUST_LEVL_GIFT_REL"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"cust_account_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"cust_account"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"cust_name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"cust_account",
+					"cust_account_type"
+				]
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"CREATE_DATETIME",
+					[
+						"yyyyMd",
+						"yyyyMM",
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})(\\d{1})(\\d{1})\\D*$",
+						"^(\\d{4})(\\d{2})\\D*$",
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"UPDATE_DATETIME",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "SPMS_CUST_COM_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SPMS_CUST_LEVEL_CODE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"point_type",
+					"points_pay_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"POINTS_USE_TIME",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "SPMS_CUST_POINTS_PAY_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SPMS_AICS_AREA"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "SPMS_CUST_INTE_SOUR_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"d_province",
+					"d_area",
+					"d_city"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"CHANGE_TIME"
+				]
+			}
+		],
+		"tableName": "SPMS_PRESENT_EXCHANGE"
+	}
+]

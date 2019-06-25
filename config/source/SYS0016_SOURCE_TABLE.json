@@ -1,0 +1,145 @@
+[
+
+	{
+        "tableName": "T_LI_COUT_PROBLEM_INFO",
+        "rowkeyCols": [
+            "data_id"
+        ],
+        "md5Cols": [
+            "data_id"
+        ]
+    },
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "T_CM_CALL_AGENT",
+        "rowkeyCols": [
+            "cat_id"
+        ],
+        "md5Cols": [
+            "cat_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "associated_id"
+                ],
+                "md5Cols": [
+                    "associated_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_CM_CFG_CODE_ENTRY",
+        "rowkeyCols": [
+            "codeentiry_id"
+        ],
+        "md5Cols": [
+            "codeentiry_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "code"
+                ],
+                "md5Cols": [
+                    "code"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_LI_COUT_ACTIVITY",
+        "rowkeyCols": [
+            "associate_id"
+        ],
+        "md5Cols": [
+            "associate_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "data_id"
+                ],
+                "md5Cols": [
+                    "data_id"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "res_code"
+                ],
+                "md5Cols": [
+                    "res_code"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "associate_id"
+                ],
+                "md5Cols": [
+                    "associate_id"
+                ]
+            },
+            {
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "cmp_type_cd"
+                ],
+                "md5Cols": [
+                    "cmp_type_cd"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "T_LI_COUT_NEWPOLICY_INFO",
+        "rowkeyCols": [
+            "data_id"
+        ],
+        "md5Cols": [
+            "data_id"
+        ]
+    }
+    ,
+    {
+        "tableName": "T_LI_COUT_THIRD_NEWPOLICY_INFO",
+        "rowkeyCols": [
+            "data_id"
+        ],
+        "md5Cols": [
+            "data_id"
+        ]
+    },
+    {
+        "tableName": "T_LI_COUT_SECOND_PROBLEM_INFO",
+        "rowkeyCols": [
+            "data_id"
+        ],
+        "md5Cols": [
+            "data_id"
+        ]
+    }
+    
+]

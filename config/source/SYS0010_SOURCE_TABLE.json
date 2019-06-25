@@ -1,0 +1,169 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "PCMS_COMPLAINT_CASE_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policy_no"
+                ],
+                "md5Cols": [
+                    "policy_no"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PCMS_COMPLAINT_DEAL_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "complaint_case_id"
+                ],
+                "md5Cols": [
+                    "complaint_case_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PCMS_COMPLAINT_END_CASE_T",
+        "rowkeyCols": [
+            "id",
+            "creation_date"
+        ],
+        "md5Cols": [
+            "id",
+            "creation_date"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "complaint_case_id"
+                ],
+                "md5Cols": [
+                    "complaint_case_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "FND_DICT_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+    {
+        "tableName": "PCMS_COMPLAINT_PERSON_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "complaint_case_id"
+                ],
+                "md5Cols": [
+                    "complaint_case_id"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "complaint_person_name"
+                ],
+                "md5Cols": [
+                    "complaint_person_name"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "INS_COMPACT_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "insure_comp"
+                ],
+                "md5Cols": [
+                    "insure_comp"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PCMS_CPL_COMPACT_T",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "cpl_case_id"
+                ],
+                "md5Cols": [
+                    "cpl_case_id"
+                ]
+            },{
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "compact_id"
+                ],
+                "md5Cols": [
+                    "compact_id"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,88 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "CON_CJATY_NET_DYNAMIC",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Comb_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGDWJZ.zgdwjz_bh}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Comb_no}",
+			"${ZGDWJZ.zgdwjz_bh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.MAX_ZGDWJZ",
+			"alias": "ZGDWJZ"
+		},
+		"relations":[
+            {
+                "sourceTableName":"SYS0035.ZGTZZH",
+                "relationType":"inner",
+                "alias":"ZGTZZH",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${ZGTZZH.zgtzzh_bh}",
+                                "rightCondition":"${ZGDWJZ.zgdwjz_bh}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+		"columnList": [
+			{
+				"srcColumnName": "${ZGDWJZ.zgdwjz_bh}",
+				"dstColumnName": "comb_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGTZZH.zgtzzh_mc}",
+				"dstColumnName": "comb_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGDWJZ.zgdwjz_dwjz}",
+				"dstColumnName": "unit_net_val",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGDWJZ.zgdwjz_gzr}",
+				"dstColumnName": "arm_day",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGTZZH.zgtzzh_jqws}",
+				"dstColumnName": "accuracy",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGTZZH.zgtzzh_wcclfs}",
+				"dstColumnName": "end_deal_type",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

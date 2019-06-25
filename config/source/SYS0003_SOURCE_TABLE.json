@@ -1,0 +1,644 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "APPOINTEDDRIVER",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "DOCUMENTPRINT",
+        "rowkeyCols": [
+            "documentprintid"
+        ],
+        "md5Cols": [
+            "documentprintid"
+        ],
+       "maxTableConfig":{
+        	"maxTableName":"MAX_DOCUMENTPRINT",
+        	"maxCompartorCols":[
+        		{
+        			"columnName":"documentprintid",
+        			"dataType":"String",
+        			"formatter":""
+        		}
+        	],
+        	"columnKeys":[
+        		 "policyid"
+        	]
+       	},
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policyid"
+                ],
+                "md5Cols": [
+                    "policyid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "ENDORSEMENT",
+        "rowkeyCols": [
+            "endorsementid"
+        ],
+        "md5Cols": [
+            "endorsementid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "postactualid"
+                ],
+                "md5Cols": [
+                    "postactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "ENDORSEMENTITEM",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PARTY",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "certificatetype",
+                "certNoCol": "certificatecode",
+				"personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "topactualid"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "tableName": "PREMIUMFLOATING",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid"
+                ],
+                "md5Cols": [
+                    "actualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "POLICY",
+        "rowkeyCols": [
+            "policyid"
+        ],
+        "md5Cols": [
+            "policyid"
+        ],
+        "maxTableConfig":{
+        	"maxTableName":"MAX_POLICY",
+        	"maxCompartorCols":[
+        		{
+        			"columnName":"policyid",
+        			"dataType":"String",
+        			"formatter":""
+        		}
+        	],
+        	"columnKeys":[
+        		"policyno",
+            	"branchcode"
+        	]
+       	},
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": true,
+                "keyCols": [
+                    "actualid"
+                ],
+                "md5Cols": [
+                    "actualid"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "endorsementid"
+                ],
+                "md5Cols": [
+                    "endorsementid"
+                ]
+            },
+                 {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno"
+                ],
+                "md5Cols": [
+                    "policyno"
+                ],
+				"notnullCols":[
+					"policyno"
+				]
+            }  ,
+                 {
+                "alias": "INDEX_6",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid",
+                    "policyid"
+                ],
+                "md5Cols": [
+                    "actualid",
+                    "policyid"
+                ]
+            }      
+        ]
+    },
+    {
+        "tableName": "PROPERTY_POLICY",
+        "rowkeyCols": [
+            "policy_id"
+        ],
+        "md5Cols": [
+            "policy_id"
+        ]
+    },
+    {
+        "tableName": "PROPERTY",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ]
+    },
+    {
+        "tableName": "REQUESTINVOLVED",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "VEHICLE",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "VEHICLECLAIMINFO",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "CUSTOMTYPELIST",
+        "rowkeyCols": [
+            "customtypelistid"
+        ],
+        "md5Cols": [
+            "customtypelistid"
+        ]
+    },
+    {
+        "tableName": "SPECIALTERMITEM",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "VVT_VEHICLE_VESSEL_TAX",
+        "rowkeyCols": [
+            "taxid"
+        ],
+        "md5Cols": [
+            "taxid"
+        ],
+           "maxTableConfig":{
+        	"maxTableName":"MAX_VVT_VEHICLE_VESSEL_TAX",
+        	"maxCompartorCols":[
+        		{
+        			"columnName":"taxid",
+        			"dataType":"String",
+        			"formatter":""
+        		}
+        	],
+        	"columnKeys":[
+        		 "actualid"
+        	]
+       	},
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid"
+                ],
+                "md5Cols": [
+                    "actualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "ROLE",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid",
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "actualid",
+                    "topactualid"
+                ]
+            },
+            
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid",
+                    "parentactualid"
+                ],
+                "md5Cols": [
+                    "topactualid",
+                    "parentactualid"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+       	]
+    },
+    {
+        "tableName": "AGREEMENT",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid",
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "actualid",
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "PREMIUMINVOLVED",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid",
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "actualid",
+                    "topactualid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "MAX_POLICY",
+        "rowkeyCols": [
+            "policyno",
+            "branchcode"
+        ],
+        "md5Cols": [
+            "policyno",
+            "branchcode"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "actualid"
+                ],
+                "md5Cols": [
+                    "actualid"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "policyid"
+                ],
+                "md5Cols": [
+                    "policyid"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "applicant"
+                ],
+                "md5Cols": [
+                    "applicant"
+                ]
+            },
+            {
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "insured"
+                ],
+                "md5Cols": [
+                    "insured"
+                ]
+            },
+            {
+                "alias": "INDEX_5",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno"
+                ],
+                "md5Cols": [
+                    "policyno"
+                ]
+            },
+            {
+                "alias": "INDEX_6",
+                "isUnique": false,
+                "keyCols": [
+                    "branchcode"
+                ],
+                "md5Cols": [
+                    "branchcode"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "applicant",
+                "certTypeCol": "applicantidtype",
+                "certNoCol": "applicantidnumber",
+		 		"personType":"0201",
+                "srcCustId": {
+                    "type": "01",
+                    "idCols": [
+                    	"policyno",
+                    	"branchcode"
+                        
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0003",
+                		"tableName":"REL_PTY_CON",
+                		"order":1
+                }]
+            },
+            {
+                "nameCol": "insured",
+                "certTypeCol": "insuredidtype",
+                "certNoCol": "insuredidnumber",
+				"personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                    	"policyno",
+                    	"branchcode"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0003",
+                		"tableName":"REL_PTY_CON",
+                		"order":2
+                }]
+            }
+        ]
+    },
+{
+        "tableName": "MAX_DOCUMENTPRINT",
+        "rowkeyCols": [
+            "policyid"
+        ],
+        "md5Cols": [
+            "policyid"
+        ]
+     },
+     {
+        "tableName": "MAX_VVT_VEHICLE_VESSEL_TAX",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ]
+     },
+    {
+        "tableName":"P_BASE_PART",
+        "rowkeyCols": [
+            "actualid"
+        ],
+        "md5Cols": [
+            "actualid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "topactualid"
+                ],
+                "md5Cols": [
+                    "topactualid"
+                ]
+            }
+        ]
+    }
+]

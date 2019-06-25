@@ -1,0 +1,60 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"education",
+					"gender",
+					"saleattr",
+					"saleslevel",
+					"jobcode",
+					"chatype",
+					"status"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"ENDTIME",
+					[
+						"yyyyMMddSSS"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{3})\\D*$"
+					],
+					"JOINDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					],
+					"BEGTIME",
+					[
+						"yyyyMMddSSS"
+					],
+					[
+						"^(\\d{4})(\\d{2})(\\d{2})(\\d{3})\\D*$"
+					],
+					"QUITDATE",
+					[
+						"yyyy-MM-dd"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "EMPEXP"
+	}
+]

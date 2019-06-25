@@ -1,0 +1,233 @@
+[
+    {
+        "sourceSystem": "SYS0040",
+        "targetTableName": "EVT_L_NOTIFY",
+        "order": "1",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0040.NLP_NCLMAPP",
+            "alias": "NLP_NCLMAPP"
+        },
+        "combinationMap": [
+        	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${NLP_NCLMAPP.pid}",
+                        "111",
+                        "${NLP_NCLMAPP.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${NLP_NCLMAPP.cappno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+			"${md5notifyno}",
+			"${NLP_NCLMAPP.cappno}"
+		],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NLP_NCLMAPP.cappno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${NLP_NCLMAPP.cappno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "insure_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "111",
+                "dstColumnName": "insured_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.pid}",
+                "dstColumnName": "insured_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.name}",
+                "dstColumnName": "insured_name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repidtype}",
+                "dstColumnName": "notify_certtype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repid}",
+                "dstColumnName": "notify_certno",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repname}",
+                "dstColumnName": "notify_name",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": {
+						"handleName":"decode",
+						"parameters":
+						[
+							"${NLP_NCLMAPP.remphone_a}",
+							"",	
+							"${NLP_NCLMAPP.remphone_b}", 
+							"${NLP_NCLMAPP.remphone_a}"           		
+						]
+				},									                
+                "dstColumnName": "notify_phone",
+                "validate": "",
+				"priority": ""
+			},
+             {
+                "srcColumnName": "${NLP_NCLMAPP.reptele}",
+                "dstColumnName": "notify_tel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repaddr}",
+                "dstColumnName": "notify_addr",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repsex}",
+                "dstColumnName": "notify_gender",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.reprel}",
+                "dstColumnName": "notify_insured_rel",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.reptype}",
+                "dstColumnName": "notify_mode",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.repdate}",
+                "dstColumnName": "notify_dt",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.sudtype}",
+                "dstColumnName": "acdnttype",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.stat}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.accdate}",
+                "dstColumnName": "acdnt_dt",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.local}",
+                "dstColumnName": "acdnt_site",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.movedate}",
+                "dstColumnName": "movedate",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.moveby}",
+                "dstColumnName": "move_reason",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.deaddate}",
+                "dstColumnName": "dead_dt",
+                "validate": "",
+                "priority": ""
+            },
+             {
+                "srcColumnName": "${NLP_NCLMAPP.disecode_auth_date}",
+                "dstColumnName": "disease_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.maimdate}",
+                "dstColumnName": "maim_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.isjvclaim}",
+                "dstColumnName": "lifeflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.disecode}",
+                "dstColumnName": "diseasecode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.utime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NCLMAPP.updtime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

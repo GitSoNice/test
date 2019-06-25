@@ -1,0 +1,82 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "REL_BLKLST_CUST",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${CUSTOMTYPELIST.identno}",
+                        "111",
+                        "${CUSTOMTYPELIST.customname}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "P",
+            "${CUSTOMTYPELIST.customtypelistid}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.CUSTOMTYPELIST",
+            "alias": "CUSTOMTYPELIST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "P",
+                "dstColumnName": "biz_line",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.customtypelistid}",
+                "dstColumnName": "seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.chgdate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

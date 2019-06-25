@@ -1,0 +1,554 @@
+[
+    {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "EVT_PAUTO_AESTIM",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${CF_IDX_CASEFOLDER.notificationno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+						        "${md5notifyno}",
+						        "${CF_IDX_CASEFOLDER.notificationno}",
+								"${CF_RP_VEHICLEASSESSMENT.assessmentcompany}",
+								"${CF_RP_VEHICLEASSESSMENT.actualid}"
+					    		],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_VEHICLEASSESSMENT",
+            "alias": "CF_RP_VEHICLEASSESSMENT"
+        },
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_VEHICLEASSESSMENT.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_ASSESSMENT",
+	            "relationType":"inner",
+	            "alias":"CF_CT_ASSESSMENT",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_VEHICLEASSESSMENT.actualid}",
+	                            "rightCondition":"${CF_CT_ASSESSMENT.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+				"filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_ASSESSMENT.kind}",
+                                "rightCondition":"VEHICLEASSESSMENT"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_ASSESSMENT.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.VEHICLECONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        }],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CF_RP_VEHICLEASSESSMENT.versiontag}",
+                        "rightCondition": "C"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+		
+            {
+                "srcColumnName": "${CF_IDX_CASEFOLDER.notificationno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentcompany}",
+                "dstColumnName": "estim_comp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.accidentvehiclelocation}",
+                "dstColumnName": "vehic_site",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmenttype}",
+                "dstColumnName": "estim_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.additionaldeductiblenote}",
+                "dstColumnName": "plus_deduct_note",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.additionaldeductible}",
+                "dstColumnName": "plus_deduct",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.historybacksuggestion}",
+                "dstColumnName": "hist_back_op",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentremarks}",
+                "dstColumnName": "estim_note",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.plateno}",
+                "dstColumnName": "plate_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentno}",
+                "dstColumnName": "estim_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.actualid}",
+                "dstColumnName": "actualid",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.status}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossamount}",
+                "dstColumnName": "lossamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.clause}",
+                "dstColumnName": "clause",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.versiontag}",
+                "dstColumnName": "verflg",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmenttemplate}",
+                "dstColumnName": "estim_tplt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.additionaldeductibleratio}",
+                "dstColumnName": "plus_deduct_rate",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.isassessinadvance}",
+                "dstColumnName": "is_major_advns",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.ispayinadvance}",
+                "dstColumnName": "is_claim_advns",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.versionno}",
+                "dstColumnName": "version",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmenttool}",
+                "dstColumnName": "estim_tool",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmenttimes}",
+                "dstColumnName": "estim_cnt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.hasuploadedbyaudatex}",
+                "dstColumnName": "is_at_upload",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditamount}",
+                "dstColumnName": "loss_audamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditpartamount}",
+                "dstColumnName": "loss_aud_partamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditpartresidualvalue}",
+                "dstColumnName": "loss_aud_rsdlval",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditpartgapamount}",
+                "dstColumnName": "loss_aud_chgamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditpartquantity}",
+                "dstColumnName": "loss_aud_chg_qtty",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditrepairamount}",
+                "dstColumnName": "loss_aud_repairamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditsupplementamount}",
+                "dstColumnName": "loss_aud_splmtamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditsueandlabouramount}",
+                "dstColumnName": "loss_aud_asisamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentstaff}",
+                "dstColumnName": "assessor",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.assessmentstaffbranch}",
+                "dstColumnName": "assessor_branch",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.isrepairedcheckneeded}",
+                "dstColumnName": "is_rparchk_need",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.repairedcheckstaff}",
+                "dstColumnName": "rparchker",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.repairedcheckstaffbranch}",
+                "dstColumnName": "rparchker_branch",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.repairedcheckdescription}",
+                "dstColumnName": "rparchk_desc",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.tracking}",
+                "dstColumnName": "rparchk_op",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.repairedcheckfromtasktype}",
+                "dstColumnName": "rparchk_from",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditstaff}",
+                "dstColumnName": "loss_aud_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditstaffbranch}",
+                "dstColumnName": "loss_aud_branch",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.manhour}",
+                "dstColumnName": "hours",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditmanhour}",
+                "dstColumnName": "loss_aud_hours",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.commercialpolicyno}",
+                "dstColumnName": "commer_policyno",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.numberofcompensationdays}",
+                "dstColumnName": "cpstion_days",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossoutrepairamount}",
+                "dstColumnName": "estim_outamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossoutrepairquantity}",
+                "dstColumnName": "estim_out_qtty",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditoutrepairamount}",
+                "dstColumnName": "loss_aud_outamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditoutrepairquantity}",
+                "dstColumnName": "loss_aud_out_qtty",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.solvedtime}",
+                "dstColumnName": "proc_tm",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.criticalcaseassessopinion}",
+                "dstColumnName": "critial_estim_op",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.critialcaseassessmentstaff}",
+                "dstColumnName": "critial_assessor",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.critialcaseassessmentbranch}",
+                "dstColumnName": "critial_estim_branch",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.isassessmentby3g}",
+                "dstColumnName": "is_3g",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.iscreatedbyrepairedchecktask}",
+                "dstColumnName": "is_rparchk_task",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.auditquotationstatus}",
+                "dstColumnName": "pricing_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lockstatus}",
+                "dstColumnName": "lock_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.lossauditstatus}",
+                "dstColumnName": "loss_aud_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.prelossauditresult}",
+                "dstColumnName": "pre_loss_aud_op",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.islossautoaudit}",
+                "dstColumnName": "is_auto_loss_aud",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.isbackedfromdocument}",
+                "dstColumnName": "is_back_from_doc",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.fromdata}",
+                "dstColumnName": "data_src",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.isaddclaimauditpass}",
+                "dstColumnName": "is_plus",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.quotationamount}",
+                "dstColumnName": "quoteamt",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.taskstatus}",
+                "dstColumnName": "task_st",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.organizationcode}",
+                "dstColumnName": "third_partycode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.thirdpartycode}",
+                "dstColumnName": "orgcode",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.atcalno}",
+                "dstColumnName": "at_calc_no",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.noauditsms}",
+                "dstColumnName": "no_audit_sms",
+                "validate": "",
+                "priority": ""
+            },
+			{
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.nosmsreason}",
+                "dstColumnName": "no_sms_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.createdate}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CF_RP_VEHICLEASSESSMENT.updatedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

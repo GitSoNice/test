@@ -1,0 +1,177 @@
+[
+    {
+        "sourceSystem":"SYS0022",
+        "targetTableName":"EVT_L_POS_CUST",
+        "order":"1",
+        "combinationMap":[
+            {
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0022_C_IDS_PERSON_TBL*||*00*||*SOURCE_PERSON_ID*||*",
+						"${PERSON.source_person_id}"
+					]
+				}
+			},
+			{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${PERSON.id}",
+                        "${PERSON.idtype}",
+                        "${PERSON.name}",
+                        "${concatSRC_CUST_ID}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5cust_id}",
+            "${cust_id}",
+            "${CHGCON_ID.modino}",
+            "${CHGCON_ID.ff_event_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0022.C_IDS_CHGCON_ID_JY_TBL",
+            "alias":"CHGCON_ID"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0022.MAX_PERSON",
+                "relationType": "inner",
+                "alias": "PERSON",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${PERSON.id}",
+                                "rightCondition": "${CHGCON_ID.id}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${CHGCON_ID.modino}",
+                        "rightCondition":""
+                    }
+                },
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${CHGCON_ID.ff_event_id}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.modino}",
+                "dstColumnName":"endorno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.oid_num}",
+                "dstColumnName":"oid_num",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.ff_event_id}",
+                "dstColumnName":"ff_evt_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.ff_event_type}",
+                "dstColumnName":"ff_evttype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.changeid}",
+                "dstColumnName":"changeid",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.oldstr}",
+                "dstColumnName":"oldstr",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.newstr}",
+                "dstColumnName":"newstr",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.id}",
+                "dstColumnName":"id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.id15}",
+                "dstColumnName":"id15",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.modyname}",
+                "dstColumnName":"modyname",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CHGCON_ID.del_date}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

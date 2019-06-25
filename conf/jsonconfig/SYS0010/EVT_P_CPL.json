@@ -1,0 +1,593 @@
+[
+    {
+        "sourceSystem": "SYS0010",
+        "targetTableName": "EVT_P_CPL",
+        "order": "1",
+        "combinationMap": [
+        	{
+                "alias": "md5complaint_case_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${PCMS_COMPLAINT_CASE_T.id}"
+                    ]
+                }
+            },
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "CustFlgHandler",
+					"parameters": [
+						"${PCMS_COMPLAINT_PERSON_T.certificate_number}",
+						"${PCMS_COMPLAINT_PERSON_T.certificate_type}",
+						"${PCMS_COMPLAINT_PERSON_T.complaint_person_name}"
+					]
+				}
+			}
+        ],
+        "rowKey": [
+            "${md5complaint_case_id}",
+            "${PCMS_COMPLAINT_CASE_T.id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0010.PCMS_COMPLAINT_CASE_T",
+            "alias": "PCMS_COMPLAINT_CASE_T"
+        },
+        "relations": [
+            {
+                "sourceTableName": "SYS0010.PCMS_COMPLAINT_DEAL_T",
+                "relationType": "inner",
+                "alias": "PCMS_COMPLAINT_DEAL_T",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${PCMS_COMPLAINT_CASE_T.id}",
+                                "rightCondition": "${PCMS_COMPLAINT_DEAL_T.complaint_case_id}"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0010.PCMS_COMPLAINT_END_CASE_T",
+                "relationType": "inner",
+                "alias": "PCMS_COMPLAINT_END_CASE_T",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${PCMS_COMPLAINT_CASE_T.id}",
+                                "rightCondition": "${PCMS_COMPLAINT_END_CASE_T.complaint_case_id}"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "sourceTableName": "SYS0010.PCMS_COMPLAINT_PERSON_T",
+                "relationType": "left",
+                "alias": "PCMS_COMPLAINT_PERSON_T",
+                "on": {
+                    "operatorSymbol": "and",
+                    "conditionList": [
+                        {
+                            "conditionType": "simple",
+                            "conditionContext": {
+                                "expression": {
+                                    "expressionType": "=",
+                                    "dataType": "String",
+                                    "formatter": ""
+                                },
+                                "leftCondition": "${PCMS_COMPLAINT_PERSON_T.complaint_case_id}",
+                                "rightCondition": "${PCMS_COMPLAINT_CASE_T.id}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "columnList": [
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.id}",
+                "dstColumnName": "complaint_case_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cpler_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_PERSON_T.certificate_type}",
+                "dstColumnName": "cpler_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_PERSON_T.certificate_number}",
+                "dstColumnName": "cpler_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_PERSON_T.complaint_person_name}",
+                "dstColumnName": "cpler_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.dialing_phone}",
+                "dstColumnName": "cpler_phone",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.policy_no}",
+                "dstColumnName": "rel_policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.car_number}",
+                "dstColumnName": "rel_plate_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.notify_no}",
+                "dstColumnName": "rel_notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.has_cancel}",
+                "dstColumnName": "is_move",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.cancel_oper}",
+                "dstColumnName": "move_operr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.cancel_time}",
+                "dstColumnName": "movedate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.cancel_reason}",
+                "dstColumnName": "move_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.cancel_oth_reason}",
+                "dstColumnName": "move_reason_other",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.cancel_content}",
+                "dstColumnName": "move_content",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.elapsed_day}",
+                "dstColumnName": "close_period_n",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.elapsed_workday}",
+                "dstColumnName": "close_period_w",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.supervision_deadline}",
+                "dstColumnName": "regu_end_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.defer_deadline}",
+                "dstColumnName": "delay_term",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.upgrade_type}",
+                "dstColumnName": "upgrade_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.group_type}",
+                "dstColumnName": "group_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.in_comp_channel_classify}",
+                "dstColumnName": "inn_chn_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.urgency_type}",
+                "dstColumnName": "urgent_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.main_reason}",
+                "dstColumnName": "main_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.minor_reason}",
+                "dstColumnName": "minor_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.complaint_content}",
+                "dstColumnName": "cpl_content",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.appeal_type}",
+                "dstColumnName": "appeal_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.appeal_content}",
+                "dstColumnName": "appeal_content",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.is_suspect_violate_stipulation}",
+                "dstColumnName": "is_suspect_illegal",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.is_suspect_improper_dispose}",
+                "dstColumnName": "is_suspect_improper",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.remark}",
+                "dstColumnName": "note",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.created_by}",
+                "dstColumnName": "create_by",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.creation_date}",
+                "dstColumnName": "create_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.last_updated_by}",
+                "dstColumnName": "last_updated_by",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.register_person_comp}",
+                "dstColumnName": "orgcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.case_number}",
+                "dstColumnName": "cpl_case_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.case_state}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.register_person}",
+                "dstColumnName": "register",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.register_date}",
+                "dstColumnName": "registe_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.end_case_date}",
+                "dstColumnName": "close_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.urge_deal_count}",
+                "dstColumnName": "urge_deal_cnt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.repeat_count}",
+                "dstColumnName": "recpl_cnt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.complaint_status}",
+                "dstColumnName": "cpl_st",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.related_complaint_case}",
+                "dstColumnName": "rel_case",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.grumble_type}",
+                "dstColumnName": "grumble_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.register_person_dept}",
+                "dstColumnName": "deptcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.verify_main_reason}",
+                "dstColumnName": "verify_main_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.verify_minor_reason}",
+                "dstColumnName": "verify_minor_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.quit_flag}",
+                "dstColumnName": "moveflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.circ_no}",
+                "dstColumnName": "circ_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.register_type}",
+                "dstColumnName": "registe_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.complaint_case_source1}",
+                "dstColumnName": "cpl_src1",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.complaint_case_source2}",
+                "dstColumnName": "cpl_src2",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.customer_expect_deadline}",
+                "dstColumnName": "cust_expect_deadline",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.in_comp_deadline}",
+                "dstColumnName": "inn_deadline",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.supervision_in_comp_deadline}",
+                "dstColumnName": "regu_deadline",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.money}",
+                "dstColumnName": "referamt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.deal_way1}",
+                "dstColumnName": "proc_type1",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.deal_way2}",
+                "dstColumnName": "proc_type2",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.deal_opinion}",
+                "dstColumnName": "proc_op",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.appeal_deal_way}",
+                "dstColumnName": "appeal_deal_way",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.transact_way}",
+                "dstColumnName": "transact_way",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.deal_result1}",
+                "dstColumnName": "proc_result1",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.deal_result2}",
+                "dstColumnName": "proc_result2",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.punish_person_count}",
+                "dstColumnName": "punish_cnt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_DEAL_T.punish_money}",
+                "dstColumnName": "punishamt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.resp_confirm1}",
+                "dstColumnName": "duty_cfm1",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.resp_confirm2}",
+                "dstColumnName": "duty_cfm2",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.is_surpass_complaint1}",
+                "dstColumnName": "is_skip_level1",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.is_surpass_complaint2}",
+                "dstColumnName": "is_skip_level2",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.typical_case_mark}",
+                "dstColumnName": "typicalflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.attention_case}",
+                "dstColumnName": "attention_case",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.end_case_opinion}",
+                "dstColumnName": "close_note",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.end_case_type}",
+                "dstColumnName": "close_type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.deal_person}",
+                "dstColumnName": "case_operno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.deal_comp}",
+                "dstColumnName": "case_oper_org",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.deal_dept}",
+                "dstColumnName": "case_oper_dept",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.attention_content}",
+                "dstColumnName": "attention_content",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_END_CASE_T.attention_remark}",
+                "dstColumnName": "attention_note",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.last_update_date}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${PCMS_COMPLAINT_CASE_T.creation_date}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

@@ -1,0 +1,57 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "TBL_USER",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "persons": [
+            {
+                "nameCol": "user_name",
+                "certTypeCol": "cardtype",
+                "certNoCol": "pid",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "id"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "tableName": "TBL_USER_ESSENTIAL_INFO",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "userid"
+                ],
+                "md5Cols": [
+                    "userid"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "CON_L_POLICY_M_CLASSCODE",
+    "order": "1",
+    "combinationMap": [
+    {
+        "alias": "classcode8",
+        "specialHandle": {
+          "handleName": "classCode628",
+          "parameters": [
+            "${RISKCON.classcode}",
+            "$${FFCLASSCODE}"
+          ]
+        }
+      },
+      {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${RISKCON.policyno}",
+                        "${classcode8}"
+                    ]
+                }
+            },
+      {
+        "alias": "classcode",
+        "specialHandle": {
+          "handleName": "decode",
+          "parameters": [
+            "${classcode8}",
+            "",
+            "${RISKCON.classcode}",
+            "${classcode8}"
+          ]
+        }
+      },
+            
+      {
+        "alias": "md5_policyno",
+        "specialHandle": {
+          "handleName": "md5",
+          "parameters": [
+            "${RISKCON.policyno}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${md5_policyno}",
+      "${RISKCON.policyno}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.RISKCON",
+      "alias": "RISKCON"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "=",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.appf}",
+            "rightCondition": "1"
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "notIn",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.polist}",
+            "rightCondition": "85"
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${RISKCON.classcode}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${agmt_id}",
+        "dstColumnName": "agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.utime}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${RISKCON.updatetime}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

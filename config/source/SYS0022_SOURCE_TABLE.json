@@ -1,0 +1,846 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "CLASSCODE628",
+        "rowkeyCols": [
+            "classcode"
+        ],
+        "md5Cols": [
+            "classcode"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "ffclasscode"
+                ],
+                "md5Cols": [
+                    "ffclasscode"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_ACCOUNT_TBL",
+        "rowkeyCols": [
+            "usetype",
+            "policyno",
+            "ownerid"
+        ],
+        "md5Cols": [
+            "usetype",
+            "policyno",
+            "ownerid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "ownerid"
+                ],
+                "md5Cols": [
+                    "ownerid"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "EX_L_BENEFI",
+        "rowkeyCols": [
+            "policyno","classcode","certtype","certno","name"
+        ],
+        "md5Cols": [
+            "policyno","classcode","certtype","certno","name"
+        ],
+        "indexTables": [
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "certtype",
+                "certNoCol": "certno",
+                "personType":"0203",
+                "srcCustId": {
+                    "type": "03",
+                    "idCols": [
+                        "policyno",
+                        "classcode"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0022"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":3
+                }]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_ADDR_TBL",
+        "rowkeyCols": [
+            "usage",
+            "seq",
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "usage",
+            "seq",
+            "source_person_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "source_person_id"
+                ],
+                "md5Cols": [
+                    "source_person_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_APP_DEL_TBL",
+        "rowkeyCols": [
+            "delcode",
+            "typeno",
+            "appdate",
+            "policyno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "delcode",
+            "typeno",
+            "appdate",
+            "policyno",
+            "classcode"
+        ]
+    },
+    {
+        "tableName": "C_IDS_APPLIST_JY_TBL",
+        "rowkeyCols": [
+            "rowid",
+            "reg_code"
+        ],
+        "md5Cols": [
+            "rowid",
+            "reg_code"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policyno",
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "policyno",
+                    "classcode"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_APP_POS_TBL",
+        "rowkeyCols": [
+            "modino",
+            "policyno",
+            "classcode",
+            "ff_event_id"
+        ],
+        "md5Cols": [
+            "modino",
+            "policyno",
+            "classcode",
+            "ff_event_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "modino",
+                    "ff_event_id"
+                ],
+                "md5Cols": [
+                    "modino",
+                    "ff_event_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_CDELREC_TBL",
+        "rowkeyCols": [
+            "seqnc"
+        ],
+        "md5Cols": [
+            "seqnc"
+        ]
+    },
+    {
+        "tableName": "C_IDS_CHEKOPIN_TBL",
+        "rowkeyCols": [
+            "rowid",
+            "reg_code"
+        ],
+        "md5Cols": [
+            "rowid",
+            "reg_code"
+        ]
+    },
+    {
+        "tableName": "C_IDS_CHGCON_JY_TBL",
+        "rowkeyCols": [
+            "modino",
+            "policyno",
+            "classcode",
+            "ff_event_id"
+        ],
+        "md5Cols": [
+            "modino",
+            "policyno",
+            "classcode",
+            "ff_event_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "modyname",
+                    "modino",
+                    "ff_event_id"
+                ],
+                "md5Cols": [
+                    "modyname",
+                    "modino",
+                    "ff_event_id"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "modino",
+                    "ff_event_id"
+                ],
+                "md5Cols": [
+                    "modino",
+                    "ff_event_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_CONENSDEAL_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "policyno",
+            "classcode"
+        ]
+    },
+    {
+        "tableName": "C_IDS_DEBITREC_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "loandate",
+            "classcode",
+            "sign",
+            "pos_no"
+        ],
+        "md5Cols": [
+            "policyno",
+            "loandate",
+            "classcode",
+            "sign",
+            "pos_no"
+        ]
+    },
+    {
+        "tableName": "C_IDS_EMAIL_TBL",
+        "rowkeyCols": [
+            "usage",
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "usage",
+            "source_person_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "source_person_id"
+                ],
+                "md5Cols": [
+                    "source_person_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_MONEYSCH_JY_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "policyno",
+            "classcode"
+        ]
+    },
+    {
+        "tableName": "BLKGRY_NM_LST",
+        "rowkeyCols": [
+            "sn"
+        ],
+        "md5Cols": [
+            "sn"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "id"
+                ],
+                "md5Cols": [
+                    "id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_PERSON_TBL",
+        "rowkeyCols": [
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "source_person_id"
+        ],
+        "maxTableConfig":{
+        	"maxTableName":"MAX_PERSON",
+        	"maxCompartorCols":[
+        		{
+        			"columnName":"del_date",
+        			"dataType":"Date",
+        			"formatter":"yyyy-MM-dd HH:mm:ss.SSS"
+        		},
+        		{
+        			"columnName":"del_time",
+        			"dataType":"Date",
+        			"formatter":"HH:mm:ss"
+        		}
+        	],
+        	"columnKeys":[
+        		"source_person_id"
+        	]
+       	},
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "id"
+                ],
+                "md5Cols": [
+                    "id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_PERSON_SUB_TBL",
+        "rowkeyCols": [
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "source_person_id"
+        ]
+    },
+    {
+        "tableName": "C_IDS_PHONE_TBL",
+        "rowkeyCols": [
+            "usage",
+            "seq",
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "usage",
+            "seq",
+            "source_person_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "source_person_id"
+                ],
+                "md5Cols": [
+                    "source_person_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_PLC_BP_TRANS_ACCT_TBL",
+        "rowkeyCols": [
+            "policy_no",
+            "classcode",
+            "delcode",
+            "typeno",
+            "beneficiary_source_id",
+            "acct_usage"
+        ],
+        "md5Cols": [
+            "policy_no",
+            "classcode",
+            "delcode",
+            "typeno",
+            "beneficiary_source_id",
+            "acct_usage"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "acct_owner_id"
+                ],
+                "md5Cols": [
+                    "acct_owner_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_PLC_PRM_TRANS_ACCT_TBL",
+        "rowkeyCols": [
+            "policy_no",
+            "account_usage"
+        ],
+        "md5Cols": [
+            "policy_no",
+            "account_usage"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "owner_id"
+                ],
+                "md5Cols": [
+                    "owner_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_POLICY_SEND_TBL",
+        "rowkeyCols": [
+            "policyno"
+        ],
+        "md5Cols": [
+            "policyno"
+        ]
+    },
+    {
+        "tableName": "C_IDS_PREREC_TBL",
+        "rowkeyCols": [
+            "rowid",
+            "reg_code"
+        ],
+        "md5Cols": [
+            "rowid",
+            "reg_code"
+        ]
+    },
+    {
+        "tableName": "C_IDS_REALPAYRC_TBL",
+        "rowkeyCols": [
+            "rowid",
+            "reg_code"
+        ],
+        "md5Cols": [
+            "rowid",
+            "reg_code"
+        ]
+    },
+    {
+        "tableName": "C_IDS_RISKCON_JY_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "policyno",
+            "classcode"
+        ],
+        "maxTableConfig":{
+        	"maxTableName":"MAX_RISKCON",
+        	"maxCompartorCols":[
+        		{
+        			"columnName":"usr_oid",
+        			"dataType":"String",
+        			"formatter":""
+        		}
+        	],
+        	"columnKeys":[
+        		"policyno",
+        		"classcode"
+        	]
+       	},
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "owner_source_id"
+                ],
+                "md5Cols": [
+                    "owner_source_id"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "insured_source_id"
+                ],
+                "md5Cols": [
+                    "insured_source_id"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            },
+			{
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "appf"
+                ],
+                "md5Cols": [
+                    "appf"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_SPREREC_TBL",
+        "rowkeyCols": [
+            "source_payin_actvty_id"
+        ],
+        "md5Cols": [
+            "source_payin_actvty_id"
+        ]
+    },
+    {
+        "tableName": "C_IDS_CHGCON_ID_JY_TBL",
+        "rowkeyCols": [
+            "modino"
+        ],
+        "md5Cols": [
+            "modino"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "modyname",
+                    "modino"
+                ],
+                "md5Cols": [
+                    "modyname",
+                    "modino"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "modino",
+                    "ff_event_id"
+                ],
+                "md5Cols": [
+                    "modino",
+                    "ff_event_id"
+                ]
+            },
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "id"
+                ],
+                "md5Cols": [
+                    "id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "C_IDS_APP_INFORM_TBL",
+        "rowkeyCols": [
+            "app_no",
+            "cvrg_code",
+            "informer_type",
+            "ff_inform_code",
+            "cags_inform_version",
+            "cags_inform_code1",
+            "cags_inform_code2",
+            "cags_inform_code3",
+            "cags_inform_code4"
+        ],
+        "md5Cols": [
+            "app_no",
+            "cvrg_code",
+            "informer_type",
+            "ff_inform_code",
+            "cags_inform_version",
+            "cags_inform_code1",
+            "cags_inform_code2",
+            "cags_inform_code3",
+            "cags_inform_code4"
+        ]
+    },
+    {
+        "tableName": "C_IDS_ID_APP_POS_TBL",
+        "rowkeyCols": [
+            "modino",
+            "ff_event_id"
+        ],
+        "md5Cols": [
+            "modino",
+            "ff_event_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "id"
+                ],
+                "md5Cols": [
+                    "id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "CHARGE_FAILURE",
+        "rowkeyCols": [
+            "rowid",
+            "reg_code"
+        ],
+        "md5Cols": [
+            "rowid",
+            "reg_code"
+        ]
+    },
+    {
+        "tableName": "C_IDS_APL_LOAN_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "padtime",
+            "operdate"
+        ],
+        "md5Cols": [
+            "policyno",
+            "padtime",
+            "operdate"
+        ]
+    },
+    {
+        "tableName": "C_IDS_RISKCON_RENEW_JY_TBL",
+        "rowkeyCols": [
+            "policyno",
+            "classcode",
+            "begdate"
+        ],
+        "md5Cols": [
+            "policyno",
+            "classcode",
+            "begdate"
+        ]
+    },
+    {
+        "tableName": "RISKNAME",
+        "rowkeyCols": [
+            "o_classcode"
+        ],
+        "md5Cols": [
+            "o_classcode"
+        ]
+    },
+    {
+        "tableName": "RLSHIP",
+        "rowkeyCols": [
+            "typeid",
+            "rrolecode",
+            "sour_sys"
+        ],
+        "md5Cols": [
+            "typeid",
+            "rrolecode",
+            "sour_sys"
+        ]
+    },
+    {
+        "tableName": "C_IDS_APP_NB_TBL",
+        "rowkeyCols": [
+            "appno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "appno",
+            "classcode"
+        ]
+    },
+    {
+        "tableName": "CP_PRSN_LIFESTYLE",
+        "rowkeyCols": [
+            "id"
+        ],
+        "md5Cols": [
+            "id"
+        ]
+    },
+	{
+		"tableName": "STD_PREM",
+		"rowkeyCols": [
+			"o_classcode",
+			"gender",
+			"app_age",
+			"bp_option" ,
+			"prem_term",
+			"prem_frq"
+
+		],
+		"md5Cols": [
+			"o_classcode",
+			"gender",
+			"app_age",
+			"bp_option" ,
+			"prem_term",
+			"prem_frq"
+		]
+	},
+    {
+        "tableName": "MAX_RISKCON",
+        "rowkeyCols": [
+            "policyno",
+            "classcode"
+        ],
+        "md5Cols": [
+            "policyno",
+            "classcode"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "owner_source_id"
+                ],
+                "md5Cols": [
+                    "owner_source_id"
+                ]
+            },
+            {
+                "alias": "INDEX_2",
+                "isUnique": false,
+                "keyCols": [
+                    "insured_source_id"
+                ],
+                "md5Cols": [
+                    "insured_source_id"
+                ]
+            },
+            {
+                "alias": "INDEX_3",
+                "isUnique": false,
+                "keyCols": [
+                    "classcode"
+                ],
+                "md5Cols": [
+                    "classcode"
+                ]
+            },
+			{
+                "alias": "INDEX_4",
+                "isUnique": false,
+                "keyCols": [
+                    "appf"
+                ],
+                "md5Cols": [
+                    "appf"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "MAX_PERSON",
+        "rowkeyCols": [
+            "source_person_id"
+        ],
+        "md5Cols": [
+            "source_person_id"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "id"
+                ],
+                "md5Cols": [
+                    "id"
+                ]
+            }
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "idtype",
+                "certNoCol": "id",
+                "personType":"0101",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "source_person_id"
+                    ]
+                }
+            }
+        ]
+    }
+]

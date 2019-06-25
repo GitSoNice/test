@@ -1,0 +1,165 @@
+[
+	{
+		"sourceSystem": "SYS0034",
+		"targetTableName": "PTY_JOB",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "src_cust_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0034_TCUSTINFO*||*00*||*VC_CUSTNO*||*",
+						"${TCUSTINFO.vc_custno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${TCUSTINFO.vc_identityno}",
+						"${TCUSTINFO.c_identitytype}",
+						"${TCUSTINFO.vc_customname}",
+						"${src_cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5cust_id}",
+			"${cust_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0034.TCUSTINFO",
+			"alias": "TCUSTINFO"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TCUSTINFO.c_custtype}",
+						"rightCondition": "1"
+					}
+				},
+				{
+                    "conditionType":"group",
+                    "conditionContext":{
+                        "operatorSymbol":"or",
+                        "conditionList":[
+                            {
+                                "conditionType":"simple",
+                                "conditionContext":{
+                                    "expression":{
+                                        "expressionType":"<>",
+                                        "dataType":"String",
+                                        "formatter":""
+                                    },
+                                    "leftCondition":"${TCUSTINFO.c_worktime}",
+                                    "rightCondition":""
+                                }
+                            },
+                            {
+                                "conditionType":"simple",
+                                "conditionContext":{
+                                    "expression":{
+                                        "expressionType":"<>",
+                                        "dataType":"String",
+                                        "formatter":""
+                                    },
+                                    "leftCondition":"${TCUSTINFO.c_trade}",
+                                    "rightCondition":""
+                                }
+                            },
+                            {
+                                "conditionType":"simple",
+                                "conditionContext":{
+                                    "expression":{
+                                        "expressionType":"<>",
+                                        "dataType":"String",
+                                        "formatter":""
+                                    },
+                                    "leftCondition":"${TCUSTINFO.c_duty}",
+                                    "rightCondition":""
+                                }
+                            },
+                            {
+                                "conditionType":"simple",
+                                "conditionContext":{
+                                    "expression":{
+                                        "expressionType":"<>",
+                                        "dataType":"String",
+                                        "formatter":""
+                                    },
+                                    "leftCondition":"${TCUSTINFO.c_vocation}",
+                                    "rightCondition":""
+                                }
+                            }
+                        ]
+                    }
+                }
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.c_worktime}",
+				"dstColumnName": "employ_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.c_trade}",
+				"dstColumnName": "industry",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.c_duty}",
+				"dstColumnName": "pztion",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.c_vocation}",
+				"dstColumnName": "job",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TCUSTINFO.vc_lastdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${src_cust_id}",
+				"dstColumnName": "src_cust_id",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

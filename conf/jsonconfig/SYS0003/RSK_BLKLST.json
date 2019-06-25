@@ -1,0 +1,99 @@
+[
+    {
+        "sourceSystem": "SYS0003",
+        "targetTableName": "RSK_BLKLST",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "md5biz_line",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "P"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+		             "${md5biz_line}",
+		             "${CUSTOMTYPELIST.customtypelistid}"
+				  ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0003.CUSTOMTYPELIST",
+            "alias": "CUSTOMTYPELIST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${CUSTOMTYPELIST.customtypelistid}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "P",
+                "dstColumnName": "biz_line",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.customtypelistid}",
+                "dstColumnName": "seq",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.identno}",
+                "dstColumnName": "certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "111",
+                "dstColumnName": "certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.customname}",
+                "dstColumnName": "name_cn",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.type}",
+                "dstColumnName": "type",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.memo}",
+                "dstColumnName": "add_reason",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.chgdate}",
+                "dstColumnName": "add_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${CUSTOMTYPELIST.chgdate}",
+                "dstColumnName": "UPD_TM",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

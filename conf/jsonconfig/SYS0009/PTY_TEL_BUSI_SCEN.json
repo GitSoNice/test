@@ -1,0 +1,3738 @@
+[
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*01*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.applicantidnumber}",
+						"${POLICY.applicantidtype}",
+						"${POLICY.applicant}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.applicant}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.applicant}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.insured}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.insured}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "3",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.insured}"
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.applicant}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "4",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.policyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "5",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*01*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.applicantidnumber}",
+						"${POLICY.applicantidtype}",
+						"${POLICY.applicant}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.applicant}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.applicant}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "6",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.insured}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.insured}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "7",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.insured}"
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": "${POLICY.applicant}"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0009",
+		"targetTableName": "PTY_TEL_BUSI_SCEN",
+		"order": "8",
+		"combinationMap": [
+			{
+				"alias": "concatSRC_CUST_ID",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0003_POLICY*||*02*||*POLICYNO*||*BRANCHCODE*||*",
+						"${POLICY.policyno}",
+						"*||*",
+						"${POLICY.branchcode}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${POLICY.insuredidnumber}",
+						"${POLICY.insuredidtype}",
+						"${POLICY.insured}",
+						"${concatSRC_CUST_ID}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			},
+			{
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"B11"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+			"alias": "CF_RP_RELATEDPERSONNEL"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0009.CF_IDX_CASEFOLDER",
+				"relationType": "inner",
+				"alias": "CF_IDX_CASEFOLDER",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}",
+								"rightCondition": ""
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_IDX_CASEFOLDER.orgcode}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_CT_PARTY",
+				"relationType": "inner",
+				"alias": "CF_CT_PARTY",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.topactualid}",
+								"rightCondition": "${CF_CT_PARTY.topactualid}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_RELATEDPERSONNEL.actualid}",
+								"rightCondition": "${CF_CT_PARTY.actualid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.kind}",
+								"rightCondition": "REPORTER"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_CT_PARTY.parentactualkind}",
+								"rightCondition": "CASEFOLDER.NOTIFICATION"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0003.MAX_POLICY",
+				"relationType": "inner",
+				"alias": "POLICY",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.policyno}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.ctppolicyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${POLICY.branchcode}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.orgcode_branchcode}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0009.CF_RP_NOTIFICATION",
+				"relationType": "inner",
+				"alias": "CF_RP_NOTIFICATION",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${CF_RP_NOTIFICATION.topactualid}",
+								"rightCondition": "${CF_IDX_CASEFOLDER.casefolderid}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": "<>",
+						"dataType": "String",
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.tel}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "=",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${CF_RP_RELATEDPERSONNEL.name}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "B11",
+				"dstColumnName": "busi_scen",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "3",
+				"dstColumnName": "teltype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_RELATEDPERSONNEL.tel}",
+				"dstColumnName": "tel",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${obtain_date}",
+				"dstColumnName": "obtain_date",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.createdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CF_RP_NOTIFICATION.updatedate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+        "sourceSystem": "SYS0009",
+        "targetTableName": "PTY_TEL_BUSI_SCEN",
+        "order": "9",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+        	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                        "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                        "${CF_RP_RELATEDPERSONNEL.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5CustId",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isTrue",
+                "specialHandle": {
+                    "handleName": "checkWhereFor09EPCP",
+                    "parameters": [
+                        "${CF_CT_PARTY.kind}",
+                        "${CF_CT_PARTY.parentactualkind}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "getPersonType",
+                    "parameters": [
+                        "${CF_CT_PARTY.kind}"
+                    ]
+                }
+            },
+            {
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+        ],
+        "rowKey":[
+			"${md5CustId}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"${personType}"
+	 	],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            }
+	        }
+		],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isTrue}",
+                        "rightCondition": "1"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+        	{
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"3",
+                "dstColumnName":"teltype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${personType}",
+                "dstColumnName":"busi_scen",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName":"tel",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${obtain_date}",
+                "dstColumnName":"obtain_date",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "PTY_TEL_BUSI_SCEN",
+        "order": "10",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+			{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                        "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                        "${CF_RP_RELATEDPERSONNEL.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5CustId",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+             {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CF_RP_VEHICLECONDITION.thirdpartyflag}",
+                        "Y",
+                        "B18",
+                        "B17"
+                   ]
+                }
+            },
+            {
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+       	],
+        "rowKey":[
+        	"${md5CustId}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"${personType}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"ACCIDENTDRIVER"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.VEHICLECONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_CONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_CT_CONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.parentactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.kind}",
+                                "rightCondition":"VEHICLECONDITIONINFO"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_RP_VEHICLECONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_RP_VEHICLECONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_VEHICLECONDITION.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_VEHICLECONDITION.actualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_RP_VEHICLECONDITION.thirdpartyflag}",
+                                "rightCondition":"N,Y"
+                            }
+                        }
+                    ]
+                }
+	        }
+		],
+        "columnList": [
+        	{
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"3",
+                "dstColumnName":"teltype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${personType}",
+                "dstColumnName":"busi_scen",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName":"tel",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${obtain_date}",
+                "dstColumnName":"obtain_date",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    },
+   {
+        "sourceSystem": "SYS0009",
+        "targetTableName": "PTY_TEL_BUSI_SCEN",
+        "order": "11",
+		"sourcePrimaryTable": {
+            "tableName": "SYS0009.CF_RP_RELATEDPERSONNEL",
+            "alias": "CF_RP_RELATEDPERSONNEL"
+        },
+        "combinationMap": [
+        	{
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${CF_RP_RELATEDPERSONNEL.certificateno}",
+                        "${CF_RP_RELATEDPERSONNEL.certificatetype}",
+                        "${CF_RP_RELATEDPERSONNEL.name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5CustId",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "personType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CF_RP_PERSONCONDITION.personneltype}",
+                        "1",
+                        "B16",
+                        "B15"
+                   ]
+                }
+            },
+            {
+				"alias": "uptdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.updatedate}"
+					]
+				}
+			},
+			{
+				"alias": "crttdate",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${CF_RP_RELATEDPERSONNEL.createdate}"
+					]
+				}
+			},
+			{
+				"alias": "curdate",
+				"specialHandle": {
+					"handleName": "getCurrentTime",
+					"parameters": []
+				}
+			},
+			{
+				"alias": "obtain_date",
+				"specialHandle": {
+					"handleName": "caseWhen",
+					"parameters": [
+						"${uptdate}",
+						"${CF_RP_RELATEDPERSONNEL.updatedate}",
+						"${crttdate}",
+						"${CF_RP_RELATEDPERSONNEL.createdate}",
+						"${curdate}"
+					]
+				}
+			}
+       	],
+        "rowKey":[
+        	"${md5CustId}",
+			"${cust_id}",
+			"SYS0009",
+			"3",
+			"${personType}"
+		],       
+        "relations":[
+	        {
+	            "sourceTableName":"SYS0009.CF_IDX_CASEFOLDER",
+	            "relationType":"inner",
+	            "alias":"CF_IDX_CASEFOLDER",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_IDX_CASEFOLDER.casefolderid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    }
+	                ]
+	            }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_PARTY",
+	            "relationType":"inner",
+	            "alias":"CF_CT_PARTY",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.actualid}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.actualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.kind}",
+	                            "rightCondition":"${CF_RP_RELATEDPERSONNEL.kind}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.kind}",
+                                "rightCondition":"THEINJURED"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_PARTY.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED.PERSONCONDITIONINFO"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_CT_CONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_CT_CONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_CT_PARTY.parentactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.kind}",
+                                "rightCondition":"PERSONCONDITIONINFO"
+                            }
+                        },
+						{
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_CT_CONDITION.parentactualkind}",
+                                "rightCondition":"CASEFOLDER.ACCIDENT.LOSSINVOLVED"
+                            }
+                        }
+                    ]
+                }
+	        },
+	        {
+	            "sourceTableName":"SYS0009.CF_RP_PERSONCONDITION",
+	            "relationType":"inner",
+	            "alias":"CF_RP_PERSONCONDITION",
+	            "on":{
+	                "operatorSymbol":"and",
+	                "conditionList":[
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_PERSONCONDITION.topactualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.topactualid}"
+	                        }
+	                    },
+	                    {
+	                        "conditionType":"simple",
+	                        "conditionContext":{
+	                            "expression":{
+	                            	"expressionType":"=",
+	                            	"dataType":"String",
+	                            	"formatter":""
+	                            },
+	                            "leftCondition":"${CF_RP_PERSONCONDITION.actualid}",
+	                            "rightCondition":"${CF_CT_CONDITION.actualid}"
+	                        }
+	                    }
+	                ]
+	            },
+	            "filter":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"in",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${CF_RP_PERSONCONDITION.personneltype}",
+                                "rightCondition":"1,2"
+                            }
+                        }
+                    ]
+                }
+	        }
+		],
+        "columnList": [
+        	{
+                "srcColumnName":"${cust_id}",
+                "dstColumnName":"cust_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"3",
+                "dstColumnName":"teltype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${personType}",
+                "dstColumnName":"busi_scen",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.tel}",
+                "dstColumnName":"tel",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${obtain_date}",
+                "dstColumnName":"obtain_date",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.createdate}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${CF_RP_RELATEDPERSONNEL.updatedate}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

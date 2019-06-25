@@ -1,0 +1,36 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "TBL_USER",
+        "rowkeyCols": [
+            "openid"
+        ],
+        "md5Cols": [
+            "openid"
+        ],
+        "persons": [
+            {
+                "nameCol": "name",
+                "certTypeCol": "idtype",
+                "certNoCol": "pid",
+                "personType":"0301",
+                "srcCustId": {
+                    "type": "00",
+                    "idCols": [
+                        "openid"
+                    ]
+                }
+            }
+        ]
+    }
+]

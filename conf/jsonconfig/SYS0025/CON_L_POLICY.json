@@ -1,0 +1,1093 @@
+[
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_POLICY",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${RISKCON.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${RISKCON.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "classname",
+				"specialHandle": {
+					"handleName": "className628",
+					"parameters": [
+						"${classcode}",
+						"$${CLASSNAME}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${RISKCON.policyno}",
+						"${classcode}"
+					]
+				}
+			},
+			{
+				"alias": "isnotnull",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${GRPLIST.policyno}"
+					]
+				}
+			},
+			{
+				"alias": "is_grp_id",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${isnotnull}",
+						"true",
+						"1",
+						"0"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.RISKCON",
+			"alias": "RISKCON"
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0025.GRPLIST",
+				"relationType": "left",
+				"alias": "GRPLIST",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.policyno}",
+								"rightCondition": "${GRPLIST.policyno}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "BBRPERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${BBRPERSON.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${BBRPERSON.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "TBRPERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBRPERSON.id}",
+								"rightCondition": "${RISKCON.apid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBRPERSON.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0025.RISKSPEC",
+				"relationType": "left",
+				"alias": "RISKSPEC",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.policyno}",
+								"rightCondition": "${RISKSPEC.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.classcode}",
+								"rightCondition": "${RISKSPEC.classcode}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.policyno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.classcode}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "notIn",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.polist}",
+						"rightCondition": "85"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.branchid}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${is_grp_id}",
+				"dstColumnName": "is_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${GRPLIST.gpolicyno}",
+				"dstColumnName": "policyno_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appno}",
+				"dstColumnName": "appno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBRPERSON.name}",
+				"dstColumnName": "app_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.delage}",
+				"dstColumnName": "app_age",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBRPERSON.idtype}",
+				"dstColumnName": "app_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.apid}",
+				"dstColumnName": "app_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BBRPERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BBRPERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.payseq}",
+				"dstColumnName": "benefi_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKSPEC.specagr}",
+				"dstColumnName": "spec_appoint",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "CNY",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appdate}",
+				"dstColumnName": "app_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "policy_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prntdate}",
+				"dstColumnName": "offer_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.polist}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.empno}",
+				"dstColumnName": "empno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.branchid}",
+				"dstColumnName": "orgcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.contno}",
+				"dstColumnName": "serv_agt_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.contno}",
+				"dstColumnName": "csr_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appf}",
+				"dstColumnName": "appf",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classname}",
+				"dstColumnName": "classname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.npaylen}",
+				"dstColumnName": "ea_pay_std",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pieces}",
+				"dstColumnName": "pieces",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stdrate}",
+				"dstColumnName": "ea_job_addfee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.unstdrate}",
+				"dstColumnName": "ea_addfee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.tmount}",
+				"dstColumnName": "premium",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.rate}",
+				"dstColumnName": "exept_pay_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "m_effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "duty_beg_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "duty_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	},
+	{
+		"sourceSystem": "SYS0025",
+		"targetTableName": "CON_L_POLICY",
+		"order": "2",
+		"combinationMap": [
+			{
+				"alias": "classcode8",
+				"specialHandle": {
+					"handleName": "classCode628",
+					"parameters": [
+						"${RISKCON.classcode}",
+						"$${FFCLASSCODE}"
+					]
+				}
+			},
+			{
+				"alias": "classcode",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${classcode8}",
+						"",
+						"${RISKCON.classcode}",
+						"${classcode8}"
+					]
+				}
+			},
+			{
+				"alias": "classname",
+				"specialHandle": {
+					"handleName": "className628",
+					"parameters": [
+						"${RISKCON.classcode}",
+						"$${CLASSNAME}"
+					]
+				}
+			},
+			{
+				"alias": "agmt_id",
+				"specialHandle": {
+					"handleName": "agmtId",
+					"parameters": [
+						"${RISKCON.policyno}",
+						"${classcode}"
+					]
+				}
+			},
+			{
+				"alias": "isnotnull",
+				"specialHandle": {
+					"handleName": "isNotBlank",
+					"parameters": [
+						"${GRPLIST.policyno}"
+					]
+				}
+			},
+			{
+				"alias": "is_grp_id",
+				"specialHandle": {
+					"handleName": "decode",
+					"parameters": [
+						"${isnotnull}",
+						"true",
+						"1",
+						"0"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${agmt_id}",
+			"${agmt_id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0025.RISKCON",
+			"alias": "RISKCON",
+			"source":false
+		},
+		"relations": [
+			{
+				"sourceTableName": "SYS0025.GRPLIST",
+				"relationType": "left",
+				"alias": "GRPLIST",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.policyno}",
+								"rightCondition": "${GRPLIST.policyno}"
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSONBBR",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSONBBR.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSONBBR.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "BBRPERSON",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${BBRPERSON.id}",
+								"rightCondition": "${RISKCON.pid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${BBRPERSON.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "PERSONTBR",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSONTBR.id}",
+								"rightCondition": "${RISKCON.apid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${PERSONTBR.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0022.MAX_PERSON",
+				"relationType": "left",
+				"alias": "TBRPERSON",
+				"source": false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBRPERSON.id}",
+								"rightCondition": "${RISKCON.apid}"
+							}
+						}
+					]
+				},
+				"filter": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "<>",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${TBRPERSON.id}",
+								"rightCondition": ""
+							}
+						}
+					]
+				}
+			},
+			{
+				"sourceTableName": "SYS0025.RISKSPEC",
+				"relationType": "left",
+				"alias": "RISKSPEC",
+				"source":false,
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.policyno}",
+								"rightCondition": "${RISKSPEC.policyno}"
+							}
+						},
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${RISKCON.classcode}",
+								"rightCondition": "${RISKSPEC.classcode}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.policyno}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.classcode}",
+						"rightCondition": ""
+					}
+				},
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "notIn",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${RISKCON.polist}",
+						"rightCondition": "85"
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${agmt_id}",
+				"dstColumnName": "agmt_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.branchid}",
+				"dstColumnName": "branchcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.policyno}",
+				"dstColumnName": "policyno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classcode}",
+				"dstColumnName": "classcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${is_grp_id}",
+				"dstColumnName": "is_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${GRPLIST.gpolicyno}",
+				"dstColumnName": "policyno_grp",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appno}",
+				"dstColumnName": "appno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBRPERSON.name}",
+				"dstColumnName": "app_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.delage}",
+				"dstColumnName": "app_age",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TBRPERSON.idtype}",
+				"dstColumnName": "app_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.apid}",
+				"dstColumnName": "app_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BBRPERSON.name}",
+				"dstColumnName": "insured_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${BBRPERSON.idtype}",
+				"dstColumnName": "insured_certtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pid}",
+				"dstColumnName": "insured_certno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prelname}",
+				"dstColumnName": "prelname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.payseq}",
+				"dstColumnName": "benefi_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKSPEC.specagr}",
+				"dstColumnName": "spec_appoint",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "CNY",
+				"dstColumnName": "curcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appdate}",
+				"dstColumnName": "app_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "policy_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.prntdate}",
+				"dstColumnName": "offer_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.polist}",
+				"dstColumnName": "status",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.empno}",
+				"dstColumnName": "empno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.branchid}",
+				"dstColumnName": "orgcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.contno}",
+				"dstColumnName": "serv_agt_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.contno}",
+				"dstColumnName": "csr_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.appf}",
+				"dstColumnName": "appf",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${classname}",
+				"dstColumnName": "classname",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.npaylen}",
+				"dstColumnName": "ea_pay_std",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.pieces}",
+				"dstColumnName": "pieces",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stdrate}",
+				"dstColumnName": "ea_job_addfee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.unstdrate}",
+				"dstColumnName": "ea_addfee",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.tmount}",
+				"dstColumnName": "premium",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.rate}",
+				"dstColumnName": "exept_pay_rate",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "m_effect_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.begdate}",
+				"dstColumnName": "duty_beg_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.stopdat}",
+				"dstColumnName": "duty_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.utime}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${RISKCON.updatetime}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

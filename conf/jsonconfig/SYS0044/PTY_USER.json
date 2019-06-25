@@ -1,0 +1,185 @@
+[
+    {
+        "sourceSystem":"SYS0044",
+        "targetTableName":"PTY_USER",
+        "order":"1",
+        "combinationMap":[
+        {
+                "alias":"user_id",
+                "specialHandle":{
+                    "handleName":"contact",
+                    "parameters":[
+                        "SYS0044",
+                        "|",
+                        "${T_VERIFY_USERINFO.user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"md5UserId",
+                "specialHandle":{
+                    "handleName":"md5",
+                    "parameters":[
+                        "${user_id}"
+                    ]
+                }
+            },
+            {
+                "alias":"checkTel",
+                "specialHandle":{
+                    "handleName":"telFlg",
+                    "parameters":[
+                        "${T_VERIFY_USERINFO.mobile}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+            "${md5UserId}",
+            "${user_id}"
+        ],
+        "sourcePrimaryTable":{
+            "tableName":"SYS0044.T_VERIFY_USERINFO",
+            "alias":"T_VERIFY_USERINFO"
+        },
+        "relations": [
+			{
+				"sourceTableName": "SYS0044.T_VERIFY_USERINFO_D",
+				"relationType": "inner",
+				"alias": "T_VERIFY_USERINFO_D",
+				"on": {
+					"operatorSymbol": "and",
+					"conditionList": [
+						{
+							"conditionType": "simple",
+							"conditionContext": {
+								"expression": {
+									"expressionType": "=",
+									"dataType": "String",
+									"formatter": ""
+								},
+								"leftCondition": "${T_VERIFY_USERINFO_D.user_id}",
+								"rightCondition": "${T_VERIFY_USERINFO.user_id}"
+							}
+						}
+					]
+				}
+			}
+		],
+		"where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+            	{
+					"conditionType":"simple",
+					"conditionContext":{
+						"expression":{
+							"expressionType":"=",
+							"dataType":"String",
+							"formatter":""
+						},
+						"leftCondition":"${checkTel}",
+						"rightCondition":"1"
+					}
+                }
+            ]
+        },
+        "columnList":[
+            {
+                "srcColumnName":"${user_id}",
+                "dstColumnName":"user_id",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.mobile}",
+                "dstColumnName":"mob_tel",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.customer_name}",
+                "dstColumnName":"name",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO_D.cardtype}",
+                "dstColumnName":"certtype",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO_D.cardno}",
+                "dstColumnName":"certno",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.pictureinfo}",
+                "dstColumnName":"picture_info",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.lastoper_date}",
+                "dstColumnName":"lastoper_date",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.bind_sys_info}",
+                "dstColumnName":"bound_sys_info",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.verify_sys_info}",
+                "dstColumnName":"verify_sys_info",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.verify_type}",
+                "dstColumnName":"verify_type",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.bind_status}",
+                "dstColumnName":"bound_status",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.register_type}",
+                "dstColumnName":"register_type",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.register_source}",
+                "dstColumnName":"register_source",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.register_time}",
+                "dstColumnName":"register_time",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.create_time}",
+                "dstColumnName":"crt_tm",
+                "validate":"",
+                "priority":""
+            },
+            {
+                "srcColumnName":"${T_VERIFY_USERINFO.lastupd_dttm}",
+                "dstColumnName":"upd_tm",
+                "validate":"",
+                "priority":""
+            }
+        ]
+    }
+]

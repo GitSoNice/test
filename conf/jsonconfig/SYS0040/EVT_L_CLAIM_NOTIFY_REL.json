@@ -1,0 +1,82 @@
+[
+    {
+        "sourceSystem": "SYS0040",
+        "targetTableName": "EVT_L_CLAIM_NOTIFY_REL",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "md5notifyno",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${NLP_NREGCLM.cappno}"
+                    ]
+                }
+            }
+        ],
+        "rowKey":[
+				        "${md5notifyno}",
+				        "${NLP_NREGCLM.cappno}",
+				        "${NLP_NREGCLM.claimno}"
+					    		],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0040.NLP_NREGCLM",
+            "alias": "NLP_NREGCLM"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NLP_NREGCLM.claimno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${NLP_NREGCLM.cappno}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${NLP_NREGCLM.claimno}",
+                "dstColumnName": "claimno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NREGCLM.cappno}",
+                "dstColumnName": "notifyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NREGCLM.utime}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${NLP_NREGCLM.updtime}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

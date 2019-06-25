@@ -1,0 +1,58 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id_card"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"customer_name"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"bind_time"
+				]
+			}
+		],
+		"tableName": "X_CLUB_BINDING_INFO"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			},
+			{
+				"handlerName": "irregularDateformat",
+				"cols": [
+					"subscribe_time",
+					[
+						"yyyy-MM-dd HH:mm:ss"
+					],
+					[
+						"^(\\d{4})-(\\d{1,2})-(\\d{1,2})\\s(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\D*$"
+					]
+				]
+			}
+		],
+		"tableName": "X_FANSINFO"
+	}
+]

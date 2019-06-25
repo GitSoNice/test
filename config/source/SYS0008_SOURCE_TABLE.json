@@ -1,0 +1,170 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "SELL_PLAN_INFO",
+        "rowkeyCols": [
+            "fid"
+        ],
+        "md5Cols": [
+            "fid"
+        ]
+    },
+    {
+        "tableName": "SELL_APPENDED_POLICY",
+        "rowkeyCols": [
+            "plan_id"
+        ],
+        "md5Cols": [
+            "plan_id"
+        ]
+    },
+    {
+        "tableName": "BIG_EXCEPTION",
+        "rowkeyCols": [
+            "uuid"
+        ],
+        "md5Cols": [
+            "uuid"
+        ],
+        "persons": [
+            {
+                "nameCol": "tb_name",
+                "certTypeCol": "tb_num_type",
+                "certNoCol": "tb_num",
+                "personType":"0201",
+                "srcCustId": {
+                    "type": "01",
+                    "idCols": [
+                        "sysno"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0008"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":3
+                }
+				]
+            },
+            {
+                "nameCol": "bb_name",
+                "certTypeCol": "bb_num_type",
+                "certNoCol": "bb_num",
+                "personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                        "sysno"
+                    ]
+                },
+                "policyTable":[
+				{
+                		"sourceSystem":"SYS0008"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":4
+                }]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "plan_id"
+                ],
+                "md5Cols": [
+                    "plan_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "BIG_POLICY_FORM_CHENGYI",
+        "rowkeyCols": [
+            "uuid"
+        ],
+        "md5Cols": [
+            "uuid"
+        ],
+        "persons": [
+            {
+                "nameCol": "tb_name",
+                "certTypeCol": "tb_num_type",
+                "certNoCol": "tb_num",
+                "personType":"0201",
+                "srcCustId": {
+                    "type": "01",
+                    "idCols": [
+                        "sysno"
+                    ]
+                },
+                "policyTable":[{
+                		"sourceSystem":"SYS0008"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":1
+                }
+				]
+            },
+            {
+                "nameCol": "bb_name",
+                "certTypeCol": "bb_num_type",
+                "certNoCol": "bb_num",
+                "personType":"0202",
+                "srcCustId": {
+                    "type": "02",
+                    "idCols": [
+                        "sysno"
+                    ]
+                },
+               "policyTable":[{
+                		"sourceSystem":"SYS0008"	,
+                		"tableName":"REL_PTY_CON",
+                		"order":2
+                }
+				]
+            }
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "plan_id"
+                ],
+                "md5Cols": [
+                    "plan_id"
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "BIG_POLICY_HISTORY",
+        "rowkeyCols": [
+            "uuid"
+        ],
+        "md5Cols": [
+            "uuid"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "plan_id"
+                ],
+                "md5Cols": [
+                    "plan_id"
+                ]
+            }
+        ]
+    }
+]

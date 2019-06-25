@@ -1,0 +1,327 @@
+[
+    {
+        "sourceSystem": "SYS0001",
+        "targetTableName": "EVT_P_NOAUTO_UW",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${TBL_PLCINFO.policyno}",
+                        "${TBL_PLCINFO.fgsdm}"
+                    ]
+                }
+            },
+            {
+                "alias": "is_card_policy",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${TBL_PLCINFO.from_status}",
+                        "30",
+                        "1",
+                        "0"
+                    ]
+                }
+            },
+            {
+                "alias": "subclasscode",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${TBL_PLCINFO.cpdm}",
+                        "0",
+                        "8"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0001.TBL_PLCINFO",
+            "alias": "TBL_PLCINFO"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.policyno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${TBL_PLCINFO.fgsdm}",
+                        "rightCondition": ""
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrq}",
+                "dstColumnName": "app_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbrxm}",
+                "dstColumnName": "app_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbdm}",
+                "dstColumnName": "blanketcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.fgsdm}",
+                "dstColumnName": "branchcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.bfjffs}",
+                "dstColumnName": "prem_mode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.hbsj}",
+                "dstColumnName": "aud_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.gbbz}",
+                "dstColumnName": "coinsureflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.gbbl}",
+                "dstColumnName": "coinsure_rate",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.xyh}",
+                "dstColumnName": "agmt_no",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.bmdm}",
+                "dstColumnName": "deptcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.bmzdm}",
+                "dstColumnName": "dept_grpcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "input_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrlx}",
+                "dstColumnName": "inputtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.sftd}",
+                "dstColumnName": "is_grp",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.qbsj}",
+                "dstColumnName": "inception_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.czy}",
+                "dstColumnName": "input_operrcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.is_agriculture}",
+                "dstColumnName": "is_agr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.is_vip}",
+                "dstColumnName": "is_major",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${is_card_policy}",
+                "dstColumnName": "is_card_policy",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.is_vip}",
+                "dstColumnName": "is_vip",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.qdrq}",
+                "dstColumnName": "issue_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.pdh}",
+                "dstColumnName": "last_endorno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.sxyxydm}",
+                "dstColumnName": "life_salercode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.ylqdrs}",
+                "dstColumnName": "record_list_cnt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbbrs}",
+                "dstColumnName": "insured_cnt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbbrs}",
+                "dstColumnName": "uw_qtty",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.cdddm}",
+                "dstColumnName": "offer_site",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.jbr}",
+                "dstColumnName": "operno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbsj}",
+                "dstColumnName": "end_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.tbdh}",
+                "dstColumnName": "appno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.policyno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.bdzt}",
+                "dstColumnName": "status",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${subclasscode}",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.cpdm}",
+                "dstColumnName": "prodcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.ksdm}",
+                "dstColumnName": "officecode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zyfs}",
+                "dstColumnName": "saleattr",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbxje}",
+                "dstColumnName": "totamt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zbf}",
+                "dstColumnName": "tot_prem",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.lrsj}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${TBL_PLCINFO.zhxgrq}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

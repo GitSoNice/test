@@ -1,0 +1,382 @@
+[
+	{
+		"sourceSystem": "SYS0035",
+		"targetTableName": "PTY_CJATY_CORP",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5Corp_cust_no",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${ZGQYKH.zgqykh_qykhbh}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Corp_cust_no}",
+			"${ZGQYKH.zgqykh_qykhbh}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0035.ZGQYKH",
+			"alias": "ZGQYKH"
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_qykhbh}",
+				"dstColumnName": "corp_cust_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_processinstid}",
+				"dstColumnName": "procinst_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_ywslh}",
+				"dstColumnName": "bizproc_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_sqly}",
+				"dstColumnName": "appl_src",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_ywdm}",
+				"dstColumnName": "bizcode",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_qykhmc}",
+				"dstColumnName": "corp_cust_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_wbbh}",
+				"dstColumnName": "ext_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_sbbh}",
+				"dstColumnName": "social_secu_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_cifkhh}",
+				"dstColumnName": "cif_cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_khhzt}",
+				"dstColumnName": "cust_no_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zzjgdmz}",
+				"dstColumnName": "orgcode_cfm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_yyzz}",
+				"dstColumnName": "biz_license",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_frdb}",
+				"dstColumnName": "corp_represent",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zczb}",
+				"dstColumnName": "rgst_cap",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_qyxz}",
+				"dstColumnName": "corp_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_hylb}",
+				"dstColumnName": "industry_type",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_gszch}",
+				"dstColumnName": "biz_rgst_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_swdjdm}",
+				"dstColumnName": "tax_rgst_code",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_jsdq}",
+				"dstColumnName": "tax_pay_zone",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zcdz}",
+				"dstColumnName": "rgst_addr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lxrxm}",
+				"dstColumnName": "cont_name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_bgdh}",
+				"dstColumnName": "chang_tell",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_sj}",
+				"dstColumnName": "phone",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lxcz}",
+				"dstColumnName": "fax",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_email}",
+				"dstColumnName": "email",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lxdz}",
+				"dstColumnName": "addr",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_yzbm}",
+				"dstColumnName": "zip",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_snd}",
+				"dstColumnName": "last_year",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_sndgzze}",
+				"dstColumnName": "last_year_salary",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_sjqybh}",
+				"dstColumnName": "sup_corp_pno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_note}",
+				"dstColumnName": "note",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zdr}",
+				"dstColumnName": "policy_maker",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zdrq}",
+				"dstColumnName": "policy_make_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zdjg}",
+				"dstColumnName": "policy_make_org",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_gxrq}",
+				"dstColumnName": "upd_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_ecfhbz}",
+				"dstColumnName": "twice_verifyflg",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_gzzedyqy}",
+				"dstColumnName": "corp_salary_sum",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_mclbz}",
+				"dstColumnName": "without_material_flag",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lssnd}",
+				"dstColumnName": "hist_last_year",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lssndgzze}",
+				"dstColumnName": "hist_last_year_salary_sum",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_lsgzzedyqy}",
+				"dstColumnName": "hist_corp_salary_sum",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_bgbz}",
+				"dstColumnName": "chang_tell",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_khcxbz}",
+				"dstColumnName": "cust_select_flag",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zzjgdmqsrq}",
+				"dstColumnName": "orgcode_start_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zzjgdmjzrq}",
+				"dstColumnName": "orgcode_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_yyzzbh}",
+				"dstColumnName": "biz_license_no",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_yyzzqsrq}",
+				"dstColumnName": "biz_license_start_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_yyzzjzrq}",
+				"dstColumnName": "biz_license_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_swdjz}",
+				"dstColumnName": "tax_rgstno",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_swdjzqsrq}",
+				"dstColumnName": "tax_rgstno_start_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_swdjzjzrq}",
+				"dstColumnName": "tax_rgstno_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_tyshxydm}",
+				"dstColumnName": "unify_credit_code",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_tyshxydmqsrq}",
+				"dstColumnName": "unify_credit_code_start_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_tyshxydmjzrq}",
+				"dstColumnName": "unify_credit_code_end_dt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_zdrq}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_gxrq}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_bgdh}",
+				"dstColumnName": "change_tell",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_khzt}",
+				"dstColumnName": "cust_st",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${ZGQYKH.zgqykh_bgbz}",
+				"dstColumnName": "change_flag",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

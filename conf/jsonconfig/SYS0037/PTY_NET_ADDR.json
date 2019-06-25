@@ -1,0 +1,117 @@
+[
+	{
+		"sourceSystem": "SYS0037",
+		"targetTableName": "PTY_NET_ADDR",
+		"order": "1",
+		"sourcePrimaryTable": {
+			"tableName": "SYS0037.CIF_INDIINFO",
+			"alias": "CIF_INDIINFO"
+		},
+		"combinationMap": [
+			{
+				"alias": "concat_person_id",
+				"specialHandle": {
+					"handleName": "contact",
+					"parameters": [
+						"EX_SYS0037_CIF_INDIINFO*||*00*||*CISNO*||*",
+						"${CIF_INDIINFO.cisno}"
+					]
+				}
+			},
+			{
+				"alias": "cust_id",
+				"specialHandle": {
+					"handleName": "getCustId",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "custtype",
+				"specialHandle": {
+					"handleName": "getCustType",
+					"parameters": [
+						"${CIF_INDIINFO.idcode}",
+						"${CIF_INDIINFO.idtype}",
+						"${CIF_INDIINFO.cisname}",
+						"${concat_person_id}"
+					]
+				}
+			},
+			{
+				"alias": "md5Cust_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${cust_id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5Cust_id}",
+			"${cust_id}",
+			"SYS0037",
+			"2"
+		],
+		"where":{
+            "operatorSymbol":"and",
+            "conditionList":[
+                {
+                    "conditionType":"simple",
+                    "conditionContext":{
+                        "expression":{
+                            "expressionType":"<>",
+                            "dataType":"String",
+                            "formatter":""
+                        },
+                        "leftCondition":"${CIF_INDIINFO.email}",
+                        "rightCondition":""
+                    }
+                }
+            ]
+        },
+		"columnList": [
+			{
+				"srcColumnName": "${cust_id}",
+				"dstColumnName": "cust_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${custtype}",
+				"dstColumnName": "custtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "2",
+				"dstColumnName": "net_addrtype",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.email}",
+				"dstColumnName": "net_addr_info",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "crt_tm",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${CIF_INDIINFO.operdate}",
+				"dstColumnName": "upd_tm",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

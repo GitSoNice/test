@@ -1,0 +1,111 @@
+[
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "M_USER_CAR"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"credential_type"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"credential_no"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"credential_no",
+					"credential_type"
+				]
+			}
+		],
+		"tableName": "M_USER_FAMILY"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": []
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": []
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": []
+			}
+		],
+		"tableName": "M_USER_HOUSE"
+	},
+	{
+		"specialConfigs": [
+			{
+				"handlerName": "enum",
+				"cols": [
+					"gender",
+					"occupational",
+					"degree",
+					"city_code",
+					"id_type",
+					"industry",
+					"marital_state",
+					"province_code"
+				]
+			},
+			{
+				"handlerName": "certno15to18",
+				"cols": [
+					"id_number"
+				]
+			},
+			{
+				"handlerName": "nameconvert",
+				"cols": [
+					"name"
+				]
+			},
+			{
+				"handlerName": "certtype2default",
+				"cols": [
+					"id_number",
+					"id_type"
+				]
+			},
+			{
+				"handlerName": "regularDateformat",
+				"cols": [
+					"birthday",
+					"create_time",
+					"modify_time"
+				]
+			}
+		],
+		"tableName": "M_USER"
+	}
+]

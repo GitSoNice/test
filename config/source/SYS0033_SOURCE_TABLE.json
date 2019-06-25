@@ -1,0 +1,46 @@
+[
+	{
+        "tableName": "TEST_TIMESTAMP",
+        "rowkeyCols": [
+            "send_kafka_time",
+            "send_status"
+        ],
+        "md5Cols": [
+            "send_kafka_time",
+            "send_status"
+        ]
+    },
+    {
+        "tableName": "PRESENTCODE_BACKUPS",
+        "rowkeyCols": [
+            "code"
+        ],
+        "md5Cols": [
+            "code"
+        ]
+    },
+    {
+        "tableName": "PRESENTCODE",
+        "rowkeyCols": [
+            "code"
+        ],
+        "md5Cols": [
+            "code"
+        ],
+        "indexTables": [
+            {
+                "alias": "INDEX_1",
+                "isUnique": false,
+                "keyCols": [
+                    "policynumber"
+                ],
+                "md5Cols": [
+                    "policynumber"
+                ],
+				"notnullCols":[
+					"policynumber"
+				]
+            }
+        ]
+    }
+]

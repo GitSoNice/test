@@ -1,0 +1,104 @@
+[
+	{
+		"sourceSystem": "SYS0038",
+		"targetTableName": "REL_FAMILY",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5family_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${LABEL_FAMILY_LISTEXT.family_no}"
+					]
+				}
+			},
+			{
+				"alias": "family_flag",
+				"specialHandle": {
+					"handleName": "familyFlag",
+					"parameters": [
+						"${LABEL_FAMILY_LISTEXT.family_flag}"
+					]
+				}
+			},
+			{
+				"alias": "mem_cnt",
+				"specialHandle": {
+					"handleName": "familyCount",
+					"parameters": [
+						"",
+						"${LABEL_FAMILY_EXT.family_no}",
+						"mem"
+					]
+				}
+			},
+			{
+				"alias": "child_cnt",
+				"specialHandle": {
+					"handleName": "familyCount",
+					"parameters": [
+						"${family_flag}",
+						"${LABEL_FAMILY_EXT.family_no}",
+						"child"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5family_id}",
+			"${LABEL_FAMILY_LISTEXT.family_no}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0038.LABEL_FAMILY_LISTEXT",
+			"alias": "LABEL_FAMILY_LISTEXT"
+		},
+		"relations":[
+            {
+                "sourceTableName":"SYS0038.LABEL_FAMILY_EXT",
+                "relationType":"inner",
+                "alias":"LABEL_FAMILY_EXT",
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":"=",
+                                "leftCondition":"${LABEL_FAMILY_LISTEXT.family_no}",
+                                "rightCondition":"${LABEL_FAMILY_EXT.family_no}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+		"columnList": [
+			{
+				"srcColumnName": "${LABEL_FAMILY_LISTEXT.family_no}",
+				"dstColumnName": "family_id",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${mem_cnt}",
+				"dstColumnName": "mem_cnt",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${family_flag}",
+				"dstColumnName": "is_have_child",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${child_cnt}",
+				"dstColumnName": "child_cnt",
+				"validate": "",
+				"priority": ""
+			}
+			
+		]
+	}
+]

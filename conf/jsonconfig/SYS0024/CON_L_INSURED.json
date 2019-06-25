@@ -1,0 +1,358 @@
+[
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "CON_L_INSURED",
+        "order": "1",
+        "combinationMap": [      
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+                        "${STATLIST.docno}"
+                    ]
+                }
+            },
+        
+      
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${STATLIST.sysno}",
+                        "11122200"
+                    ]
+                }
+            },
+            {
+                "alias": "certType",
+                "specialHandle": {
+                    "handleName": "decode",
+                    "parameters": [
+                        "${CYX_STATLIST_PLUS.idtype}",
+                        "",
+                        "111",
+                        "${CYX_STATLIST_PLUS.idtype}"
+                    ]
+                }
+            },
+           
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "${certType}",
+                        "${STATLIST.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}",
+            "${cust_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "relations":[
+            {
+                "sourceTableName":"SYS0024.CYX_STATLIST_PLUS",
+                "relationType":"left",
+                "alias":"CYX_STATLIST_PLUS",
+                "source": false,
+                "on":{
+                    "operatorSymbol":"and",
+                    "conditionList":[
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${STATLIST.sysno}",
+                                "rightCondition":"${CYX_STATLIST_PLUS.policyno}"
+                            }
+                        },
+                        {
+                            "conditionType":"simple",
+                            "conditionContext":{
+                                "expression":{
+                                    "expressionType":"=",
+                                    "dataType":"String",
+                                    "formatter":""
+                                },
+                                "leftCondition":"${STATLIST.id}",
+                                "rightCondition":"${CYX_STATLIST_PLUS.idno}"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${STATLIST.sysno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "=",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.sysno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "11122200",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "insured_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.name}",
+                "dstColumnName": "insured_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${certType}",
+                "dstColumnName": "insured_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.id}",
+                "dstColumnName": "insured_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0024",
+        "targetTableName": "CON_L_INSURED",
+        "order": "2",
+        "combinationMap": [      
+            {
+                "alias": "concat_person_id",
+                "specialHandle": {
+                    "handleName": "contact",
+                    "parameters": [
+                        "EX_SYS0024_STATLIST*||*02*||*DOCNO*||*",
+                        "${STATLIST.docno}"
+                    ]
+                }
+            },
+        
+      
+            {
+                "alias": "agmt_id",
+                "specialHandle": {
+                    "handleName": "agmtId",
+                    "parameters": [
+                        "${STATLIST.sysno}",
+                        "11122200"
+                    ]
+                }
+            },
+    
+           
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "getCustId",
+                    "parameters": [
+                        "${STATLIST.id}",
+                        "$${CERTTYPE_111}",
+                        "${STATLIST.name}",
+                        "${concat_person_id}"
+                    ]
+                }
+            },
+            {
+                "alias": "isWx",
+                "specialHandle": {
+                    "handleName": "substring",
+                    "parameters": [
+                        "${STATLIST.docno}",
+                        "0",
+                        "2"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${agmt_id}",
+            "${agmt_id}",
+            "${cust_id}"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0024.STATLIST",
+            "alias": "STATLIST"
+        },
+        "where": {
+            "operatorSymbol": "and",
+            "conditionList": [
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${STATLIST.sysno}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${cust_id}",
+                        "rightCondition": ""
+                    }
+                },
+                {
+                    "conditionType": "simple",
+                    "conditionContext": {
+                        "expression": {
+                            "expressionType": "<>",
+                            "dataType": "String",
+                            "formatter": ""
+                        },
+                        "leftCondition": "${isWx}",
+                        "rightCondition": "WX"
+                    }
+                }
+            ]
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${agmt_id}",
+                "dstColumnName": "agmt_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.sysno}",
+                "dstColumnName": "policyno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "11122200",
+                "dstColumnName": "classcode",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "insured_cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.name}",
+                "dstColumnName": "insured_name",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "$${CERTTYPE_111}",
+                "dstColumnName": "insured_certtype",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.id}",
+                "dstColumnName": "insured_certno",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${STATLIST.movedate}",
+                "dstColumnName": "upd_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

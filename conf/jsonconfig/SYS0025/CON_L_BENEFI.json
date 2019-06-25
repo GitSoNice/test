@@ -1,0 +1,136 @@
+[
+  {
+    "sourceSystem": "SYS0025",
+    "targetTableName": "CON_L_BENEFI",
+    "order": "1",
+    "combinationMap": [
+      {
+        "alias": "cust_id",
+        "specialHandle": {
+          "handleName": "CustFlgHandler",
+          "parameters": [
+            "${EX_L_BENEFI.certno}",
+            "${EX_L_BENEFI.certtype}",
+            "${EX_L_BENEFI.name}"
+          ]
+        }
+      },
+      {
+        "alias": "agmt_id",
+        "specialHandle": {
+          "handleName": "agmtId",
+          "parameters": [
+            "${EX_L_BENEFI.policyno}",
+            "${EX_L_BENEFI.classcode}"
+          ]
+        }
+      }
+    ],
+    "rowKey": [
+      "${agmt_id}",
+      "${agmt_id}",
+      "${cust_id}"
+    ],
+    "sourcePrimaryTable": {
+      "tableName": "SYS0025.EX_L_BENEFI",
+      "alias": "EX_L_BENEFI"
+    },
+    "where": {
+      "operatorSymbol": "and",
+      "conditionList": [
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${cust_id}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${EX_L_BENEFI.policyno}",
+            "rightCondition": ""
+          }
+        },
+        {
+          "conditionType": "simple",
+          "conditionContext": {
+            "expression": {
+              "expressionType": "<>",
+              "dataType": "String",
+              "formatter": ""
+            },
+            "leftCondition": "${EX_L_BENEFI.classcode}",
+            "rightCondition": ""
+          }
+        }
+      ]
+    },
+    "columnList": [
+      {
+        "srcColumnName": "${agmt_id}",
+        "dstColumnName": "agmt_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.policyno}",
+        "dstColumnName": "policyno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.classcode}",
+        "dstColumnName": "classcode",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${cust_id}",
+        "dstColumnName": "cust_id",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.name}",
+        "dstColumnName": "benefi_name",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.certtype}",
+        "dstColumnName": "certtype",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.certno}",
+        "dstColumnName": "certno",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.crt_tm}",
+        "dstColumnName": "crt_tm",
+        "validate": "",
+        "priority": ""
+      },
+      {
+        "srcColumnName": "${EX_L_BENEFI.upd_tm}",
+        "dstColumnName": "upd_tm",
+        "validate": "",
+        "priority": ""
+      }
+    ]
+  }
+]

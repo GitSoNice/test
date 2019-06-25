@@ -1,0 +1,69 @@
+[
+	{
+		"sourceSystem": "SYS0121",
+		"targetTableName": "PHYSIC_TEST_DAVE",
+		"order": "1",
+		"combinationMap": [
+			{
+				"alias": "md5_id",
+				"specialHandle": {
+					"handleName": "md5",
+					"parameters": [
+						"${TEST_DAVE.id}"
+					]
+				}
+			}
+		],
+		"rowKey": [
+			"${md5_id}",
+			"${TEST_DAVE.id}"
+		],
+		"sourcePrimaryTable": {
+			"tableName": "SYS0121.TEST_DAVE",
+			"alias": "TEST_DAVE"
+		},
+		"where": {
+			"operatorSymbol": "and",
+			"conditionList": [
+				{
+					"conditionType": "simple",
+					"conditionContext": {
+						"expression": {
+							"expressionType": "<>",
+							"dataType": "String",
+							"formatter": ""
+						},
+						"leftCondition": "${TEST_DAVE.id}",
+						"rightCondition": ""
+					}
+				}
+			]
+		},
+		"columnList": [
+			{
+				"srcColumnName": "${TEST_DAVE.name}",
+				"dstColumnName": "name",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TEST_DAVE.age}",
+				"dstColumnName": "age",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TEST_DAVE.sex}",
+				"dstColumnName": "sex",
+				"validate": "",
+				"priority": ""
+			},
+			{
+				"srcColumnName": "${TEST_DAVE.job}",
+				"dstColumnName": "job",
+				"validate": "",
+				"priority": ""
+			}
+		]
+	}
+]

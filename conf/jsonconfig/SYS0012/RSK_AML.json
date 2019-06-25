@@ -1,0 +1,138 @@
+[
+    {
+        "sourceSystem": "SYS0012",
+        "targetTableName": "RSK_AML",
+        "order": "1",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${FXDJ_NATION.id}",
+                        "${FXDJ_NATION.id_type}",
+                        "${FXDJ_NATION.cust_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "2"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0012.FXDJ_NATION",
+            "alias": "FXDJ_NATION"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "2",
+                "dstColumnName": "insureflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${FXDJ_NATION.risk_date}",
+                "dstColumnName": "aml_assess_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${FXDJ_NATION.fxdj}",
+                "dstColumnName": "aml_risk_lvl",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${FXDJ_NATION.risk_date}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    },
+    {
+        "sourceSystem": "SYS0012",
+        "targetTableName": "RSK_AML",
+        "order": "2",
+        "combinationMap": [
+            {
+                "alias": "cust_id",
+                "specialHandle": {
+                    "handleName": "CustFlgHandler",
+                    "parameters": [
+                        "${S_FXDJ_NATION.id}",
+                        "${S_FXDJ_NATION.id_type}",
+                        "${S_FXDJ_NATION.cust_name}"
+                    ]
+                }
+            },
+            {
+                "alias": "md5cust_id",
+                "specialHandle": {
+                    "handleName": "md5",
+                    "parameters": [
+                        "${cust_id}"
+                    ]
+                }
+            }
+        ],
+        "rowKey": [
+            "${md5cust_id}",
+            "${cust_id}",
+            "1"
+        ],
+        "sourcePrimaryTable": {
+            "tableName": "SYS0012.S_FXDJ_NATION",
+            "alias": "S_FXDJ_NATION"
+        },
+        "columnList": [
+            {
+                "srcColumnName": "${cust_id}",
+                "dstColumnName": "cust_id",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "1",
+                "dstColumnName": "insureflg",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${S_FXDJ_NATION.risk_date}",
+                "dstColumnName": "aml_assess_dt",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${S_FXDJ_NATION.fxdj}",
+                "dstColumnName": "aml_risk_lvl",
+                "validate": "",
+                "priority": ""
+            },
+            {
+                "srcColumnName": "${S_FXDJ_NATION.risk_date}",
+                "dstColumnName": "crt_tm",
+                "validate": "",
+                "priority": ""
+            }
+        ]
+    }
+]

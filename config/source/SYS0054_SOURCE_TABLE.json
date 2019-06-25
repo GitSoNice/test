@@ -1,0 +1,20 @@
+[
+  {
+    "tableName":"MM_PAYABLEMONEY_TD",
+    "rowkeyCols":[
+      "payableno"
+    ],
+    "md5Cols":[
+      "payableno"
+    ]
+  },
+  {
+    "tableName":"MM_CONVERSIONRATE_TC",
+    "rowkeyCols":[
+      "seqrate"
+    ],
+    "md5Cols":[
+      "seqrate"
+    ]
+  }
+]
